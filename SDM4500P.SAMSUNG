@@ -1,0 +1,167 @@
+<!-- I have my suspend button protected from unwanted press, so I cannot get its scancode. -->
+<keyboard>
+  <file-info>
+    <syntax-version>1.0</syntax-version>
+    <last-change format="%d-%m-%Y">2-12-2005</last-change>
+    <author>Ondrej Karlik</author>
+  </file-info>
+  <keyboard-info>
+    <keyboard-name>
+      <manufacturer>SAMSUNG</manufacturer>
+      <model>SDM4500P</model>
+    </keyboard-name>
+  </keyboard-info>
+  <key-list>
+    <key>
+      <name>User defined 1</name>
+      <scancode>130</scancode>
+      <keycode>PROG1</keycode>
+      <default-action>keytouch</default-action>
+    </key>
+    <key>
+      <name>User defined 2</name>
+      <scancode>131</scancode>
+      <keycode>PROG2</keycode>
+      <default-action>keytouch</default-action>
+    </key>
+    <key>
+      <name>User defined 3</name>
+      <scancode>132</scancode>
+      <keycode>PROG3</keycode>
+      <default-action>keytouch</default-action>
+    </key>
+    <key>
+      <name>User defined 4</name>
+      <scancode>133</scancode>
+      <keycode>PROG4</keycode>
+      <default-action>keytouch</default-action>
+    </key>
+    <key>
+      <name>User defined 5</name>
+      <scancode>134</scancode>
+      <keycode>FRONT</keycode>
+      <default-action>keytouch</default-action>
+    </key>
+    <key>
+      <name>Help</name>
+      <scancode>166</scancode>
+      <keycode>HELP</keycode>
+      <default-action action-type="program">
+        khelpcenter || gnome-help
+      </default-action>
+    </key>
+    <key>
+      <name>Search</name>
+      <scancode>217</scancode>
+      <keycode>SEARCH</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>Common actions</plugin-name>
+        <plugin-function>Find</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Exit</name>
+      <scancode>137</scancode>
+      <keycode>EXIT</keycode>
+      <default-action action-type="program">
+        keytouch
+      </default-action>
+    </key>
+    <key>
+      <name>Bookmarks</name>
+      <scancode>138</scancode>
+      <keycode>BOOKMARKS</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>WWW Browser</plugin-name>
+        <plugin-function>Add Bookmark</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Homepage</name>
+      <scancode>178</scancode>
+      <keycode>HOMEPAGE</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>WWW Browser</plugin-name>
+        <plugin-function>Home</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>E-mail</name>
+      <scancode>236</scancode>
+      <keycode>EMAIL</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>E-mail</plugin-name>
+        <plugin-function>E-mail</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Volume down</name>
+      <scancode>174</scancode>
+      <keycode>VOLUMEDOWN</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>Aumix</plugin-name>
+        <plugin-function>Volume decrease</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Volume up</name>
+      <scancode>176</scancode>
+      <keycode>VOLUMEUP</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>Aumix</plugin-name>
+        <plugin-function>Volume increase</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Mute</name>
+      <scancode>160</scancode>
+      <keycode>MUTE</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>Aumix</plugin-name>
+        <plugin-function>Mute</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Eject CD</name>
+      <scancode>152</scancode>
+      <keycode>EJECTCD</keycode>
+      <default-action action-type="program">eject</default-action>
+    </key>
+    <key>
+      <name>Play/Pause</name>
+      <scancode>162</scancode>
+      <keycode>PLAYPAUSE</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>XMMS</plugin-name>
+        <plugin-function>Play/Pause</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Stop CD</name>
+      <scancode>164</scancode>
+      <keycode>STOPCD</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>XMMS</plugin-name>
+        <plugin-function>Stop</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Previous Song</name>
+      <scancode>144</scancode>
+      <keycode>PREVIOUSSONG</keycode>
+      <default-action action-type="plugin">
+        <plugin-name>XMMS</plugin-name>
+        <plugin-function>Previous</plugin-function>
+      </default-action>
+    </key>
+    <key>
+      <name>Next song</name>
+      <scancode>153</scancode>
+      <keycode>NEXTSONG</keycode>
+       <default-action action-type="plugin">
+        <plugin-name>XMMS</plugin-name>
+        <plugin-function>Next</plugin-function>
+      </default-action>
+    </key>
+  </key-list>
+</keyboard>

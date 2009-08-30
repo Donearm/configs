@@ -1,0 +1,127 @@
+# Mutt-ng new variables (these doesn't work on classic mutt)
+
+#set stuff_quoted=yes
+# Prevent mutt to show text attached to the quoting symbol (>), for a
+# nicer reading
+
+set newsrc= "~/.newsrc"
+# File where are stored the information about newsgroups
+
+#set nntp_ask_followup=no
+# If set, Mutt-ng will prompt you for the Followup-To:  header field
+# before editing the body of an outgoing news article.
+
+#set nntp_ask_x_comment_to=no
+# If set, Mutt-ng will prompt you for the X-Comment-To:  header field
+# before editing the body of an outgoing news article.
+
+set catchup_newsgroup=ask-yes
+# If this variable is set, Mutt-ng will mark all articles in a newsgroup
+# as read when you leaving it.
+
+set followup_to_poster=no
+# If this variable is set and the keyword "poster" is present in the
+# Followup-To: header field, a follow-up to the newsgroup is not
+# permitted. The message will be mailed to the submitter of the message
+# via mail.
+
+#set group_index_format="%4C %M%N %5s %-45.45f %d"
+set group_index_format="%4C %N %5s %-45.45f %d"
+# This variable allows you to customize the newsgroup browser display to
+# your personal taste. This string is similar to ``index_format'', but
+# has its own set of printf(3)-like sequences:
+
+# %C      current newsgroup number
+# %d      description of newsgroup (retrieved from server)
+# %f      newsgroup name
+# %M      ``-'' if newsgroup not allowed for direct post (moderated for example)
+# %N      ``N'' if newsgroup is new, ``u'' if unsubscribed, blank otherwise
+# %n      number of new articles in newsgroup
+# %s      number of unread articles in newsgroup
+# %>X     right justify the rest of the string and pad with character "X"
+# %|X     pad to the end of the line with character "X"
+
+#set inews=""
+# If set, specifies the program and arguments used to deliver news
+# posted by Mutt-ng. Otherwise, Mutt-ng posts article using current
+# connection.
+
+#set mime_subject=yes
+# If unset, an 8-bit ``Subject:'' header field in a news article will
+# not be encoded according to RFC2047.
+# Note: Only change this setting if you know what you are doing.
+
+#set news_cache_dir="~/.muttng"
+# This variable points to directory where Mutt-ng will cache news
+# article headers. If unset, headers will not be saved at all and will
+# be reloaded each time when you enter a newsgroup.
+# As for the header caching in connection with IMAP and/or Maildir, this
+# drastically increases speed and lowers traffic.
+
+#set news_server=""
+# This variable specifies the name (or address) of the NNTP server to be
+# used.  It defaults to the value specified via the environment variable
+# $NNTPSERVER or contained in the file /etc/nntpserver.
+# You can also specify a username and an alternative port for each
+# newsserver, e.g.
+# [nntp[s]://][username[:password]@]newsserver[:port]
+
+#set nntp_mail_check=0
+# The time in seconds until any operations on a newsgroup except posting
+# a new article will cause a recheck for new news. If set to 0, Mutt-ng
+# will recheck on each operation in index (stepping, read article,
+# etc.).
+
+#set post_moderated=ask-yes
+# If set to yes, Mutt-ng will post articles to newsgroup that have not
+# permissions to post (e.g. moderated).
+# Note: if the newsserver does not support posting to that newsgroup or
+# a group is totally read-only, that posting will not have any effect.
+
+set save_unsubscribed=yes
+# When set, info about unsubscribed newsgroups will be saved into the
+# ``newsrc'' file and into the news cache.
+
+#set show_new_news=yes
+# If set, the newsserver will be asked for new newsgroups on entering
+# the browser. Otherwise, it will be done only once for a newsserver.
+# Also controls whether or not the number of new articles of subscribed
+# newsgroups will be checked.
+
+set show_only_unread=yes
+# If set, only subscribed newsgroups that contain unread articles will
+# be displayed in the newsgroup browser.
+
+set x_comment_to=yes
+# If set, Mutt-ng will add a ``X-Comment-To:'' header field (that
+# contains full name of the original article author) to articles that
+# you followup to.
+
+#set agent_string=yes
+# When set, Mutt-ng will add a ``User-Agent:'' header to outgoing
+# messages, indicating which version of Mutt-ng was used for composing
+# them.
+
+set sidebar_width=15
+set sidebar_visible=yes
+set sidebar_delim='|'
+
+color sidebar_new red default # mailboxes with new mail on the sidebar
+
+# ctrl-n, ctrl-p to navigate to the next/previous mailbox with unread mail.
+# ctrl-o to open the selected folder.
+#
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+
+bind pager \CO sidebar-open
+bind index \CO sidebar-open
+
+#
+# Toggle sidebar visibility
+#
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'

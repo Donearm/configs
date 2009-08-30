@@ -1,0 +1,48 @@
+
+[default]
+#Write your default config options here!
+dvd-device=/dev/sr1
+cdrom-device=/dev/sr1
+autosync=30
+softsleep="1"
+nojoystick="1"
+nolirc="1"
+#cache = "16000"
+idx="1"
+double="1"
+#mixer-channel=Master
+#vm = "1"
+# antialias subtitles
+spuaa=4
+alang=it,en
+slang=it,en
+subfont-osd-scale=2 # size of osd text
+#subfont-autoscale=1  # autoscale osd text size
+osdlevel=3 
+# Disable that damned xscreensaver
+stop-xscreensaver="yes" # First try
+#heartbeat-cmd="/usr/bin/xscreensaver-command -deactivate > /dev/null" # second try
+geometry="50%:100%"
+prefer-ipv4=yes
+msglevel=decvideo=0:identify=6
+vf=denoise3d
+vf=scale
+vf=screenshot
+#vf=expand=0:-50:0:0	# should put any subtitles in the black bar under the video and not on it
+#quiet = yes # disable most of the output (really-quiet disable nearly every message)
+#monitoraspect = "1.6" # for 16:10 aspect ratio monitors
+monitoraspect="16:10"
+vo=gl:yuv=2:rectangle=2
+ao=alsa
+# Increase volume beyond audiocard's maximum
+af=volume=10:1:0
+
+# Xvmc profile. Use with -profile xvmc
+[xvmc]
+vo=xvmc
+vc=ffmpeg12mc
+
+[gnome-mplayer]
+vo=xv
+vf=eq2
+msglevel=all=5

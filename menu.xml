@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="time" label="Time" execute="python ~/.config/openbox/ob_clock.py"/>
+<menu id="space" label="Space" execute="sh ~/.config/openbox/diskspace.sh"/>
+
+<menu id="apps-accessories-menu" label="Accessories">
+	<!--
+	<item label="Calculator">
+    <action name="Execute">
+      <command>gnome-calculator</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  -->
+  <item label="VirtualBox">
+	  <action name="Execute">
+		  <command>VirtualBox</command>
+	  </action>
+  </item>
+  <item label="VirtualBox - WinXp">
+	  <action name="Execute">
+		  <command>VBoxManage startvm WinXp</command>
+	  </action>
+  </item>
+  <item label="Character Map">
+    <action name="Execute">
+      <command>gnome-character-map</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Squeeze">
+    <action name="Execute">
+      <command>squeeze</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Xscreensaver">
+    <action name="Execute">
+		<command>xscreensaver-demo</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Xscreensaver (lock screen)">
+    <action name="Execute">
+      <command>xscreensaver-command -lock</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <!--
+  <item label="E-Uae">
+    <action name="Execute">
+      <command>uae</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  -->
+  <!--
+  <item label="BH">
+    <action name="Execute">
+      <command>bh.sh</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  -->
+  <item label="UT2004">
+	  <action name="Execute">
+		  <command>ut2004</command>
+		  <startupnotify>
+			  <enabled>yes</enabled>
+		  </startupnotify>
+	  </action>
+  </item>
+</menu>
+
+<menu id="apps-editors-menu" label="Editors">
+  <item label="GVim">
+    <action name="Execute">
+      <command>gvim</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>GVim</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-term-menu" label="Terminals">
+  <item label="Rxvt Unicode">
+    <action name="Execute">
+      <command>urxvtc</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-net-menu" label="Internet">
+  <item label="Firefox (navigation)">
+    <action name="Execute">
+      <command>firefox -P navigation3 -no-remote</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Firefox</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Firefox (maidens)">
+      <action name="Execute">
+	  <command>firefox -P maidens3 -no-remote</command>
+	  <startupnotify>
+	      <enabled>yes</enabled>
+	      <wmclass>Firefox</wmclass>
+	  </startupnotify>
+      </action>
+  </item>
+  <item label="Pidgin Instant Messenger">
+    <action name="Execute">
+      <command>pidgin</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Skype">
+    <action name="Execute">
+      <command>skype</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Slimrat (gui)">
+	  <action name="Execute">
+		  <command>slimrat-gui</command>
+	  </action>
+  </item>
+</menu>
+
+<menu id="apps-office-menu" label="Office">
+  <item label="OpenOffice Base">
+    <action name="Execute">
+      <command>soffice -base</command>
+    </action>
+  </item>
+  <item label="OpenOffice Writer">
+    <action name="Execute">
+      <command>soffice -writer</command>
+    </action>
+  </item>
+  <item label="OpenOffice Calc">
+    <action name="Execute">
+      <command>soffice -calc</command>
+    </action>
+  </item>
+  <item label="OpenOffice Draw">
+    <action name="Execute">
+      <command>soffice -draw</command>
+    </action>
+  </item>
+  <item label="OpenOffice Impress">
+    <action name="Execute">
+      <command>soffice -impress</command>
+    </action>
+  </item>
+  <item label="OpenOffice Math">
+    <action name="Execute">
+      <command>soffice -math</command>
+    </action>
+  </item>
+  <item label="OpenOffice Printer Administration">
+    <action name="Execute">
+      <command>spadmin</command>
+    </action>
+  </item>
+  <item label="Evince">
+    <action name="Execute">
+      <command>evince</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-multimedia-menu" label="Multimedia">
+  <item label="Gmusicbrowser">
+      <action name="Execute">
+	  <command>gmusicbrowser</command>
+	  <startupnotify>
+	      <enabled>yes</enabled>
+	  </startupnotify>
+      </action>
+  </item>
+  <item label="MPlayer">
+    <action name="Execute">
+      <command>gmplayer</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>MPlayer</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Avidemux">
+    <action name="Execute">
+      <command>avidemux2_gtk</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Easy-Tag">
+    <action name="Execute">
+      <command>easytag</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Audacity">
+    <action name="Execute">
+      <command>audacity</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-fileman-menu" label="File Managers">
+  <item label="Thunar">
+    <action name="Execute">
+      <command>Thunar</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Nautilus">
+    <action name="Execute">
+      <command>nautilus --no-desktop --browser</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-graphics-menu" label="Graphics">
+  <item label="Gimp">
+    <action name="Execute">
+      <command>gimp</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="gcolor2">
+    <action name="Execute">
+      <command>gcolor2</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Gtkam">
+    <action name="Execute">
+		<command>gtkam</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <!--<item label="GQview">
+    <action name="Execute">
+      <command>gqview</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+	</item>-->
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="Openbox Configuration Manager">
+    <action name="Execute">
+      <command>obconf</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Gnome Control Center">
+    <action name="Execute">
+      <command>gnome-control-center</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="KDE Control Center">
+    <action name="Execute">
+      <command>kcontrol</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Hp Toolbox">
+	  <action name="Execute">
+		  <command>hp-toolbox</command>
+		  <startupnotify><enabled>yes</enabled></startupnotify>
+	  </action>
+  </item>
+  <item label="Manage Cups Printers">
+    <action name="Execute">
+      <command>xdg-open http://localhost:631/</command>
+      <startupnotify>
+        <enabled>no</enabled>
+        <icon>cups</icon>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Nvidia Settings">
+    <action name="Execute">
+      <command>nvidia-settings</command>
+      <startupnotify>
+	  <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Lxappearance">
+	  <action name="Execute">
+		  <command>lxappearance</command>
+		  <startupnotify>
+			  <enabled>yes</enabled>
+		  </startupnotify>
+	  </action>
+  </item>
+  <separator />
+  <item label="Reconfigure Openbox">
+    <action name="Reconfigure" />
+  </item>
+  <item label="Exit Openbox">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="Applications" />
+  <menu id="time" />
+  <menu id="space" />
+  <menu id="apps-term-menu"/>
+  <menu id="apps-fileman-menu"/>
+  <menu id="apps-accessories-menu"/>
+  <menu id="apps-editors-menu"/>
+  <menu id="apps-graphics-menu"/>
+  <menu id="apps-net-menu"/>
+  <menu id="apps-office-menu"/>
+  <menu id="apps-multimedia-menu"/>
+  <separator label="Settings" />
+  <menu id="system-menu"/>
+  <separator />
+  <item label="Log Out">
+    <action name="Exit">
+      <prompt>no</prompt>
+    </action>
+  </item>
+  <item label="Reboot">
+	  <action name="Execute">
+		  <command>sudo reboot</command>
+	  </action>
+  </item>
+</menu>
+
+</openbox_menu>

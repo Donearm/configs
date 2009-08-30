@@ -1,0 +1,9 @@
+[user]
+	name = Gianluca Fiore
+	email = forod.g@gmail.com
+[color]
+	ui = true
+[remote "github"]
+	url = git@github.com:Donearm/configs.git
+	fetch = +refs/heads/*:refs/remotes/github/*
+	push = refs/heads/*:refs/heads/*

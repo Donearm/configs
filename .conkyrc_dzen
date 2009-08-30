@@ -1,0 +1,15 @@
+# Conky as Dzen2 statusbar
+
+background no
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+out_to_console yes
+
+update_interval 1
+no_buffers yes
+text_buffer_size 512
+
+TEXT
+^fg(#e9e8e3)Hostname ${nodename}/${kernel} |  ${time} | Cpu ${cpucp1}/${cpu cpu2} | Ram ${mem}| Web ${upspeed eth0}/${downspeed eth0}| Hd ${execi 60 sudo hddtemp/dev/sda}°C/${execi 60 sudo hddtemp/dev/sdb}°C | Nvidia ${execi 30~/.conky/nvidiatemp}°C

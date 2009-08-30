@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+#
+
+#source /etc/X11/Xsession 2> /tmp/startx.log
+hddtemp -d /dev/sda /dev/sdb
+
+# not needed since Xorg 7.4
+#xmodmap .Xmodmap
+
+# not needed anymore for 180.* and higher drivers
+#nvidia-settings -a InitialPixmapPlacement=2 -a GlyphCache=1
+nvidia-settings -a PixmapCacheRoundSizeKB=4096
+
+
+exec awesome
+#exec openbox-session
+# exec /opt/kde/bin/startkde
+# exec gnome-session
+#exec /mnt/documents/Script/awesome_autostart.sh
+#exec /mnt/documents/Script/dwm_start.sh
+#exec /mnt/documents/Script/xmonad_start.sh

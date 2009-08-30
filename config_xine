@@ -1,0 +1,634 @@
+#
+# xine config file
+#
+.version:1
+
+# Entries which are still set to their default values are commented out.
+# Remove the '#' at the beginning of the line, if you want to change them.
+
+# Abilita il deinterlacciamento in modo predefinito
+# bool, default: 0
+#gui.deinterlace_by_default:0
+
+# Configurazione del livello di esperienza
+# { Beginner  Advanced  Expert  Master of the known universe }, default: 0
+#gui.experience_level:Beginner
+
+# Abilita supporto OSD
+# bool, default: 1
+#gui.osd_enabled:1
+
+# Annulla tempo(i) OSD
+# numeric, default: 3
+#gui.osd_timeout:3
+
+# Chiede all'utente per la riproduzione con codec non supportati
+# bool, default: 0
+#gui.play_anyway:0
+
+# Ricarica automaticamente la vecchia playlist
+# bool, default: 0
+#gui.playlist_auto_reload:0
+
+# Plugin di visualizzazione audio
+# { fftgraph  fftscope  oscope  goom }, default: 0
+#gui.post_audio_plugin:fftgraph
+
+# tema della skin GUI
+# { xinetic }, default: 0
+#gui.skin:xinetic
+
+# Cambia il comportamento di Xine per utenti inesperti
+# bool, default: 1
+#gui.smart_mode:1
+
+# Posizione per la foto
+# string, default: /home/gianluca
+#gui.snapshotdir:/home/gianluca
+
+# Mostra splash screen
+# bool, default: 1
+#gui.splash:1
+
+# Caricamento automatico sottotitolo
+# bool, default: 1
+#gui.subtitle_autoload:1
+
+# Stile dell'animazione visuale
+# { None  Post Plugin  Stream Animation }, default: 1
+#gui.visual_anim:Post Plugin
+
+# Finestre di stack (di più)
+# bool, default: 0
+#gui.always_layer_above:0
+
+# MEtodo di controllo dell'audio del mixer
+# { Sound card  Software }, default: 0
+#gui.audio_mixer_method:Sound card
+
+# Comportamento della visibilità del pannello
+# bool, default: 0
+#gui.auto_panel_visibility:0
+
+# Comportamento della visibilità della finestra di output
+# bool, default: 0
+#gui.auto_video_output_visibility:0
+
+# Plugin di deinterlacciamento.
+# string, default: tvtime:method=LinearBlend,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1
+#gui.deinterlace_plugin:tvtime:method=LinearBlend,cheap_mode=1,pulldown=0,use_progressive_frame_flag=1
+
+# Comportamento del mandante dell'evento
+# bool, default: 1
+#gui.eventer_sticky:1
+
+# Finestre di stack
+# bool, default: 0
+#gui.layer_above:0
+
+# Usa OSD non scalato
+# bool, default: 1
+#gui.osd_use_unscaled:1
+
+# Salvaschermo che risveglia
+# numeric, default: 10
+#gui.screensaver_timeout:10
+
+# Menu shortcut style
+# { Windows style  Emacs style }, default: 0
+#gui.shortcut_style:Windows style
+
+# Informazioni stream
+# bool, default: 0
+#gui.sinfo_auto_update:0
+
+# URL del Server delle skin
+# string, default: http://xine.sourceforge.net/skins/skins.slx
+#gui.skin_server_url:http://xine.sourceforge.net/skins/skins.slx
+
+# Salta capitolo
+# bool, default: 1
+#gui.skip_by_chapter:1
+
+# Finestra di output di ridimensione per le nuove dimensioni dello stream
+# bool, default: 1
+#gui.stream_resize_window:1
+
+# Timeout informazioni (ms)
+# numeric, default: 500
+#gui.tips_timeout:500
+
+# Visibilità informazioni GUI
+# bool, default: 1
+#gui.tips_visible:1
+
+# Name of video display
+# string, default: 
+#gui.video_display:
+
+# Protocollo X sincronizzato (debug)
+# bool, default: 0
+#gui.xsynchronize:0
+
+# Dimensione doppia per piccoli stream (richiede finestra_ridimensione_stream)
+# bool, default: 0
+#gui.zoom_small_stream:0
+
+# Logo MRL
+# string, default: file:/usr/share/xine/skins/xine-ui_logo.mpv
+#gui.logo_mrl:file:/usr/share/xine/skins/xine-ui_logo.mpv
+
+# usa l'estensione XVidMode quando passa a schermo pieno
+# bool, default: 0
+#gui.use_xvidext:0
+
+# Livello di amplificazione
+# [0..200], default: 100
+#gui.amp_level:100
+
+# Visibilità pannello GUI
+# bool, default: 1
+#gui.panel_visible:1
+
+# numeric, default: 200
+gui.panel_x:191
+
+# numeric, default: 100
+gui.panel_y:627
+
+# valore di luminosità
+# [0..65535], default: 32603
+#gui.vo_brightness:32603
+
+# valore di contrasto
+# [0..65535], default: 32603
+#gui.vo_contrast:32603
+
+# valore colore
+# [0..65535], default: 32603
+#gui.vo_hue:32603
+
+# valore di saturazione
+# [0..65535], default: 32603
+#gui.vo_saturation:32603
+
+# speaker arrangement
+# { Mono 1.0  Stereo 2.0  Headphones 2.0  Stereo 2.1  Surround 3.0  Surround 4.0  Surround 4.1  Surround 5.0  Surround 5.1  Surround 6.0  Surround 6.1  Surround 7.1  Pass Through }, default: 1
+#audio.speaker_arrangement:Stereo 2.0
+
+# dispositivo usato per output a canale 5.1
+# string, default: iec958:AES0=0x6,AES1=0x82,AES2=0x0,AES3=0x2
+#audio.alsa_a52_device:iec958:AES0=0x6,AES1=0x82,AES2=0x0,AES3=0x2
+
+# dispositivo usato per output mono
+# string, default: default
+#audio.alsa_default_device:default
+
+# dispositivo usato per output stereo
+# string, default: plug:front:0
+#audio.alsa_front_device:plug:front:0
+
+# notify changes to the hardware mixer
+# bool, default: 1
+#audio.alsa_hw_mixer:1
+
+# dispositivo mixer di alsa
+# string, default: PCM
+#audio.alsa_mixer_name:PCM
+
+# sound card can do mmap
+# bool, default: 0
+#audio.alsa_mmap_enable:0
+
+# dispositivo usato per output a 4 canali
+# string, default: plug:surround40:0
+#audio.alsa_surround40_device:plug:surround40:0
+
+# dispositivo usato per output a canale 5.1
+# string, default: plug:surround51:0
+#audio.alsa_surround51_device:plug:surround51:0
+
+# driver audio da usare
+# { auto  null  alsa  oss  arts  esd  file  none }, default: 0
+#audio.driver:auto
+
+# startup audio volume
+# [0..100], default: 50
+#audio.mixer_volume:50
+
+# offset for digital passthrough
+# numeric, default: 0
+#audio.passthrough_offset:0
+
+# ripristina il livello di volume all'avvio
+# bool, default: 0
+#audio.remember_volume:0
+
+# method to sync audio and video
+# { metronom feedback  resample }, default: 0
+#audio.av_sync_method:metronom feedback
+
+# always resample to this rate (0 to disable)
+# numeric, default: 0
+#audio.force_rate:0
+
+# number of audio buffers
+# numeric, default: 230
+#audio.num_buffers:230
+
+# enable resampling
+# { auto  off  on }, default: 0
+#audio.resample_mode:auto
+
+# deinterlace method
+# { none  bob  weave  greedy  onefield  onefield_xv  linearblend }, default: 4
+#video.deinterlace_method:onefield
+
+# driver video da usare
+# { auto  aadxr3  dxr3  xv  aa  caca  xshm  none  sdl  opengl  vidixfb  vidix  fb }, default: 0
+#video.driver:auto
+
+# posizione immagine orizzontale nella finestra di output
+# [0..100], default: 50
+#video.horizontal_position:50
+
+# posizione immagine verticale nella finestra di output
+# [0..100], default: 50
+#video.vertical_position:50
+
+# pitch alignment workaround
+# bool, default: 0
+#video.xv_pitch_alignment:0
+
+# enable double buffering
+# bool, default: 1
+#video.XV_DOUBLE_BUFFER:1
+
+# number of video buffers
+# numeric, default: 500
+#video.num_buffers:500
+
+# percentage of discarded frames to tolerate
+# numeric, default: 10
+#video.warn_discarded_threshold:10
+
+# percentage of skipped frames to tolerate
+# numeric, default: 10
+#video.warn_skipped_threshold:10
+
+# autopaint colour key
+# bool, default: 0
+#video.xv_autopaint_colorkey:0
+
+# video overlay colour key
+# [0..2147483615], default: 30
+#video.xv_colorkey:30
+
+# DXR3 device number
+# numeric, default: 0
+#dxr3.device_number:0
+
+# scambio linee spaiate e piatte
+# bool, default: 0
+#dxr3.enc_swap_fields:0
+
+# add black bars to correct aspect ratio
+# bool, default: 1
+#dxr3.enc_add_bars:1
+
+# use smooth play mode for mpeg encoder playback
+# bool, default: 1
+#dxr3.enc_alt_play_mode:1
+
+# default language for DVD playback
+# string, default: en
+#input.dvd_language:en
+
+# region the DVD player claims to be in (1 to 8)
+# numeric, default: 1
+#input.dvd_region:1
+
+# locazioni di partenza della navigazione file
+# string, default: /home/gianluca
+#input.file_origin_path:/home/gianluca
+
+# network bandwidth
+# { 14.4 Kbps (Modem)  19.2 Kbps (Modem)  28.8 Kbps (Modem)  33.6 Kbps (Modem)  34.4 Kbps (Modem)  57.6 Kbps (Modem)  115.2 Kbps (ISDN)  262.2 Kbps (Cable/DSL)  393.2 Kbps (Cable/DSL)  524.3 Kbps (Cable/DSL)  1.5 Mbps (T1)  10.5 Mbps (LAN) }, default: 10
+#input.mms_network_bandwidth:1.5 Mbps (T1)
+
+# device used for CD audio
+# string, default: /dev/cdrom
+#input.cdda_device:/dev/cdrom
+
+# query CDDB
+# bool, default: 1
+#input.cdda_use_cddb:1
+
+# slow down disc drive to this speed factor
+# numeric, default: 4
+#input.drive_slowdown:4
+
+# device used for DVD playback
+# string, default: /dev/dvd
+#input.dvd_device:/dev/dvd
+
+# read-ahead caching
+# bool, default: 1
+#input.dvd_use_readahead:1
+
+# mostra file nascosti
+# bool, default: 0
+#input.file_hidden_files:0
+
+# Domains, where to ignore the HTTP proxy
+# string, default: 
+#input.http_no_proxy:
+
+# HTTP proxy host
+# string, default: 
+#input.http_proxy_host:
+
+# HTTP proxy password
+# string, default: 
+#input.http_proxy_password:
+
+# HTTP proxy port
+# numeric, default: 80
+#input.http_proxy_port:80
+
+# HTTP proxy username
+# string, default: 
+#input.http_proxy_user:
+
+# device used for WinTV-PVR 250/350 (pvr plugin)
+# string, default: /dev/video0
+#input.pvr_device:/dev/video0
+
+# v4l radio device
+# string, default: /dev/v4l/radio0
+#input.v4l_radio_device_path:/dev/v4l/radio0
+
+# v4l video device
+# string, default: /dev/v4l/video0
+#input.v4l_video_device_path:/dev/v4l/video0
+
+# device used for VCD playback
+# string, default: /dev/cdrom
+#input.vcd_device:/dev/cdrom
+
+# unit for seeking
+# { seek in program chain  seek in program }, default: 0
+#input.dvd_seek_behaviour:seek in program chain
+
+# unit for the skip action
+# { skip program  skip part  skip title }, default: 0
+#input.dvd_skip_behaviour:skip program
+
+# MMS protocol
+# { auto  TCP  HTTP }, default: 0
+#input.mms_protocol:auto
+
+# CDDB cache directory
+# string, default: /home/gianluca/.xine/cddbcache
+#input.cdda_cddb_cachedir:/home/gianluca/.xine/cddbcache
+
+# CDDB server port
+# numeric, default: 8880
+#input.cdda_cddb_port:8880
+
+# CDDB server name
+# string, default: freedb.freedb.org
+#input.cdda_cddb_server:freedb.freedb.org
+
+# use A/52 dynamic range compression
+# bool, default: 0
+#codec.a52_dynrng:0
+
+# downmix audio to 2 channel surround stereo
+# bool, default: 0
+#codec.a52_surround_downmix:0
+
+# A/52 volume
+# [0..200], default: 100
+#codec.a52_level:100
+
+# MPEG-4 postprocessing quality
+# [0..6], default: 3
+#codec.ffmpeg_pp_quality:3
+
+# path to RealPlayer codecs
+# string, default: unknown
+#codec.real_codecs_path:unknown
+
+# path to Win32 codecs
+# string, default: /usr/lib/win32
+codec.win32_path:/usr/lib/win32
+
+# frames per second to generate
+# numeric, default: 10
+#post.goom_fps:10
+
+# goom image height
+# numeric, default: 240
+#post.goom_height:240
+
+# goom image width
+# numeric, default: 320
+#post.goom_width:320
+
+# colorspace conversion method
+# { Fast but not photorealistic  Slow but looks better }, default: 0
+#post.goom_csc_method:Fast but not photorealistic
+
+# priority for a/52 decoder
+# numeric, default: 0
+#decoder.a/52_priority:0
+
+# priority for bitplane decoder
+# numeric, default: 0
+#decoder.bitplane_priority:0
+
+# priority for dts decoder
+# numeric, default: 0
+#decoder.dts_priority:0
+
+# priority for dvaudio decoder
+# numeric, default: 0
+#decoder.dvaudio_priority:0
+
+# priority for dxr3-mpeg2 decoder
+# numeric, default: 0
+#decoder.dxr3-mpeg2_priority:0
+
+# priority for dxr3-spudec decoder
+# numeric, default: 0
+#decoder.dxr3-spudec_priority:0
+
+# priority for faad decoder
+# numeric, default: 0
+#decoder.faad_priority:0
+
+# priority for ffmpeg-wmv8 decoder
+# numeric, default: 0
+#decoder.ffmpeg-wmv8_priority:0
+
+# priority for ffmpegaudio decoder
+# numeric, default: 0
+#decoder.ffmpegaudio_priority:0
+
+# priority for ffmpegvideo decoder
+# numeric, default: 0
+#decoder.ffmpegvideo_priority:0
+
+# priority for flacdec decoder
+# numeric, default: 0
+#decoder.flacdec_priority:0
+
+# priority for gsm610 decoder
+# numeric, default: 0
+#decoder.gsm610_priority:0
+
+# priority for image decoder
+# numeric, default: 0
+#decoder.image_priority:0
+
+# priority for mad decoder
+# numeric, default: 0
+#decoder.mad_priority:0
+
+# priority for mpeg2 decoder
+# numeric, default: 0
+#decoder.mpeg2_priority:0
+
+# priority for nsf decoder
+# numeric, default: 0
+#decoder.nsf_priority:0
+
+# priority for pcm decoder
+# numeric, default: 0
+#decoder.pcm_priority:0
+
+# priority for qta decoder
+# numeric, default: 0
+#decoder.qta_priority:0
+
+# priority for qtv decoder
+# numeric, default: 0
+#decoder.qtv_priority:0
+
+# priority for real decoder
+# numeric, default: 0
+#decoder.real_priority:0
+
+# priority for realadec decoder
+# numeric, default: 0
+#decoder.realadec_priority:0
+
+# priority for rgb decoder
+# numeric, default: 0
+#decoder.rgb_priority:0
+
+# priority for spucc decoder
+# numeric, default: 0
+#decoder.spucc_priority:0
+
+# priority for spudec decoder
+# numeric, default: 0
+#decoder.spudec_priority:0
+
+# priority for sputext decoder
+# numeric, default: 0
+#decoder.sputext_priority:0
+
+# priority for vorbis decoder
+# numeric, default: 0
+#decoder.vorbis_priority:0
+
+# priority for win32a decoder
+# numeric, default: 0
+#decoder.win32a_priority:0
+
+# priority for win32v decoder
+# numeric, default: 0
+#decoder.win32v_priority:0
+
+# priority for yuv decoder
+# numeric, default: 0
+#decoder.yuv_priority:0
+
+# subtitle size
+# { tiny  small  normal  large  very large  huge }, default: 1
+#misc.spu_subtitle_size:small
+
+# subtitle vertical offset
+# numeric, default: 0
+#misc.spu_vertical_offset:0
+
+# palette (foreground-border-background) to use for subtitles and OSD
+# { white-black-transparent  white-none-transparent  white-none-translucid  yellow-black-transparent }, default: 0
+#misc.osd_text_palette:white-black-transparent
+
+# font for subtitles
+# string, default: sans
+#misc.spu_font:sans
+
+# encoding of the subtitles
+# string, default: iso-8859-1
+#misc.spu_src_encoding:iso-8859-1
+
+# use unscaled OSD if possible
+# bool, default: 1
+#misc.spu_use_unscaled_osd:1
+
+# media format detection strategy
+# { default  reverse  content  extension }, default: 0
+#misc.demux_strategy:default
+
+# memcopy method used by xine
+# { probe  libc  kernel  mmx  mmxext  sse }, default: 0
+misc.memcpy_method:sse
+
+# default duration of subtitle display in seconds
+# numeric, default: 4
+#misc.sub_timeout:4
+
+# allow implicit changes to the configuration (e.g. by MRL)
+# bool, default: 0
+#misc.implicit_config:0
+
+# directory for saving streams
+# string, default: 
+#misc.save_dir:
+
+# automatically advance track/entry
+# bool, default: 1
+#vcd.autoadvance:1
+
+# default type to use on VCD autoplay
+# { track  entry  segment  playlist }, default: 3
+#vcd.autoplay:playlist
+
+# position slider range
+# { auto  track  entry }, default: 0
+#vcd.length_reporting:auto
+
+# show 'rejected' LIDs
+# bool, default: 0
+#vcd.show_rejected:0
+
+# format string for stream comment field
+# string, default: %P - Track %T
+#vcd.comment_format:%P - Track %T
+
+# debug flag mask
+# numeric, default: 0
+#vcd.debug:0
+
+# default CD drive used for VCD when none given
+# string, default: 
+#vcd.default_device:
+
+# format string for display banner
+# string, default: %F - %I %N%L%S, disk %c of %C - %v %A
+#vcd.title_format:%F - %I %N%L%S, disk %c of %C - %v %A
+

@@ -1,0 +1,37 @@
+VERSION: 3.x
+BBCDWRITER: /dev/sr0
+BBCDROM: /dev/sr1
+BBCDMNT: /media/cdrom
+BBSPEED: -1
+BBBLANKING: fast
+BBNUMDEV: 2
+BBBURNDIR: /tmp/burn
+BBLABEL: <ask-me>
+BBDESCRIPTION: Burnt with BashBurn
+BBAUTHOR: forod.g@gmail.com
+BBNORMALIZE: no
+BBDRIVEROPT: 
+BBFIFODIR: /tmp
+BBDELTEMPBURN: no
+BBOVERBURN: yes
+BBBITRATE: 256
+BBLANG: English
+BBISCONF: 0
+BBDTAO: -tao
+BBPADDING: -nopad
+BBCONFFILE: /home/onearm/.bashburnrc
+BB_CDBURNCMD: cdrecord
+BB_DVDBURNCMD: growisofs
+BB_ISOCMD: mkisofs
+BB_DVDBLANK: dvd+rw-format
+BB_CDIMAGECMD: cdrdao
+BB_CDAUDIORIP: cdparanoia
+BB_READ_OPTS: -r -R -J -l --allow-leading-dots
+BB_READCD: mkisofs
+BB_MP3ENC: lame
+BB_MP3DEC: mpg123
+BB_OGGENC: oggenc
+BB_OGGDEC: oggdec
+BB_FLACCMD: flac
+BB_EJECT: eject
+BB_NORMCMD: normalize

@@ -1,0 +1,112 @@
+! Dpi per i fonts
+Xft.dpi:	    96
+Xft*antialias:	    true
+Xft*hinting:	    medium
+xterm*termname:	    xterm-color
+xterm*utf8:	    1
+
+xclock*hourColor:   blue
+xclock*minuteColor: blue
+xclock*secondColor: blue
+xclock*majorColor:  white
+xclock*minorColor:  blue
+xclock*buffer:	    true
+xclock*background:  black
+
+! Mouse Theme
+!Xcursor*theme:	    PolarCursorTheme
+! Font options
+!rxvt*font:	    *-iso10646-1
+!rxvt*font:	    -*-freemono-medium-*-*-*-17-*-*-*-*-*-iso10646-*
+URxvt.bitdepth:	    32
+Urxvt.depth:	    32
+URxvt.geometry:	    80x24+0+0
+!URxvt.font:	    -*-candara-*-*-*-*-*-*-*-*-*-*-iso10646-1
+!URxvt.font:		-*-dejavu sans mono-*-*-*-*-*-*-*-*-*-*-iso10646-1
+URxvt.font:	    xft:DejaVu Sans Mono:pixelsize=14:antialias=true
+URxvt.boldFont:	    xft:DejaVu Sans Mono:bold:pixelsize=14:antialias=true
+Urxvt.italicFont:   xft:DejaVu Sans Mono:italic:pixelsize=14:antialias=true
+Urxvt.boldItalicFont:	xft:DejaVu Sans Mono:bold:italic:pixelsize=14:antialias=true
+!urxvt.background:   rgba:0000/0000/0000/cccc
+urxvt.background:   #282828
+urxvt.foreground:   #f4f0e7
+URxvt.transparent:  true
+URxvt.shading:		15
+URxvt.fading:	    30
+URxvt.fadeColor:    #282828
+!URxvt.tintColor:    #6c9eab
+!URxvt.cursorColor:	#e4a900
+URxvt.cursorColor:	#7d9027
+URxvt.cursorColor2:	#f4f5f9
+URxvt.pointerColor:	#7d9027
+URxvt.pointerColor2:	white
+URxvt.pointerBlank:	true
+!Black + DarkGrey
+URxvt.color0:   #121212
+URxvt.color8:   #4c4c4c
+!DarkRed + Red
+URxvt.color1:   #781e1e
+URxvt.color9:   #9e1818
+!DarkGreen + Green
+URxvt.color2:   #34662e
+URxvt.color10:  #4b965a
+!DarkYellow + Yellow
+URxvt.color3:   #cc941d
+URxvt.color11:  #f2f28f
+!DarkBlue + Blue
+URxvt.color4:   #314773
+URxvt.color12:  #adbdd9
+!DarkMagenta + Magenta
+URxvt.color5:	#995456
+URxvt.color13:  #e04613
+!DarkCyan + Cyan
+URxvt.color6:   #8d9eb2
+URxvt.color14:  #467070
+!LightGrey + White
+URxvt.color7:   #a1a8b0
+URxvt.color15:  #e1e1e1
+URxvt.colorBD:	#e09177
+URxvt.colorUL:	#fcd3c7
+URxvt.colorIT:	    white
+URxvt.scrollBar:    true
+URxvt.scrollColor:  #7d9027
+URxvt.scrollstyle:  plain
+URxvt.jumpScroll:	0
+URxvt.troughColor:  white
+URxvt.borderColor:  #2a3a4a
+URxvt.iconName:	    urxvt
+URxvt.saveLines:    3000
+URxvt.internalBorder:	0
+URxvt.externalBorder:	0
+URxvt.termName:	    rxvt-unicode
+Urxvt.cutchars:     `"'&()*,;<=>?@[]{|}$`
+URxvt.hold:	    true
+URxvt.urlLauncher:  firefox
+URxvt.loginShell:   true
+URxvt.perl-ext-common:	    default,matcher
+!URxvt.perl-ext:	    tabbed,matcher
+!configure here the look of the tab bar
+URxvt.tabbed.tabbar-fg:	7
+URxvt.tabbed.tabbar-bg:	0
+URxvt.tabbed.tab-fg:	6
+URxvt.tabbed.tab-bg:	0
+! select input method (may be different from locale)
+!URxvt.imlocale:		it_IT.UTF-8	
+
+stjerm.key:	F1
+stjerm.mod:	windows
+stjerm.font:	Consolas 11
+stjerm.background:	#0e1422
+stjerm.foreground:	#e6eef2
+stjerm.border:	    none
+stjerm.opacity:	    90
+stjerm.width:	    650
+stjerm.height:	    400
+stjerm.position:    right
+stjerm.scrollbar:   right
+stjerm.lines:	    10000
+stjerm.showtab:	    one
+stjerm.tabpos:	    top
+
+lalcal*format:	    %a %e %b %l.%M%P
+lalcal*width:	    140

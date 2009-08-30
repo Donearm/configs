@@ -1,0 +1,60 @@
+# Mencoder profile and configs
+[common]
+profile-desc="Common parameters for all encodings. DO NOT USE!!!"
+noskip=1
+skiplimit=0
+mc=0
+sws=2
+hr-edl-seek=yes
+
+[mp3]
+profile-desc="MP3 encoding - 192kbps"
+oac=mp3lame=yes
+lameopts=aq=5:cbr=1:vbr=0:mode=1:br=192
+af=delay=250:250
+
+[ac3]
+profile-desc="AC3 encoding - 6 channels 384 kbps"
+oac=lavc=yes
+lavcopts=acodec=ac3:abitrate=384
+af=channels=6:4:0:0:0:3:1:2:1:4,sub=250:5,center=1
+channels=6
+af=delay=250:250
+
+[mp2]
+profile-desc="MPEG2 audio - 192kbps"
+oac=lavc=yes
+lavcopts=acodec=mp2:abitrate=192
+af=delay=250:250
+
+[xvid]
+profile-desc="XviD encoding"
+profile=common
+ovc=xvid=yes
+xvidencopts=bitrate=1600:me_quality=6:max_bframes=2:hq_ac=1:trellis=1:quant_type=mpeg:vhq=4:bvhq=1:chroma_opt=1:aspect=4.0/3.0
+vf=hqdn3d=1,lavcdeint=1,scale=512:384
+of=avi=1
+
+[dvd]
+profile-desc="KDVD profile - Full resolution"
+profile=common
+ovc=lavc=yes
+lavcopts=vcodec=mpeg2video:cbp=1:umv=1:last_pred=0:preme=2:mbd=2:vqblur=0:mbqmin=1:vqmin=1:vrc_buf_size=1835:vbitrate=3000:vrc_maxrate=3000:nr=400:dc=11:trell=1:dia=6:aspect=4/3:keyint=25:vmax_b_frames=2:vstrict=-1:scplx_mask=0.5:lmin=0.3:intra_matrix=8,9,12,22,26,27,29,34,9,10,14,26,27,29,34,37,12,14,18,27,29,34,37,38,22=,26,27,31,36,37,38,40,26,27,29,36,39,38,40,48,27,29,34,37,38,40,48,58,29,34,37,38,40,48,58,69,34,37,38,40,48,58,69,79:inter_matrix=16,18,20,22,24,26,28,30,18,20,22,24,26,28,30,32,20,22,24,26,28,30,32,34,22,24,26,30,32,32,34,36,24,26,28,32,34,34,36,38,26,28,30,32,34,36,38,40,28,30,32,34,36,38,42,42,30,32,34,36,38,40,42,44
+of=mpeg=yes
+mpegopts=format=dvd
+
+[dvdh]
+profile-desc="KDVD profile - Half resolution"
+profile=common
+ovc=lavc=yes
+lavcopts=vcodec=mpeg2video:cbp=1:umv=1:last_pred=0:preme=2:mbd=2:vqblur=0:mbqmin=1:vqmin=1:vrc_buf_size=1835:vbitrate=3000:vrc_maxrate=3000:nr=400:dc=11:trell=1:dia=6:aspect=4/3:keyint=25:vmax_b_frames=2:vstrict=-1:scplx_mask=0.5:lmin=0.3:intra_matrix=8,9,12,22,26,27,29,34,9,10,14,26,27,29,34,37,12,14,18,27,29,34,37,38,22,26,27,31,36,37,38,40,26,27,29,36,39,38,40,48,27,29,34,37,38,40,48,58,29,34,37,38,40,48,58,69,34,37,38,40,48,58,69,79:inter_matrix=16,18,20,22,24,26,28,30,18,20,22,24,26,28,30,32,20,22,24,26,28,30,32,34,22,24,26,30,32,32,34,36,24,26,28,32,34,34,36,38,26,28,30,32,34,36,38,40,28,30,32,34,36,38,42,42,30,32,34,36,38,40,42,44
+vf=crop=688:560:16:6,scale=352:288:0:0:0.00:0.75
+of=mpeg=yes
+mpegopts=format=dvd
+
+[x264]
+profile-desc="x264 encoding - AVI file"
+profile=common
+ovc=x264=yes
+x264encopts=bitrate=1600
+of=avi=1
