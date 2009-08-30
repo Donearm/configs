@@ -1,0 +1,78 @@
+#; ~/.mutt/local/mailcap.mutt
+#; Local mailcap preferences for the MUTT mail client.
+#; This might change if you are on a remote shell server,
+#; local X11 desktop, etc. I like to keep it simple.
+#;
+
+text/html; firefox -new-tab %s; nametemplate=%s.html
+text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
+#text/html; links -codepage %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+
+#image/*; feh %s: copiousoutput
+image/pjpeg; feh %s; copiousoutput
+image/jpeg; feh %s; copiousoutput
+image/png; feh %s; copiousoutput
+image/gif; feh %s; copiousoutput
+
+video/*; mplayer %s
+
+audio/*; mplayer %s
+
+application/ogg; mplayer %s: test=test "$DISPLAY" != "" 
+
+text/plain; cat %s; test=test "`echo %{charset} | tr '[A-Z]' '[a-z]'`" = utf-8 ; copiousoutput
+
+application/msword; /opt/openoffice/program/swriter %s
+application/vnd.oasis.opendocument.text; /opt/openoffice/program/swriter %s
+application/vnd.ms-excel; /opt/openoffice/program/scalc %s
+application/pdf; evince '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+application/pdf; pdftotext '%s' | less ; test=test "$DISPLAY" = ""
+
+text/x-sgml; cat %s; copiousoutput
+text/x-chdr; cat %s; copiousoutput
+text/x-csrc; cat %s; copiousoutput
+text/x-tex; cat %s; copiousoutput
+text/tex; cat %s; copiousoutput
+text/x-sh; cat %s; copiousoutput
+text/english; cat %s; copiousoutput
+
+
+application/x-gzip-dvi; zcat | dvi2tty-filter -w 132; copiousoutput
+
+application/x-gzip; zcat | less; needsterminal
+application/x-gunzip; zcat | less; needsterminal
+application/x-gzip; zcat; copiousoutput
+application/x-gunzip; zcat; copiousoutput
+application/x-bzip2; bzcat |less; needsterminal
+
+application/x-cpio; cpio -tvF --quiet %s; copiousoutput
+application/x-gtar; tar tvf %s; copiousoutput
+application/x-tar; tar tvf %s; copiousoutput
+application/x-tar-gz; tar tvfz %s; copiousoutput
+application/x-rar-compressed; rar v %s; copiousoutput
+application/x-zip-compressed; unzip -v %s; copiousoutput
+application/zip; unzip -v %s; copiousoutput
+
+application/x-csh; cat %s; copiousoutput
+application/x-sh; cat %s; copiousoutput
+application/x-script; cat %s; copiousoutput
+application/x-shellscript; cat %s; copiousoutput
+application/x-latex; cat %s; copiousoutput
+application/x-tex; cat %s; copiousoutput
+application/x-shar; cat %s; copiousoutput
+application/x-perl; cat %s; copiousoutput
+
+application/x-troff; groff -Tlatin1 %s; copiousoutput
+application/x-troff-man; man -l %s 2>/dev/null; copiousoutput
+application/x-troff-me; groff -me -Tlatin1 %s; copiousoutput
+
+# S/MIME signature handling
+application/x-pkcs7-signature; openssl pkcs7 -in %s -inform der -noout \
+-print_certs -TEXT | less; needsterminal
+#application/x-pkcs7-signature; openssl pk7out -inform DER | openssl pkcs7 \
+#-print_certs -text -noout ; nametemplate=%s.p7s ; copiousoutput
+application/x-pkcs7-mime; openssl smime -pk7out -inform DER | \
+openssl pkcs7 -print_certs -text -noout |\
+less ; nametemplate=%s.p7m ; test=test %{smime-type} == signed-data
+
+# vim: syntax=muttrc ts=8 sw=8 nowrap

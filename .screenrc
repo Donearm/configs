@@ -1,0 +1,37 @@
+defscrollback 10000
+defshell -bash
+term screen-256color
+
+shelltitle '$ |bash'
+
+hardcopydir $HOME
+multiuser off
+defscrollback 25000
+defflow off
+hardstatus off
+bell_msg ""
+vbell off
+vbell_msg ""
+altscreen on
+startup_message off
+activity "Things happening in %"
+hardcopy_append off
+# Enable utf8
+defutf8 on
+# Use F1 and F2 to move between the next and previous window
+bindkey -k k1 prev
+bindkey -k k2 next 
+# Use the \ key instead of "C-a"
+#escape ^\\\
+
+termcapinfo rxvt 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm ti@:te@
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+
+#caption always "%{=b dw}:%{-b dw}:%{=b dk}[ %{-b db}%{-b dc}screen %{=b dk}] [ %= %?%{-b dc}%-Lw%?%{+b dk}(%{+b db}%n:%t%{+b dk})%?(%u)%?%{-b db}%?%{-b dc}%+Lw%? %{=b dk}]%{-b dw}:%{+b db}:"
+caption always "%{=b dg}%{-b kg}:%{+b kg}: %{-b kg}%D %d.%m %c %{+b kg}:%{-b kg}:%= %{=m kg}%-w%{+u kg}%n %h %t%{-}%{=m kg}%+w " 
+
+# Create some windows right at start
+#screen -l -ln -t bash 0
+#screen -l -ln -t bash 1
