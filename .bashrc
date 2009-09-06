@@ -132,12 +132,14 @@ export DATE=`date +%G_%m_%d`
 export HISTSIZE=5000
 # add date and time to history elements
 export HISTTIMEFORMAT='%F %T '
-export HISTCONTROL=ignoreboth # evita di salvare doppioni in bash_history
+export HISTCONTROL=ignoreboth # no doubles in bash_history
 
 # set the desktop integration for OO (may be kde or gnome)
 export OOO_FORCE_DESKTOP=gnome
 # to improve firefox responsiveness
 export MOZ_DISABLE_PANGO=1
+# Create a dir on /tmp for firefox cache
+mkdir -p /tmp/ff-cache
 
 
 clear # clear the screen if something is on it
