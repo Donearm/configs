@@ -186,7 +186,8 @@ end
 
 -- Temp functions
 function getCpuTemp ()
-	local f = io.popen('cut -b 1-2 /sys/module/w83627ehf/drivers/platform\:w83627ehf/w83627ehf.656/temp1_input')
+    --local f = io.popen('cut -b 1-2 /sys/module/w83627ehf/drivers/platform\:w83627ehf/w83627ehf.656/temp1_input')
+    local f = io.popen('cut -b 1-2 /sys/class/thermal/thermal_zone0/temp')
 	local n = f:read()
 	f:close()
 	--return '<span color="#fbfbfb">' .. " " .. n .. '°C </span>'
@@ -441,8 +442,8 @@ cpuicon = widget({ type = "imagebox", name = "cpuicon", align = "right" })
 cpuicon.image = image(home .. "/.icons/amd_cpu.png")
 
 -- Motherboard icon
-moboicon = widget({ type = "imagebox", name = "moboicon", align = "right" })
-moboicon.image = image(home .. "/.icons/motherboard.png")
+--moboicon = widget({ type = "imagebox", name = "moboicon", align = "right" })
+--moboicon.image = image(home .. "/.icons/motherboard.png")
 
 -- Gpu icon
 gpuicon = widget({ type = "imagebox", name = "gpuicon", align = "right" })
@@ -484,8 +485,8 @@ batterywidget = widget({ type = "textbox", align = "right" })
 cputemp = widget({ type = 'textbox', name = 'cputemp', align = 'right',  width = "35" })
 wicked.register(cputemp, getCpuTemp, "$1", 30)
 
-mobotemp = widget({ type = 'textbox', name = 'mobotemp', align = 'right', width = "35" })
-wicked.register(mobotemp, getMoboTemp, "$1", 30)
+--mobotemp = widget({ type = 'textbox', name = 'mobotemp', align = 'right', width = "35" })
+--wicked.register(mobotemp, getMoboTemp, "$1", 30)
 
 --gputemp = widget({ type = 'textbox', name = 'gputemp', align = 'right', width = "35" })
 --wicked.register(gputemp, getGpuTemp, "$1", 30)
@@ -594,8 +595,8 @@ for s = 1, screen.count() do
 		memwidget,
         --gpuicon, 
         --gputemp,
-        moboicon,
-        mobotemp,
+        --moboicon,
+        --mobotemp,
 		netupicon,
 		netupwidget,
 		netdownicon,
