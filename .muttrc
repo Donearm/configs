@@ -27,7 +27,7 @@ macro pager \cr "|formail -I '' | tr a-zA-Z n-za-mN-ZA-M | less -c\n" "ROT_13"
 macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
 macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
 #
-# chiama fetchmail senza uscire da mutt
+# call fetchmail
 macro generic G <shell-escape>'fetchmail'<enter> 'Run fetchmail' 
 # Show documentation when pressing F1
 macro generic <f1> "!less /usr/share/doc/mutt-1.4.1i/manual.txt\n" "Show Mutt documentation"
