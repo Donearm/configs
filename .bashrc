@@ -89,7 +89,7 @@ export PATH=/usr/local/bin:$PATH
 if [ "$TERM" = "linux" ]
 then
     #export PS1='\[\e[1;34;40m\][\[\e[31;40m\]\u\[\e[34;40m\]@\[\e[31;40m\]\H\[\e[34;40m\] \W]\[\e[36;40m\]$ \[\e[0m\]' # scritte rosse, sfondo nero, directories blu
-    export PS1="${bBlue}[${bRed}\u${bnc}@${bRed}\H ${bBlue}\W${bBlue}]$ ${bnc}"
+    export PS1="${bBlue}\[[${bRed}\u${bnc}@${bRed}\H ${bBlue}\W${bBlue}]\]$ ${bnc}"
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
