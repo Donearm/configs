@@ -4,7 +4,8 @@ set wildmenu
 set history=50
 set showcmd
 set showmode
-set syntax=on
+"set syntax=on
+syntax on
 set hlsearch
 set smartindent
 set textwidth=72
