@@ -93,9 +93,9 @@ floatapps =
 apptags =
 {
 	["OpenOffice.org 3.0"] = { screen = 1, tag = 5  },
-    ["gimp"] = { screen = 1, tag = 4 },
-    ["Pidgin"] = { screen = 1, tag = 5 },
-    ["Chats"] = { screen = 1, tag = 5 },
+    ["gimp"] = { screen = 1, tag = 5 },
+    ["Pidgin"] = { screen = 1, tag = 6 },
+    ["Chats"] = { screen = 1, tag = 6 },
 }
 
 -- Define if we want to use titlebar on all applications.
