@@ -19,7 +19,7 @@ BBLANG: English
 BBISCONF: 0
 BBDTAO: -tao
 BBPADDING: -nopad
-BBCONFFILE: /home/onearm/.bashburnrc
+BBCONFFILE: /home/gianluca/.bashburnrc
 BB_CDBURNCMD: cdrecord
 BB_DVDBURNCMD: growisofs
 BB_ISOCMD: mkisofs

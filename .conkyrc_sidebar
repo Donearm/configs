@@ -197,7 +197,7 @@ ${color0}How: ${alignr}${color1}${execi 1200 ~/.conky/weatherconky.sh -w 'puerto
 ${color0}Wind: ${alignr}${color1}${execi 1200 ~/.conky/weatherconky.sh -i 'puerto plata'}
 ${color0}Humidity: ${alignr}${color1}${execi 1200 ~/.conky/weatherconky.sh -u 'puerto plata'}
 ${color0}Forecast: ${alignr}${color1}${execi 1200 ~/.conky/weatherconky.sh -f 'puerto plata'}${else}$endif}
-${if_existing /home/onearm/.config/gmusicbrowser/gmusicbrowser.fifo}${color0}On Air ${hr 1}
+${if_existing ~/.config/gmusicbrowser/gmusicbrowser.fifo}${color0}On Air ${hr 1}
 ${execpi 10 ~/.conky/gmusicbrowser.py -c}${alignr}${color0}${execi 10 ~/.conky/gmusicbrowser.py -s}
 ${alignr}${color0}${execi 10 ~/.conky/gmusicbrowser.py -a}
 ${alignr}${color0}${execi 10 ~/.conky/gmusicbrowser.py -b}
