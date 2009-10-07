@@ -5,8 +5,8 @@
 #;
 
 text/html; firefox -new-tab %s; nametemplate=%s.html
-text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
-#text/html; links -codepage %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+#text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
+text/html; links -codepage %{charset} -dump %s; nametemplate=%s.html; copiousoutput
 
 #image/*; feh %s: copiousoutput
 image/pjpeg; feh %s; copiousoutput
