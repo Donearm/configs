@@ -12,6 +12,9 @@ hddtemp -d /dev/sda /dev/sdb
 # not needed since Xorg 7.4
 #xmodmap .Xmodmap
 
+# Terminate X with Ctrl+Alt+Backspace
+setxkbmap -option terminate:ctrl_alt_bksp &
+
 # not needed anymore for 180.* and higher drivers
 #nvidia-settings -a InitialPixmapPlacement=2 -a GlyphCache=1
 nvidia-settings -a PixmapCacheRoundSizeKB=4096
