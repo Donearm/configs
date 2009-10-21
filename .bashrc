@@ -60,6 +60,8 @@ fahstat() {
 	echo
 	cat /opt/fah-smp/gianluca/unitinfo.txt
 	echo
+	tail -n 1 /opt/fah-smp/gianluca/FAHlog.txt
+	echo
 }
 
 
