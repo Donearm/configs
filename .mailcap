@@ -6,7 +6,7 @@
 
 text/html; firefox -new-tab %s; nametemplate=%s.html
 #text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
-text/html; links -codepage %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+text/html; links -html-assume-codepage utf-8 -force-html -dump %s; nametemplate=%s.html; copiousoutput
 
 #image/*; feh %s: copiousoutput
 image/pjpeg; feh %s; copiousoutput
