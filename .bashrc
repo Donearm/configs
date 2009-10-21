@@ -55,6 +55,13 @@ mkmv() {
     mv "$1" "$2"
 }
 
+# Fahstat - get info about current folding@home unit
+fahstat() {
+	echo
+	cat /opt/fah-smp/gianluca/unitinfo.txt
+	echo
+}
+
 
 # No one should read/write/execute my files by default
 #umask 0077
