@@ -84,6 +84,14 @@ bcyan="\033[0;36m" # cyan
 bCyan="\033[1;36m" # bold cyan
 bwhite="\033[0;37m" # white
 bnc="\033[0;0m" # no color
+undblack="\033[4;30m" # black underlined
+undred="\033[4;31m" # red underlined
+undgreen="\033[4;32m" # green underlined
+undyellow="\033[4;33m" # yellow underlined
+undblue="\033[4;34m" # blue underlined
+undpurple="\033[4;35m" # purple underlined
+undcyan="\033[4;36m" # cyan underlined
+undwhite="\033[4;37m" # white underlined
 # background colors
 bgblack="\033[40m"
 bgred="\033[41m"
@@ -93,6 +101,8 @@ bgblue="\033[44m"
 bgmagenta="\033[45m"
 bgcyan="\033[46m"
 bgwhite="\033[47m"
+txtreset="\033[0m" # text reset
+
 
 #export PATH=/usr/X11R6/bin:/usr/sbin:/sbin/:/usr/local/sbin/:/usr/local/bin:/opt/kde/bin:/usr/lib/python2.5/:/opt/gnome/bin:/lib/splash/bin:/opt/xfce4/bin/:/opt/texlive/bin:$PATH
 export PATH=/usr/local/bin:$PATH
