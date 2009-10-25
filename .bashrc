@@ -57,10 +57,10 @@ mkmv() {
 
 # Fahstat - get info about current folding@home unit
 fahstat() {
+	#echo
+	#cat /opt/fah-smp/gianluca/unitinfo.txt
 	echo
-	cat /opt/fah-smp/gianluca/unitinfo.txt
-	echo
-	tail -n 1 /opt/fah-smp/gianluca/FAHlog.txt
+	tail -n 1 /opt/fah-gpu/alpha/FAHlog.txt
 	echo
 }
 
@@ -161,5 +161,7 @@ export OOO_FORCE_DESKTOP=gnome
 # to improve firefox responsiveness
 export MOZ_DISABLE_PANGO=1
 
+# Check terminal size
+shopt -s checkwinsize
 
 clear # clear the screen if something is on it
