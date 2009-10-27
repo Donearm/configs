@@ -388,10 +388,10 @@ mypromptbox = widget({ type = "textbox" })
 datebox = widget({ type = "textbox"})
 datebox:add_signal("mouse::enter", function () addCalendar(0) end)
 datebox:add_signal("mouse::leave", function () removeCalendar() end)
-datebox.buttons = awful.util.table.join(
+datebox:buttons(awful.util.table.join(
     awful.button({ }, 4, function () addCalendar(-1) end),
     awful.button({ }, 5, function () addCalendar(1) end)
-)
+))
 vicious.register(datebox, vicious.widgets.date, setFg('white', "  %T  "))
 
 
@@ -702,7 +702,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "skype" },
       properties = { floating = true } },
-    { rule = { class = "hp-toolbox" },
+    { rule = { class = "Hp-toolbox" },
       properties = { floating = true } },
     { rule = { class = "evince" },
       properties = { floating = true } },
@@ -713,6 +713,9 @@ awful.rules.rules = {
     { rule = { class = "Chats" },
       properties = { tag = tags[1][6] } },
     }
+    { rule = { name = "Firefox Preferences" },
+      properties = { floating = true },
+  }
 
 
 -- {{{ Autorun apps
