@@ -292,10 +292,10 @@ cpuicon = widget({ type = "imagebox"})
 cpuicon.image = image(home .. "/.icons/amd_cpu.png")
 cpuwidget01 = widget({ type = "textbox"})
 vicious.register(cpuwidget01, vicious.widgets.cpu,
-	' <span color="#fbfbfb">[</span>$1%<span color="#fbfbfb">]</span>')
+	' <span color="#fbfbfb">[</span>$1%<span color="#fbfbfb">]</span>', 5)
 cpuwidget02 = widget({ type = "textbox" })
 vicious.register(cpuwidget02, vicious.widgets.cpu,
-	' <span color="#fbfbfb">[</span>$2%<span color="#fbfbfb">]</span>')
+	' <span color="#fbfbfb">[</span>$2%<span color="#fbfbfb">]</span>', 5)
 
 -- Motherboard icon
 moboicon = widget({ type = "imagebox" })
@@ -344,20 +344,20 @@ vicious.register(cputemp, getCpuTemp, "$1", 30)
 
 mobotemp = widget({ type = 'textbox'})
 --mobotemp:set_width(35)
-vicious.register(mobotemp, getMoboTemp, "$1", 30)
+vicious.register(mobotemp, getMoboTemp, "$1", 50)
 
 --gputemp = widget({ type = 'textbox'})
 --gputemp:set_width(35)
 --vicious.register(gputemp, getGpuTemp, "$1", 30)
  
 -- Both the hddtemp widgets need hddtemp to be setuid, disabled then
-sdatemp = widget({ type = 'textbox'})
+--sdatemp = widget({ type = 'textbox'})
 --sdatemp:set_width(35)
-vicious.register(sdatemp, vicious.widgets.hddtemp, '${/dev/sda}°C', 30)
+--vicious.register(sdatemp, vicious.widgets.hddtemp, '${/dev/sda}°C', 30)
 
-sdbtemp = widget({ type = 'textbox'})
+--sdbtemp = widget({ type = 'textbox'})
 --sdbtemp:set_width(35)
-vicious.register(sdbtemp, vicious.widgets.hddtemp, '${/dev/sdb}°C', 30)
+--vicious.register(sdbtemp, vicious.widgets.hddtemp, '${/dev/sdb}°C', 30)
 
 -- Volume widget
 volumeicon = widget({ type = "imagebox"})
@@ -366,7 +366,7 @@ volumeicon.image = image(home .. "/.icons/speaker.png")
 volumewidget = widget({ type = "textbox"})
 -- enable caching
 vicious.enable_caching(vicious.widgets.volume)
-vicious.register(volumewidget, vicious.widgets.volume, "$1%", 2, "Master")
+vicious.register(volumewidget, vicious.widgets.volume, "$1%", 1, "Master")
 volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 4, function() awful.util.spawn(soundRaiseVolume) end),
     awful.button({ }, 5, function() awful.util.spawn(soundLowerVolume) end),
@@ -611,8 +611,8 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
 	awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
+    awful.key({ modkey            }, "t",      awful.client.togglemarked                        ),
     awful.key({ modkey,}, "m",
-    awful.key({ modkey }, "t", awful.client.togglemarked),
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
@@ -696,9 +696,11 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gcolor2" },
       properties = { floating = true } },
-    { rule = { class = "gmusicbrowser" },
+    { rule = { class = "Gmusicbrowser" },
       properties = { floating = true } },
     { rule = { class = "Firefox:Dialog" },
+      properties = { floating = true } },
+    { rule = { class = "Download" },
       properties = { floating = true } },
     { rule = { class = "skype" },
       properties = { floating = true } },
@@ -712,9 +714,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][6] } },
     { rule = { class = "Chats" },
       properties = { tag = tags[1][6] } },
-    }
     { rule = { name = "Firefox Preferences" },
-      properties = { floating = true },
+      properties = { floating = true } },
   }
 
 
@@ -763,12 +764,24 @@ client.add_signal("manage", function (c, startup)
 
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
-            awful.placement.no_overlap(c)
+        --    awful.placement.no_overlap(c)
             awful.placement.no_offscreen(c)
         end
     end
     -- honor size hints
     c.size_hints_honor = false
+
+    -- I want Mplayer sticky in all tags
+    if c.name:find("MPlayer") then
+        for s = 1, screen.count() do
+            tagtable = screen[s]:tags()
+            for k,t in pairs(tagtable) do
+                if t ~= awful.tag.selected() then
+                    awful.client.toggletag(t, c)
+                end
+            end
+        end
+    end
 end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
@@ -786,45 +799,7 @@ end)
 	
 
 -- }}}
-    -- I want Mplayer sticky in all tags
-    -- well better not I guess, can't reduce to icon
-    --if c.name:find("MPlayer") then
-    --    for s = 1, screen.count() do
-    --        tagtable = screen[s]:tags()
-    --        for k,t in pairs(tagtable) do
-    --            if t ~= awful.tag.selected() then
-    --                awful.client.toggletag(t, c)
-    --            end
-    --        end
-    --    end
-    --end
-    
 
-    -- Check application->screen/tag mappings.
---    local target
---    if apptags[cls] then
---        target = apptags[cls]
---    elseif apptags[inst] then
---        target = apptags[inst]
---    end
---    if target then
---        c.screen = target.screen
---        awful.client.movetotag(tags[target.screen][target.tag], c)
---    end
-
-    -- Do this after tag mapping, so you don't see it on the wrong tag for a split second.
---    client.focus = c
-
-    -- Set key bindings
---    c:keys(clientkeys)
-
-    -- Set the windows at the slave,
-    -- i.e. put it at the end of others instead of setting it master.
-    -- awful.client.setslave(c)
-
-    -- Honor size hints: if you want to drop the gaps between windows, set this to false.
---    c.size_hints_honor = false
---end)
 
 -- Hook function to execute when arranging the screen.
 -- (tag switch, new client, etc)
