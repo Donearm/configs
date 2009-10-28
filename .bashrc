@@ -58,9 +58,9 @@ mkmv() {
 # Fahstat - get info about current folding@home unit
 fahstat() {
 	#echo
-	#cat /opt/fah-smp/gianluca/unitinfo.txt
+	cat /opt/fah-smp/gianluca/unitinfo.txt
 	echo
-	tail -n 1 /opt/fah-gpu/alpha/FAHlog.txt
+	tail -n 1 /opt/fah-smp/gianluca/FAHlog.txt
 	echo
 }
 
