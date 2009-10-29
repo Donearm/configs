@@ -290,12 +290,9 @@ mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-bl
 -- Cpu widget
 cpuicon = widget({ type = "imagebox"})
 cpuicon.image = image(home .. "/.icons/amd_cpu.png")
-cpuwidget01 = widget({ type = "textbox"})
-vicious.register(cpuwidget01, vicious.widgets.cpu,
-	' <span color="#fbfbfb">[</span>$1%<span color="#fbfbfb">]</span>', 5)
-cpuwidget02 = widget({ type = "textbox" })
-vicious.register(cpuwidget02, vicious.widgets.cpu,
-	' <span color="#fbfbfb">[</span>$2%<span color="#fbfbfb">]</span>', 5)
+cpuwidget = widget({ type = "textbox" })
+vicious.register(cpuwidget, vicious.widgets.cpu,
+    ' <span color="#fbfbfb">[</span>$2%<span color="#fbfbfb">][</span>$3%<span color="#fbfbfb">]</span>', 5)
 
 -- Motherboard icon
 moboicon = widget({ type = "imagebox" })
@@ -495,8 +492,7 @@ for s = 1, screen.count() do
             --gpuicon, 
             memwidget,
             memicon,
-            cpuwidget02,
-            cpuwidget01,
+            cpuwidget,
             cputemp,
             cpuicon,
             mytasklist[s],
@@ -772,16 +768,16 @@ client.add_signal("manage", function (c, startup)
     c.size_hints_honor = false
 
     -- I want Mplayer sticky in all tags
-    if c.name:find("MPlayer") then
-        for s = 1, screen.count() do
-            tagtable = screen[s]:tags()
-            for k,t in pairs(tagtable) do
-                if t ~= awful.tag.selected() then
-                    awful.client.toggletag(t, c)
-                end
-            end
-        end
-    end
+    --if c.name:find("MPlayer") then
+    --    for s = 1, screen.count() do
+    --        tagtable = screen[s]:tags()
+    --        for k,t in pairs(tagtable) do
+    --            if t ~= awful.tag.selected() then
+    --                awful.client.toggletag(t, c)
+    --            end
+    --        end
+    --    end
+    --end
 end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
