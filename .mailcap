@@ -22,9 +22,9 @@ application/ogg; mplayer %s: test=test "$DISPLAY" != ""
 
 text/plain; cat %s; test=test "`echo %{charset} | tr '[A-Z]' '[a-z]'`" = utf-8 ; copiousoutput
 
-application/msword; /opt/openoffice/program/swriter %s
-application/vnd.oasis.opendocument.text; /opt/openoffice/program/swriter %s
-application/vnd.ms-excel; /opt/openoffice/program/scalc %s
+application/msword; /usr/lib/openoffice/program/swriter %s
+application/vnd.oasis.opendocument.text; /usr/lib/openoffice/program/swriter %s
+application/vnd.ms-excel; /usr/lib/openoffice/program/scalc %s
 application/pdf; evince '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 application/pdf; pdftotext '%s' | less ; test=test "$DISPLAY" = ""
 
