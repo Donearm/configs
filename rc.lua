@@ -702,7 +702,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { instance = "Download" },
       properties = { floating = true } },
-    { rule = { class = "skype" },
+    { rule = { class = "Skype" },
       properties = { floating = true } },
     { rule = { class = "Hp-toolbox" },
       properties = { floating = true } },
