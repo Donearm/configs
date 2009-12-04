@@ -5,7 +5,7 @@ BBCDMNT: /media/cdrom
 BBSPEED: -1
 BBBLANKING: fast
 BBNUMDEV: 2
-BBBURNDIR: /tmp/burn
+BBBURNDIR: /mnt/documents/burn
 BBLABEL: <ask-me>
 BBDESCRIPTION: Burnt with BashBurn
 BBAUTHOR: forod.g@gmail.com
