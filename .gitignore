@@ -13,6 +13,7 @@
 !.bashrc
 !.config/openbox/*
 !.config/awesome/*
+!.config/awesome/themes/*
 !.config/gmusicbrowser/*
 !.config/gecko-mediaplayer/*
 |.config/Thunar/*
