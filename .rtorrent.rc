@@ -42,10 +42,13 @@ session = /media/private/torrent/session/
 
 ratio.enable=
 ratio.min.set=200
-ratio.upload.set=400M
+ratio.max.set=300
+ratio.upload.set=50M
+# Changing the command triggered when the ratio is reached
+system.method.set = group.seeding.ratio.command, d.close=
 
-# When the torrent finishes, move the files in an another directory
-#on_finished = move_complete,"execute=mv,-u,$d.get_base_path=,/media/private/torrents_completed/ ;d.set_directory=/media/private/torrents_completed/"
+# copy completed torrents in the Music directory
+system.method.set_key = event.download.finished,move_complete,"execute=cp,-r,$d.get_base_path=,/media/private/torrents/;d.set_directory=/media/private/Music/"
 
 # The ip address reported to the tracker.
 #ip = 127.0.0.1
