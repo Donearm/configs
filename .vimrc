@@ -32,16 +32,16 @@ set t_Co=256 " number of colors in terminal, default=88
 "set guifontset=-adobe-courier-medium-r-normal-*-10-*-*-*-*-*-iso10646-1
 filetype plugin on
 filetype plugin indent on
-" l'opzione color imposta un colorscheme di default
+" set a color scheme
 "color desert
 color gianluca
 
-" statusline personalizzata
+" custom statusline
 if has('statusline')
-    let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%]"
+	let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%]"
 endif
 
-" colorscheme da caricare se siamo in *rxvt
+" specific colorscheme for *rxvt
 if has("autocmd")
     if &term == "rxvt-unicode"
 	set background=light
@@ -49,53 +49,54 @@ if has("autocmd")
     endif
 endif
 "
-" Elimina l'highlighting delle parentesi di default
+" no automatic highlighting of brackets and such
 "let loaded_matchparen = 1
-" Preserva dopo la chiusura tutti i fold impostati
+" save fold before closing
 au BufWinLeave * mkview
 au BufWinEnter * silent! loadview
 "
 " --- MAIL ---
-" modifiche quando si edita una mail
+"
 if has("autocmd")
     autocmd FileType mail set fo=tcrqw textwidth=72 
     autocmd FileType mail call Mail_AutoCmd()
 endif
-" seleziono il formato mail per le caselle di posta e i messaggi di news 
-" che apro
+" set mail fileformat for mails, mboxes and news messages
 au BufRead,BufNewFile /tmp/mutt-*,~/Maildir/.*,.followup*,.article* :set ft=mail 
-" Funzione di autocmd per mail e news
+" various functions for mail and news
 function Mail_AutoCmd()
-    silent! %s/^\(>*\)\s\+>/\1>/g " quotazioni sbagliate
-    silent! %s/^> >/>>/ " come sopra
-    silent! %s/  \+/ /g " spazi multipli
-    silent! %s/^\s\+$//g " linee con solo spazi
-    silent! %s/^[>]\+$// " linee vuote quotate
+    silent! %s/^\(>*\)\s\+>/\1>/g " wrong quoting
+    silent! %s/^> >/>>/ " wrong quoting 2
+    silent! %s/  \+/ /g " multiple spaces
+    silent! %s/^\s\+$//g " rows with only spaces
+    silent! %s/^[>]\+$// " empty quoted rows
 endfunction
-" elimina linee che contengono solo spazi
+" some mappings
+"
+" delete rows with just spaces
 map ,del :%s/^\s\+$//g
-" elimina linee vuote (senza neppure spazi)
+" delete empty rows (not even with spaces)
 map ,delempty :%s/^\n//g
-" elimina linee vuote quotate
+" delete empty quoted rows
 nmap ,ceql :%s/^[>]\+$//
 nmap ,cqel :%s/^> \s*$//<CR>^M
 vmap ,ceql :s/^[><C-I> ]\+$//
-" elimina linee quotate contenenti solo spazi
+" delete quoted rows with only spaces
 map ,qesl :%s/^[>]\s\+$//g
-" sostituisce i punti seguiti da vari spazi con punto-spazio-spazio
+" substitute a dot with various spaces with a single dot and 2 spaces
 vmap ,dotsub :s/\.\+ \+/.  /g
-" sostituisce più di uno spazio consecutivo con uno solo
+" substitute multiple spaces with just one
 nmap ,ksr :%s/  \+/ /g
 vmap ,ksr :s/  \+/ /g
-" sostituisce blocchi di più linee vuote con una sola linea
+" substitute various consecutive empty rows with just one
 map ,emptyblock :g/^$/,/./-j
-" stessa cosa di sopra ma con blocchi di linee con solo spazi
+" as above but with rows of only spaces
 map ,Sbl :g/^\s*$/,/\S/-j
-" raggruppa multipli Re:
+" regroup multiple Re:
 map ,re 1G/^Subject: <CR>:s/\(Re: \)\+/Re: /e<CR>^M
-" elimina i link dei gruppi yahoo
+" delete yahoo group links
 map ,delgyah :g#^>\? http://docs.yahoo#.-10,.d
-" elimina tutti gli headers da una mail
+" delete every header
 map ,noheader :0,/^$/d
 "
 " --- MAIL END ---
@@ -107,6 +108,8 @@ if has("autocmd")
     autocmd FileType python setlocal tabstop=4
     autocmd FileType python setlocal expandtab " spaces instead of tabs
     autocmd FileType python setlocal softtabstop=4 " treat 4 spaces as a tab
+	" different statusline, thanks to pythonhelper.vim, for python files
+	autocmd FileType python  let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%] def=%{TagInStatusLine()}"
 	" call pydoc with the name of the python module from which we want
 	" help
 	:command -nargs=+ Pyhelp :call ShowPydoc("<args>")
@@ -117,22 +120,23 @@ if has("autocmd")
 	endfunction
     " some options for ruby files
     autocmd FileType ruby setlocal tabstop=2
-    " nei file make non espandere tabs in spazi
+    autocmd FileType ruby setlocal textwidth=80 
+    " no tabs in spaces for make files
     autocmd FileType make set noexpandtab shiftwidth=8
-    " abilita function-complete per i file supportati
+    " enable function-complete for supported files
     autocmd BufNewFile *.html,.css,.htm set omnifunc=csscomplete#CompleteCSS
     autocmd BufRead *.html,.css,.htm set omnifunc=csscomplete#CompleteCSS
     autocmd BufNewFile *.py set omnifunc=pythoncomplete#Complete
     autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
     " Max 78 characters for line in text files
     autocmd BufRead *.txt set tw=78
-    " rende eseguibili tutti gli script
+    " make every script executable
     autocmd BufWritePost * if getline(1) =~ "^#!/" | silent exe "!chmod u+x <afile>" | endif
-    " aggiunge opzioni di vim all'ultima riga di ogni script (non funziona, scrive la riga di opzioni ogni volta che si salva il file)
+	" add vim options at the end of every script (currently not working)
     "autocmd BufWritePost * if getline(1) =~ "^#!/" && if getline($) =~ "^# vi" | silent :$s/^/# vim: set ft=sh tw=0:/ | endif
-    " abilita l'editing dei file gzippati
+    " enable editing of gzipped files
     augroup gzip
-	" prima elimina tutti i comandi già impostati
+	" delete first every autocmd
 	au!
 
 	autocmd BufReadPre,FileReadPre  *.gz set bin
@@ -147,11 +151,9 @@ if has("autocmd")
 	autocmd FileAppendPre   *.gz !mv <afile>:r <afile>
 	autocmd FileAppendPost  *.gz !mv <afile> <afile>:r
     augroup END
-    " File ruby
-    autocmd FileType ruby setlocal textwidth=80 
 endif
 "
-" Funzioni per i commenti
+" comments' functions
 function! ShellComment()
     map - :s/^/# /<CR>
     map _ :s/^\s*# \=//<CR>
@@ -163,7 +165,7 @@ function! CComment()
     map _ :s/^\s*\/\* \=//<CR>
     set comments=:/*
 endfunction
-" ...e le vado ad attivare
+" ...and enabling them
 if has("autocmd")
     autocmd FileType perl	call ShellComment()
     autocmd FileType cgi	call ShellComment()
@@ -176,14 +178,15 @@ endif
 " --- PROGRAMMING END ---
 "
 " --- HTML E XML ---
-" opzione per xml.vim (rende i tag compatibili con xhtml)
+" options for xml.vim (make tags compatible with xhtml)
 let xml_use_xhtml=1	    
 let xml_tag_completion_map = "<C-l>"
 " use css for generated html files
 let html_use_css=1
 
 " --- Tex and Latex ---
-"set grepprg=grep\ -nH\ $* " setting for vim-latex
+"  settingf for vim-latex
+"set grepprg=grep\ -nH\ $*
 "let g:Imap_DeleteEmptyPlaceHolders=1
 "let g:Tex_DefaultTargetFormat="pdf"
 "let g:Tex_ViewRule_dvi="evince"
@@ -192,35 +195,34 @@ let html_use_css=1
 "let g:Tex_MultipleCompileFormats="dvi,pdf,ps"
 
 " --- VARIOUS STUFF ---
-"  tutto il testo su una linea con un solo spazio
+"
+"  all the text on a single row
 map ,line  :%s/\n/ /g
-" copio il contenuto di una sessione in un file temporaneo con "_Y e lo 
-" importo in un'altra con "_P
+" save the buffer content in a temporary file with "_Y and import it
+" back in another with "_P
 nmap _Y :!echo ""> /tmp/.vi_tmp<CR><CR>:w! /tmp/.vi_tmp<CR>
 vmap _Y :w! /tmp/.vi_tmp<CR>
 nmap _P :r /tmp/.vi_tmp<CR>
-" Tolgo il search highlighting quando mi muovo con il cursore
+" moving the cursor disables search highlighting
 nmap j <Down>:nohls<CR>
 nmap k <Up>:nohls<CR>
 nmap h <Left>:nohls<CR>
 nmap l <Right>:nohls<CR>
-" Uso Ctrl+hjul per navigare quando in insert mode (Ctrl+h non va, uso u
-" invece)
+" Ctrl+hjkl to navigate in insert mode (Ctrl+j doesn't work, use Ctrl+u
+" instead)
 imap <C-u> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
 imap <C-h> <Left>
 "
-" Uso due , in insert mode per uscire invece di Esc
+" two , in insert mode to exit instead of Esc
 imap ,, <Esc>
-" Cambio il colore dell'highlighting per le parole non trovate nel
-" dizionario (perchè cambiando i colori del terminale talvolta possono
-" trovarsi combinazioni di difficile lettura)
-" Altre opzioni che possono esser usate sono: SpellCap SpellRare e
-" SpellLocal
+" modify the colors of not found dictionary words highlighting because
+" sometimes changing terminal colors make them unreadable
+" other similar options are: SpellCap SpellRare and SpellLocal
 hi SpellBad term=reverse ctermfg=white ctermbg=darkred guifg=#FFFFFF guibg=#7F0000 gui=underline
 
-"Automaticamente chiedere la password quando si apre un file gpg con vim
+" automatically ask for the password when opening a gpg file
 augroup encrypted
     au!
 
@@ -256,7 +258,7 @@ augroup encrypted
     autocmd BufWritePost,FileWritePost  *.gpg set nobin
 augroup END
 "
-" Apri il link nella linea corrente nel browser
+" open link in the current row in the browser
 function! Browser ()
     let line0 = getline (".")
     let line = matchstr (line0, "http[^ ]*")
