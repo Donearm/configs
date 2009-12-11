@@ -275,3 +275,10 @@ function! Browser ()
     exec ':silent !firefox ' . line 
 endfunction
 map ,w :call Browser ()<CR>
+
+"
+" autocmd for source.txt and 0000 files
+autocmd BufWritePre,FileWritePre *source.txt silent! %s/	//g
+autocmd BufWritePre,FileWritePre *0000 silent! %s/	//g
+autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
+autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
