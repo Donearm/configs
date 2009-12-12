@@ -279,7 +279,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "Winxp", "VBoxManage startvm WinXp", image("/usr/share/pixmaps/VBox.png") },
                                         { "HP Toolbox", "hp-toolbox", image("/usr/share/hplip/data/images/32x32/hp_logo.png") },
                                         { "Avidemux", "avidemux2_gtk", image("/usr/share/pixmaps/avidemux.png") },
-                                        { "Slimrat", "slimrat-gui", image(home .. "/.icons/slimrat.png") },
                                         { "Gimp", "gimp", image("/usr/share/gimp/2.0/images/gimp-logo.png") },
                                         { "Gcolor", "gcolor2", image("/usr/share/pixmaps/gcolor2/icon.png") },
                                         { "Gtkam", "gtkam", image("/usr/share/pixmaps/gtkam.png") }
