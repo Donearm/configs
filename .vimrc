@@ -100,7 +100,8 @@ map ,delgyah :g#^>\? http://docs.yahoo#.-10,.d
 map ,noheader :0,/^$/d
 "
 " --- MAIL END ---
-"  
+"
+"
 " --- PROGRAMMING ---
 if has("autocmd")
     " some options for python files
@@ -282,3 +283,7 @@ autocmd BufWritePre,FileWritePre *source.txt silent! %s/	//g
 autocmd BufWritePre,FileWritePre *0000 silent! %s/	//g
 autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
 autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
+autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
+autocmd BufWritePre,FileWritePre *0000 silent! :g/^\s*$/,/\S/-j
+autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\n$//g
+autocmd BufWritePre,FileWritePre *0000 silent! %s/^\n$//g
