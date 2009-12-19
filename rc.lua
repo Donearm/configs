@@ -694,7 +694,7 @@ awful.rules.rules = {
     { rule = { class = "gcolor2" },
       properties = { floating = true } },
     { rule = { class = "Gmusicbrowser" },
-      properties = { floating = true } },
+      properties = { floating = true, tag = tags[1][5] } },
     { rule = { class = "Firefox:Dialog" },
       properties = { floating = true } },
     { rule = { class = "Firefox-bin" },
@@ -783,6 +783,7 @@ client.add_signal("manage", function (c, startup)
     --        end
     --    end
     --end
+    --
 end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
