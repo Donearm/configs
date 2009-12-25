@@ -32,8 +32,9 @@ vf=screenshot
 #quiet = yes # disable most of the output (really-quiet disable nearly every message)
 #monitoraspect = "1.6" # for 16:10 aspect ratio monitors
 monitoraspect="16:10"
-#vo=gl:yuv=2:rectangle=2
-vo=xv
+# swapinterval is for nvidia drivers >=195.xx
+vo=gl:yuv=2:rectangle=2:swapinterval=-1
+#vo=xv
 ao=alsa
 # Increase volume beyond audiocard's maximum
 af=volume=10:1:0
