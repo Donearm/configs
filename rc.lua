@@ -230,7 +230,6 @@ end
 tags = {}
 tags.setup = {
     { name = "1", layout = layouts[1] },
-    --{ name = "2", layout = layouts[1] },
     { name = "2", layout = layouts[8] },
     { name = "3", layout = layouts[1] },
     { name = "4", layout = layouts[1] },
@@ -241,7 +240,6 @@ tags.setup = {
 -- Define tags table.
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7 }, s)
     tags[s] = {}
     -- Create 7 tags per screen.
     for i, t in ipairs(tags.setup) do
@@ -392,9 +390,8 @@ datebox:buttons(awful.util.table.join(
 ))
 vicious.register(datebox, vicious.widgets.date, setFg('white', "  %T  "))
 
-
--- Create a systray
-mysystray = widget({ type = "systray" })
+-- Create a systray 
+mysystray = widget({ type = "systray" }) 
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -410,7 +407,6 @@ mytaglist.buttons = awful.util.table.join(
         awful.button({ }, 4, awful.tag.viewnext),
         awful.button({ }, 5, awful.tag.viewprev)
         )
-
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
@@ -443,7 +439,7 @@ for s = 1, screen.count() do
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
-	mylayoutbox[s]:buttons(awful.util.table.join(
+    mylayoutbox[s]:buttons(awful.util.table.join(
 			awful.button({ }, 1, function () awful.layout.inc(layouts, 1)
 				naughty.notify({ text = awful.layout.getname(awful.layout.get(1))}) end),
 			awful.button({ }, 3, function () awful.layout.inc(layouts, -1)
@@ -608,8 +604,8 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
 	awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
-    awful.key({ modkey            }, "t",      awful.client.togglemarked                        ),
     awful.key({ modkey,}, "m",
+    awful.key({ modkey }, "t", awful.client.togglemarked),
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
@@ -693,8 +689,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gcolor2" },
       properties = { floating = true } },
-    { rule = { class = "Gmusicbrowser" },
-      properties = { floating = true, tag = tags[1][5] } },
+    --{ rule = { class = "Gmusicbrowser" },
+    --  properties = { floating = true } },
     { rule = { class = "Firefox:Dialog" },
       properties = { floating = true } },
     { rule = { class = "Firefox-bin" },
@@ -711,8 +707,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { name = "OpenOffice.org" },
       properties = { tag = tags[1][5] } },
-    { rule = { class = "Pidgin" },
-      properties = { tag = tags[1][6] } },
+    --{ rule = { class = "Pidgin" },
+     -- properties = { tag = tags[1][6] } },
     { rule = { instance = "Chats" },
       properties = { tag = tags[1][6] } },
     { rule = { name = "Firefox Preferences" },
@@ -729,11 +725,12 @@ autorunApps =
     "xcompmgr -c -C -r10 -o.70 -D5 &",
     "xset m 0.1 2",
     "urxvtd -q -o -f",
+    "choqok",
 }
 if autorun then
     for app = 1, #autorunApps do
         awful.util.spawn(autorunApps[app]) 
-	end
+    end
 end
 		
 -- {{{ Signals
@@ -758,17 +755,17 @@ client.add_signal("manage", function (c, startup)
     end)
  
     -- client placement
-    --if not startup then
+    if not startup then
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
-    --    awful.client.setslave(c)
+        awful.client.setslave(c)
 
         -- Put windows in a smart way, only if they does not set an initial position.
-    --    if not c.size_hints.user_position and not c.size_hints.program_position then
-        --    awful.placement.no_overlap(c)
-    --        awful.placement.no_offscreen(c)
-    --    end
-    --end
+        if not c.size_hints.user_position and not c.size_hints.program_position then
+            awful.placement.no_overlap(c)
+            awful.placement.no_offscreen(c)
+        end
+    end
     -- honor size hints
     c.size_hints_honor = false
 
@@ -798,7 +795,7 @@ client.add_signal("manage", function (c, startup)
 		c.screen = mouse.screen
 	end
 end)
-	
+
 
 -- }}}
 
@@ -820,6 +817,7 @@ end)
 --        if c then client.focus = c end
 --    end
 --end)
+
 
 -- Hook called every minute
 --timer60 = timer { timeout = 60 }
