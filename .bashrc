@@ -34,6 +34,8 @@ alias dollar-euro="curl -s wap.kitco.com/exrate.wml | awk \
 ' BEGIN { x=0; FS = "<" } { if ($0~"^<br/>") {x=0} if (x==1) {print $1} if ($0~"EUR/GB") {x=1} }'"
 # Rsync alias to sync between laptop and desktop over ssh
 alias ssrsync="rsync -avz --progress --inplace --rsh='ssh -p8888'"
+# Png to jpg in current directory
+alias pngtojpg="for p in *.[pP][nN][gG] ; do convert $p ${p%.*}.jpg ; done"
 
 # Set the keycodes for the extra keys that aren't usually recognized by
 # the kernel
