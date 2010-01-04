@@ -689,8 +689,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gcolor2" },
       properties = { floating = true } },
-    --{ rule = { class = "Gmusicbrowser" },
-    --  properties = { floating = true } },
+    { rule = { class = "Gmusicbrowser" },
+      properties = { floating = true } },
     { rule = { class = "Firefox:Dialog" },
       properties = { floating = true } },
     { rule = { class = "Firefox-bin" },
@@ -713,6 +713,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][6] } },
     { rule = { name = "Firefox Preferences" },
       properties = { floating = true } },
+    { rule = { class = "Choqok" },
+      properties = { floating = true } },
   }
 
 
@@ -725,7 +727,7 @@ autorunApps =
     "xcompmgr -c -C -r10 -o.70 -D5 &",
     "xset m 0.1 2",
     "urxvtd -q -o -f",
-    "choqok",
+    "gwibber",
 }
 if autorun then
     for app = 1, #autorunApps do
