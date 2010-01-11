@@ -711,6 +711,8 @@ awful.rules.rules = {
      -- properties = { tag = tags[1][6] } },
     { rule = { instance = "Chats" },
       properties = { tag = tags[1][6] } },
+    { rule = { role = "conversation" },
+      properties = { tag = tags[1][6] } },
     { rule = { name = "Firefox Preferences" },
       properties = { floating = true } },
     { rule = { class = "Choqok" },
