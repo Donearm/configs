@@ -131,6 +131,8 @@ if has("autocmd")
     autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
     " Max 78 characters for line in text files
     autocmd BufRead *.txt set tw=78
+	" No limit of characters for line in csv files
+	autocmd BufRead *.csv set tw=0
     " make every script executable
     autocmd BufWritePost * if getline(1) =~ "^#!/" | silent exe "!chmod u+x <afile>" | endif
 	" add vim options at the end of every script (currently not working)
