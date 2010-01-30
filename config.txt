@@ -1,0 +1,113 @@
+[paths]
+
+/
+/blog&news
+  http://feeds.blogo.it/tvblog/it
+  http://feeds.feedburner.com/TheArtOfManliness
+  http://feeds.gawker.com/lifehacker/full
+  http://franceschini.blogautore.repubblica.it/feed/
+  http://scripts.gamespy.com/rss/gamespy.PC.2.0.xml
+  http://feeds.feedburner.com/beppegrillo/atom
+  http://www.blogger.com/feeds/3157916/posts/default?alt=rss&orderby=published
+  http://www.thesteaksarehigh.com/index.rdf
+  http://www.thesuperficial.com/atom.xml
+/fantasy
+  http://fantasy.gamberi.org/feed/atom/
+  http://fantasybookcritic.blogspot.com/feeds/posts/default
+  http://fantasyhotlist.blogspot.com/feeds/posts/default
+  http://sandstormreviews.blogspot.com/feeds/posts/default
+/fashion
+  http://blogcarolineribeiro.blogspot.com/feeds/posts/default
+  http://bpfacs.blogspot.com/feeds/posts/default
+  http://bytemodels.com/feed/
+  http://community.livejournal.com/vivelechic/data/atom
+  http://diorettescans.blogspot.com/feeds/posts/default
+  http://dontfeedmodels.blogspot.com/feeds/posts/default
+  http://doutzenkroeslove.blogspot.com/feeds/posts/default
+  http://emanueladepaula.blogspot.com/feeds/posts/default
+  http://fashion-scans.blogspot.com/feeds/posts/default
+  http://fcsas.blogspot.com/feeds/posts/default
+  http://feeds.feedburner.com/MmmModels
+  http://feeds.feedburner.com/RogueFashionTrends
+  http://feeds2.feedburner.com/Ilove80
+  http://feeds2.feedburner.com/TopmodelsFashionmodels-LingerieAndEroticsPicsForum
+  http://feeds2.feedburner.com/fashionmodelspics/vDay
+  http://fridadorothea.blogspot.com/feeds/posts/default
+  http://keepingbyscanning.blogspot.com/feeds/posts/default
+  http://ladyfatalescans.livejournal.com/data/atom
+  http://lilaorgona.blogspot.com/feeds/posts/default
+  http://luanateifke.blogspot.com/feeds/posts/default
+  http://maxwelld.livejournal.com/data/atom
+  http://modelstvcommercials.blogspot.com/feeds/posts/default
+  http://picsandmodels.blogspot.com/feeds/posts/default
+  http://pipocascans.blogspot.com/feeds/posts/default
+  http://rubikanja.blogspot.com/feeds/posts/default
+  http://snailscans.blogspot.com/feeds/posts/default
+  http://victoriasecretlovely.blogspot.com/feeds/posts/default
+  http://womenmanagement.blogspot.com/feeds/posts/default
+  http://www.petite-coquette.co.uk/blog/rss.php
+/hardware
+  http://feeds.feedburner.com/AppuntiDigitali
+  http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/technology/rss.xml
+  http://punto-informatico.it/fader/pixml.xml
+  http://rss.slashdot.org/Slashdot/slashdot
+  http://www.tomshardware.com/headlines.rss
+  http://www.xbitlabs.com/misc/rss/
+/linux
+  http://archlinux.me/jelly/feed/
+  http://blog.gobolinux.org/feed/atom/
+  http://celettu.wordpress.com/feed/
+  http://gnomedesktop.org/node/feed
+  http://groups.google.com/group/gnome-do/feed/rss_v2_0_msgs.xml
+  http://julien.danjou.info/blog/index.php/feed/atom
+  http://kmandla.wordpress.com/feed/
+  http://lwn.net/headlines/newrss
+  http://planet.exherbo.org/rss20.xml
+  http://smspillaz.wordpress.com/feed/
+  http://www.cuddletech.com/blog/atom.xml
+  http://www.digg.com/rss/indexlinux_unix.xml
+  http://www.fsdaily.com/feed/published/EndUser
+  http://www.obliquo.net/?rss.xml
+/maidens
+  http://blog.top-stuff.net/feeds/posts/default
+  http://celebsnails.blogspot.com/feeds/posts/default
+  http://feeds.feedburner.com/Gqb-ExcellentHqSoftcore
+  http://feeds.feedburner.com/blogspot/celeblog
+  http://feeds.feedburner.com/coverbabes
+  http://forum.skins.be/external.php?type=RSS2
+  http://hd-video-music-1080i.blogspot.com/feeds/posts/default
+  http://make-her-famous.weblogs.pl/feed/atom/posts/
+  http://neo25.blogspot.com/feeds/posts/default
+  http://raulscans.blogspot.com/feeds/posts/default
+  http://skitlich.blogspot.com/feeds/posts/default
+  http://urbebikinibabes.blogspot.com/feeds/posts/default
+  http://www.89.gen.tr/feed
+  http://www.blackjackskanz.com/feed/
+  http://www.celebutopia.net/forum/external.php?type=RSS2
+/music
+  http://www.metalreviews.com/rss/
+  http://www.roadrunnerrecords.com/blabbermouth.net/newsfeed.xml
+/programmazione
+  http://love-python.blogspot.com/feeds/posts/default
+  http://planet.python.org/rss10.xml
+  http://thunk.org/tytso/blog/feed
+  http://www.digg.com/rss/indexprogramming.xml
+  http://www.google.com/reader/public/atom/user/16712724397688793161/state/com.google/broadcast
+/torrent
+  http://btjunkie.org/rss.xml?query=flac
+  http://rss.thepiratebay.org/104
+  http://thebizlabel-metal.blogspot.com/feeds/posts/default
+/twitter
+  http://twitter.com/statuses/user_timeline/27271317.rss
+
+
+
+[classes]
+
+fashion
+  fashion
+general
+  /
+  blog&news
+maidens
+  maidens
