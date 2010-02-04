@@ -13,6 +13,9 @@
       /*position: absolute;*/
 	  width: 10%;
 	  float: left;
+	  position: fixed;
+	  top: 5px;
+	  left: 5px;
 	  padding-bottom: 5px;
     }
     .navlink {
@@ -20,6 +23,7 @@
       display: block;
 	  padding-top: 3px;
       margin: 2px 10px;
+	  text-decoration: none;
     }
     #editlink {
       color: inherit;
@@ -30,7 +34,7 @@
       background: #d8d8d8;
       margin: 20px auto;
       text-align: justify;
-	  width: 88%;
+	  width: 89%;
 	  float: right;
     }
     .item_title {
@@ -67,6 +71,8 @@
       $NAVLINKS$
       <br/>
       $EDITLINK$
+	  <br/>
+	  <small><a href="#top" class="navlink">^Up</a></small>
     </div>
     $ITEM$
       <div class="item $CLASS$">
