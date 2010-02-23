@@ -84,6 +84,7 @@ URxvt.hold:	    true
 URxvt.urlLauncher:  firefox
 URxvt.loginShell:   true
 URxvt.perl-ext-common:	    default,matcher
+URxvt.matcher.button: 1
 !URxvt.perl-ext:	    tabbed,matcher
 !configure here the look of the tab bar
 URxvt.tabbed.tabbar-fg:	7
