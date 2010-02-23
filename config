@@ -11,6 +11,7 @@ nolirc="1"
 idx="1"
 double="1"
 #mixer-channel=Master
+mixer-channel=PCM
 #vm = "1"
 # antialias subtitles
 spuaa=4
