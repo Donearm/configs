@@ -127,8 +127,8 @@ function getMoboTemp ()
 end
 
 function getGpuTemp ()
-    local f = io.popen(home .. "/.conky/nvidiatemp")
-	--local f = io.popen('nvidia-settings -q GPUCoreTemp | grep Attribute | grep -o "[0-9][0-9*]"')
+    --local f = io.popen(home .. "/.conky/nvidiatemp")
+	local f = io.popen('nvidia-settings -q gpucoretemp -t')
 	local n = f:read()
     print(n)
 	f:close()
