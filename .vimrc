@@ -289,3 +289,5 @@ autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
 autocmd BufWritePre,FileWritePre *0000 silent! :g/^\s*$/,/\S/-j
 autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\n$//g
 autocmd BufWritePre,FileWritePre *0000 silent! %s/^\n$//g
+autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\]\n/URL\] /gi
+autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\]\n/URL\] /gi
