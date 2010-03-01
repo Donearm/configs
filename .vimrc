@@ -293,10 +293,9 @@ augroup bbformatting
 	autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\]\n/URL\] /gi
 	autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
 	autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
-	autocmd BufWritePre,FileWritePre *0000 silent! %s/\s*$//g
-	autocmd BufWritePre,FileWritePre *source.txt silent! %s/\s*$//g
 	autocmd BufWritePre,FileWritePre *0000 silent! %s/<br>//gi
 	autocmd BufWritePre,FileWritePre *source.txt silent! %s/<br>//gi
 	autocmd BufWritePre,FileWritePre *0000 silent! %s/>[^<]*</></g
 	autocmd BufWritePre,FileWritePre *source.txt silent! %s/>[^<]*</></g
+	autocmd BufWritePre,FileWritePre *source.txt silent! %s/fonte/\rfonte/gi
 augroup END
