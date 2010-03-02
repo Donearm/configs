@@ -602,7 +602,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
-	awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
+    awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
     awful.key({ modkey,}, "m",
     awful.key({ modkey }, "t", awful.client.togglemarked),
         function (c)
@@ -728,7 +728,6 @@ autorunApps =
     "xcompmgr -c -C -r10 -o.70 -D5 &",
     "xset m 0.1 2",
     "urxvtd -q -o -f",
-    "gwibber",
 }
 if autorun then
     for app = 1, #autorunApps do
@@ -785,6 +784,7 @@ client.add_signal("manage", function (c, startup)
     --end
     --
 end)
+
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
