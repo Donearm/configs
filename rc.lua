@@ -7,6 +7,7 @@ require("beautiful")
 -- Notification library
 require("naughty")
 require("vicious")
+require("vicious.widgets.cpu")
 
 -- {{{ Variable definitions
 -- Home directory
@@ -303,17 +304,11 @@ gpuicon.image = image(home .. "/.icons/nvidia-black.png")
 
 -- Memory widget
 memwidget = widget({ type = "textbox"})
-vicious.register(memwidget, vicious.widgets.mem, " $1%", 10)
-	--' <span color="#fbfbfb">Ram:</span> $1%')
-	--' <span color="#fbfbfb">Ram:</span> $1% ($2Mb/$3Mb)')
+vicious.register(memwidget, vicious.widgets.mem, " $1%|$2MB", 10)
 memicon = widget({ type = "imagebox"})
 memicon.image = image(home .. "/.icons/ram_drive.png")
 
 -- Network widget
---netwidget = widget({ type = "textbox"})
---vicious.register(netwidget, vicious.widgets.net,
---	' <span color="#fbfbfb">Net</span>: ${eth0 up} / ${eth0 down} [ ${eth0 tx} // ${eth0 rx} ]',
---	nil, nil, 2)
 netupwidget = widget({type = "textbox"})
 -- the last 3 options are interval-in-seconds, properties-name, padding
 vicious.register(netupwidget, vicious.widgets.net,
@@ -335,24 +330,20 @@ netdownicon.image = image(home .. "/.icons/down_arrow.png")
 -- Temperatures
 --
 cputemp = widget({ type = 'textbox'})
---cputemp:set_width(35)
-vicious.register(cputemp, getCpuTemp, "$1", 30)
+--vicious.register(cputemp, getCpuTemp, "$1", 30)
+vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 
 mobotemp = widget({ type = 'textbox'})
---mobotemp:set_width(35)
 vicious.register(mobotemp, getMoboTemp, "$1", 50)
 
 --gputemp = widget({ type = 'textbox'})
---gputemp:set_width(35)
 --vicious.register(gputemp, getGpuTemp, "$1", 30)
  
 -- Both the hddtemp widgets need hddtemp to be setuid, disabled then
 --sdatemp = widget({ type = 'textbox'})
---sdatemp:set_width(35)
 --vicious.register(sdatemp, vicious.widgets.hddtemp, '${/dev/sda}°C', 30)
 
 --sdbtemp = widget({ type = 'textbox'})
---sdbtemp:set_width(35)
 --vicious.register(sdbtemp, vicious.widgets.hddtemp, '${/dev/sdb}°C', 30)
 
 -- Volume widget
@@ -361,7 +352,7 @@ volumeicon.image = image(home .. "/.icons/speaker.png")
 
 volumewidget = widget({ type = "textbox"})
 -- enable caching
-vicious.enable_caching(vicious.widgets.volume)
+vicious.cache(vicious.widgets.volume)
 vicious.register(volumewidget, vicious.widgets.volume, "$1%", 1, "Master")
 volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 4, function() awful.util.spawn(soundRaiseVolume) end),
@@ -375,6 +366,7 @@ volumewidget:buttons(awful.util.table.join(
 --gmailwidget = widget({ type = "textbox" })
 --gmailwidget.text = getGmailUnread
 --vicious.register(gmailwidget, getGmailUnread, nil, 60)
+--vicious.register(gmailwidget, vicious.widgets.gmail, "${count}", 360)
 
 -- {{{ Wibox
 -- Set the default text in textbox
