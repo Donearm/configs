@@ -1,104 +1,149 @@
-import XMonad
-import System.Exit
-import XMonad.Layout
-import XMonad.Layout.PerWorkspace
-import XMonad.Layout.IM
-import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
-import XMonad.Hooks.DynamicLog
+--
+-- An Example from:
+-- http://www.xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Doc-Configuring.html
+--
+
 import IO
+import XMonad
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Grid
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run
+import System.IO
+import System.Exit
+import qualified Data.Map as M
+import XMonad.Prompt
+import XMonad.Prompt.AppendFile
+import XMonad.Prompt.Shell
+import XMonad.Prompt.AppLauncher as AL
+import XMonad.Prompt.XMonad
+import XMonad.Hooks.ManageHelpers
+import XMonad.ManageHook
+import qualified XMonad.StackSet as W
+import XMonad.Util.Cursor
 
-import XMonad.Config (defaultConfig)
+-- Basic Configuration
+-------------------------------------------------------------------------------
+--
+-- Set the default terminal
+--
+myTerminal = "urxvtc"
 
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
- 
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
- 
-    [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm .|. shiftMask, xK_c     ), kill)
-    , ((modm,               xK_space ), sendMessage NextLayout)
-    , ((modm,               xK_n     ), refresh)
-    , ((modm,               xK_Tab   ), windows W.focusDown)
-    , ((modm,               xK_j     ), windows W.focusDown)
-    , ((modm,               xK_k     ), windows W.focusUp  )
-    , ((modm,               xK_m     ), windows W.focusMaster  )
-    , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
-    , ((modm,               xK_h     ), sendMessage Shrink)
-    , ((modm,               xK_l     ), sendMessage Expand)
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm              , xK_q     ), restart "xmonad" True)
-	, ((modm .|. shiftMask, xK_x	 ), spawn "xscreensaver-command -lock")
-	, ((modm,				xK_g	 ), spawn "gmusicbrowser")
-	, ((modm .|. mod1Mask,	xK_f	 ), spawn "firefox -P navigation3 --no-remote")
-	, ((modm,				xK_f	 ), spawn "firefox -P maidens3 --no-remote")
-    ]
-    ++
- 
-        [((m .|. modm, k), windows $ f i) | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9], (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
- 
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
- 
- 
-myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
- 
-    [ ((modMask, button1), (\w -> focus w >> mouseMoveWindow w)), 
-    ((modMask, button3), (\w -> focus w >> mouseResizeWindow w))]
+--
+-- Set the Mod Key
+--
+myModMask = mod4Mask
 
-myManageHook = composeAll
-	[ className =? "Gimp"	--> doFloat
-	, className =? "Gimp"	--> doShift "4"	-- send Gimp to workspace 4
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore
-	, className =? "Pidgin"			--> doShift "5"	-- send Pidgin to workspace 5
-	, (className =? "Firefox" <&&> resource =? "Dialog")	--> doFloat -- make firefox dialogs float
-	, className =? "MPlayer"	--> doIgnore
-	, className =? "Gmusicbrowser"	--> doShift "6"
-	]
+--
+-- Workspaces
+-- 
 
-myLayoutHook = avoidStruts $ smartBorders $
-	onWorkspace "5" (named "IM" (reflectHoriz $ withIM (1%8) (Title "Buddy List") (reflectHoriz $ dwmStyle shrinkText myTheme tiled ||| (smartBorders $ tabs)))) $
-	(tiled ||| named "Mirror" (Mirror tiled) ||| tabs)
-		where
-			tiled = named "Tall" (ResizableTall 1 (3/100) (1/2) [])
-			tabs = named "Tabs" (tabbed shrinkText myTheme)
- 
-main = xmonad defaults
+myWorkspaces = ["1","2" ] ++ map show [3..9]
 
---defaults = defaultConfig {
-defaults = do
-	xmobar <- spawnPipe "xmobar"
-	return $ defaultConfig {
-        terminal           = "urxvt",
-        focusFollowsMouse  = True,
-        borderWidth        = 1,
-        modMask            = mod4Mask,
-        numlockMask        = mod2Mask,
-        workspaces         = ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-        normalBorderColor  = "#000000",
-        focusedBorderColor = "#ffffff",
-        keys               = myKeys,
-        mouseBindings      = myMouseBindings,
-        layoutHook         = myLayoutHook,
-        manageHook         = myManageHook,
-        logHook            = dynamicLogWithPP $ xmobarPP {
-			ppOutput = hPutStrLn xmobar
-			}
-        startupHook        = spawn "urxvt"
-    }
-    where
-    tiled = Tall nmaster delta ratio
-    nmaster = 1
-    ratio = 1/2
-    delta = 3/100
+--
+-- Colors and Such
+--
+myBorderWidth = 0
+myNormalBorderColor = "#000000"
+myFocusedBorderColor= "#0593e8"
+
+--
+-- Mouse pointer
+--
+--setDefaultCursor	xC_left_ptr
+
+-------------------------------------------------------------------------------
+
+--
+-- New Keybindings
+--
+--myKeys conf@(XConfig {XMonad.modMask = mod4Mask}) = M.fromList $
+
+newKeys x =
+			     [ ((modMask x, 			xK_o ), AL.launchApp prompt' "ql" )
+			      ,((modMask x, 			xK_x ),  shellPrompt prompt' ) 
+				  ,((mod1Mask,			xK_m ), spawn "gmusicbrowser" )
+				  ,((modMask x,			xK_f ), spawn "firefox -P navigation3 --no-remote" )
+				  ,((modMask x .|. shiftMask,	xK_f ), spawn "firefox -P maidens3 --no-remote")
+				  ,((0,					0x1008ff14), spawn "gmusicbrowser -remotecmd PlayPause" ) -- play/pause song with gmusicbrowser
+				  ,((0,					0x1008ff15), spawn "gmusicbrowser -remotecmd Stop" ) -- stop song with gmusicbrowser
+				  ,((0,					0x1008ff16), spawn "gmusicbrowser -remotecmd PrevSongInPlaylist" ) -- skip to previous song in gmusicbrowser
+				  ,((0,					0x1008ff17), spawn "gmusicbrowser -remotecmd NextSongInPlaylist" ) -- skip to next song in gmusicbrowser
+				  ,((0,					0x1008ff11), spawn "amixer set Master 2dB-" ) -- lower volume
+				  ,((0,					0x1008ff13), spawn "amixer set Master 2dB+" ) -- raise volume
+				  ,((0,					0x1008ff12), spawn "amixer set Master 0%" ) -- mute soundcard
+				  ,((0,					0x1008ff2f), spawn "xscreensaver-command -lock" ) -- lock screen with xscreensaver
+				  ]
+
+myKeys x = M.union (keys defaultConfig x) (M.fromList (newKeys x))
+
+--
+-- Floating Windows
+--
+myManageHook = composeAll     [ className  =? "feh"  		--> doFloat 
+                              , className  =? "glxgears"  	--> doFloat 
+                              , className  =? "mplayer" 	--> doFloat 
+							  , className  =? "gcolor2"		--> doFloat
+							  , className  =? "Gmusicbrowser" --> doFloat
+							  , className  =? "skype"		--> doFloat
+							  , className  =? "hp-toolbox"	--> doFloat
+							  , className  =? "Pidgin"		--> doShift "6"
+							  , className  =? "Chats"		--> doShift "6"
+							  , role  =? "gimp-toolbox" --> doFloat
+							  , role  =? "gimp-toolbox" --> doShift "5"
+							  , role  =? "gimp-image-window" --> doShift "5"
+							  , className  =? "dialog"	--> doFloat
+							  , role  =? "Preferences"	--> doFloat
+							  , className  =? "firefox"		--> doFloat
+                              , composeOne [ isFullscreen -?> doFullFloat ] ]
+							  where role = stringProperty "WM_WINDOW_ROLE"
+
+prompt' = defaultXPConfig {      font = "xft:ProFont:pixelsize=13:antialias=true:hinting=true"
+			--      , bgColor = "#000000"
+			        , defaultText  = ""
+			        , fgColor = "#ff7f14"
+				, bgColor = "#1b1d1a"
+			--	, fgColor = "#AFAF87"
+			        , bgHLight = "#ff7f14"
+			        , fgHLight = "#1b1d1a"
+			        , borderColor = "#000000"
+			        , promptBorderWidth = 0
+			        , position = Bottom
+			        , height = 13 
+			        , historySize = 256 }
+
+--
+-- Status bars and logging
+--
+newManageHook = myManageHook <+> manageHook defaultConfig <+> manageDocks
+--MYLAYOUTHOOK = avoidStruts $ smartBorders $ layoutHook defaultConfig ||| Grid
+myLayoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig ||| Grid
+
+-------------------------------------------------------------------------------
 
 
+--
+-- The main loop
+--
+
+main = do
+        xmobar <- spawnPipe "xmobar"  -- spawns xmobar and returns a handle
+        xmonad $  defaultConfig {
+
+        -- Simple Stuff
+                  terminal                = myTerminal
+		, keys			  = myKeys
+                , modMask                 = myModMask
+		, workspaces		  = myWorkspaces
+                , borderWidth             = myBorderWidth
+                , normalBorderColor       = myNormalBorderColor
+                , focusedBorderColor      = myFocusedBorderColor
+
+        -- Hooks, layouts
+                -- print the output of xmobarPP to the handle
+                , logHook = dynamicLogWithPP $ xmobarPP { ppOutput = hPutStrLn xmobar } 
+                , manageHook      = newManageHook
+                , layoutHook      = myLayoutHook
+				, startupHook	  = setDefaultCursor xC_left_ptr
+        }

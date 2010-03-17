@@ -1,19 +1,17 @@
-Config { font = "xft:Liberation Mono-9"
-       , bgColor = "#222025"
-       , fgColor = "#e9e8e3"
-       , position = Top
+Config { font = "xft:DejaVu Sans Mono:pixelsize=13:antialias=true:hinting=true"
+       , bgColor = "#1b1d1a"
+       , fgColor = "#ff7f14"
+       , position = Top 
        , lowerOnStart = True
-       , commands = [ Run Weather "MDPP" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
-                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Cpu ["<cpu0>/<cpu1>","-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: %"] 10
-                    , Run Swap [] 10
-                    , Run Com "uname" ["-s","-r"] "" 36000
-    		    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-				, Run StdinReader
+       , commands = [ Run Network "eth0" ["-L","0","-H","32","--normal","#ff7f14","--high","#429942"] 10
+                    , Run Cpu ["-L","3","-H","50","--normal","#429942","--high","#A36666"] 10
+					, Run CoreTemp ["-t","CoreTemp: <core0>°C","-L","20","-H","45","--normal","#ff7f14","--high","#1b1d1a","-t","at <temp>°C"] 120
+                    , Run Memory ["-t","Mem: <usedratio>%|<used>MB"] 10
+					, Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Battery ["-L","30","-H","75","--high","#429942","--normal","#9C935D", "--low", "#A36666"] 10
+                    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% | %uname% | %date% }{ %cpu% | %memory% * %swap% | %eth0% * %eth1% | %MDPP%"
+       , template = " %StdinReader% }{ %cpu% | %memory% | %eth0% | %date%"
        }
