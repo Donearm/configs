@@ -19,8 +19,9 @@ setxkbmap -option terminate:ctrl_alt_bksp &
 #nvidia-settings -a InitialPixmapPlacement=2 -a GlyphCache=1
 nvidia-settings -a PixmapCacheRoundSizeKB=4096
 
-# Start ttytter inside screen
-screen -dm -c ~/.screenrc-ttytter &
+# Start ttytter inside screen, but only if it's not already running
+/mnt/documents/Script/ttytter_screen_startup.sh
+#screen -dm -c ~/.screenrc-ttytter &
 
 
 exec awesome
