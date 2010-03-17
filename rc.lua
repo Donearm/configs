@@ -304,7 +304,7 @@ gpuicon.image = image(home .. "/.icons/nvidia-black.png")
 
 -- Memory widget
 memwidget = widget({ type = "textbox"})
-vicious.register(memwidget, vicious.widgets.mem, " $1%|$2MB", 10)
+vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="#fbfbfb">|</span>$2MB', 10)
 memicon = widget({ type = "imagebox"})
 memicon.image = image(home .. "/.icons/ram_drive.png")
 
