@@ -144,14 +144,14 @@ function getGpuTemp ()
 end
 
 function getSdaTemp ()
-	local f = io.popen("sudo hddtemp /dev/sda | awk '{print $4}'")
+	local f = io.popen("sudo hddtemp /dev/sda -n")
 	local n = f:read()
 	f:close()
 	return setFg(beautiful.fg_normal, ' '..n..'°C ')
 end
 
 function getSdbTemp ()
-	local f = io.popen("sudo hddtemp /dev/sdb | awk '{print $4}'")
+	local f = io.popen("sudo hddtemp /dev/sdb -n")
 	local n = f:read()
 	f:close()
 	return setFg(beautiful.fg_normal, ' '..n..'°C ')
@@ -674,9 +674,7 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "Gimp" },
-      properties = { floating = true } },
-    { rule = { class = "Gimp" },
-      properties = { tag = tags[1][5] } },
+      properties = { floating = true , tag = tags[1][5], switchtotag = true} },
     { rule = { class = "feh" },
       properties = { floating = true } },
     { rule = { class = "gcolor2" },
@@ -699,8 +697,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { name = "OpenOffice.org" },
       properties = { tag = tags[1][5] } },
-    --{ rule = { class = "Pidgin" },
-     -- properties = { tag = tags[1][6] } },
+    { rule = { class = "Pidgin" },
+      properties = { tag = tags[1][6] } },
     { rule = { instance = "Chats" },
       properties = { tag = tags[1][6] } },
     { rule = { role = "conversation" },
