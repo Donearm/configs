@@ -7,7 +7,7 @@
 #
 
 #source /etc/X11/Xsession 2> /tmp/startx.log
-hddtemp -d /dev/sda /dev/sdb
+#hddtemp -d /dev/sda /dev/sdb
 
 # not needed since Xorg 7.4
 #xmodmap .Xmodmap
