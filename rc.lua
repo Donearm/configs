@@ -685,7 +685,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Firefox:Dialog" },
       properties = { floating = true } },
-    { rule = { class = "Firefox-bin" },
+    { rule = { class = "Firefox-bin", instance = "firefox-bin" },
       properties = { floating = true } },
     { rule = { instance = "Download" },
       properties = { floating = true } },
