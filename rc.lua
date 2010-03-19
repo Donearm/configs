@@ -59,18 +59,18 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.floating
+    awful.layout.suit.tile,             -- [1]
+    awful.layout.suit.tile.left,        -- [2]
+    awful.layout.suit.tile.bottom,      -- [3]
+    awful.layout.suit.tile.top,         -- [4]
+    awful.layout.suit.fair,             -- [5]
+    awful.layout.suit.fair.horizontal,  -- [6]
+    awful.layout.suit.max,              -- [7]
+    awful.layout.suit.max.fullscreen,   -- [8]
+    awful.layout.suit.magnifier,        -- [9]
+    awful.layout.suit.floating          -- [10]
+    --awful.layout.suit.spiral,           -- [11]
+    --awful.layout.suit.spiral.dwindle,   -- [12]
 }
 
 
@@ -229,27 +229,21 @@ end
 
 -- {{{ Tags
 tags = {}
-tags.setup = {
-    { name = "1", layout = layouts[1] },
-    { name = "2", layout = layouts[8] },
-    { name = "3", layout = layouts[1] },
-    { name = "4", layout = layouts[1] },
-    { name = "5", layout = layouts[1] },
-    { name = "6", layout = layouts[1] },
-    { name = "7", layout = layouts[1] }
-}
 -- Define tags table.
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = {}
-    -- Create 7 tags per screen.
-    for i, t in ipairs(tags.setup) do
-        tags[s][i] = tag({ name = t.name })
-        tags[s][i].screen = s
-        awful.tag.setproperty(tags[s][i], "layout", t.layout)
-        awful.tag.setproperty(tags[s][i], "mwfact", t.mwfact)
-        awful.tag.setproperty(tags[s][i], "hide", t.hide)
-    end
+    -- Create 7 tags per screen with their respective layouts
+    tags[s] = awful.tag({ "1", "2", "3", "4", "5", "6", "7"}, s, 
+        {
+            layouts[1],
+            layouts[7],
+            layouts[1],
+            layouts[1],
+            layouts[1],
+            layouts[1],
+            layouts[1]
+        })
     tags[s][1].selected = true
 end
 -- }}}
@@ -686,6 +680,8 @@ awful.rules.rules = {
     { rule = { class = "Firefox-bin", instance = "firefox-bin" },
       properties = { floating = true } },
     { rule = { instance = "Download" },
+    { rule = { name = "Web Browser" },
+      properties = { tag = tags[1][5], switchtotag = true} },
       properties = { floating = true } },
     { rule = { class = "Skype" },
       properties = { floating = true } },
