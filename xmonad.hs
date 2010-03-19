@@ -22,6 +22,8 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.ManageHook
 import qualified XMonad.StackSet as W
 import XMonad.Util.Cursor
+import XMonad.Hooks.UrgencyHook
+import XMonad.Actions.CycleWS
 
 -- Basic Configuration
 -------------------------------------------------------------------------------
@@ -74,6 +76,8 @@ newKeys x =
 				  ,((0,					0x1008ff13), spawn "amixer set Master 2dB+" ) -- raise volume
 				  ,((0,					0x1008ff12), spawn "amixer set Master 0%" ) -- mute soundcard
 				  ,((0,					0x1008ff2f), spawn "xscreensaver-command -lock" ) -- lock screen with xscreensaver
+				  ,((modMask x,			xK_q), focusUrgent) -- focus the latest urgent window
+				  ,((modMask x,			xK_Escape), toggleWS) -- move to the previous workspace
 				  ]
 
 myKeys x = M.union (keys defaultConfig x) (M.fromList (newKeys x))
@@ -103,8 +107,7 @@ prompt' = defaultXPConfig {      font = "xft:ProFont:pixelsize=13:antialias=true
 			--      , bgColor = "#000000"
 			        , defaultText  = ""
 			        , fgColor = "#ff7f14"
-				, bgColor = "#1b1d1a"
-			--	, fgColor = "#AFAF87"
+					, bgColor = "#1b1d1a"
 			        , bgHLight = "#ff7f14"
 			        , fgHLight = "#1b1d1a"
 			        , borderColor = "#000000"
@@ -120,6 +123,23 @@ newManageHook = myManageHook <+> manageHook defaultConfig <+> manageDocks
 --MYLAYOUTHOOK = avoidStruts $ smartBorders $ layoutHook defaultConfig ||| Grid
 myLayoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig ||| Grid
 
+--
+-- Dzen
+--
+--myDzenPP h = defaultPP
+--	{ ppCurrent = dzenColor fgColor bgColor . pad
+--	, ppHiddenNoWindows	= dzenColor fgColor bgColor . pad
+--	, ppLayout	= dzenColor fgColor bgColor . pad
+--	, ppUrgent	= wrap (dzenColor "#ff0000" "" "{") (dzenColor "#ff0000" "" "}") . pad
+--	, ppTitle	= wrap "^fg(#909090)[ " " ]^fg()" . shorten 40
+--	, ppWsSep	= ""
+--	, ppSep		= " "
+--	, ppOutput	= hPutStrLn h
+--	}
+
+--DzenCommand = "dzen2 -ta -l -fg '" ++ fgColor ++ "' -bg '" ++ bgColor ++ "' -e 'button3='"
+	
+
 -------------------------------------------------------------------------------
 
 
@@ -129,20 +149,26 @@ myLayoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig ||| Grid
 
 main = do
         xmobar <- spawnPipe "xmobar"  -- spawns xmobar and returns a handle
-        xmonad $  defaultConfig {
+		--dzen <- spawnPipe DzenCommand
+        xmonad $  withUrgencyHook NoUrgencyHook defaultConfig {
 
         -- Simple Stuff
                   terminal                = myTerminal
-		, keys			  = myKeys
+				, keys					  = myKeys
                 , modMask                 = myModMask
-		, workspaces		  = myWorkspaces
+				, workspaces			  = myWorkspaces
                 , borderWidth             = myBorderWidth
                 , normalBorderColor       = myNormalBorderColor
                 , focusedBorderColor      = myFocusedBorderColor
 
         -- Hooks, layouts
                 -- print the output of xmobarPP to the handle
-                , logHook = dynamicLogWithPP $ xmobarPP { ppOutput = hPutStrLn xmobar } 
+                , logHook = dynamicLogWithPP $ xmobarPP { 
+					ppOutput = hPutStrLn xmobar 
+					, ppUrgent = xmobarColor "yellow" "red" . xmobarStrip
+					, ppTitle = xmobarColor "#ff7f14" "" . shorten 50
+					} 
+				--, logHook = dynamicLogWithPP $ myDzenPP dzen
                 , manageHook      = newManageHook
                 , layoutHook      = myLayoutHook
 				, startupHook	  = setDefaultCursor xC_left_ptr
