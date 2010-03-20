@@ -20,6 +20,7 @@ color.project.home=on_green
 color.project.pyimagedownloader=on_bright_cyan
 color.project.os=bold_black on_black
 color.project.eeepc=blue
+color.project.pyimageuploader=on_blue
 #color.keyword.car=on_blue
 #shadow.file=/home/onearm/.task/shadow.txt
 #shadow.command=list
