@@ -36,7 +36,7 @@ alias dollar-euro="curl -s wap.kitco.com/exrate.wml | awk \
 # Rsync alias to sync between laptop and desktop over ssh
 alias ssrsync="rsync -avz --progress --inplace --rsh='ssh -p8888'"
 # ttytter script for mf important persons
-alias mf_vip="ttytter -rc=-mf -readline=0 -script /mnt/documents/stuff/ttytter-mf-vip"
+alias mf_vip="ttytter -rc=-donearm -readline=0 -script /mnt/documents/stuff/ttytter-mf-vip"
 
 # Set the keycodes for the extra keys that aren't usually recognized by
 # the kernel
