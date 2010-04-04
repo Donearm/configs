@@ -16,7 +16,6 @@ alias bajkal="mutt -f imap://in.virgilio.it"
 alias email_it="mutt -f imap://imapmail.email.it/INBOX"
 alias alsamixer="alsamixer -V all"
 alias svim="sudo vim"
-alias feh="feh --fontpath /usr/share/fonts/TTF/"
 alias voracious="voracious --age-limit 2800 -b kortirion --nobozo"
 alias vcs="vcs -j -c 4 -u nirari -H 200 -O bg_heading=lavender \
 -O bg_sign=lavender -O bg_contact=lavender \

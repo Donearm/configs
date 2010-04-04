@@ -12,6 +12,8 @@
 # ln -s `which feh` ~/bin/mkindex
 # Now when you run 'mkindex', feh will load the config specified for the
 # mkindex theme.
+#
+feh --fontpath /usr/share/feh/fonts/ --menu-style /usr/share/feh/fonts/menu.style --menu-bg /usr/share/feh/images/menubg_default.png
 
 # ======================
 # Some examples of usage
