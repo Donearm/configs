@@ -1,0 +1,28 @@
+urls-source "googlereader"
+googlereader-login	"xxxxx"
+googlereader-password	"xxxxx"
+googlereader-flag-share	"a"
+googlereader-flag-star	"b"
+googlereader-show-special-feeds	"no"
+
+browser		"links -g %u"
+max-items	"0"
+show-read-feeds		"no"
+ignore-mode		"download"
+display-article-progress	"yes"
+error-log	"~/.newsbeuter/error.log"
+#html-renderer	"links -html-assume-codepage utf-8 -force-html -dump"
+notify-program	"notify-send"
+mark-as-read-on-hover	"no"
+refresh-on-startup	"yes"
+
+bind-key	"j"	down
+bind-key	"k"	up
+bind-key	"e" open
+
+# mark everything as read and exit
+macro a	mark-feed-read ; quit
+# open urls with feh
+macro i set browser "feh %u" ; open ; set browser "links -g %u"
+# save the current url in a file, to be parsed later by other scripts
+macro x set browser "echo %u >> ~/.newsbeuter/queue" ; set browser "links -g %u"
