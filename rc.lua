@@ -305,6 +305,7 @@ memicon.image = image(home .. "/.icons/ram_drive.png")
 -- Network widget
 netupwidget = widget({type = "textbox"})
 -- the last 3 options are interval-in-seconds, properties-name, padding
+vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
 	'${eth0 up_kb} <span color="#fbfbfb">[</span>${eth0 tx_mb}M<span color="#fbfbfb">]</span>', nil, nil, 3)
 netdownwidget = widget({ type = "textbox"})
