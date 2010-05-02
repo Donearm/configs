@@ -301,5 +301,5 @@ augroup bbformatting
 augroup END
 
 " Aspell checking
-map  :w!<CR>:!aspell -d it check %<CR>:e! %<CR>
-map  :w!<CR>:!aspell -d en check %<CR>:e! %<CR>
+map  :w!<CR>:!aspell -d it -x check %<CR>:e! %<CR>
+map  :w!<CR>:!aspell -d en -x check %<CR>:e! %<CR>
