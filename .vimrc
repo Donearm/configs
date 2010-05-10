@@ -28,7 +28,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 set t_Co=256 " number of colors in terminal, default=88
-set spelllang=en,it,es,pt-br
+set spelllang=en,it,es,pt
 
 "set guifontset=-adobe-courier-medium-r-normal-*-10-*-*-*-*-*-iso10646-1
 filetype plugin on
