@@ -155,7 +155,10 @@ export LANG=it_IT.utf8
 export LANGUAGE=it_IT.utf8
 export LC_TYPE=it_IT.utf8
 export LC_CTYPE=it_IT.utf8
+export LC_COLLATE=it_IT.utf8
 export LC_ALL=it_IT.utf8
+export LC_MESSAGES=it_IT.utf8
+export LC_NUMERIC=it_IT.utf8
 # use less with utf8
 export LESSCHARSET="utf-8"
 export DATE=`date +%G_%m_%d`
