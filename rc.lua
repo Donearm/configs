@@ -32,7 +32,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Some variables
 browser_nav = "firefox -P navigation3 --no-remote"
-browser_mad = "firefox -P maidens3 --no-remote"
+browser_mad = "firefox -P maidens --no-remote"
 music = "gmusicbrowser"
 musicPlay = "gmusicbrowser -remotecmd PlayPause"
 musicStop = "gmusicbrowser -remotecmd Stop"
@@ -262,7 +262,8 @@ myawesomemenu = {
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/.icons/archlinux-wm-awesome.png") },
                                         { "open terminal", terminal, image("/usr/share/pixmaps/rxvt-unicode.png") },
                                         { "firefox (navigation)", "firefox -P navigation3 --no-remote", image("/usr/share/pixmaps/firefox.png") },
-                                        { "firefox (maidens)", "firefox -P maidens3 --no-remote", image("/usr/share/pixmaps/firefox.png") },
+                                        { "firefox (maidens)", "firefox -P maidens --no-remote", image("/usr/share/pixmaps/firefox.png") },
+                                        { "chromium", "chromium", image("/usr/share/icons/hicolor/16x16/apps/chromium.png") },
                                         { "thunar", "thunar", image(home .. "/.icons/thunar-logo.png") },
                                         { "Music", "gmusicbrowser", image("/usr/share/pixmaps/gmusicbrowser.png") },
                                         { "Pidgin", "pidgin", image("/usr/share/icons/hicolor/16x16/apps/pidgin.png") },
