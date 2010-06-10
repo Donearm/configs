@@ -20,7 +20,6 @@ alias voracious="voracious --age-limit 2800 -b kortirion --nobozo"
 alias vcs="vcs -j -c 4 -u nirari -H 200 -O bg_heading=lavender \
 -O bg_sign=lavender -O bg_contact=lavender \
 -O font_heading=DejaVu-Sans-Condensed-Bold"
-alias yogurt="yaourt"
 # Skype using gtk instead of qt
 alias skype="skype --disable-cleanlooks -style GTK"
 # Mplayer using 2 threads/cpu by default 
@@ -29,13 +28,8 @@ alias skype="skype --disable-cleanlooks -style GTK"
 # Feh alias for loading all the images in the directory
 #alias fehall="feh --scale-down -S filename ."
 alias orphans="pacman -Qtdq"
-# Get conversion rate for Euro/Dollar
-alias dollar-euro="curl -s wap.kitco.com/exrate.wml | awk \
-' BEGIN { x=0; FS = "<" } { if ($0~"^<br/>") {x=0} if (x==1) {print $1} if ($0~"EUR/GB") {x=1} }'"
 # Rsync alias to sync between laptop and desktop over ssh
 alias ssrsync="rsync -avz --progress --inplace --rsh='ssh -p8888'"
-# ttytter script for mf important persons
-alias mf_vip="ttytter -rc=-donearm -readline=0 -script /mnt/documents/stuff/ttytter-mf-vip"
 
 # Set the keycodes for the extra keys that aren't usually recognized by
 # the kernel
