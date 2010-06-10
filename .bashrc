@@ -30,6 +30,9 @@ alias skype="skype --disable-cleanlooks -style GTK"
 alias orphans="pacman -Qtdq"
 # Rsync alias to sync between laptop and desktop over ssh
 alias ssrsync="rsync -avz --progress --inplace --rsh='ssh -p8888'"
+# Two openssl aliases to encode/decode files
+alias ssl_enc="openssl aes-256-cbc -salt"
+alias ssl_dec="openssl aes-256-cbc -d"
 
 # Set the keycodes for the extra keys that aren't usually recognized by
 # the kernel
