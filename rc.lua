@@ -13,7 +13,7 @@ require("vicious.widgets.cpu")
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/irinashayk04"
+theme_path = home .. "/.config/awesome/themes/candiceswanepoel02"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -435,7 +435,7 @@ for s = 1, screen.count() do
 				naughty.notify({ text = awful.layout.getname(awful.layout.get(1))}) end),
 			awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
 			awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
-    mylayoutbox[s].image = image("/usr/share/awesome/themes/default/layouts/tilew.png")
+    mylayoutbox[s].image = image("/usr/share/awesome/themes/default/layouts/tile.png")
 
     -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)

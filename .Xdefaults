@@ -28,18 +28,18 @@ URxvt.boldFont:	    xft:DejaVu Sans Mono:bold:pixelsize=14:antialias=true
 Urxvt.italicFont:   xft:DejaVu Sans Mono:italic:pixelsize=14:antialias=true
 Urxvt.boldItalicFont:	xft:DejaVu Sans Mono:bold:italic:pixelsize=14:antialias=true
 !urxvt.background:   rgba:0000/0000/0000/cccc
-urxvt.background:   #282828
+urxvt.background:   #7199ca
 urxvt.foreground:   #f4f0e7
 URxvt.transparent:  true
 URxvt.shading:		15
 URxvt.fading:	    30
-URxvt.fadeColor:    #282828
+URxvt.fadeColor:    #7199ca
 !URxvt.tintColor:    #6c9eab
 !URxvt.cursorColor:	#e4a900
-URxvt.cursorColor:	#ff7f14
+URxvt.cursorColor:	#7199ca
 URxvt.cursorColor2:	#f4f5f9
-URxvt.pointerColor:	#ef8764
-URxvt.pointerColor2:	white
+URxvt.pointerColor:	#7199ca
+URxvt.pointerColor2:	black
 URxvt.pointerBlank:	true
 !Black + DarkGrey
 URxvt.color0:   #121212
@@ -69,11 +69,11 @@ URxvt.colorBD:	#e09177
 URxvt.colorUL:	#fcd3c7
 URxvt.colorIT:	    white
 URxvt.scrollBar:    true
-URxvt.scrollColor:  #ff7f14
+URxvt.scrollColor:  #7199ca
 URxvt.scrollstyle:  plain
 URxvt.jumpScroll:	0
 URxvt.troughColor:  white
-URxvt.borderColor:  #2a3a4a
+URxvt.borderColor:  #7199ca
 URxvt.iconName:	    urxvt
 URxvt.saveLines:    3000
 URxvt.internalBorder:	0
