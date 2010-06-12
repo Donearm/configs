@@ -29,8 +29,8 @@ theme.border_marked = "#444078"
 --taglist_bg_focus = #ff0000
 
 -- Display the taglist squares
-theme.taglist_squares_sel = "/usr/share/awesome/themes/zenburn/taglist/squaref.png"
-theme.taglist_squares_unsel = "/usr/share/awesome/themes/zenburn/taglist/square.png"
+theme.taglist_squares_sel = "/usr/share/awesome/themes/zenburn/taglist/squarefz.png"
+theme.taglist_squares_unsel = "/usr/share/awesome/themes/zenburn/taglist/squarez.png"
 
 theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/floating.png"
 
