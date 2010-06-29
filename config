@@ -26,15 +26,18 @@ stop-xscreensaver="yes" # First try
 geometry="50%:100%"
 prefer-ipv4=yes
 msglevel=decvideo=0:identify=6
-vf=denoise3d
-vf=scale
-vf=screenshot
+# No filters work with vdpau!
+#vf=denoise3d
+#vf=scale
+#vf=screenshot
 #vf=expand=0:-50:0:0	# should put any subtitles in the black bar under the video and not on it
 #quiet = yes # disable most of the output (really-quiet disable nearly every message)
 #monitoraspect = "1.6" # for 16:10 aspect ratio monitors
 monitoraspect="16:10"
 # swapinterval is for nvidia drivers >=195.xx
-vo=gl:yuv=2:rectangle=2:swapinterval=-1
+#vo=gl:yuv=2:rectangle=2:swapinterval=-1
+vo=vdpau,xv
+vc=ffmpeg12vdpau,ffh264vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
 #vo=xv
 ao=alsa
 # Increase volume beyond audiocard's maximum
@@ -44,6 +47,13 @@ af=volume=10:1:0
 [xvmc]
 vo=xvmc
 vc=ffmpeg12mc
+
+# Mplayer in the framebuffer
+[fb]
+vo=fbdev2
+vc=,
+fs=1
+zoom=1
 
 [gnome-mplayer]
 vo=xv
