@@ -1,5 +1,3 @@
-keycode 113 = Mode_switch
-
 keycode 162 = XF86AudioPlay
 keycode 164 = XF86AudioStop
 keycode 144 = XF86AudioPrev
@@ -10,4 +8,3 @@ keycode 160 = XF86AudioMute
 keycode 178 = XF86Launch0
 keycode 236 = XF86Mail
 keycode 223 = XF86ScreenSaver
-
