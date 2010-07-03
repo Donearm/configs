@@ -42,7 +42,7 @@ musicNext = "gmusicbrowser -remotecmd NextSongInPlaylist"
 soundRaiseVolume = "amixer set Master 5%+"
 soundLowerVolume = "amixer set Master 5%-"
 soundMute = "amixer set Master 0%"
-filemanager = "thunar"
+filemanager = "nautilus --no-desktop"
 mail = "urxvtc -e mutt -y"
 lockScreen = "xscreensaver-command -lock"
 spacer = " " -- well, just a spacer
@@ -265,7 +265,8 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "firefox (navigation)", "firefox -P navigation3 --no-remote", image("/usr/share/pixmaps/firefox.png") },
                                         { "firefox (maidens)", "firefox -P maidens --no-remote", image("/usr/share/pixmaps/firefox.png") },
                                         { "firefox (upload)", "firefox -P upload --no-remote", image("/usr/share/pixmaps/firefox.png") },
-                                        { "thunar", filemanager, image(home .. "/.icons/thunar-logo.png") },
+                                        --{ "thunar", filemanager, image(home .. "/.icons/thunar-logo.png") },
+                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
                                         { "Pyrenamer", "pyrenamer", image("/usr/share/pixmaps/pyrenamer.png") },
                                         { "Music", "gmusicbrowser", image("/usr/share/pixmaps/gmusicbrowser.png") },
                                         { "Pidgin", "pidgin", image("/usr/share/icons/hicolor/16x16/apps/pidgin.png") },
