@@ -42,7 +42,7 @@ musicNext = "gmusicbrowser -remotecmd NextSongInPlaylist"
 soundRaiseVolume = "amixer set Master 5%+"
 soundLowerVolume = "amixer set Master 5%-"
 soundMute = "amixer set Master 0%"
-filemanager = "nautilus --no-desktop"
+filemanager = "dbus-launch nautilus --no-desktop"
 mail = "urxvtc -e mutt -y"
 lockScreen = "xscreensaver-command -lock"
 spacer = " " -- well, just a spacer
@@ -69,9 +69,9 @@ layouts =
     awful.layout.suit.max,              -- [7]
     awful.layout.suit.max.fullscreen,   -- [8]
     awful.layout.suit.magnifier,        -- [9]
-    awful.layout.suit.floating          -- [10]
-    --awful.layout.suit.spiral,           -- [11]
-    --awful.layout.suit.spiral.dwindle,   -- [12]
+    awful.layout.suit.floating,         -- [10]
+    awful.layout.suit.spiral,           -- [11]
+    awful.layout.suit.spiral.dwindle    -- [12]
 }
 
 
@@ -229,8 +229,8 @@ end
 -- }}}
 
 -- {{{ Tags
+-- Define a tag table which hold all screen tags.
 tags = {}
--- Define tags table.
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = {}
@@ -249,7 +249,7 @@ for s = 1, screen.count() do
 end
 -- }}}
 
-
+-- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
@@ -454,7 +454,7 @@ for s = 1, screen.count() do
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
         height = 18 })
-    -- Add widgets to the wibox, in this order
+    -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
 		{
             mytaglist[s],
@@ -498,7 +498,6 @@ root.buttons(awful.util.table.join(
 -- }}}
 
 -- {{{ Key bindings
-
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
@@ -514,7 +513,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show(true)        end),
+    awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -597,7 +596,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
-    awful.key({ modkey,}, "m",
+    awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
