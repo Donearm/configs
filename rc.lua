@@ -264,7 +264,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "open terminal", terminal, image("/usr/share/pixmaps/rxvt-unicode.png") },
                                         { "firefox (navigation)", "firefox -P navigation3 --no-remote", image("/usr/share/pixmaps/firefox.png") },
                                         { "firefox (maidens)", "firefox -P maidens --no-remote", image("/usr/share/pixmaps/firefox.png") },
-                                        { "firefox (upload)", "firefox -P upload --no-remote", image("/usr/share/pixmaps/firefox.png") },
                                         --{ "thunar", filemanager, image(home .. "/.icons/thunar-logo.png") },
                                         { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
                                         { "Pyrenamer", "pyrenamer", image("/usr/share/pixmaps/pyrenamer.png") },
