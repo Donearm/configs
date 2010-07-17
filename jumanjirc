@@ -1,0 +1,7 @@
+script ~/.config/jumanji/scripts/input_hinting_mode.js
+plugin application/x-shockwave-flash
+set download_dir ~
+set download_command urxvtc -e sh -c "wget --load-cookies  ~/.config/jumanji/cookies '%s' -O %s";
+set homepage http://www.repubblica.it
+searchengine ggl http://www.google.com/search?q=%s
+
