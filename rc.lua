@@ -686,6 +686,8 @@ awful.rules.rules = {
     { rule = { name = "Web Browser" },
       properties = { tag = tags[1][5], switchtotag = true} },
       properties = { floating = true } },
+    { rule = { class = "<unknown>" }, -- for fullscreen flash videos
+      properties = { floating = true } },
     { rule = { class = "Skype" },
       properties = { floating = true } },
     { rule = { class = "Hp-toolbox" },
@@ -755,7 +757,9 @@ client.add_signal("manage", function (c, startup)
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
-            awful.placement.no_offscreen(c)
+            if not (c.instance == "<unknown>" and not c.class == "<unknown>" and not c.name == "<unknown>") then
+                awful.placement.no_offscreen(c)
+            end
         end
     end
     -- honor size hints
