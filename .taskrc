@@ -29,3 +29,6 @@ color.project.pyimageuploader=on_blue
 #shadow.command=list
 #shadow.notify=on
 #default.command=list
+list.all.projects=yes
+list.all.tags=yes
+due=7
