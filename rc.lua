@@ -41,6 +41,7 @@ musicPrev = "gmusicbrowser -remotecmd PrevSongInPlaylist"
 musicNext = "gmusicbrowser -remotecmd NextSongInPlaylist"
 soundRaiseVolume = "amixer set Master 5%+"
 soundLowerVolume = "amixer set Master 5%-"
+soundPerfectVolume = "amixer set Master 5%"
 soundMute = "amixer set Master 0%"
 filemanager = "dbus-launch nautilus --no-desktop"
 mail = "urxvtc -e mutt -y"
@@ -352,6 +353,7 @@ volumewidget = widget({ type = "textbox"})
 vicious.cache(vicious.widgets.volume)
 vicious.register(volumewidget, vicious.widgets.volume, "$1%", 1, "Master")
 volumewidget:buttons(awful.util.table.join(
+    awful.button({ }, 1, function() awful.util.spawn(soundPerfectVolume) end),
     awful.button({ }, 4, function() awful.util.spawn(soundRaiseVolume) end),
     awful.button({ }, 5, function() awful.util.spawn(soundLowerVolume) end),
     awful.button({ }, 3, function() awful.util.spawn(soundMute) end)
