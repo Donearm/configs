@@ -48,6 +48,7 @@ mail = "urxvtc -e mutt -y"
 lockScreen = "xscreensaver-command -lock"
 spacer = " " -- well, just a spacer
 
+
 -- Alt is Mod1
 alt = "Mod1"
 
@@ -189,6 +190,39 @@ function addCalendar(inc_offset)
     })
 end
 
+
+function psByCpu(n)
+    if n == 1 then
+        naughty.destroy(cpuPopup)
+        cpuPopup = nil
+    else
+        local r = io.popen("ps -eo pid,user,comm,%cpu --sort=-%cpu | sed -n '1,15p'"):read("*a")
+        cpuPopup = naughty.notify({
+            title = "Cpu Usage",
+            text = r,
+            timeout = 0,
+            hover_timeout = 3,
+            width = 350
+        })
+    end
+end
+
+function psByMemory(n)
+    if n == 1 then
+        naughty.destroy(memoryPopup)
+        memoryPopup = nil
+    else
+        -- memory sorting doesn't work
+        local r = io.popen("ps -eo pid,user,comm,%mem --sort=%mem | sed -n '1,15p'"):read("*a")
+        memoryPopup = naughty.notify({
+            title = "Memory Usage",
+            text = r,
+            timeout = 0,
+            hover_timeout = 3
+        })
+    end
+end
+
 -- Gmail function
 function getGmailUnread()
     -- check if the network is up by pinging the router
@@ -288,8 +322,11 @@ mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-bl
 cpuicon = widget({ type = "imagebox"})
 cpuicon.image = image(home .. "/.icons/amd_cpu.png")
 cpuwidget = widget({ type = "textbox" })
+cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
+cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
     ' <span color="#fbfbfb">[</span>$2%<span color="#fbfbfb">][</span>$3%<span color="#fbfbfb">]</span>', 5)
+
 
 -- Motherboard icon
 moboicon = widget({ type = "imagebox" })
@@ -300,10 +337,13 @@ gpuicon = widget({ type = "imagebox" })
 gpuicon.image = image(home .. "/.icons/nvidia-black.png")
 
 -- Memory widget
-memwidget = widget({ type = "textbox"})
-vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="#fbfbfb">|</span>$2MB', 10)
 memicon = widget({ type = "imagebox"})
 memicon.image = image(home .. "/.icons/ram_drive.png")
+memwidget = widget({ type = "textbox"})
+memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
+memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
+vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="#fbfbfb">|</span>$2MB', 10)
+
 
 -- Network widget
 netupwidget = widget({type = "textbox"})
