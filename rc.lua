@@ -202,7 +202,7 @@ function psByCpu(n)
             text = r,
             timeout = 0,
             hover_timeout = 3,
-            width = 350
+            width = 250
         })
     end
 end
@@ -340,8 +340,8 @@ gpuicon.image = image(home .. "/.icons/nvidia-black.png")
 memicon = widget({ type = "imagebox"})
 memicon.image = image(home .. "/.icons/ram_drive.png")
 memwidget = widget({ type = "textbox"})
-memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
-memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
+--memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
+--memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
 vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="#fbfbfb">|</span>$2MB', 10)
 
 
@@ -741,7 +741,8 @@ awful.rules.rules = {
     { rule = { name = "OpenOffice.org" },
       properties = { tag = tags[1][5] } },
     { rule = { class = "Pidgin" },
-      properties = { tag = tags[1][6] } },
+      properties = { tag = tags[1][6] },
+      callback = awful.client.setslave },
     { rule = { instance = "Chats" },
       properties = { tag = tags[1][6] } },
     { rule = { role = "conversation" },
