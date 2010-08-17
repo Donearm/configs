@@ -36,7 +36,7 @@ msglevel=decvideo=0:identify=6
 monitoraspect="16:10"
 # swapinterval is for nvidia drivers >=195.xx
 #vo=gl:yuv=2:rectangle=2:swapinterval=-1
-vo=vdpau,xv
+vo=vdpau:deint=4,xv,
 vc=ffmpeg12vdpau,ffh264vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
 #vo=xv
 ao=alsa
@@ -49,13 +49,22 @@ vo=xvmc
 vc=ffmpeg12mc
 
 # Mplayer in the framebuffer
-[fb]
+[vo.fb]
 vo=fbdev2
 vc=,
 fs=1
 zoom=1
 
+# Mplayer with xv
+[vo.xv]
+vo=xv
+vc=,
+vf=denoise3d
+vf=scale
+vf=screenshot
+
 [gnome-mplayer]
 vo=xv
-vf=eq2
 msglevel=all=5
+ao=alsa
+vf=eq2
