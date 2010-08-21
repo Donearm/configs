@@ -20,6 +20,7 @@ alias voracious="voracious --age-limit 2800 -b kortirion --nobozo"
 alias vcs="vcs -j -c 4 -u nirari -H 200 -O bg_heading=lavender \
 -O bg_sign=lavender -O bg_contact=lavender \
 -O font_heading=DejaVu-Sans-Condensed-Bold"
+alias bauerbill="bauerbill --aur"
 # Skype using gtk instead of qt
 alias skype="skype --disable-cleanlooks -style GTK"
 # Mplayer using 2 threads/cpu by default 
