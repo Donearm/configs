@@ -111,6 +111,37 @@ function setFont(font, text)
     return '<span font_desc="'..font..'">'..text..'</span>'
 end
 
+-- Xprop function
+function xprop(c)
+    f = function (prop, str)
+        return
+        prop and
+        ( str
+        .. ((type(prop)=="boolean") and "" or (" = " .. prop))
+        .. "\n"
+        )
+        or ""
+    end
+
+    naughty.notify({
+        title = "Client info",
+        text = ""
+        .. f(c.class, "class")
+        .. f(c.instance, "instance")
+        .. f(c.name, "name")
+        .. f(c.type, "type")
+        .. f(c.role, "role")
+        .. f(c.pid, "pid")
+        .. f(c.window, "window_id")
+        .. f(c.machine, "machine")
+        .. f(c.skip_taskbar, "skip taskbar")
+        .. f(c.floating, "floating")
+        .. f(c.minimized, "minimized")
+        .. f(c.maximized_horizontal, "maximized horizontal")
+        .. f(c.maximized_vertical, "maximized vertical")
+    })
+end
+
 -- Temp functions
 function getCpuTemp ()
     --local f = io.popen('cut -b 1-2 /sys/module/w83627ehf/drivers/platform\:w83627ehf/w83627ehf.656/temp1_input')
@@ -636,6 +667,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
+    awful.key({ modkey, "Shift"   }, "x",       function (c) xprop(c) end),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
@@ -764,9 +796,22 @@ autorunApps =
     "xset m 0.1 2",
     "urxvtd -q -o -f",
 }
+
+--if autorun then
+--    for app = 1, #autorunApps do
+--        local p = os.execute("pgrep " .. autorunApps[app])
+--        print(p)
+--        if p ~= 0 then
+--            awful.util.spawn(autorunApps[app]) 
+--        else
+--            return nil
+--        end
+--    end
+--end
+
 if autorun then
     for app = 1, #autorunApps do
-        awful.util.spawn(autorunApps[app]) 
+        awful.util.spawn(autorunApps[app])
     end
 end
 		
