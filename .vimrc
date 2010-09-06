@@ -31,6 +31,12 @@ set t_Co=256 " number of colors in terminal, default=88
 set spelllang=en,it,es,pt
 set formatoptions=tcqw " some formatting options, see fo-table
 
+"persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=500 " maximum number of changes that can be undone
+set undoreload=10000 " maximum number of lines to save for undo on a buffer reload
+
 "set guifontset=-adobe-courier-medium-r-normal-*-10-*-*-*-*-*-iso10646-1
 filetype plugin on
 filetype plugin indent on
