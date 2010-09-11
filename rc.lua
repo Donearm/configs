@@ -31,9 +31,8 @@ editor_cmd = terminal .. " -e " .. editor
 
 
 -- Some variables
-browser_nav = "firefox -P navigation3 --no-remote"
-browser_mad = "firefox -P maidens --no-remote"
-browser_upl = "firefox -P upload --no-remote"
+browser_nav = "firefox-nightly -P navigation3 --no-remote"
+browser_mad = "firefox-nightly -P maidens --no-remote"
 music = "gmusicbrowser"
 musicPlay = "gmusicbrowser -remotecmd PlayPause"
 musicStop = "gmusicbrowser -remotecmd Stop"
@@ -328,8 +327,8 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/.icons/archlinux-wm-awesome.png") },
                                         { "open terminal", terminal, image("/usr/share/pixmaps/rxvt-unicode.png") },
-                                        { "firefox (navigation)", "firefox -P navigation3 --no-remote", image("/usr/share/pixmaps/firefox.png") },
-                                        { "firefox (maidens)", "firefox -P maidens --no-remote", image("/usr/share/pixmaps/firefox.png") },
+                                        { "firefox (navigation)", browser_nav, image("/usr/share/pixmaps/firefox.png") },
+                                        { "firefox (maidens)", browser_mad, image("/usr/share/pixmaps/firefox.png") },
                                         --{ "thunar", filemanager, image(home .. "/.icons/thunar-logo.png") },
                                         { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
                                         { "Pyrenamer", "pyrenamer", image("/usr/share/pixmaps/pyrenamer.png") },
@@ -604,7 +603,6 @@ globalkeys = awful.util.table.join(
     awful.key({ alt },               "m",   function () awful.util.spawn(music) end),
     awful.key({ modkey, alt       }, "f",   function () awful.util.spawn(browser_nav) end),
     awful.key({ modkey, "Control" }, "f",   function () awful.util.spawn(browser_mad) end),
-    awful.key({ modkey, "Shift"   }, "f",   function () awful.util.spawn(browser_upl) end),
     awful.key({ none }, "XF86AudioPlay",    function () awful.util.spawn(musicPlay) end),
     awful.key({ none }, "XF86AudioStop",    function () awful.util.spawn(musicStop) end),
     awful.key({ none }, "XF86AudioPrev",    function () awful.util.spawn(musicPrev) end),
