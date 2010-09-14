@@ -30,6 +30,7 @@ set termencoding=utf-8
 set t_Co=256 " number of colors in terminal, default=88
 set spelllang=en,it,es,pt
 set formatoptions=tcqw " some formatting options, see fo-table
+set wildignore=*.swp,*.bak,*.pyc	" ignore those file extensions when Tab completing
 
 "persistent undo
 set undodir=~/.vim/undodir
