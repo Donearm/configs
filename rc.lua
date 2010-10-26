@@ -42,7 +42,7 @@ soundRaiseVolume = "amixer set Master 5%+"
 soundLowerVolume = "amixer set Master 5%-"
 soundPerfectVolume = "amixer set Master 5%"
 soundMute = "amixer set Master 0%"
-filemanager = "dbus-launch nautilus --no-desktop"
+filemanager = "dbus-launch thunar"
 mail = "urxvtc -e mutt -y"
 lockScreen = "xscreensaver-command -lock"
 spacer = " " -- well, just a spacer
@@ -329,9 +329,9 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "open terminal", terminal, image("/usr/share/pixmaps/rxvt-unicode.png") },
                                         { "firefox (navigation)", browser_nav, image("/usr/share/pixmaps/firefox.png") },
                                         { "firefox (maidens)", browser_mad, image("/usr/share/pixmaps/firefox.png") },
-                                        --{ "thunar", filemanager, image(home .. "/.icons/thunar-logo.png") },
-                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
-                                        { "Pyrenamer", "pyrenamer", image("/usr/share/pixmaps/pyrenamer.png") },
+                                        { "thunar", filemanager, image(home .. "/.icons/thunar-logo.png") },
+                                        --{ "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
+                                        --{ "Pyrenamer", "pyrenamer", image("/usr/share/pixmaps/pyrenamer.png") },
                                         { "Music", "gmusicbrowser", image("/usr/share/pixmaps/gmusicbrowser.png") },
                                         { "Pidgin", "pidgin", image("/usr/share/icons/hicolor/16x16/apps/pidgin.png") },
                                         { "Skype", "skype", image("/usr/share/pixmaps/skype.png") },
