@@ -4,9 +4,12 @@
 #; local X11 desktop, etc. I like to keep it simple.
 #;
 
-text/html; firefox -new-tab %s; nametemplate=%s.html
+
+text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
+text/html; firefox -new-tab %s; nametemplate=%s.html; copiousoutput
 #text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
-text/html; links -html-assume-codepage utf-8 -force-html -dump %s; nametemplate=%s.html; copiousoutput
+
+
 
 #image/*; feh %s: copiousoutput
 image/pjpeg; feh %s; copiousoutput
