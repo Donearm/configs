@@ -28,6 +28,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 set t_Co=256 " number of colors in terminal, default=88
+set hidden
+set pastetoggle=<F2> " switch to paste mode with F2
 set spelllang=en,it,es,pt
 set formatoptions=tcqw " some formatting options, see fo-table
 set wildignore=*.swp,*.bak,*.pyc	" ignore those file extensions when Tab completing
