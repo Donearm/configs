@@ -31,8 +31,8 @@ editor_cmd = terminal .. " -e " .. editor
 
 
 -- Some variables
-browser_nav = "firefox-nightly -P navigation3 --no-remote"
-browser_mad = "firefox-nightly -P maidens --no-remote"
+browser_nav = "firefox -P navigation3 --no-remote"
+browser_mad = "firefox -P maidens --no-remote"
 music = "gmusicbrowser"
 musicPlay = "gmusicbrowser -remotecmd PlayPause"
 musicStop = "gmusicbrowser -remotecmd Stop"
@@ -665,7 +665,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
-    awful.key({ modkey, "Shift"   }, "x",       function (c) xprop(c) end),
+    awful.key({ modkey, "Shift"   }, "x",      function (c) xprop(c) end),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
