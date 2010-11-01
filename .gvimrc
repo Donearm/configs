@@ -3,6 +3,9 @@ color gianluca
 " Set window's size
 au GUIEnter * set lines=56 columns=100
 
+" memory, in Kb, used for pattern matching
+set maxmempattern=8000
+
 " maps for using Ctrl+c for copying and Ctrl+v for pasting (as in win
 " and as with the macro for the lachesis)
 vmap <C-C> "+y
