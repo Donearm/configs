@@ -294,6 +294,8 @@ map ,w :call Browser ()<CR>
 " autocmd for source.txt and 0000 files
 augroup bbformatting
 	au!
+	autocmd BufReadPre *source.txt silent! syntax off
+	autocmd BufReadPre *0000 silent! syntax off
 	autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
 	autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
 	autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
