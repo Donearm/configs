@@ -1,5 +1,6 @@
 ansi=1
 avatar=feh -Q %U
+hold=1
 notifies=dm,reply,default
 #notifytype=libnotify
 urlopen=firefox -new-tab %U
