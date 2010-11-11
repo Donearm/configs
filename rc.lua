@@ -13,7 +13,7 @@ require("vicious.widgets.cpu")
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/candiceswanepoel02"
+theme_path = home .. "/.config/awesome/themes/adrianalima01"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -148,7 +148,7 @@ function getCpuTemp ()
     local f = io.popen('cut -b 1-2 /sys/class/hwmon/hwmon0/device/temp3_input')
 	local n = f:read()
 	f:close()
-	--return '<span color="#fbfbfb">' .. " " .. n .. '°C </span>'
+	--return '<span color="#e76936">' .. " " .. n .. '°C </span>'
     return  setFg(beautiful.fg_normal, ' '..n..'°C')
 end
 
@@ -355,7 +355,7 @@ cpuwidget = widget({ type = "textbox" })
 cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
-    ' <span color="#fbfbfb">[</span>$2%<span color="#fbfbfb">][</span>$3%<span color="#fbfbfb">]</span>', 5)
+    ' <span color="#e76936">[</span>$2%<span color="#e76936">][</span>$3%<span color="#e76936">]</span>', 5)
 
 
 -- Motherboard icon
@@ -372,7 +372,7 @@ memicon.image = image(home .. "/.icons/ram_drive.png")
 memwidget = widget({ type = "textbox"})
 --memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
 --memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
-vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="#fbfbfb">|</span>$2MB', 10)
+vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="#e76936">|</span>$2MB', 10)
 
 
 -- Network widget
@@ -380,10 +380,10 @@ netupwidget = widget({type = "textbox"})
 -- the last 3 options are interval-in-seconds, properties-name, padding
 vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
-	'${eth0 up_kb} <span color="#fbfbfb">[</span>${eth0 tx_mb}M<span color="#fbfbfb">]</span>', nil, nil, 3)
+	'${eth0 up_kb} <span color="#e76936">[</span>${eth0 tx_mb}M<span color="#e76936">]</span>', nil, nil, 3)
 netdownwidget = widget({ type = "textbox"})
 vicious.register(netdownwidget, vicious.widgets.net,
-	'${eth0 down_kb} <span color="#fbfbfb">[</span>${eth0 rx_mb}M<span color="#fbfbfb">]</span>', nil, nil, 3)
+	'${eth0 down_kb} <span color="#e76936">[</span>${eth0 rx_mb}M<span color="#e76936">]</span>', nil, nil, 3)
 netupicon = widget({ type = "imagebox"})
 netupicon.image = image(home .. "/.icons/up_arrow.png")
 netdownicon = widget({ type = "imagebox" })
@@ -449,7 +449,7 @@ datebox:buttons(awful.util.table.join(
     awful.button({ }, 4, function () addCalendar(-1) end),
     awful.button({ }, 5, function () addCalendar(1) end)
 ))
-vicious.register(datebox, vicious.widgets.date, setFg('white', "  %T  "))
+vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T  "))
 
 -- Create a systray 
 mysystray = widget({ type = "systray" }) 
