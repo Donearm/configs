@@ -22,6 +22,8 @@ naughty.config.presets.normal.border_color = beautiful.naughty_border_color
 naughty.config.border_width = 2
 -- Define if we want to modify client.opacity
 use_composite = false
+-- the parentheses color
+par_color = beautiful.bg_focus
 
 
 -- This is used later as the default terminal and editor to run.
@@ -148,7 +150,6 @@ function getCpuTemp ()
     local f = io.popen('cut -b 1-2 /sys/class/hwmon/hwmon0/device/temp3_input')
 	local n = f:read()
 	f:close()
-	--return '<span color="#e76936">' .. " " .. n .. '°C </span>'
     return  setFg(beautiful.fg_normal, ' '..n..'°C')
 end
 
@@ -253,45 +254,6 @@ function psByMemory(n)
     end
 end
 
--- Gmail function
-function getGmailUnread()
-    -- check if the network is up by pinging the router
-    local eth0up = os.execute("ping -c 1 192.168.0.1")
-    if eth0up == nil then
-        -- if no connection available, return 0 
-        return spacer .. '0/0'
-    else
-        local unread = io.popen(home .. "/Script/imap_check.py")
-        local f = unread:read()
-        unread:close()
-        return spacer .. setFg(beautiful.fg_normal, f)
-    end
-end
--- It's better to read the result of the script from a file, it's too
--- slow for awesome (and will freeze it if no connection is available)
---function getGmailUnread()
---   local unread = io.open("/tmp/gmailcheck")
---   local value = nil
-
---   if unread ~= nil then
---       value = unread:read()
---   end
-
---   unread:close()
-
---   if value == nil then
---       return ' '
---   else
---       return spacer .. setFg(beautiful.fg_normal, value)
---   end
---end
---
--- And the function to read the temporary file
-function runGmailCheck()
-    os.execute(home .. "/Script/imap_check.py > /tmp/gmailcheck &")
-end
-
--- }}}
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
@@ -355,7 +317,7 @@ cpuwidget = widget({ type = "textbox" })
 cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
-    ' <span color="#e76936">[</span>$2%<span color="#e76936">][</span>$3%<span color="#e76936">]</span>', 5)
+    ' <span color="' .. par_color .. '">[</span>$2%<span color="' .. par_color .. '">][</span>$3%<span color="' .. par_color ..'">]</span>', 5)
 
 
 -- Motherboard icon
@@ -372,7 +334,7 @@ memicon.image = image(home .. "/.icons/ram_drive.png")
 memwidget = widget({ type = "textbox"})
 --memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
 --memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
-vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="#e76936">|</span>$2MB', 10)
+vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="' .. par_color .. '">|</span>$2MB', 10)
 
 
 -- Network widget
@@ -380,20 +342,15 @@ netupwidget = widget({type = "textbox"})
 -- the last 3 options are interval-in-seconds, properties-name, padding
 vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
-	'${eth0 up_kb} <span color="#e76936">[</span>${eth0 tx_mb}M<span color="#e76936">]</span>', nil, nil, 3)
+	'${eth0 up_kb} <span color="' .. par_color .. '">[</span>${eth0 tx_mb}M<span color="' .. par_color .. '">]</span>', nil, nil, 3)
 netdownwidget = widget({ type = "textbox"})
 vicious.register(netdownwidget, vicious.widgets.net,
-	'${eth0 down_kb} <span color="#e76936">[</span>${eth0 rx_mb}M<span color="#e76936">]</span>', nil, nil, 3)
+	'${eth0 down_kb} <span color="' .. par_color .. '">[</span>${eth0 rx_mb}M<span color="' .. par_color .. '">]</span>', nil, nil, 3)
 netupicon = widget({ type = "imagebox"})
 netupicon.image = image(home .. "/.icons/up_arrow.png")
 netdownicon = widget({ type = "imagebox" })
 netdownicon.image = image(home .. "/.icons/down_arrow.png")
 
---wifiwidget = widget({ type = "textbox"})
---wifiInfo("wlan0")
-
---batterywidget = widget({ type = "textbox"})
---batteryInfo("BAT0")
 
 -- Temperatures
 --
@@ -407,7 +364,8 @@ vicious.register(mobotemp, getMoboTemp, "$1", 50)
 --gputemp = widget({ type = 'textbox'})
 --vicious.register(gputemp, getGpuTemp, "$1", 30)
  
--- Both the hddtemp widgets need hddtemp to be setuid, disabled then
+-- Both the hddtemp widgets need hddtemp to be setuid, therefore
+-- disabled
 --sdatemp = widget({ type = 'textbox'})
 --vicious.register(sdatemp, vicious.widgets.hddtemp, '${/dev/sda}°C', 30)
 
@@ -429,13 +387,6 @@ volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 3, function() awful.util.spawn(soundMute) end)
     ))
 
--- Gmail widget
---gmailicon = widget({ type = "imagebox"})
---gmailicon.image = image(home .. "/.icons/gmail-black.png")
---gmailwidget = widget({ type = "textbox" })
---gmailwidget.text = getGmailUnread
---vicious.register(gmailwidget, getGmailUnread, nil, 60)
---vicious.register(gmailwidget, vicious.widgets.gmail, "${count}", 360)
 
 -- {{{ Wibox
 -- Set the default text in textbox
@@ -538,9 +489,6 @@ for s = 1, screen.count() do
             datebox,
             volumewidget,
             volumeicon,
-            --wifiwidget,
-            --gmailwidget,
-            --gmailicon,
             netdownwidget,
             netdownicon,
             netupwidget,
@@ -806,7 +754,7 @@ autorunApps =
     "xscreensaver",
     "xbindkeys",
     --"xcompmgr -c -C -r10 -o.70 -D5 &",
-    "cairo-compmgr &",
+    --"cairo-compmgr &",
     "xset m 0.1 2",
     "urxvtd -q -o -f",
 }
@@ -897,36 +845,5 @@ end)
 
 
 -- }}}
-
-
--- Hook function to execute when arranging the screen.
--- (tag switch, new client, etc)
---awful.hooks.arrange.register(function (screen)
---    local layout = awful.layout.getname(awful.layout.get(screen))
---    if layout and beautiful["layout_" ..layout] then
---        mylayoutbox[screen].image = image(beautiful["layout_" .. layout])
---    else
---        mylayoutbox[screen].image = nil
---    end
-
-    -- Give focus to the latest client in history if no window has focus
-    -- or if the current window is a desktop or a dock one.
---    if not client.focus then
---        local c = awful.client.focus.history.get(screen, 0)
---        if c then client.focus = c end
---    end
---end)
-
-
--- Hook called every minute
---timer60 = timer { timeout = 60 }
---timer60:add_signal("timeout", function() datebox.text = os.date(" %a %b %d, %H:%M ")
---timer60:start()
---
--- Timer for imap_check.py, 10min
--- mailtimer = timer { timeout = 600 }
--- mailtimer:add_signal("timeout", runGmailCheck())
--- mailtimer:start()
-
 
 -- vim: set filetype=lua tabstop=4 shiftwidth=4:
