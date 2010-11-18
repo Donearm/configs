@@ -136,10 +136,10 @@ if has("autocmd")
     " no tabs in spaces for make files
     autocmd FileType make set noexpandtab shiftwidth=8
     " enable function-complete for supported files
-    autocmd BufNewFile *.html,.css,.htm set omnifunc=csscomplete#CompleteCSS
-    autocmd BufRead *.html,.css,.htm set omnifunc=csscomplete#CompleteCSS
-    autocmd BufNewFile *.py set omnifunc=pythoncomplete#Complete
-    autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
+	autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+	autocmd FileType python set omnifunc=pythoncomplete#Complete
+	autocmd FileType ruby set omnifunc=rubycomplete#Complete
     " Max 78 characters for line in text files
     autocmd BufRead *.txt set tw=78
 	" No limit of characters for line in csv files
@@ -179,6 +179,13 @@ function! CComment()
     map _ :s/^\s*\/\* \=//<CR>
     set comments=:/*
 endfunction
+
+function! LuaComment()
+	map - :s/^/-- /<CR>
+	map _ :s/^\s*-- //<CR>
+	set comments=:--
+endfunction
+
 " ...and enabling them
 if has("autocmd")
     autocmd FileType perl	call ShellComment()
@@ -187,6 +194,7 @@ if has("autocmd")
     autocmd FileType java	call ShellComment()
     autocmd FileType python	call ShellComment()
     autocmd FileType c,cpp	call CComment()
+	autocmd FileType lua	call LuaComment()
 endif
 
 " --- PROGRAMMING END ---
