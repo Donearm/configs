@@ -12,3 +12,6 @@ ssl=1
 pause=auto
 track=#archlinux malazan
 wrap=79
+lat=40.85134
+long=14.332103
+location=0
