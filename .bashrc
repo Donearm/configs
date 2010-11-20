@@ -141,6 +141,13 @@ else
     export PS1='[\u@\H \W ]\$ '
 fi
 
+# cgroup stuff
+if [ "$PS1" ] ; then
+	mkdir -m 0700 -p /cgroup/cpu/$$
+	echo 1 > /cgroup/cpu/$$/notify_on_release
+	echo $$ > /cgroup/cpu/$$/tasks
+fi
+
 export BROWSER="/usr/bin/firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
