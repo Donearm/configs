@@ -7,7 +7,8 @@ alias du="du -h -c"
 alias bash="/bin/bash --login"
 alias konsole="konsole --ls"
 alias slrn="slrn --kill-log $HOME/.slrn/kill_log.log"
-alias startx="startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors"
+alias startx="nohup startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors; exit"
+alias Xinit="xinit ~/.xinitrc X -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors"
 alias fetf="fetchmail -F pop.mail.yahoo.it popmail.email.it pop3.live.com"
 alias fetco="fetchmail -c"
 alias gmail="mutt -f imaps://forod.g@imap.gmail.com:993"
@@ -142,11 +143,11 @@ else
 fi
 
 # cgroup stuff
-if [ "$PS1" ] ; then
-	mkdir -m 0700 -p /cgroup/cpu/$$
-	echo 1 > /cgroup/cpu/$$/notify_on_release
-	echo $$ > /cgroup/cpu/$$/tasks
-fi
+#if [ "$PS1" ] ; then
+#	mkdir -m 0700 -p /cgroup/cpu/$$
+#	echo 1 > /cgroup/cpu/$$/notify_on_release
+#	echo $$ > /cgroup/cpu/$$/tasks
+#fi
 
 export BROWSER="/usr/bin/firefox"
 export EDITOR="vim"
