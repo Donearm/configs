@@ -33,6 +33,8 @@ alias ssrsync="rsync -avz --progress --inplace --rsh='ssh -p8898'"
 # Two openssl aliases to encode/decode files
 alias ssl_enc="openssl aes-256-cbc -salt"
 alias ssl_dec="openssl aes-256-cbc -d"
+# top 10 most used commands
+alias top10="history | awk '{print $4}' | awk 'BEGIN {FS ="|"} {print $1}'| sort | uniq -c | sort -rn | head -10"
 
 # Set the keycodes for the extra keys that aren't usually recognized by
 # the kernel
