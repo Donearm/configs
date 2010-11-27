@@ -46,6 +46,7 @@ soundPerfectVolume = "amixer set Master 5%"
 soundMute = "amixer set Master 0%"
 filemanager = "dbus-launch nautilus --no-desktop"
 mail = "urxvtc -e mutt -y"
+maildir = home .. "/Maildir"
 lockScreen = "xscreensaver-command -lock"
 spacer = " " -- well, just a spacer
 
@@ -350,6 +351,12 @@ netupicon.image = image(home .. "/.icons/up_arrow.png")
 netdownicon = widget({ type = "imagebox" })
 netdownicon.image = image(home .. "/.icons/down_arrow.png")
 
+-- Maildir widget
+maildiricon = widget({ type = "imagebox" })
+maildiricon.image = image(home .. "/.icons/gmail-glossy-black.png")
+maildirwidget = widget({ type = "textbox" })
+vicious.register(maildirwidget, vicious.widgets.mdir, ' $1<span color="' .. par_color .. '">|</span>$2 ', 660, { maildir })
+
 
 -- Temperatures
 --
@@ -488,6 +495,8 @@ for s = 1, screen.count() do
             datebox,
             volumewidget,
             volumeicon,
+            maildirwidget,
+            maildiricon,
             netdownwidget,
             netdownicon,
             netupwidget,
