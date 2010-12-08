@@ -29,7 +29,7 @@ nvidia-settings -a PixmapCacheRoundSizeKB=16000
 
 # exporting LANG before launching awesome. It's needed when on runlevel
 # 5 and not using a display manager
-LANG=it_IT.utf8 exec dbus-launch ck-launch-session awesome
+LANG=it_IT.utf8 exec nohup &> /dev/null dbus-launch ck-launch-session awesome
 #exec openbox-session
 # exec /opt/kde/bin/startkde
 # exec gnome-session
