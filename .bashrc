@@ -61,7 +61,8 @@ mkmv() {
 }
 
 startX() {
-	nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors
+	#nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors
+	nohup &> /dev/null sudo telinit 5
 	logout
 }
 
