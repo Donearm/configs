@@ -170,20 +170,20 @@ endif
 "
 " comments' functions
 function! ShellComment()
-    map - :s/^/# /<CR>
-    map _ :s/^\s*# \=//<CR>
+    map - :s/^/#/<CR>
+    map _ :s/^\s*#\=//<CR>
     set comments=:#
 endfunction
 
 function! CComment()
-    map - :s/^/\/\* /<CR>
+    map - :s/^/\/\*/<CR>
     map _ :s/^\s*\/\* \=//<CR>
     set comments=:/*
 endfunction
 
 function! LuaComment()
-	map - :s/^/-- /<CR>
-	map _ :s/^\s*-- //<CR>
+	map - :s/^/--/<CR>
+	map _ :s/^\s*--//<CR>
 	set comments=:--
 endfunction
 
