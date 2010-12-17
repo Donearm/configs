@@ -48,10 +48,10 @@ alias ssl_dec="openssl aes-256-cbc -d"
 #setkeycodes e009 139 &	# the exit icon
 #setkeycodes e018 140 &	# the eject icon
 
-# top 10 most used commands
-topten() {
+# top 15 most used commands
+topfifteen() {
 	history | awk '{print $4}' | awk 'BEGIN {FS ="|"} {print $1}' \
-		| sort | uniq -c | sort -rn | head -10
+		| sort | uniq -c | sort -rn | head -15
 }
 # mkmv - creates a new directory and moves the file into it, in 1 step
 # Usage: mkmv <file> <directory>
