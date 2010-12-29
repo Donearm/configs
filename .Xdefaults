@@ -14,7 +14,7 @@ xclock*buffer:	    true
 xclock*background:  black
 
 ! Mouse Theme
-Xcursor*theme:		Neutral_Plus
+Xcursor*theme:		DMZ
 ! Font options
 !rxvt*font:	    *-iso10646-1
 !rxvt*font:	    -*-freemono-medium-*-*-*-17-*-*-*-*-*-iso10646-*
