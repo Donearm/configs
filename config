@@ -23,14 +23,14 @@ osdlevel=3
 # Disable that damned xscreensaver
 stop-xscreensaver="yes" # First try
 #heartbeat-cmd="/usr/bin/xscreensaver-command -deactivate > /dev/null" # second try
+# Pretent do be Window Media Player
+user-agent=NSPlayer/4.1.0.3856
 geometry="50%:100%"
 prefer-ipv4=yes
 msglevel=decvideo=0:identify=6
 # No filters work with vdpau!
-#vf=denoise3d
-#vf=scale
-#vf=screenshot
-#vf=expand=0:-50:0:0	# should put any subtitles in the black bar under the video and not on it
+vf-clr=yes
+
 #quiet = yes # disable most of the output (really-quiet disable nearly every message)
 #monitoraspect = "1.6" # for 16:10 aspect ratio monitors
 monitoraspect="16:10"
@@ -38,7 +38,6 @@ monitoraspect="16:10"
 #vo=gl:yuv=2:rectangle=2:swapinterval=-1
 vo=vdpau:deint=4,xv,
 vc=ffmpeg12vdpau,ffh264vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
-#vo=xv
 ao=alsa
 # Increase volume beyond audiocard's maximum
 af=volume=10:1:0
@@ -62,6 +61,7 @@ vc=,
 vf=denoise3d
 vf=scale
 vf=screenshot
+#vf=expand=0:-50:0:0	# should put any subtitles in the black bar under the video and not on it
 
 [gnome-mplayer]
 vo=xv
