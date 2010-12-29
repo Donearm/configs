@@ -167,6 +167,7 @@ export SERVER='news.tin.it'
 export SLANG_EDITOR='vim'
 export NNTPSERVER='news.tin.it'
 export MAILCHECK=600000000000 # I don't really need a shell mailcheck....
+export PYTHONSTARTUP="$HOME/.pythonrc.py"
 export LANG=it_IT.utf8
 export LANGUAGE=it_IT.utf8
 export LC_TYPE=it_IT.utf8
