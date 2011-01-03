@@ -61,8 +61,8 @@ mkmv() {
 }
 
 startX() {
-	#nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors
-	nohup &> /dev/null sudo telinit 5
+	nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors
+	#nohup &> /dev/null sudo telinit 5
 	logout
 }
 
@@ -123,7 +123,7 @@ txtreset="\033[0m" # text reset
 
 
 #export PATH=/usr/X11R6/bin:/usr/sbin:/sbin/:/usr/local/sbin/:/usr/local/bin:/opt/kde/bin:/usr/lib/python2.5/:/opt/gnome/bin:/lib/splash/bin:/opt/xfce4/bin/:/opt/texlive/bin:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:$PATH
 
 # Bash Prompts
 if [ "$TERM" = "linux" ]
