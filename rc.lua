@@ -302,7 +302,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "HP Toolbox", "hp-toolbox", image("/usr/share/hplip/data/images/32x32/hp_logo.png") },
                                         { "Avidemux", "avidemux2_gtk", image("/usr/share/pixmaps/avidemux.png") },
                                         { "Gimp", "gimp", image("/usr/share/gimp/2.0/images/gimp-logo.png") },
-                                        { "Gcolor", "gcolor2", image("/usr/share/pixmaps/gcolor2/icon.png") },
+                                        --{ "Gcolor", "gcolor2", image("/usr/share/pixmaps/gcolor2/icon.png") },
                                         { "Gtkam", "gtkam", image("/usr/share/pixmaps/gtkam.png") }
                                       }
                             })
@@ -752,6 +752,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Choqok" },
       properties = { floating = true } },
+    { rule = { name = "JDownloader" },
+      properties = { tag = tags[1][7] } },
   }
 
 
