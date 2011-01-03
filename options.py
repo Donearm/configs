@@ -1,0 +1,1 @@
+/home/gianluca/.config/ranger/options.py
