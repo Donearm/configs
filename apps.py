@@ -29,6 +29,10 @@ class CustomApplications(DefaultApps):
         c.flags += 'd'
         return tup('soffice', *c)
 
+    def app_fbreader(self, c):
+        c.flags += 'd'
+        return tup('FBReader', *c)
+
 
     def app_default(self, c):
         f = c.file # shortcut
@@ -53,6 +57,8 @@ class CustomApplications(DefaultApps):
                 return self.app_tar(c)
             if f.extension in ('odw', 'ods', 'odt', 'xls', 'doc', 'odg'):
                 return self.app_soffice(c)
+            if f.extension in ('mobi', 'epub'):
+                return self.app_fbreader(c)
 
         if f.video or f.audio:
             return self.app_mplayer(c)
