@@ -6,6 +6,7 @@ class CustomApplications(DefaultApps):
         return tup('/usr/local/bin/fehgallery.py', *c)
 
     def app_mplayer(self, c):
+        c.flags += 'd'
         if c.mode is 1:
             return tup('/usr/local/bin/mplayerss.sh', '-fs', *c)
         elif c.mode is 2:
