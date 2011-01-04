@@ -44,7 +44,7 @@ class CustomApplications(DefaultApps):
             if f.extension in ('swf', ):
                 return self.either(c, 'firefox', 'links-g')
             if f.extension in ('gif', ):
-                return self.either(c, 'firefox -new-tab', 'feh')
+                return self.either(c, 'firefox', 'feh')
             if f.extension in ('rar', ):
                 return self.app_unrar(c)
             if f.extension in ('zip', ):
