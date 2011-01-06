@@ -58,6 +58,8 @@ class CustomApplications(DefaultApps):
                 return self.app_tar(c)
             if f.extension in ('odw', 'ods', 'odt', 'xls', 'doc', 'odg'):
                 return self.app_soffice(c)
+            if f.extension in ('ts', ):
+                return self.app_mplayer(c)
             if f.extension in ('mobi', 'epub'):
                 return self.app_fbreader(c)
 
