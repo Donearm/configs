@@ -56,7 +56,7 @@ endif
 if has("autocmd")
     if &term == "rxvt-unicode"
 	set background=light
-	color desert
+	color gianluca
     endif
 endif
 "

@@ -13,7 +13,8 @@ require("vicious.widgets.cpu")
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/adrianalima01"
+--theme_path = home .. "/.config/awesome/themes/adrianalima01"
+theme_path = home .. "/.config/awesome/themes/izabelgoulart01"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -44,7 +45,7 @@ soundRaiseVolume = "amixer set Master 5%+"
 soundLowerVolume = "amixer set Master 5%-"
 soundPerfectVolume = "amixer set Master 5%"
 soundMute = "amixer set Master 0%"
-filemanager = "dbus-launch nautilus --no-desktop"
+filemanager = "urxvtc -e ranger"
 mail = "urxvtc -e mutt -y"
 maildir = home .. "/Maildir"
 lockScreen = "xscreensaver-command -lock"
@@ -292,8 +293,8 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "open terminal", terminal, image("/usr/share/pixmaps/rxvt-unicode.png") },
                                         { "firefox (navigation)", browser_nav, image("/usr/share/pixmaps/firefox.png") },
                                         { "firefox (maidens)", browser_mad, image("/usr/share/pixmaps/firefox.png") },
-                                        --{ "thunar", filemanager, image(home .. "/.icons/thunar-logo.png") },
-                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
+--                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
+                                        { "ranger", filemanager, image(home .. "/.icons/ranger-chuck.gif") },
                                         { "Music", "gmusicbrowser", image("/usr/share/pixmaps/gmusicbrowser.png") },
                                         { "Pidgin", "pidgin", image("/usr/share/icons/hicolor/16x16/apps/pidgin.png") },
                                         { "Skype", "skype", image("/usr/share/pixmaps/skype.png") },
@@ -308,7 +309,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                             })
 
 -- Launchbox
-mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-black.png"),
+mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo.png"),
                                      menu = mymainmenu })
 -- Cpu widget
 cpuicon = widget({ type = "imagebox"})
