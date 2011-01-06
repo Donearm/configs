@@ -28,8 +28,8 @@ URxvt.boldFont:	    xft:DejaVu Sans Mono:bold:pixelsize=14:antialias=true
 Urxvt.italicFont:   xft:DejaVu Sans Mono:italic:pixelsize=14:antialias=true
 Urxvt.boldItalicFont:	xft:DejaVu Sans Mono:bold:italic:pixelsize=14:antialias=true
 !urxvt.background:   rgba:0000/0000/0000/cccc
-urxvt.background:   #f7f6fa
-urxvt.foreground:   #ffffff
+urxvt.background:   #080403
+urxvt.foreground:   #f7f6fa
 URxvt.transparent:  true
 URxvt.shading:		15
 URxvt.fading:	    30
@@ -65,7 +65,7 @@ URxvt.color14:  #467070
 !LightGrey + White
 URxvt.color7:   #a1a8b0
 URxvt.color15:  #e1e1e1
-URxvt.colorBD:	#f4f4f4
+URxvt.colorBD:	#0d57df
 URxvt.colorUL:	#8dc9cf
 URxvt.colorIT:	    white
 URxvt.scrollBar:    true
