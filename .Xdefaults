@@ -32,7 +32,7 @@ urxvt.background:   #080403
 urxvt.foreground:   #f7f6fa
 URxvt.transparent:  true
 URxvt.shading:		15
-URxvt.fading:	    30
+URxvt.fading:	    50
 URxvt.fadeColor:    black
 !URxvt.tintColor:    #6c9eab
 !URxvt.cursorColor:	#e4a900
