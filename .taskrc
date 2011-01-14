@@ -29,6 +29,7 @@ color.project.eeepc=bold_black on_cyan
 color.project.pyimageuploader=on_blue
 color.project.reading=bold_red on_white
 color.project.travel=yellow on_black
+color.project.music=bold_yellow on_gray
 #color.keyword.car=on_blue
 #shadow.file=~/.task/shadow.txt
 #shadow.command=list
