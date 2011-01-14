@@ -56,7 +56,7 @@ class CustomApplications(DefaultApps):
                 return self.app_unzip(c)
             if f.extension in ('bz2', 'gz', 'tar', 'tgz', 'tbz2', 'tbz', 'bz'):
                 return self.app_tar(c)
-            if f.extension in ('odw', 'ods', 'odt', 'xls', 'doc', 'odg'):
+            if f.extension in ('odw', 'ods', 'odt', 'xls', 'doc', 'odg', 'rtf'):
                 return self.app_soffice(c)
             if f.extension in ('ts', ):
                 return self.app_mplayer(c)
