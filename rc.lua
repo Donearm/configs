@@ -1,19 +1,16 @@
 -- Standard awesome library
 require("awful")
-require("awful.autofocus")
 require("awful.rules")
 -- Theme handling library
 require("beautiful")
 -- Notification library
 require("naughty")
 require("vicious")
-require("vicious.widgets.cpu")
 
 -- {{{ Variable definitions
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
---theme_path = home .. "/.config/awesome/themes/adrianalima01"
 theme_path = home .. "/.config/awesome/themes/izabelgoulart01"
 -- Actually load theme
 beautiful.init(theme_path)
@@ -298,7 +295,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "Music", "gmusicbrowser", image("/usr/share/pixmaps/gmusicbrowser.png") },
                                         { "Pidgin", "pidgin", image("/usr/share/icons/hicolor/16x16/apps/pidgin.png") },
                                         { "Skype", "skype", image("/usr/share/pixmaps/skype.png") },
-                                        { "Dosbox", "dosbox", image("/usr/share/pixmaps/dosbox.png") },
                                         { "Winxp", "VBoxManage startvm WinXp", image("/usr/share/pixmaps/VBox.png") },
                                         { "HP Toolbox", "hp-toolbox", image("/usr/share/hplip/data/images/32x32/hp_logo.png") },
                                         { "Avidemux", "avidemux2_gtk", image("/usr/share/pixmaps/avidemux.png") },
@@ -482,7 +478,7 @@ for s = 1, screen.count() do
         screen = s,
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
-        height = 18 })
+        height = 16 })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
 		{
@@ -628,21 +624,8 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end),
-    -- unminimize windows
-    awful.key({ modkey, "Shift"   }, "n",
-        function ()
-            local allclients = client.get(mouse.screen)
-            for _,c in pairs(allclients) do
-                if c.minimized and c:tags()[mouse.screen] == awful.tag.selected(mouse.screen)
-                    then
-                        c.minimized = false
-                        client.focus = c
-                        c:raise()
-                        return
-                end
-            end
         end)
+
 )
 
 -- Compute the maximum number of digit we need, limited to 9
@@ -681,7 +664,7 @@ for i = 1, keynumber do
                       if client.focus and tags[client.focus.screen][i] then
                           awful.client.toggletag(tags[client.focus.screen][i])
                       end
-                  end))
+                  end),
         awful.key({ modkey, "Shift" }, "F" .. i,
                   function ()
                       local screen = mouse.screen
@@ -690,7 +673,21 @@ for i = 1, keynumber do
                               awful.client.movetotag(tags[screen][i], c)
                           end
                       end
-                   end)
+                   end),
+        -- unminimize windows
+        awful.key({ modkey, "Shift"   }, "n",
+            function ()
+                local allclients = client.get(mouse.screen)
+                for _,c in pairs(allclients) do
+                    if c.minimized and c:tags()[mouse.screen] == awful.tag.selected(mouse.screen)
+                        then
+                            c.minimized = false
+                            client.focus = c
+                            c:raise()
+                            return
+                    end
+                end
+            end))
 end
 
 clientbuttons = awful.util.table.join(
