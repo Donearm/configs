@@ -48,20 +48,20 @@ URxvt.color8:   #4c4c4c
 URxvt.color1:   #781e1e
 URxvt.color9:   #9e1818
 !DarkGreen + Green
-URxvt.color2:   #34662e
-URxvt.color10:  #4b965a
+URxvt.color2:   #24661c
+URxvt.color10:  #318b26
 !DarkYellow + Yellow
 URxvt.color3:   #cc941d
 URxvt.color11:  #f2f28f
 !DarkBlue + Blue
-URxvt.color4:   #314773
-URxvt.color12:  #adbdd9
+URxvt.color4:   #2a3e64
+URxvt.color12:  #1059d9
 !DarkMagenta + Magenta
 URxvt.color5:	#995456
 URxvt.color13:  #e04613
 !DarkCyan + Cyan
-URxvt.color6:   #8d9eb2
-URxvt.color14:  #467070
+URxvt.color6:   #5a83b2
+URxvt.color14:  #76aae8
 !LightGrey + White
 URxvt.color7:   #a1a8b0
 URxvt.color15:  #e1e1e1
