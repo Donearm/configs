@@ -479,7 +479,7 @@ for s = 1, screen.count() do
         screen = s,
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
-        height = 16 })
+        height = 18 })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
 		{
