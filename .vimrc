@@ -116,31 +116,38 @@ map ,noheader :0,/^$/d
 "
 " --- PROGRAMMING ---
 if has("autocmd")
-    " some options for python files
-    autocmd FileType python setlocal textwidth=0
-    autocmd FileType python setlocal tabstop=4
-    autocmd FileType python setlocal expandtab " spaces instead of tabs
-    autocmd FileType python setlocal softtabstop=4 " treat 4 spaces as a tab
-	" different statusline, thanks to pythonhelper.vim, for python files
-	autocmd FileType python  let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%] def=%{TagInStatusLine()}"
-	" call pydoc with the name of the python module from which we want
-	" help
-	:command -nargs=+ Pyhelp :call ShowPydoc("<args>")
-	function ShowPydoc(module, ...)
-		let fPath = "/tmp/pyHelp_" . a:module . ".pydoc"
-		execute ":!pydoc " . a:module . " > " . fPath
-		execute ":sp " .fPath
-	endfunction
-    " some options for ruby files
-    autocmd FileType ruby setlocal tabstop=2
-    autocmd FileType ruby setlocal textwidth=80 
+	augroup Python
+		" some options for python files
+		autocmd FileType python setlocal textwidth=0
+		autocmd FileType python setlocal tabstop=4
+		autocmd FileType python setlocal expandtab " spaces instead of tabs
+		autocmd FileType python setlocal softtabstop=4 " treat 4 spaces as a tab
+		" different statusline, thanks to pythonhelper.vim, for python files
+		autocmd FileType python  let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%] def=%{TagInStatusLine()}"
+		" call pydoc with the name of the python module from which we want
+		" help
+		:command -nargs=+ Pyhelp :call ShowPydoc("<args>")
+		function ShowPydoc(module, ...)
+			let fPath = "/tmp/pyHelp_" . a:module . ".pydoc"
+			execute ":!pydoc " . a:module . " > " . fPath
+			execute ":sp " .fPath
+		endfunction
+		autocmd FileType python set omnifunc=pythoncomplete#Complete
+	augroup END
+
+	augroup Ruby
+		" some options for ruby files
+		autocmd FileType ruby setlocal tabstop=2
+		autocmd FileType ruby setlocal textwidth=80 
+		autocmd FileType ruby set omnifunc=rubycomplete#Complete
+	augroup END
+
     " no tabs in spaces for make files
     autocmd FileType make set noexpandtab shiftwidth=8
     " enable function-complete for supported files
 	autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 	autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-	autocmd FileType python set omnifunc=pythoncomplete#Complete
-	autocmd FileType ruby set omnifunc=rubycomplete#Complete
+	autocmd FileType lua set omnifunc=luacomplete#Complete
     " Max 78 characters for line in text files
     autocmd BufRead *.txt set tw=78
 	" No limit of characters for line in csv files
@@ -173,6 +180,9 @@ function! ShellComment()
     map - :s/^/#/<CR>
     map _ :s/^\s*#\=//<CR>
     set comments=:#
+	" trick vim by remapping the comment to 'X' and comment again, so
+	" preventing the comment to override the current indentation
+	inoremap # X#
 endfunction
 
 function! CComment()
@@ -185,6 +195,9 @@ function! LuaComment()
 	map - :s/^/--/<CR>
 	map _ :s/^\s*--//<CR>
 	set comments=:--
+	" trick vim by remapping the comment to 'X' and comment again, so
+	" preventing the comment to override the current indentation
+	inoremap - X-
 endfunction
 
 " ...and enabling them
@@ -237,6 +250,7 @@ imap <C-u> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
 imap <C-h> <Left>
+
 "
 " two , in insert mode to exit instead of Esc
 imap ,, <Esc>
