@@ -163,18 +163,18 @@ end
 
 function getGpuTemp ()
     --local f = io.popen(home .. "/.conky/nvidiatemp")
-	local f = io.popen('nvidia-settings -q gpucoretemp -t')
+	local f = io.popen('DISPLAY=:0.0 nvidia-settings -q gpucoretemp -t')
 	local n = f:read()
-    print(n)
 	f:close()
-    --if (n == nil) then
-    --    return ''
-    --end
-    --if tonumber(n) >= 70 then
-    --    n = setFg("#aadc43", n)
-    --end
-	--return setFg(beautiful.fg_normal, n..'°C ')
-    return n
+    if (n == nil) then
+        return ''
+    end
+    if tonumber(n) >= 70 then
+        n = setFg("#aadc43", n .. '°C')
+        return n
+    else
+	    return setFg(beautiful.fg_normal, n..'°C ')
+    end
 end
 
 function getSdaTemp ()
@@ -378,7 +378,7 @@ vicious.register(mobotemp, getMoboTemp, "$1", 50)
 
 -- Volume widget
 volumeicon = widget({ type = "imagebox"})
-volumeicon.image = image(home .. "/.icons/speaker.png")
+volumeicon.image = image(home .. "/.icons/headphones.png")
 
 volumewidget = widget({ type = "textbox"})
 -- enable caching
@@ -391,11 +391,6 @@ volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 3, function() awful.util.spawn(soundMute) end)
     ))
 
-
--- {{{ Wibox
--- Set the default text in textbox
-mypromptbox = widget({ type = "textbox" })
-
 -- Date widget
 datebox = widget({ type = "textbox"})
 datebox:add_signal("mouse::enter", function () addCalendar(0) end)
@@ -405,6 +400,10 @@ datebox:buttons(awful.util.table.join(
     awful.button({ }, 5, function () addCalendar(1) end)
 ))
 vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T  "))
+
+-- {{{ Wibox
+-- Set the default text in textbox
+mypromptbox = widget({ type = "textbox" })
 
 -- Create a systray 
 mysystray = widget({ type = "systray" }) 
@@ -501,8 +500,6 @@ for s = 1, screen.count() do
             netupicon,
             mobotemp,
             moboicon,
-            --gputemp,
-            --gpuicon, 
             memwidget,
             memicon,
             cpuwidget,
@@ -511,6 +508,7 @@ for s = 1, screen.count() do
             mytasklist[s],
             layout = awful.widget.layout.horizontal.rightleft
     }
+
 end
 -- }}}
 
