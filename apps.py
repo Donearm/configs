@@ -22,6 +22,10 @@ class CustomApplications(DefaultApps):
         c.flags += 'd'
         return tup('unzip', c.file.path)
 
+    def app_7z(self, c):
+        c.flags += 'd'
+        return tup('7z', 'x', c.file.path)
+
     def app_tar(self, c):
         c.flags += 'd'
         return tup('tar', 'xvf', c.file.path)
@@ -54,6 +58,8 @@ class CustomApplications(DefaultApps):
                 return self.app_unrar(c)
             if f.extension in ('zip', ):
                 return self.app_unzip(c)
+            if f.extension in ('7z', ):
+                return self.app_7z(c)
             if f.extension in ('bz2', 'gz', 'tar', 'tgz', 'tbz2', 'tbz', 'bz'):
                 return self.app_tar(c)
             if f.extension in ('odw', 'ods', 'odt', 'xls', 'doc', 'odg', 'rtf'):
