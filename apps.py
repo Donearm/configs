@@ -3,7 +3,7 @@ from ranger.api.apps import *
 
 class CustomApplications(DefaultApps):
     def app_fehgallery(self, c):
-        return tup('/usr/local/bin/fehgallery.lua', *c)
+        return tup('/usr/local/bin/fehgallery.py', *c)
 
     def app_mplayer(self, c):
         c.flags += 'd'
@@ -60,6 +60,8 @@ class CustomApplications(DefaultApps):
                 return self.app_unzip(c)
             if f.extension in ('7z', ):
                 return self.app_7z(c)
+            if f.extension in ('f4v', ):
+                return self.app_mplayer(c)
             if f.extension in ('bz2', 'gz', 'tar', 'tgz', 'tbz2', 'tbz', 'bz'):
                 return self.app_tar(c)
             if f.extension in ('odw', 'ods', 'odt', 'xls', 'doc', 'odg', 'rtf'):
