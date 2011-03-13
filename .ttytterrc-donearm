@@ -1,5 +1,5 @@
 ansi=1
-avatar=feh -Q %U
+avatar=feh %U
 hold=1
 notifies=dm,reply,default
 #notifytype=libnotify
