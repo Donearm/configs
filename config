@@ -44,11 +44,13 @@ af=volume=10:1:0
 
 # Xvmc profile. Use with -profile xvmc
 [xvmc]
+profile-desc="Xvmc profile"
 vo=xvmc
 vc=ffmpeg12mc
 
 # Mplayer in the framebuffer
 [vo.fb]
+profile-desc="Framebuffer profile"
 vo=fbdev2
 vc=,
 fs=1
@@ -56,6 +58,7 @@ zoom=1
 
 # Mplayer with xv
 [vo.xv]
+profile-desc="Basic, non-hardware accelerated profile"
 vo=xv
 vc=,
 vf=denoise3d
@@ -64,6 +67,7 @@ vf=screenshot
 #vf=expand=0:-50:0:0	# should put any subtitles in the black bar under the video and not on it
 
 [gnome-mplayer]
+profile-desc="gnome-mplayer profile"
 vo=xv
 msglevel=all=5
 ao=alsa
