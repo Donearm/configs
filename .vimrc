@@ -1,5 +1,5 @@
 "set background=light
-"set nocp  "Really important option
+"set nocompatible  "Really important option, must be first
 set wildmenu
 set history=50
 set showcmd
