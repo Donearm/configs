@@ -3,7 +3,10 @@
 	email = forod.g@gmail.com
 [color]
 	ui = true
-[remote "github"]
-	url = ssh://git@github.com:Donearm/configs.git
-	fetch = +refs/heads/*:refs/remotes/github/*
-	push = refs/heads/*:refs/heads/*
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	grep = yes
+[core]
+	excludesfile = /home/gianluca/.gitignore
