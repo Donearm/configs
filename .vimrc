@@ -1,9 +1,12 @@
+" .vimrc
+"
 "set background=light
 "set nocompatible  "Really important option, must be first
 set wildmenu
 set history=50
 set showcmd
 set showmode
+set showmatch
 "set syntax=on
 syntax on
 set hlsearch
@@ -33,6 +36,7 @@ set pastetoggle=<F2> " switch to paste mode with F2
 set spelllang=en,it,es,pt
 set formatoptions=tcqw " some formatting options, see fo-table
 set wildignore=*.swp,*.bak,*.pyc	" ignore those file extensions when Tab completing
+set printoptions=header:0
 
 "persistent undo
 set undodir=~/.vim/undodir
