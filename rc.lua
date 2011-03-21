@@ -759,7 +759,7 @@ awful.rules.rules = {
 autorun = true
 autorunApps =
 {
-    "xscreensaver",
+    "xscreensaver -no-splash",
     "xbindkeys",
 --    "xcompmgr -c -C -r10 -o.70 -D5 &",
 --    "cairo-compmgr &",
