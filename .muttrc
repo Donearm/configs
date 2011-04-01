@@ -14,13 +14,14 @@ X-Disclaimer: X-Editor: X-Face: X-Spam-Status: X-Spam-Level: Message-ID:
 # imitate the old search-body function
 macro index \eb '/~b ' 'search in message bodies'
 
-# Tab e Esc-Tab si spostano da un Old ad un altro invece che da un New
+# use Tab and Esc-Tab to move from an Old message to a New or Old one
+# instead than from New to New
 bind pager \t	next-unread
 bind index \t	next-unread
 bind pager \e\t	    previous-unread
 bind index \e\t	    previous-unread
 
-# trasforma con rot13
+# crypt with rot13
 macro pager \cr "|formail -I '' | tr a-zA-Z n-za-mN-ZA-M | less -c\n" "ROT_13"
 
 # simulate the old url menu
@@ -29,57 +30,61 @@ macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
 #
 # call fetchmail
 macro generic G <shell-escape>'fetchmail'<enter> 'Run fetchmail' 
+
 # Show documentation when pressing F1
 macro generic <f1> "!less /usr/share/doc/mutt-1.4.1i/manual.txt\n" "Show Mutt documentation"
 macro index   <f1> "!less /usr/share/doc/mutt-1.4.1i/manual.txt\n" "Show Mutt documentation"
 macro pager   <f1> "!less /usr/share/doc/mutt-1.4.1i/manual.txt\n" "Show Mutt documentation"
 
-# macro per scrivere un mittente in white_list o spam_list
+# macro to write the sender mail to a white or a spam list
 #macro index \ew "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/spam_list" "Aggiunge mittente in spam_list"
 #macro pager \ew "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/spam_list" "Aggiunge mittente in spam_list"
 #macro index \eq "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/white_list" "aggiunge mittente in white_list"
 #macro index \eq "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/white_list" "aggiunge mittente in white_list"
-# stesso keybinding per spamassassin
-macro index \ew "|/usr/bin/sa-learn --ham --no-sync" "Pass mail to Spamassassin as Ham" 
-macro pager \ew "|/usr/bin/sa-learn --ham --no-sync" "Pass mail to Spamassassin as Ham" 
-macro index \eq "|/usr/bin/sa-learn --spam --no-sync" "Pass mail to Spamassassin as Spam" 
-macro pager \eq "|/usr/bin/sa-learn --spam --no-sync" "Pass mail to Spamassassin as Spam" 
 
-# sposta la mail in spam
+# pass mail as ham or spam to spamassassin
+#macro index \ew "|/usr/bin/sa-learn --ham --no-sync" "Pass mail to Spamassassin as Ham" 
+#macro pager \ew "|/usr/bin/sa-learn --ham --no-sync" "Pass mail to Spamassassin as Ham" 
+#macro index \eq "|/usr/bin/sa-learn --spam --no-sync" "Pass mail to Spamassassin as Spam" 
+#macro pager \eq "|/usr/bin/sa-learn --spam --no-sync" "Pass mail to Spamassassin as Spam" 
+
+# move mail to spam folder
 macro index S "s+.spam/\n" "Move in the spam folder"
 macro pager S "s+.spam/\n" "Move in the spam folder"
 
-# Auto reporting di Spamassassin
+# Spamassassin auto reporting
 #macro index \cy ":set wait_key=no\n|/mnt/documents/Scripts/report_spamc\n:set wait_key=yes\nd" "Reporting and Learning Spamassassin system"
 #macro pager \cy ":set wait_key=no\n|/mnt/documents/Scripts/report_spamc\n:set wait_key=yes\nd" "Reporting and Learning Spamassassin system"
 #macro index \es "|spamc -C report spamcop\r"
 #macro pager \es "|spamc -C report spamcop\r"
 
-# classifica le mail selezionate con bogofilter come GOOD ....
+# tag selected mails with bogofilter as GOOD ...
 #macro index \eg "|bogofilter -nl\n" "classify with bogofilter as GOOD"
 #macro pager \eg "|bogofilter -nl\n" "classify with bogofilter as GOOD"
-# .... o come JUNK
+# ... or as JUNK
 #macro index \ej "|bogofilter -sl\n" "classify with bogofilter as JUNK"
 #macro pager \ej "|bogofilter -sl\n" "classify with bogofilter as JUNK"
 
-# segnala come ham una mail incorrettamente etichettata come spam
-macro pager \ch "|/usr/bin/razor-revoke" "Tell Razor this mail is ham"
-macro index \ch "|/usr/bin/razor-revoke" "Tell Razor this mail is ham"
+# Tell Razor this mail is ham and not spam
+#macro pager \ch "|/usr/bin/razor-revoke" "Tell Razor this mail is ham"
+#macro index \ch "|/usr/bin/razor-revoke" "Tell Razor this mail is ham"
 
-#prova di macro per eliminare automaticamente delle mail secondo una
-#regexp
+# test macro to automatically delete mails according to a regexp
 #macro index \et 'set folder=/dev/null; set delete=yes; push "<delete-pattern>~h regexp<enter><quit><yes>"'
 
-# attivo muttprofile per la selezione di un profilo specifico
+# enable muttprofile for profiles selections
 macro index <F9> ":source ~/.mutt/gia\n" "Load profile: Gia"
 macro pager <F9> ":source ~/.mutt/gia\n" "Load profile: Gia"
 macro index <F10> ":source ~/.mutt/general\n" "Load profile: general"
 macro pager <F10> ":source ~/.mutt/general\n" "Load profile: general"
 macro index <F11> ":source ~/.mutt/personale\n" "Load Profile: personale"
 macro pager <F11> ":source ~/.mutt/personale\n" "Load Profile: personale"
-macro index <F12> ":source ~/.mutt/loveshy\n" "Load Profile: loveshy"
-macro pager <F12> ":source ~/.mutt/loveshy\n" "Load Profile: loveshy"
+macro index <F12> ":source ~/.mutt/gianluca12\n" "Load Profile: gianluca12"
+macro pager <F12> ":source ~/.mutt/gianluca12\n" "Load Profile: gianluca12"
 
+# Aspell macros
+macro compose i ":set ispell='/usr/bin/aspell -d it -x check'\n;<ispell>"
+macro compose I ":set ispell='/usr/bin/aspell -d en -x check'\n;<ispell>"
 
 # Use folders which match on \\.gz$ as gzipped folders:
 # open-hook \\.gz$ "gzip -cd %f > %t"
@@ -185,7 +190,7 @@ macro pager <F12> ":source ~/.mutt/loveshy\n" "Load Profile: loveshy"
 # give it the same color as your attachment color.
 # 
 # 
-# set alternates="gianluca1181@yahoo.it,forod.g@gmail.com,bajkal17@virgilio.it,thrand8@email.it"
+# set alternates=""
 #
 # Name: alternates
 # Type: regular expression
@@ -196,50 +201,6 @@ macro pager <F12> ":source ~/.mutt/loveshy\n" "Load Profile: loveshy"
 # you receive mail.  This affects Mutt's idea about messages from you
 # and addressed to you.
 # 
-# Impostazioni schermo con colori
-# Ricorda: dove c'è default in origine era black (default=trasparente)
-
-color normal     brightwhite    default   # testo normale
-color indicator  brightcyan     blue    # messaggio attuale
-color tree       brightred      default   # frecce dei thread
-#color status     cyan		blue    # riga di stato
-color status	brightyellow	blue	# riga di stato
-color error      brightred      default   # errori 
-color message    brightyellow   default   # messaggi di informazione 
-color signature  red            default   # firma 
-color attachment blue           cyan    # allegati MIME
-color search     brightyellow   red     # ricerche 
-color tilde      brightmagenta  default   # ~ alla fine dei messaggi 
-color markers    brightred      default   # + all'inizio delle righe mandate a capo
-color hdrdefault red		default   # righe degli header
-color bold       red            default   # evidenziazione in grassetto nei body
-color underline  green          default   # evidenziazione sottolineato nei body
-color quoted     blue           default   # testo quotato
-color quoted1    yellow         default 
-color quoted2    magenta        default
-color quoted3    red            default 
-color quoted4    red            default
-color quoted5    red            default
-color quoted6    red            default
-color quoted7    red            default
-color quoted8    red            default
-color quoted9    red            default
-color header     brightyellow	default  "^(from|subject):" 
-
-color body       yellow    default  "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?" 
-color body       brightred      default  "[-a-z_0-9.+]+@[-a-z_0-9.]+" 
-color body       red            default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]" 
-color body       green          default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]" 
-color index      blue           default  ~F               # impostato
-color index      red		default  ~N               # nuovo
-color index      magenta        default  ~T               # segnato
-color index      green		default  ~D               # cancellato
-  
-# Aimee's messages
-color index   brightyellow    default '~f "Aimee Sweet"'
-# Messaggi miei
-color index   brightred       default ~P
-
 # 
 # set arrow_cursor=yes
 #
@@ -657,7 +618,7 @@ charset-hook windows-1258 CP1258
 # Example: set dsn_notify="failure,delay"
 # 
 # 
-# set dsn_return=""
+ set dsn_return="hdrs"
 #
 # Name: dsn_return
 # Type: string
@@ -1240,7 +1201,7 @@ hdr_order From: Subject: CC: BCC: To: Reply-To: Date:\
 # them at some point.
 # 
 # 
-# set imap_user="bajkal17@virgilio.it"
+# set imap_user=""
 #
 # Name: imap_user
 # Type: string
@@ -2327,7 +2288,7 @@ hdr_order From: Subject: CC: BCC: To: Reply-To: Date:\
 # fails, Mutt will not connect to the POP server.
 # 
 # 
-# set pop_checkinterval=60
+ set pop_checkinterval=600
 #
 # Name: pop_checkinterval
 # Type: number
@@ -2652,7 +2613,6 @@ hdr_order From: Subject: CC: BCC: To: Reply-To: Date:\
 # 
 # 
 # set reply_regexp="^((re(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
-# DA TESTARE
  set reply_regexp="^((\
 [Rr][Eeé][ | ]?:|\
 [Rr][Ee] |\
@@ -2891,7 +2851,6 @@ Trans\\. :\
 # of this variable will never mark a message read.
 # 
 # 
-# set send_charset="us-ascii:iso-8859-1:iso-8859-15:utf-8"
  set send_charset="utf-8:iso-8859-1:iso-8859-15:us-ascii"
 #
 # Name: send_charset
@@ -3555,14 +3514,11 @@ Trans\\. :\
 #mono underline underline
 #
 #
-# Carico il file di configurazione esterno per i messaggi S/MIME
+# Load external S/MIME config file
 source ~/.smime/smime.rc
 #set smime_ca_location="/etc/ssl/certs/"
 
 # Compressed Folder Support
-# (cioè la possibilità di utilizzare mailbox compresse o criptate)
-# potrebbe volerci una patch e abilitarne il supporto in fase di
-# compilazione
 #
 # gzip
 #open-hook \\.gz$ "gzip -cd %f > %t"
@@ -3576,16 +3532,16 @@ source ~/.smime/smime.rc
 #
 # Auto view html attachments
 auto_view text/html 
+# multipart html/text messages
+alternative_order text/plain text/html
 # Auto view MS Office files
 #auto_view application/msword application/vnd.msword
 #auto_view application/excel application/ms-Excel application/msexcel
 #auto_view application/vnd.ms-excel application/x-excel
 #auto_view application/x-msexcel
 #
-# Aggiungo tutte le mailboxes
+# add all mailboxes
 source ~/.mutt/mailboxes
-#mailboxes +~/Maildir/ +spam +contatti_angela +vuote +officialaimeesweet +contatti \
-#+deposito +giorgiapalmas +personali +loveshy_drgilmartin +hspbook
 #mailboxes `\
 #echo -n "+ "; \
 #for file in ~/Maildir/personal and ~/Maildir/forod/.*; do \
@@ -3596,24 +3552,10 @@ source ~/.mutt/mailboxes
 #    fi; \
 #done`
 #
-# Aggiungo tutte le mailing lists
-subscribe officialaimeesweet@yahoogroups.com
-subscribe giorgiapalmas@yahoogroups.com
-subscribe loveshy_drgilmartin@yahoogroups.com
-subscribe awesome@naquadah.org
+# add all mailinglists
+# subscribe 
 #
-# Macro per inviare tutte le tagged(?) mail a SpamCop con Ctrl+x
-# (per inviare solo la mail selezionata o aperta, rimuovere la parte con
-# <tag-prefix>
-macro index \cx ":set autoedit=no fast_reply=yes \
-editor=\"/usr/bin/vim\"\n<tag-prefix><forward-message> \
-submit.MAHHjeSk9ltLtA1S@spam.spamcop.net\n<send-message>:set autoedit=yes fast_reply=no \
-editor=\"/usr/bin/vim\"\n" \
-"Forward mail to SpamCop"
-macro pager \cx ":set autoedit=no fast_reply=yes \
-editor=\"/usr/bin/vim\"\n<tag-prefix><forward-message> \
-submit.MAHHjeSk9ltLtA1S@spam.spamcop.net\n<send-message>:set autoedit=yes fast_reply=no \
-editor=\"/usr/bin/editor\"\n" \
-"Forward mail to SpamCop"
-
 # source "~/.muttngrc" # source the config file for mutt-ng, if we are using it
+
+# source the color theme of choice
+source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
