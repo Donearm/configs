@@ -3558,4 +3558,5 @@ source ~/.mutt/mailboxes
 # source "~/.muttngrc" # source the config file for mutt-ng, if we are using it
 
 # source the color theme of choice
-source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+#source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+source ~/.mutt/mutt-colors-default.muttrc
