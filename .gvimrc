@@ -1,5 +1,5 @@
 syntax on
-color gianluca
+color bclear
 " Set window's size
 au GUIEnter * set lines=56 columns=100
 
