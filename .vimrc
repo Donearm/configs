@@ -49,21 +49,14 @@ filetype plugin on
 filetype plugin indent on
 " set a color scheme
 "color desert
-color gianluca
+"color gianluca
+color twilight256
 
 " custom statusline
 if has('statusline')
 	let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%]"
 endif
 
-" specific colorscheme for *rxvt
-if has("autocmd")
-    if &term == "rxvt-unicode"
-	set background=light
-	color gianluca
-    endif
-endif
-"
 " no automatic highlighting of brackets and such
 "let loaded_matchparen = 1
 "
