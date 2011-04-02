@@ -12,7 +12,7 @@ require("vicious")
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/izabelgoulart01"
+theme_path = home .. "/.config/awesome/themes/alessandraambrosio02"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -305,7 +305,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                             })
 
 -- Launchbox
-mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo.png"),
+mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-black.png"),
                                      menu = mymainmenu })
 -- Cpu widget
 cpuicon = widget({ type = "imagebox"})
@@ -377,7 +377,7 @@ vicious.register(mobotemp, getMoboTemp, "$1", 50)
 
 -- Volume widget
 volumeicon = widget({ type = "imagebox"})
-volumeicon.image = image(home .. "/.icons/headphones.png")
+volumeicon.image = image(home .. "/.icons/headphones-transparent.png")
 
 volumewidget = widget({ type = "textbox"})
 -- enable caching
