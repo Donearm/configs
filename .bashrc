@@ -123,6 +123,7 @@ bgwhite="\033[47m"
 txtreset="\033[0m" # text reset
 
 
+
 #export PATH=/usr/X11R6/bin:/usr/sbin:/sbin/:/usr/local/sbin/:/usr/local/bin:/opt/kde/bin:/usr/lib/python2.5/:/opt/gnome/bin:/lib/splash/bin:/opt/xfce4/bin/:/opt/texlive/bin:$PATH
 export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:$PATH
 
@@ -140,6 +141,13 @@ then
     fi
 elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" ]]
 then
+	# 256 colors available?
+	if [ -e /usr/share/terminfo/r/rxvt-256color ]; then
+		export TERM='rxvt-256color'
+	else
+		continue
+	fi
+
     #export PS1='\u@\w \n >: '
     if [[ `whoami` == "root" ]]; then
 		export PS1=".:\$(date +%d/%m/%Y):. \w \n ${bred} >: ${bnc}"
@@ -154,12 +162,6 @@ else
     export PS1='[\u@\H \W ]\$ '
 fi
 
-# cgroup stuff
-#if [ "$PS1" ] ; then
-#	mkdir -m 0700 -p /cgroup/cpu/$$
-#	echo 1 > /cgroup/cpu/$$/notify_on_release
-#	echo $$ > /cgroup/cpu/$$/tasks
-#fi
 
 export BROWSER="/usr/bin/firefox"
 export EDITOR="vim"
