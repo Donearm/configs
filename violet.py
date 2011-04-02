@@ -9,27 +9,27 @@ class Scheme(Default):
         if curses.COLORS < 88:
             return fg, bg, attr
 
-        dircolor = 137
+        dircolor = 24
         dircolor_selected = { True: 79, False: 78 }
-        linkcolor = { True: 190, False: 48 }
+        linkcolor = { True: 84, False: 48 }
 
         if context.in_browser:
             if context.media:
                 if context.image:
-                    fg = 203
+                    fg = 22
                 elif context.video:
-                    fg = 149
+                    fg = 61
                 elif context.audio:
-                    fg = 153
+                    fg = 42 
 
             if context.container:
-                fg = 97
+                fg = 52
 
             if context.directory:
-                fg = 137
+                fg = dircolor
             elif context.executable and not \
                     any((context.media, context.container)):
-                fg = 231
+                fg = 40
             
             if context.link and not context.directory:
                 fg = linkcolor[context.good]
@@ -39,11 +39,11 @@ class Scheme(Default):
                     attr |= bold
                 if context.marked:
                     attr |= bold
-                    fg = 53
+                    fg = 56
 
             if context.in_titlebar:
                 if context.hostname:
-                    fg = context.bad and 196 or 161
+                    fg = context.bad and 60 or 66
                 elif context.directory:
                     fg = dircolor
                 elif context.link:

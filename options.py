@@ -11,4 +11,4 @@ max_console_history_size = 500
 sort_case_insensitive = True
 
 # Personalized colorscheme
-colorscheme = "soft"
+colorscheme = "violet"
