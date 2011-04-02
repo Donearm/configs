@@ -147,8 +147,6 @@ then
 	else
 		continue
 	fi
-
-    #export PS1='\u@\w \n >: '
     if [[ `whoami` == "root" ]]; then
 		export PS1=".:\$(date +%d/%m/%Y):. \w \n ${bred} >: ${bnc}"
     else
@@ -159,7 +157,11 @@ then
     export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
     export COLORTERM='rxvt-unicode'
 else
-    export PS1='[\u@\H \W ]\$ '
+    if [[ `whoami` == "root" ]]; then
+		export PS1=".:\$(date +%d/%m/%Y):. \w \n ${bred} >: ${bnc}"
+    else
+		export PS1=".:\$(date +%d/%m/%Y):. \w \n >: "
+    fi
 fi
 
 
