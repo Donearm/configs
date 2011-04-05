@@ -198,4 +198,8 @@ export MOZ_DISABLE_PANGO=1
 # Check terminal size
 shopt -s checkwinsize
 
+# auto completion
+source /etc/bash_completion.d/git
+source /etc/bash_completion.d/task_completion.sh
+
 clear # clear the screen if something is on it
