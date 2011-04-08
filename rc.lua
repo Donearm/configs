@@ -289,8 +289,8 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/.icons/archlinux-wm-awesome.png") },
                                         { "open terminal", terminal, image("/usr/share/pixmaps/rxvt-unicode.png") },
-                                        { "firefox (navigation)", browser_nav, image("/usr/share/pixmaps/firefox.png") },
-                                        { "firefox (maidens)", browser_mad, image("/usr/share/pixmaps/firefox.png") },
+                                        { "firefox (navigation)", browser_nav, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
+                                        { "firefox (maidens)", browser_mad, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
 --                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
                                         { "ranger", filemanager, image(home .. "/.icons/ranger-chuck.gif") },
                                         { "Music", "gmusicbrowser", image("/usr/share/pixmaps/gmusicbrowser.png") },
