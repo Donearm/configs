@@ -32,7 +32,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 
 -- Some variables
-browser_nav = "firefox -P navigation3 --no-remote"
+browser_nav = "firefox -P navigation --no-remote"
 browser_mad = "firefox -P maidens --no-remote"
 music = "gmusicbrowser"
 musicPlay = "gmusicbrowser -remotecmd PlayPause"
@@ -44,7 +44,7 @@ soundLowerVolume = "amixer set Master 5%-"
 soundPerfectVolume = "amixer set Master 5%"
 soundMute = "amixer set Master 0%"
 filemanager = "urxvtc -e ranger"
-mail = "urxvtc -e mutt -y"
+mutt = "urxvtc -e mutt -y"
 maildir = home .. "/Maildir"
 lockScreen = "xscreensaver-command -lock"
 spacer = " " -- well, just a spacer
@@ -252,6 +252,23 @@ function psByMemory(n)
             hover_timeout = 3
         })
     end
+end
+
+function dailyActivities()
+    local r = [[    08:00-10:00     =   news, twitter replies, forums
+    10:00-11:00     =   reading, portuguese/spanish news
+    11:00-13:00     =   linux updating/tweaking and/or programming
+    13:30-14:00     =   collecting material for tumblog
+    14:00-15:00     =   doing tasks, spanish/portuguese reads
+    15:00-16:00     =   coding or reading about it, mail/forum answering
+    16:00-17:30     =   gaming, updating tumblog, uploading stuff
+    17:30-18:30     =   workout or more coding/reading/languages]]
+    roadmapPopup = naughty.notify({
+        title = "Daily Activities",
+        text = r,
+        timeout = 3,
+        hover_timeout = 3,
+    })
 end
 
 
@@ -564,7 +581,7 @@ globalkeys = awful.util.table.join(
     awful.key({ none }, "XF86AudioRaiseVolume", function () awful.util.spawn(soundRaiseVolume) end),
     awful.key({ none }, "XF86AudioMute",    function () awful.util.spawn(soundMute) end),
     awful.key({ none }, "XF86Sleep",    function () awful.util.spawn(lockScreen) end),
-    awful.key({ none }, "XF86Mail",     function () awful.util.spawn(mail) end),
+    awful.key({ none }, "XF86Mail",     function () awful.util.spawn(mutt) end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
@@ -582,6 +599,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    -- DailyActivties popup
+    awful.key({ modkey,           }, "a",     function () dailyActivities()             end),
 
     -- Mod4+s set the window sticky; pressing it again leave the window
     -- only on the current tag
