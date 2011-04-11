@@ -248,6 +248,10 @@ imap <C-k> <Up>
 imap <C-l> <Right>
 imap <C-h> <Left>
 
+" paste the content of clipboard on a new line, leave a empty line after
+" it and return in normal mode
+nmap ,u o<Esc>"*p<Esc>o<Esc>
+
 "
 " two , in insert mode to exit instead of Esc
 imap ,, <Esc>
