@@ -34,6 +34,8 @@ alias ssrsync="rsync -avz --progress --inplace --rsh='ssh -p8898'"
 # Two openssl aliases to encode/decode files
 alias ssl_enc="openssl aes-256-cbc -salt"
 alias ssl_dec="openssl aes-256-cbc -d"
+# Ettercap ARP spoofing ;)
+alias etterspoof="sudo ettercap -T -M arp // //"
 
 
 # Set the keycodes for the extra keys that aren't usually recognized by
