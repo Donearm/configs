@@ -1,5 +1,7 @@
 ansi=1
 avatar=feh %U
+# no foursquare tweets please...
+filter="count,/^I'm\sat/ || /http\:\/\/4sq\.com/"
 hold=1
 notifies=dm,reply,default
 #notifytype=libnotify
