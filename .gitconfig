@@ -10,3 +10,7 @@
 	grep = yes
 [core]
 	excludesfile = /home/gianluca/.gitignore
+[apply]
+	whitespace = fix
+[diff]
+	renames = true
