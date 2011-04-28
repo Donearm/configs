@@ -6,11 +6,6 @@
 # Executed by startx (run your window manager from here)
 #
 
-# D-bus
-#if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-#       eval `dbus-launch --sh-syntax --exit-with-session`
-#fi
-
 # Terminate X with Ctrl+Alt+Backspace
 setxkbmap -option terminate:ctrl_alt_bksp &
 
@@ -21,10 +16,13 @@ nvidia-settings -a PixmapCacheRoundSizeKB=2048
 /mnt/documents/Script/ttytter_screen_startup.sh
 #screen -dm -c ~/.screenrc-ttytter &
 
+# proper launch of a dbus session
+source /etc/X11/xinit/xinitrc.d/30-dbus
+
 # exporting LANG before launching awesome. It's needed when on runlevel
 # 5 and not using a display manager
 #LANG=it_IT.utf8 exec nohup &> /dev/null dbus-launch ck-launch-session awesome
-exec dbus-launch ck-launch-session awesome
+exec ck-launch-session awesome
 #exec openbox-session
 # exec /opt/kde/bin/startkde
 # exec gnome-session
