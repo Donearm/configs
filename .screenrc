@@ -18,9 +18,6 @@ activity "Things happening in %"
 hardcopy_append off
 # Enable utf8
 defutf8 on
-# Use F1 and F2 to move between the next and previous window
-bindkey -k k1 prev
-bindkey -k k2 next 
 # Use the \ key instead of "C-a"
 #escape ^\\\
 
