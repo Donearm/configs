@@ -45,7 +45,7 @@ class CustomApplications(DefaultApps):
         if f.extension is not None:
             if f.extension in ('pdf', ):
                 c.flags += 'd'
-                return self.either(c, 'evince', 'zathura')
+                return self.either(c, 'evince', 'epdfview', 'zathura')
             if f.extension in ('xml', ):
                 return self.either(c, 'editor')
             if f.extension in ('html', 'htm', 'xhtml'):
