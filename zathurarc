@@ -1,0 +1,15 @@
+set default_bgcolor #252525
+set default_fgcolor #806671
+set statusbar_fgcolor #806671
+set statusbar_ssl_bgcolor #4a77b2
+set completion_g_bgcolor #252525
+set inputbar_fgcolor #806671
+set inputbar_bgcolor #252525
+set tabbar_fgcolor #806671
+set tabbar_focus_fgcolor #ffffff
+set completion_hl_bgcolor #806671
+set notification_error_fgcolor #806671
+set notification_error_bgcolor #ffffff
+set notification_warning_bgcolor #806671
+set notification_warining_fgcolor #ff9d12
+
