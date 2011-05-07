@@ -261,7 +261,7 @@ function dailyActivities()
     13:30-14:00     =   collecting material for tumblog
     14:00-15:00     =   doing tasks, spanish/portuguese reads
     15:00-16:00     =   coding or reading about it, mail/forum answering
-    16:00-17:30     =   gaming, updating tumblog, uploading stuff
+    16:00-17:30     =   gaming or more reading/languages
     17:30-18:30     =   workout or more coding/reading/languages]]
     roadmapPopup = naughty.notify({
         title = "Daily Activities",
@@ -305,7 +305,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/.icons/archlinux-wm-awesome.png") },
-                                        { "open terminal", terminal, image("/usr/share/pixmaps/rxvt-unicode.png") },
+                                        { "open terminal", terminal, image(home .. "/.icons/F-Dark/apps/32/terminal.png") },
                                         { "firefox (navigation)", browser_nav, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
                                         { "firefox (maidens)", browser_mad, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
 --                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
