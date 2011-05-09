@@ -41,7 +41,7 @@ session = /media/private/torrent/session/
 #schedule = ratio,60,60,"stop_on_ratio=200,50M,200"
 
 ratio.enable=
-ratio.min.set=200
+ratio.min.set=150
 ratio.max.set=300
 ratio.upload.set=50M
 # Changing the command triggered when the ratio is reached
