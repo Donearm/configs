@@ -34,6 +34,8 @@ set hidden
 set pastetoggle=<F2> " switch to paste mode with F2
 set spelllang=en,it,es,pt
 set formatoptions=tcqw " some formatting options, see fo-table
+set wildmenu
+set wildmode=longest,list,full
 set wildignore=*.swp,*.bak,*.pyc	" ignore those file extensions when Tab completing
 set printoptions=header:0
 
