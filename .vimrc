@@ -7,7 +7,6 @@ set history=50
 set showcmd
 set showmode
 set showmatch
-"set syntax=on
 syntax on
 set hlsearch
 set smartindent
@@ -130,6 +129,9 @@ if has("autocmd")
 			execute ":sp " .fPath
 		endfunction
 		autocmd FileType python set omnifunc=pythoncomplete#Complete
+		" folding follow indentation
+		autocmd FileType python set foldmethod=indent
+		autocmd FileType python set foldlevel=99
 	augroup END
 
 	augroup Ruby
