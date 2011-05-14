@@ -1,0 +1,31 @@
+" vim: set ft=vim fdm=marker tw=0:
+
+set titlestring=Firefox
+set editor="gvim -f +<line> <file>"
+set maxitems=12
+set cpt=sl
+set nostrictfocus
+
+" set color scheme
+:colorscheme g
+
+" show pattern matches as you type
+set incfind
+
+" Highlight previous search pattern matches
+set hlfind
+
+" show destination links in 1=status line, 2=command line
+set showstatuslinks=status
+
+" custom commands
+command -description "News reader" rss :open www.google.com/reader/view/
+
+" passkeys
+set passkeys=
+" DuckDuckGo
+set passkeys+="https://duckduckgo\.com/":jkv
+" Gmail
+set passkeys+="https://mail\.google\.com/":jkg
+" Google Reader
+set passkeys+="https://www\.google\.com/reader/":-=/?12aefgjklmnporstuvAFNPOSX 
