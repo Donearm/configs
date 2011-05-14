@@ -201,6 +201,12 @@ function! LuaComment()
 	inoremap - X-
 endfunction
 
+function! VimComment()
+	map - :s/^/\"/<CR>
+	map _ :s/^\s*\"//<CR>
+	set comments=:\"
+endfunction
+
 " ...and enabling them
 if has("autocmd")
     autocmd FileType perl	call ShellComment()
@@ -210,6 +216,7 @@ if has("autocmd")
     autocmd FileType python	call ShellComment()
     autocmd FileType c,cpp	call CComment()
 	autocmd FileType lua	call LuaComment()
+	autocmd FileType vim	call VimComment()
 endif
 
 " --- PROGRAMMING END ---
