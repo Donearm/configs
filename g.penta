@@ -14,7 +14,7 @@ hi CompIcon width: 16px; min-width: 16px; display: inline-block; margin-right: 0
 hi CompLess text-align: center; height: 0; line-height: 0.5ex; padding-top: 1ex;
 hi CompMore text-align: center; height: .5ex; line-height: 0.5ex; margin-bottom: -0.5ex;
 hi CompMsg color: #262626;
-hi CompResult color: black; font-weight: normal; width: 40%;
+hi CompResult color: black; font-weight: normal; width: 40%; overflow: hidden;
 hi CompDesc color: black; font-weight: normal; width: 60%;
 
 hi Bell border: 0 none; background: #f0ecdf;
