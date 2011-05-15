@@ -26,6 +26,8 @@ set passkeys=
 " DuckDuckGo
 set passkeys+="https://duckduckgo\.com/":jkv
 " Gmail
-set passkeys+="https://mail\.google\.com/":jkg
+"set passkeys+="https://mail\.google\.com/":jkg
 " Google Reader
-set passkeys+="https://www\.google\.com/reader/":-=/?12aefgjklmnporstuvAFNPOSX 
+"set passkeys+="https://www\.google\.com/reader/":-=/?12aefgjklmnporstuvAFNPOSX 
+" those above don't work, enable passthrough on all Google sites
+:autocmd LocationChange '^https://(www|mail)\.google\.com/' :normal! <C-z>
