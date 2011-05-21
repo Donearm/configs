@@ -60,7 +60,7 @@ class CustomApplications(DefaultApps):
                 return self.app_unzip(c)
             if f.extension in ('7z', ):
                 return self.app_7z(c)
-            if f.extension in ('f4v', ):
+            if f.extension in ('f4v', 'm4v' ):
                 return self.app_mplayer(c)
             if f.extension in ('bz2', 'gz', 'tar', 'tgz', 'tbz2', 'tbz', 'bz'):
                 return self.app_tar(c)
