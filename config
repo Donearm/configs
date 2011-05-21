@@ -10,8 +10,8 @@ nolirc="1"
 #cache = "16000"
 idx="1"
 double="1"
-#mixer-channel=Master
-mixer-channel=PCM
+mixer-channel=Master
+#mixer-channel=PCM
 #vm = "1"
 # antialias subtitles
 spuaa=4
@@ -40,7 +40,7 @@ vo=vdpau:deint=4,xv,
 vc=ffmpeg12vdpau,ffh264vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
 ao=alsa
 # Increase volume beyond audiocard's maximum
-af=volume=10:1:0
+#af=volume=10:1:0
 
 # Xvmc profile. Use with -profile xvmc
 [xvmc]
