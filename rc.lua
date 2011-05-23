@@ -255,14 +255,7 @@ function psByMemory(n)
 end
 
 function dailyActivities()
-    local r = [[    08:00-10:00     =   news, twitter replies, forums
-    10:00-11:00     =   reading, portuguese/spanish news
-    11:00-13:00     =   linux updating/tweaking and/or programming
-    13:30-14:00     =   collecting material for tumblog
-    14:00-15:00     =   doing tasks, spanish/portuguese reads
-    15:00-16:00     =   coding or reading about it, mail/forum answering
-    16:00-17:30     =   gaming or more reading/languages
-    17:30-18:30     =   workout or more coding/reading/languages]]
+    local r = [[ ]] -- a stringified list of time and corresponding activity throughout the day
     roadmapPopup = naughty.notify({
         title = "Daily Activities",
         text = r,
@@ -282,8 +275,8 @@ for s = 1, screen.count() do
     tags[s] = awful.tag({ "1", "2", "3", "4", "5", "6", "7"}, s, 
         {
             layouts[1],
-            layouts[7],
             layouts[1],
+            layouts[7],
             layouts[1],
             layouts[1],
             layouts[1],
@@ -316,7 +309,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "HP Toolbox", "hp-toolbox", image("/usr/share/hplip/data/images/32x32/hp_logo.png") },
                                         { "Avidemux", "avidemux2_gtk", image("/usr/share/pixmaps/avidemux.png") },
                                         { "Gimp", "gimp", image("/usr/share/gimp/2.0/images/gimp-logo.png") },
-                                        --{ "Gcolor", "gcolor2", image("/usr/share/pixmaps/gcolor2/icon.png") },
                                         { "Gtkam", "gtkam", image("/usr/share/pixmaps/gtkam.png") }
                                       }
                             })
