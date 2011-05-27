@@ -67,9 +67,10 @@ au BufWinEnter * silent! loadview
 
 " Templates
 au BufNewFile *.py 0read ~/.vim/skel/python.skel | normal G
-au BufNewFile * silent! 0r ~/.vim/skel/0000
-au BufNewFile * silent! 0r ~/.vim/skel/source.%:e
-au BufNewFile * silent! 0r ~/.vim/skel/credits
+au BufNewFile *.lua 0r ~/.vim/skel/lua.skel | normal G
+au BufNewFile 0000 silent! 0r ~/.vim/skel/0000
+au BufNewFile source.txt silent! 0r ~/.vim/skel/source.%:e
+au BufNewFile credits silent! 0r ~/.vim/skel/credits
 "
 " --- MAIL ---
 "
