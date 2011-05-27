@@ -64,6 +64,12 @@ endif
 " save fold before closing
 au BufWinLeave * mkview
 au BufWinEnter * silent! loadview
+
+" Templates
+au BufNewFile *.py 0read ~/.vim/skel/python.skel | normal G
+au BufNewFile * silent! 0r ~/.vim/skel/0000
+au BufNewFile * silent! 0r ~/.vim/skel/source.%:e
+au BufNewFile * silent! 0r ~/.vim/skel/credits
 "
 " --- MAIL ---
 "
