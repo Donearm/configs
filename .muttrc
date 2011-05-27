@@ -663,6 +663,7 @@ charset-hook windows-1258 CP1258
  -c 'set fo=tcrq' \
  -c 'set syntax=mail' \
  -c ':0;/^To: '\
+ -c 'set spell'\
  -c 'set nobackup'"
 # set editor="vim +'silent! %%s/^> >/>>/' +'set tw=72' +'set fo=tcrq' +'normal gg'"
 # set editor="vim"
