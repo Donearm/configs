@@ -37,7 +37,7 @@ set formatoptions=tcqw " some formatting options, see fo-table
 set wildmenu
 set wildmode=longest,list,full
 set wildignore=*.swp,*.bak,*.pyc	" ignore those file extensions when Tab completing
-set printoptions=header:0
+set printoptions=header:0,paper:A4
 
 "persistent undo
 set undodir=~/.vim/undodir
