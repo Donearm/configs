@@ -66,6 +66,13 @@ vf=scale
 vf=screenshot
 #vf=expand=0:-50:0:0	# should put any subtitles in the black bar under the video and not on it
 
+# Mplayer with gl2 (for those videos that have problems playing with
+# vdpau)
+[vo.gl2]
+profile-desc="Gl profile"
+vo=gl2
+vc=,
+
 [gnome-mplayer]
 profile-desc="gnome-mplayer profile"
 vo=xv
