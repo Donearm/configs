@@ -397,7 +397,7 @@ volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 4, function() awful.util.spawn(soundRaiseVolume) end),
     awful.button({ }, 5, function() awful.util.spawn(soundLowerVolume) end),
     awful.button({ }, 3, function() awful.util.spawn(soundMute) end)
-    ))
+))
 
 -- Date widget
 datebox = widget({ type = "textbox"})
