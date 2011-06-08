@@ -163,7 +163,7 @@ end
 
 function getGpuTemp ()
     --local f = io.popen(home .. "/.conky/nvidiatemp")
-	local f = io.popen('DISPLAY=:0.0 nvidia-settings -q gpucoretemp -t')
+	local f = io.popen('nvidia-settings -q gpucoretemp -t')
 	local n = f:read()
 	f:close()
     if (n == nil) then
@@ -244,7 +244,7 @@ function psByMemory(n)
         memoryPopup = nil
     else
         -- memory sorting doesn't work
-        local r = io.popen("ps -eo pid,user,comm,%mem --sort=%mem | sed -n '1,15p'"):read("*a")
+        local r = io.popen("ps -eo pid,pmem,user,comm,rss --sort -rss | sed -n '1,15p'"):read("*a")
         memoryPopup = naughty.notify({
             title = "Memory Usage",
             text = r,
@@ -338,8 +338,8 @@ gpuicon.image = image(home .. "/.icons/nvidia-black.png")
 memicon = widget({ type = "imagebox"})
 memicon.image = image(home .. "/.icons/ram_drive.png")
 memwidget = widget({ type = "textbox"})
---memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
---memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
+memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
+memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
 vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="' .. par_color .. '">|</span>$2MB', 10)
 
 
@@ -408,6 +408,7 @@ datebox:buttons(awful.util.table.join(
     awful.button({ }, 5, function () addCalendar(1) end)
 ))
 vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T  "))
+
 
 -- {{{ Wibox
 -- Set the default text in textbox
