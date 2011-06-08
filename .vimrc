@@ -42,8 +42,8 @@ set printoptions=header:0,paper:A4
 "persistent undo
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=500 " maximum number of changes that can be undone
-set undoreload=10000 " maximum number of lines to save for undo on a buffer reload
+set undolevels=200 " maximum number of changes that can be undone
+set undoreload=1000 " maximum number of lines to save for undo on a buffer reload
 
 "set guifontset=-adobe-courier-medium-r-normal-*-10-*-*-*-*-*-iso10646-1
 filetype plugin on
