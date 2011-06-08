@@ -190,7 +190,7 @@ macro compose I ":set ispell='/usr/bin/aspell -d en -x check'\n;<ispell>"
 # give it the same color as your attachment color.
 # 
 # 
-# set alternates=""
+alternates	^(me1|me2)@gmail\\.com$	^otheraccount@somewhere\\.net$
 #
 # Name: alternates
 # Type: regular expression
@@ -868,7 +868,7 @@ set folder_format="%2C %t %N %f"
 # ``$indent_string''.
 # 
 # 
- set from="forod.g@gmail.com"
+# set from="forod.g@gmail.com"
 #
 # Name: from
 # Type: e-mail address
