@@ -34,11 +34,11 @@ editor_cmd = terminal .. " -e " .. editor
 -- Some variables
 browser_nav = "firefox -P navigation --no-remote"
 browser_mad = "firefox -P maidens --no-remote"
-music = "gmusicbrowser"
-musicPlay = "gmusicbrowser -remotecmd PlayPause"
-musicStop = "gmusicbrowser -remotecmd Stop"
-musicPrev = "gmusicbrowser -remotecmd PrevSongInPlaylist"
-musicNext = "gmusicbrowser -remotecmd NextSongInPlaylist"
+music = terminal .. " -e ncmpcpp"
+musicPlay = "ncmpcpp toggle"
+musicStop = "ncmpcpp stop"
+musicPrev = "ncmpcpp prev"
+musicNext = "ncmpcpp next"
 soundRaiseVolume = "amixer set Master 5%+"
 soundLowerVolume = "amixer set Master 5%-"
 soundPerfectVolume = "amixer set Master 5%"
@@ -303,7 +303,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                         { "firefox (maidens)", browser_mad, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
 --                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
                                         { "ranger", filemanager, image(home .. "/.icons/ranger-chuck.gif") },
-                                        { "Music", "gmusicbrowser", image("/usr/share/pixmaps/gmusicbrowser.png") },
+                                        { "Music", music, image(home .. "/.icons/music.jpg") },
                                         { "Skype", "skype", image("/usr/share/pixmaps/skype.png") },
                                         { "Winxp", "VBoxManage startvm WinXp", image("/usr/share/pixmaps/VBox.png") },
                                         { "HP Toolbox", "hp-toolbox", image("/usr/share/hplip/data/images/32x32/hp_logo.png") },
