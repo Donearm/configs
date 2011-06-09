@@ -370,8 +370,8 @@ cputemp = widget({ type = 'textbox'})
 --vicious.register(cputemp, getCpuTemp, "$1", 30)
 vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 
-mobotemp = widget({ type = 'textbox'})
-vicious.register(mobotemp, getMoboTemp, "$1", 50)
+--mobotemp = widget({ type = 'textbox'})
+--vicious.register(mobotemp, getMoboTemp, "$1", 50)
 
 --gputemp = widget({ type = 'textbox'})
 --vicious.register(gputemp, getGpuTemp, "$1", 30)
@@ -507,8 +507,6 @@ for s = 1, screen.count() do
             netdownicon,
             netupwidget,
             netupicon,
-            mobotemp,
-            moboicon,
             memwidget,
             memicon,
             cpuwidget,
