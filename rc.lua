@@ -296,7 +296,7 @@ function dailyActivities()
 end
 
 function taskShow()
-    local t = io.popen("task minimal"):read("*a")
+    local t = io.popen("task veryminimal"):read("*a")
     taskPopup = naughty.notify({
         title = "Tasks",
         text = t,
