@@ -599,7 +599,7 @@ for s = 1, screen.count() do
         screen = s,
         fg = beautiful.fg_normal,
         bg = beautiful.bg_normal,
-        height = 14 })
+        height = 15 })
     -- adding widgets to the wibox
     bottomwibox[s].widgets = {
         { 
@@ -628,29 +628,29 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey,         }, "Left",      awful.tag.viewprev       ),
+    awful.key({ modkey,         }, "Right",     awful.tag.viewnext       ),
+    awful.key({ modkey,         }, "Escape",    awful.tag.history.restore),
 
-    awful.key({ modkey,           }, "j",
+    awful.key({ modkey,         }, "j",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "k",
+    awful.key({ modkey,         }, "k",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
+    awful.key({ modkey,         }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ modkey, "Shift"     }, "j", function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey, "Shift"     }, "k", function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, "Control"   }, "j", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control"   }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,             }, "u", awful.client.urgent.jumpto),
+    awful.key({ modkey,             }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -659,42 +659,42 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ alt },               "m",   function () awful.util.spawn(music) end),
-    awful.key({ modkey, alt       }, "f",   function () awful.util.spawn(browser_nav) end),
-    awful.key({ modkey, "Control" }, "f",   function () awful.util.spawn(browser_mad) end),
-    awful.key({ alt },               "f",   function () awful.util.spawn(filemanager) end),
-    awful.key({ none }, "XF86AudioPlay",    function () awful.util.spawn(musicPlay) end),
-    awful.key({ none }, "XF86AudioStop",    function () awful.util.spawn(musicStop) end),
-    awful.key({ none }, "XF86AudioPrev",    function () awful.util.spawn(musicPrev) end),
-    awful.key({ none }, "XF86AudioNext",    function () awful.util.spawn(musicNext) end),
-    awful.key({ none }, "XF86AudioLowerVolume", function () awful.util.spawn(soundLowerVolume) end),
-    awful.key({ none }, "XF86AudioRaiseVolume", function () awful.util.spawn(soundRaiseVolume) end),
-    awful.key({ none }, "XF86AudioMute",    function () awful.util.spawn(soundMute) end),
-    awful.key({ none }, "XF86Sleep",    function () awful.util.spawn(lockScreen) end),
-    awful.key({ none }, "XF86Mail",     function () awful.util.spawn(mutt) end),
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-    awful.key({ modkey, "Control" }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
+    awful.key({ alt                 }, "m", function () awful.util.spawn(music) end),
+    awful.key({ modkey, alt         }, "f", function () awful.util.spawn(browser_nav) end),
+    awful.key({ modkey, "Control"   }, "f", function () awful.util.spawn(browser_mad) end),
+    awful.key({ alt                 }, "f", function () awful.util.spawn(filemanager) end),
+    awful.key({ none                }, "XF86AudioPlay", function () awful.util.spawn(musicPlay) end),
+    awful.key({ none                }, "XF86AudioStop", function () awful.util.spawn(musicStop) end),
+    awful.key({ none                }, "XF86AudioPrev", function () awful.util.spawn(musicPrev) end),
+    awful.key({ none                }, "XF86AudioNext", function () awful.util.spawn(musicNext) end),
+    awful.key({ none                }, "XF86AudioLowerVolume", function () awful.util.spawn(soundLowerVolume) end),
+    awful.key({ none                }, "XF86AudioRaiseVolume", function () awful.util.spawn(soundRaiseVolume) end),
+    awful.key({ none                }, "XF86AudioMute", function () awful.util.spawn(soundMute) end),
+    awful.key({ none                }, "XF86Sleep", function () awful.util.spawn(lockScreen) end),
+    awful.key({ none                }, "XF86Mail", function () awful.util.spawn(mutt) end),
+    awful.key({ modkey,             }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, "Control"   }, "r", awesome.restart),
+    awful.key({ modkey, "Shift"     }, "q", awesome.quit),
+    awful.key({ modkey, "Control"   }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
     -- Win+z: stop any widget but battery and wifi, Win+Shift+z:
     -- reactivate all widgets
-    awful.key({ modkey,           }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh stop") end),
-    awful.key({ modkey, "Shift"   }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh start") end),
+    awful.key({ modkey,             }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh stop") end),
+    awful.key({ modkey, "Shift"     }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh start") end),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,             }, "l", function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,             }, "h", function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey, "Shift"     }, "h", function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, "Shift"     }, "l", function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, "Control"   }, "h", function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Control"   }, "l", function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey,             }, "space", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift"     }, "space", function () awful.layout.inc(layouts, -1) end),
     -- DailyActivties popup
-    awful.key({ modkey,           }, "a",     function () dailyActivities()             end),
+    awful.key({ modkey,             }, "a", function () dailyActivities()             end),
 
     -- Mod4+s set the window sticky; pressing it again leave the window
     -- only on the current tag
-    awful.key({ modkey },            "s",     function ()
+    awful.key({ modkey              }, "s", function ()
         for s = 1, screen.count( ) do
             tagtable = screen[s]:tags()
             for k,t in pairs(tagtable) do
@@ -706,10 +706,9 @@ globalkeys = awful.util.table.join(
     end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey              }, "r", function () mypromptbox[mouse.screen]:run() end),
 
-    awful.key({ modkey }, "x",
-              function ()
+    awful.key({ modkey              }, "x", function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
@@ -719,16 +718,16 @@ globalkeys = awful.util.table.join(
 
 -- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
-    awful.key({ modkey,			  }, "n",	   function (c) c.minimized = not c.minimized    end),
-    awful.key({ modkey, "Shift"   }, "x",      function (c) xprop(c) end),
-    awful.key({ modkey,           }, "m",
+    awful.key({ modkey,             }, "f", function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey, "Shift"     }, "c", function (c) c:kill()                         end),
+    awful.key({ modkey, "Control"   }, "space",  awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Control"   }, "Return", function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,             }, "o", awful.client.movetoscreen                        ),
+    awful.key({ modkey, "Shift"     }, "r", function (c) c:redraw()                       end),
+    awful.key({ modkey,             }, "t", function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey,			    }, "n",	function (c) c.minimized = not c.minimized    end),
+    awful.key({ modkey, "Shift"     }, "x", function (c) xprop(c) end),
+    awful.key({ modkey,             }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
