@@ -1,68 +1,8 @@
-####################################################
-## this is example configuration file, copy it to ##
-## ~/.ncmpcpp/config and set up your preferences  ##
-####################################################
-#
 ##### connection settings #####
-#
-## set it in order to make tag editor and renaming files work properly
-#
 mpd_host = "localhost"
-#
 mpd_port = "6600"
-#
 mpd_music_dir = "/media/private/Music/"
-#
-#mpd_connection_timeout = "5"
-#
-#mpd_crossfade_time = "5"
-#
-#mpd_communication_mode = "notifications" (polling/notifications)
-#
-##### music visualizer #####
-##
-## Note: In order to make music visualizer work you'll
-## need to use mpd fifo output, whose format parameter
-## has to be set to 44100:16:1. Example configuration:
-## (it has to be put into mpd.conf)
-##
-## audio_output {
-##        type            "fifo"
-##        name            "My FIFO"
-##        path            "/tmp/mpd.fifo"
-##        format          "44100:16:1"
-## }
-##
-#
-#visualizer_fifo_path = ""
-#
-##
-## Note: Below parameter is needed for ncmpcpp
-## to determine which output provides data for
-## visualizer and thus allow syncing between
-## visualization and sound as currently there
-## are some problems with it.
-##
-#
-#visualizer_output_name = ""
-#
-##
-## Note: Below parameter defines how often ncmpcpp
-## has to "synchronize" visualizer and audio outputs.
-## 30 seconds is optimal value, but if you experience
-## synchronization problems, set it to lower value.
-## Keep in mind that sane values start with >=10.
-##
-#
-#visualizer_sync_interval = "30"
-#
-##
-## Note: To enable spectrum frequency visualization
-## you need to compile ncmpcpp with fftw3 support.
-##
-#
-#visualizer_type = "wave" (spectrum/wave)
-#
+
 ##### system encoding #####
 ##
 ## ncmpcpp should detect your charset encoding
@@ -167,9 +107,9 @@ mpd_music_dir = "/media/private/Music/"
 ## with reversed colors.
 ##
 #
-#alternative_header_first_line_format = "$b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b"
-#
-#alternative_header_second_line_format = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}"
+alternative_header_first_line_format = "$b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b"
+
+alternative_header_second_line_format = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}"
 #
 ##
 ## Note: Below variables also supports
@@ -226,7 +166,7 @@ mpd_music_dir = "/media/private/Music/"
 ##   not available.
 ##
 #
-#song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[]{t|f} (30)[red]{b}"
+song_columns_list_format = "(5f)[blue]{l} (20)[cyan]{a} (45)[]{t|f} (30)[blue]{b}"
 #
 ##### various settings #####
 #
@@ -245,11 +185,11 @@ mpd_music_dir = "/media/private/Music/"
 #
 #playlist_separate_albums = "no"
 #
-#playlist_display_mode = "classic" (classic/columns)
+playlist_display_mode = "columns"
 #
-#browser_display_mode = "classic" (classic/columns)
+browser_display_mode = "classic"
 #
-#search_engine_display_mode = "classic" (classic/columns)
+search_engine_display_mode = "classic"
 #
 #discard_colors_if_item_is_selected = "yes"
 #
@@ -269,7 +209,7 @@ mpd_music_dir = "/media/private/Music/"
 #
 #default_place_to_search_in = "database" (database/playlist)
 #
-#user_interface = "classic" (classic/alternative)
+user_interface = "classic"
 #
 #media_library_left_column = "a" (possible values: a,y,g,c,p, legend above)
 #
@@ -281,17 +221,17 @@ mpd_music_dir = "/media/private/Music/"
 #
 #default_tag_editor_pattern = "%n - %t"
 #
-#header_visibility = "yes"
+header_visibility = "yes"
 #
-#statusbar_visibility = "yes"
+statusbar_visibility = "yes"
 #
-#titles_visibility = "yes"
+titles_visibility = "no"
 #
 #header_text_scrolling = "yes"
 #
-#fancy_scrolling = "yes"
+fancy_scrolling = "no"
 #
-#cyclic_scrolling = "no"
+cyclic_scrolling = "yes"
 #
 #lines_scrolled = "2"
 #
@@ -414,37 +354,36 @@ mpd_music_dir = "/media/private/Music/"
 #
 ##### colors definitions #####
 #
-#colors_enabled = "yes"
+colors_enabled = "yes"
 #
-#empty_tag_color = "cyan"
+empty_tag_color = "white"
 #
-#header_window_color = "default"
+header_window_color = "default"
 #
-#volume_color = "default"
+volume_color = "default"
 #
-#state_line_color = "default"
+state_line_color = "default"
 #
-#state_flags_color = "default"
+state_flags_color = "default"
 #
-#main_window_color = "yellow"
+main_window_color = "white"
 #
-#color1 = "white"
+color1 = "white"
 #
-#color2 = "green"
+color2 = "green"
 #
-#main_window_highlight_color = "yellow"
+main_window_highlight_color = "cyan"
 #
-#progressbar_color = "default"
+progressbar_color = "default"
 #
-#statusbar_color = "default"
+statusbar_color = "default"
 #
-#alternative_ui_separator_color = "black"
+alternative_ui_separator_color = "black"
 #
-#active_column_color = "red"
+active_column_color = "blue"
 #
-#visualizer_color = "yellow"
+visualizer_color = "yellow"
 #
-#window_border_color = "green"
+window_border_color = "green"
 #
-#active_window_border = "red"
-#
+active_window_border = "red"
