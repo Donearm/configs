@@ -144,6 +144,36 @@ function xprop(c)
 end
 
 -- Temp functions
+
+function getTemp(hw)
+    local f = ''
+    if hw == "cpu" then
+        f = io.popen('cut -b 1-2 /sys/class/hwmon/hwmon0/device/temp3_input')
+    elseif hw == "mb" then
+        f = io.popen('cut -b 1-2 /sys/class/hwmon/hwmon0/device/temp1_input')
+    elseif hw == "gpu" then
+        f = io.popen('nvidia-settings -q gpucoretemp -t')
+    elseif hw == "sda" then
+        f = io.popen("sudo hddtemp /dev/" .. hw .. " -n")
+    elseif hw == "sdb" then
+        f = io.popen("sudo hddtemp /dev/" .. hw .. " -n")
+    else
+        return ''
+    end
+    local n = f:read()
+    f:close()
+    if (n == nil) then
+        return ''
+    end
+    
+    if tonumber(n) >= 70 then
+        n = setFg("#aadc43", n .. '°C')
+        return n
+    else
+        return setFg(beautiful.fg_normal, ' ' .. n .. '°C')
+    end
+end
+
 function getCpuTemp ()
     --local f = io.popen('cut -b 1-2 /sys/module/w83627ehf/drivers/platform\:w83627ehf/w83627ehf.656/temp1_input')
     --local f = io.popen('cut -b 1-2 /sys/class/thermal/thermal_zone0/temp')
@@ -218,6 +248,7 @@ function addCalendar(inc_offset)
         timeout = 0,
         hover_timeout = 0.5,
         width = 150,
+        position = "bottom_right",
     })
 end
 
@@ -264,6 +295,16 @@ function dailyActivities()
     })
 end
 
+function taskShow()
+    local t = io.popen("task minimal"):read("*a")
+    taskPopup = naughty.notify({
+        title = "Tasks",
+        text = t,
+        timeout = 3,
+        hover_timeout = 3,
+        position = "bottom_right"
+    })
+end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
@@ -316,6 +357,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
 -- Launchbox
 mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-black.png"),
                                      menu = mymainmenu })
+
 -- Cpu widget
 cpuicon = widget({ type = "imagebox"})
 cpuicon.image = image(home .. "/.icons/amd_cpu.png")
@@ -371,7 +413,9 @@ cputemp = widget({ type = 'textbox'})
 vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 
 --mobotemp = widget({ type = 'textbox'})
+--vicious.register(mobotemp, vicious.widgets.thermal, "$1°C", 50, "thermal_zone1")
 --vicious.register(mobotemp, getMoboTemp, "$1", 50)
+--vicious.register(mobotemp, getTemp, "$1", 50, 'mb')
 
 --gputemp = widget({ type = 'textbox'})
 --vicious.register(gputemp, getGpuTemp, "$1", 30)
@@ -384,6 +428,35 @@ vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 --sdbtemp = widget({ type = 'textbox'})
 --vicious.register(sdbtemp, vicious.widgets.hddtemp, '${/dev/sdb}°C', 30)
 
+-- Task widget
+taskicon = widget({ type = "imagebox" })
+taskicon.image = image(home .. "/.icons/taskwarrior.png")
+taskicon:buttons(awful.util.table.join(
+    awful.button({ }, 1, function() taskShow() end)
+    )
+)
+
+-- Mpd widget
+mpdwidget = widget({ type = 'textbox' })
+vicious.register(mpdwidget, vicious.widgets.mpd,
+    function (widget, args)
+    if args["{state}"] == "Stop" then
+        return ""
+    elseif args["{state}"] == "Play" then
+        return ' <span color="' .. par_color .. '">[</span>' .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. '<span color="' .. par_color .. '">]</span> '
+    elseif args["{state}"] == "Pause" then
+        return ' <span color="' .. par_color .. '">[</span>' .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. '<span color="' .. par_color .. '">]</span>{PAUSED} '
+    end
+end, 2 )
+mpdwidget:buttons(
+    awful.util.table.join(
+        awful.button({}, 1, function () awful.util.spawn(musicPlay, false) end),
+        awful.button({}, 3, function () awful.util.spawn(music) end),
+        awful.button({}, 4, function () awful.util.spawn(musicNext, false) end),
+        awful.button({}, 5, function () awful.util.spawn(musicPrev, false) end)
+    )
+)
+
 -- Volume widget
 volumeicon = widget({ type = "imagebox"})
 volumeicon.image = image(home .. "/.icons/headphones-transparent.png")
@@ -391,7 +464,7 @@ volumeicon.image = image(home .. "/.icons/headphones-transparent.png")
 volumewidget = widget({ type = "textbox"})
 -- enable caching
 vicious.cache(vicious.widgets.volume)
-vicious.register(volumewidget, vicious.widgets.volume, "$1%", 1, "Master")
+vicious.register(volumewidget, vicious.widgets.volume, "$1% ", 1, "Master")
 volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function() awful.util.spawn(soundPerfectVolume) end),
     awful.button({ }, 4, function() awful.util.spawn(soundRaiseVolume) end),
@@ -418,8 +491,9 @@ mypromptbox = widget({ type = "textbox" })
 mysystray = widget({ type = "systray" }) 
 
 -- Create a wibox for each screen and add it
-mywibox = {}
---mywibox.ontop = false
+topwibox = {}
+--topwibox.ontop = false
+bottomwibox = {}
 mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
@@ -481,15 +555,15 @@ for s = 1, screen.count() do
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
 
-    -- Create the wibox
-    mywibox[s] = awful.wibox({ 
+    -- Create the top wibox
+    topwibox[s] = awful.wibox({ 
         position = "top", 
         screen = s,
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
         height = 18 })
     -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {
+    topwibox[s].widgets = {
 		{
             mytaglist[s],
             mylauncher,
@@ -498,9 +572,6 @@ for s = 1, screen.count() do
 		},
             s == screen.count() and mysystray or nil,
             mylayoutbox[s],
-            datebox,
-            volumewidget,
-            volumeicon,
             maildirwidget,
             maildiricon,
             netdownwidget,
@@ -514,6 +585,23 @@ for s = 1, screen.count() do
             cpuicon,
             mytasklist[s],
             layout = awful.widget.layout.horizontal.rightleft
+    }
+
+    -- Create the bottom wibox
+    bottomwibox[s] = awful.wibox({
+        position = "bottom",
+        screen = s,
+        fg = beautiful.fg_normal,
+        bg = beautiful.bg_normal,
+        height = 14 })
+    -- adding widgets to the wibox
+    bottomwibox[s].widgets = {
+        datebox,
+        taskicon,
+        volumewidget,
+        volumeicon,
+        mpdwidget,
+        layout = awful.widget.layout.horizontal.rightleft
     }
 
 end
