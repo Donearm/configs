@@ -482,6 +482,12 @@ datebox:buttons(awful.util.table.join(
 ))
 vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T  "))
 
+osicon = widget({ type = "imagebox"})
+osicon.image = image(home .. "/.icons/emperor_penguin.png")
+oswidget = widget({ type = "textbox"})
+vicious.cache(vicious.widgets.os)
+vicious.register(oswidget, vicious.widgets.os, " $3" .. setFg(beautiful.bg_focus, "@") .. "$4", 600)
+
 
 -- {{{ Wibox
 -- Set the default text in textbox
@@ -596,6 +602,11 @@ for s = 1, screen.count() do
         height = 14 })
     -- adding widgets to the wibox
     bottomwibox[s].widgets = {
+        { 
+            osicon,
+            oswidget,
+            layout = awful.widget.layout.horizontal.leftright
+        },
         datebox,
         taskicon,
         volumewidget,
