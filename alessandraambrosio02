@@ -4,7 +4,7 @@
 
 theme = {}
 
-theme.font          = "DejaVu Sans 8"
+theme.font          = "Corbel 9"  -- from ttf-vista-fonts
 
 theme.bg_normal     = "#f0ecdf"
 theme.bg_focus      = "#806671"
