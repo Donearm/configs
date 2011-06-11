@@ -189,8 +189,8 @@ macro compose I ":set ispell='/usr/bin/aspell -d en -x check'\n;<ispell>"
 # message could include a line like "[-- PGP output follows ..." and
 # give it the same color as your attachment color.
 # 
-# 
-alternates	^(me1|me2)@gmail\\.com$	^otheraccount@somewhere\\.net$
+#
+alternates     ^(me1|me2)@gmail\\.com$ ^otheraccount@somewhere\\.net$
 #
 # Name: alternates
 # Type: regular expression

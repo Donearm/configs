@@ -483,7 +483,7 @@ datebox:buttons(awful.util.table.join(
 vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T  "))
 
 osicon = widget({ type = "imagebox"})
-osicon.image = image(home .. "/.icons/emperor_penguin.png")
+osicon.image = image(home .. "/.icons/tux.png")
 oswidget = widget({ type = "textbox"})
 vicious.cache(vicious.widgets.os)
 vicious.register(oswidget, vicious.widgets.os, " $3" .. setFg(beautiful.bg_focus, "@") .. "$4", 600)
