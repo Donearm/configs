@@ -64,13 +64,3 @@ class urxvt(Command):
     """
     def execute(self):
         self.fm.run('urxvtc', flags='d')
-
-class imgtags(Command):
-    """
-    :imgtags
-
-    Shows iptc keywords in an image, if present, using imgtags.py
-    """
-    def execute(self):
-        line = parse(self.line)
-        self.fm.execute_console('shell -p imgtags.py -i %s')
