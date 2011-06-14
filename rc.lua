@@ -8,6 +8,8 @@ require("beautiful")
 require("naughty")
 require("vicious")
 
+require("mpd-popup")
+
 -- {{{ Variable definitions
 -- Home directory
 home = os.getenv("HOME")
@@ -141,6 +143,41 @@ function xprop(c)
         .. f(c.maximized_horizontal, "maximized horizontal")
         .. f(c.maximized_vertical, "maximized vertical")
     })
+end
+
+-- Cover art showing function
+local coverart_on
+local base_id = 0
+function coverart_show()
+    -- hide a previously showing notify
+    coverart_hide()
+    -- get song id, info and path to the cover from mpd-popup.lua
+    local id, info, cover_path = mpd_main(base_id)
+    -- if the got id is different from the last one, show the naughty
+    -- notify
+    if base_id ~= id then
+        local img = image(cover_path)
+        local img_w = img['width']
+        local img_h = img['height']
+        local ico = img.crop(img, img_h, img_w, 80, 80)
+--        local ico = img.crop_and_scale(img, img_w, img_h, 80, 80, 0, 0, img)
+        local txt = info
+        coverart_on = naughty.notify({
+            icon = ico,
+            text = txt,
+            timeout = 3,
+            position = "bottom_right"
+        })
+    -- new id becomes the old one
+    base_id = id
+    end
+end
+
+
+function coverart_hide()
+    if coverart_on ~= nil then
+        naughty.destroy(coverart_on)
+    end
 end
 
 -- Temp functions
@@ -955,6 +992,11 @@ client.add_signal("manage", function (c, startup)
 	end
 end)
 
+
+-- call coverart_show every 2 seconds
+mpdtimer = timer({ timeout = 2 })
+mpdtimer:add_signal("timeout", function () coverart_show() end)
+mpdtimer:start()
 
 -- }}}
 
