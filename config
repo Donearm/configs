@@ -48,6 +48,12 @@ profile-desc="Xvmc profile"
 vo=xvmc
 vc=ffmpeg12mc
 
+# Cdda profile. Use with -profile cdda
+[cdda]
+profile-desc="Cdda profile"
+cache=16000
+cache-min=12
+
 # Mplayer in the framebuffer
 [vo.fb]
 profile-desc="Framebuffer profile"
