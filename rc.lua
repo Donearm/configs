@@ -157,13 +157,11 @@ function coverart_show()
     -- notify
     if base_id ~= id then
         local img = image(cover_path)
-        local img_w = img['width']
-        local img_h = img['height']
-        local ico = img.crop(img, img_h, img_w, 80, 80)
---        local ico = img.crop_and_scale(img, img_w, img_h, 80, 80, 0, 0, img)
+        local ico = img
         local txt = info
         coverart_on = naughty.notify({
             icon = ico,
+            icon_size = 80,
             text = txt,
             timeout = 3,
             position = "bottom_right"
