@@ -145,6 +145,7 @@ function xprop(c)
     })
 end
 
+
 -- Cover art showing function
 local coverart_on
 local base_id = 0
@@ -389,6 +390,9 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
                                       }
                             })
 
+
+-- Top Statusbar widgets
+
 -- Launchbox
 mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-black.png"),
                                      menu = mymainmenu })
@@ -400,7 +404,7 @@ cpuwidget = widget({ type = "textbox" })
 cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
-    ' <span color="' .. par_color .. '">[</span>$2%<span color="' .. par_color .. '">][</span>$3%<span color="' .. par_color ..'">]</span>', 5)
+    setFg(par_color, '[') .. "$2%" .. setFg(par_color, '][') .. "$3%" .. setFg(par_color, ']'), 5)
 
 
 -- Motherboard icon
@@ -417,7 +421,7 @@ memicon.image = image(home .. "/.icons/ram_drive.png")
 memwidget = widget({ type = "textbox"})
 memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
 memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
-vicious.register(memwidget, vicious.widgets.mem, ' $1%<span color="' .. par_color .. '">|</span>$2MB', 10)
+vicious.register(memwidget, vicious.widgets.mem, ' $1%' .. setFg(par_color, '|') .. '$2MB', 10)
 
 
 -- Network widget
@@ -425,10 +429,10 @@ netupwidget = widget({type = "textbox"})
 -- the last 3 options are interval-in-seconds, properties-name, padding
 vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
-	'${eth0 up_kb} <span color="' .. par_color .. '">[</span>${eth0 tx_mb}M<span color="' .. par_color .. '">]</span>', nil, nil, 3)
+	'${eth0 up_kb} ' .. setFg(par_color, '[') .. '${eth0 tx_mb}M' .. setFg(par_color, ']'), nil, nil, 3)
 netdownwidget = widget({ type = "textbox"})
 vicious.register(netdownwidget, vicious.widgets.net,
-	'${eth0 down_kb} <span color="' .. par_color .. '">[</span>${eth0 rx_mb}M<span color="' .. par_color .. '">]</span>', nil, nil, 3)
+	'${eth0 down_kb} ' .. setFg(par_color, '[') .. '${eth0 rx_mb}M' ..  setFg(par_color, ']'), nil, nil, 3)
 netupicon = widget({ type = "imagebox"})
 netupicon.image = image(home .. "/.icons/up_arrow.png")
 netdownicon = widget({ type = "imagebox" })
@@ -438,7 +442,7 @@ netdownicon.image = image(home .. "/.icons/down_arrow.png")
 maildiricon = widget({ type = "imagebox" })
 maildiricon.image = image(home .. "/.icons/gmail-glossy-black.png")
 maildirwidget = widget({ type = "textbox" })
-vicious.register(maildirwidget, vicious.widgets.mdir, ' $1<span color="' .. par_color .. '">|</span>$2 ', 300, { maildir })
+vicious.register(maildirwidget, vicious.widgets.mdir, ' $1' .. setFg(par_color, '|') .. '$2 ', 300, { maildir })
 
 
 -- Temperatures
@@ -463,6 +467,8 @@ vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 --sdbtemp = widget({ type = 'textbox'})
 --vicious.register(sdbtemp, vicious.widgets.hddtemp, '${/dev/sdb}°C', 30)
 
+-- Bottom Statusbar widgets
+
 -- Task widget
 taskicon = widget({ type = "imagebox" })
 taskicon.image = image(home .. "/.icons/taskwarrior.png")
@@ -478,9 +484,9 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
     if args["{state}"] == "Stop" then
         return ""
     elseif args["{state}"] == "Play" then
-        return ' <span color="' .. par_color .. '">[</span>' .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. '<span color="' .. par_color .. '">]</span> '
+        return ' ' .. setFg(par_color, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(par_color, '] ')
     elseif args["{state}"] == "Pause" then
-        return ' <span color="' .. par_color .. '">[</span>' .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. '<span color="' .. par_color .. '">]</span>{PAUSED} '
+        return ' ' .. setFg(par_color, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(par_color, ']') .. '{PAUSED} '
     end
 end, 2 )
 mpdwidget:buttons(
@@ -523,6 +529,8 @@ oswidget = widget({ type = "textbox"})
 vicious.cache(vicious.widgets.os)
 vicious.register(oswidget, vicious.widgets.os, " $3" .. setFg(beautiful.bg_focus, "@") .. "$4", 600)
 
+uptimewidget = widget({ type = "textbox"})
+vicious.register(uptimewidget, vicious.widgets.uptime, " since " .. setFg(beautiful.bg_focus, "$1d $2:$3"))
 
 -- {{{ Wibox
 -- Set the default text in textbox
@@ -640,6 +648,7 @@ for s = 1, screen.count() do
         { 
             osicon,
             oswidget,
+            uptimewidget,
             layout = awful.widget.layout.horizontal.leftright
         },
         datebox,
