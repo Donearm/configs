@@ -156,6 +156,9 @@ function coverart_show()
     local id, info, cover_path = mpd_main(base_id)
     -- if the got id is different from the last one, show the naughty
     -- notify
+    if id == nil then
+        return
+    end
     if base_id ~= id then
         local img = image(cover_path)
         local ico = img
