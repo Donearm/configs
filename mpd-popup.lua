@@ -64,7 +64,11 @@ images_ext = { "jpg", "jpeg", "JPEG", "JPG", "PNG", "png", "bmp", "BMP" }
 coverpatterns = { '.*cover.*', '.*front.*', '.*folder.*', '.*albumart.*' }
 
 function mpd_main(argid)
-	m = connection()
+	local m
+	while m == nil do
+		-- keep trying to connect to mpd until a connection is made
+		m = connection()
+	end
 	state = m:status()['state']
 	id = m:currentsong()['Id']
 	last_id = argid or arg[1]
