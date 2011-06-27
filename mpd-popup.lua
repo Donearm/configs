@@ -61,7 +61,7 @@ end
 -- table of all image extensions
 images_ext = { "jpg", "jpeg", "JPEG", "JPG", "PNG", "png", "bmp", "BMP" }
 -- table of possible patterns for the cover filename
-coverpatterns = { '.*cover.*', '.*front.*', '.*folder.*', '.*albumart.*' }
+coverpatterns = { '.*[Ff]ront.*', '.*[Ff]older.*', '.*[Aa]lbumart.*', '.*[Cc]over.*', '.*[Tt]humb.*' }
 
 function mpd_main(argid)
 	local m
