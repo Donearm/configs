@@ -3,7 +3,7 @@ from ranger.api.apps import *
 
 class CustomApplications(DefaultApps):
     def app_fehgallery(self, c):
-        return tup('/usr/local/bin/fehgallery.py', *c)
+        return tup('/usr/local/bin/fehgallery.lua', *c)
 
     def app_mplayer(self, c):
         c.flags += 'd'
