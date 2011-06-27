@@ -20,14 +20,15 @@ upload_rate = 80
 # Default directory to save the downloaded torrents.
 directory = /media/private/torrents/
 
-# Default session directory. Make sure you don't run multiple instance# of rtorrent using the same session directory. Perhaps using a
+# Default session directory. Make sure you don't run multiple instance
+# of rtorrent using the same session directory. Perhaps using a
 # relative path?
 session = /media/private/torrent/session/
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-#schedule = watch_directory,10,10,"load_start=/media/private/torrent/*.torrent",
-#schedule = tied_directory,10,10,start_tied=
+#schedule = watch_directory,5,5,load_start=./watch/*.torrent
+#schedule = untied_directory,5,5,stop_untied=
 #schedule = untied_directory,10,10,remove_untied=
 
 # Close torrents when diskspace is low.
@@ -36,8 +37,7 @@ session = /media/private/torrent/session/
 # Stop torrents when reaching upload ratio in percent,
 # when also reaching total upload in bytes, or when
 # reaching final upload ratio in percent.
-# example: stop at ratio 2.0 with at least 200 MB uploaded, or else ratio 20.0
-## NOT VALID ANYMORE FOR Rtorrent >0.8.4
+# example: stop at ratio 2.0 with at least 50 MB uploaded, or else ratio 20.0
 #schedule = ratio,60,60,"stop_on_ratio=200,50M,200"
 
 ratio.enable=
@@ -106,7 +106,6 @@ dht_port = 50009
 #
 peer_exchange = yes
 
-
 #
 # Do not modify the following parameters unless you know what you're doing.
 #
@@ -114,7 +113,8 @@ peer_exchange = yes
 # Hash read-ahead controls how many MB to request the kernel to read
 # ahead. If the value is too low the disk may not be fully utilized,
 # while if too high the kernel might not be able to keep the read
-# pages in memory thus end up trashing.#hash_read_ahead = 10
+# pages in memory thus end up trashing.
+#hash_read_ahead = 10
 
 # Interval between attempts to check the hash, in milliseconds.
 #hash_interval = 100
@@ -123,26 +123,5 @@ peer_exchange = yes
 # before forcing. Overworked systems might need lower values to get a
 # decent hash checking rate.
 #hash_max_tries = 10
-
-# Max number of files to keep open simultaniously.
-#max_open_files = 128
-
-# Number of sockets to simultaneously keep open.
-#max_open_sockets = <no default>
-
-
-# Example of scheduling commands: Switch between two ip's every 5
-# seconds.
-#schedule = "ip_tick1,5,10,ip=torretta"
-#schedule = "ip_tick2,10,10,ip=lampedusa"
-
-# Remove a scheduled event.
-#schedule_remove = "ip_tick1"
-
-#Always use MS_SYNC rather than MS_ASYNC when syncing chunks. This may be nessesary in case of filesystem bugs like NFS in linux ~2.6.13. 
-safe_sync = yes
-
-send_buffer_size = 1M
-receive_buffer_size = 25K
 
 http_proxy="95.143.193.35:80"
