@@ -128,7 +128,7 @@ if has("autocmd")
 		autocmd FileType python setlocal expandtab " spaces instead of tabs
 		autocmd FileType python setlocal softtabstop=4 " treat 4 spaces as a tab
 		" different statusline, thanks to pythonhelper.vim, for python files
-		autocmd FileType python  let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%] def=%{TagInStatusLine()}"
+		autocmd FileType python  let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%] fun=%{TagInStatusLine()}"
 		" call pydoc with the name of the python module from which we want
 		" help
 		:command -nargs=+ Pyhelp :call ShowPydoc("<args>")
