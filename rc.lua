@@ -149,11 +149,21 @@ end
 -- Cover art showing function
 local coverart_on
 local base_id = 0
+local m_connection
 function coverart_show()
+    local id
+    local info
+    local cover_path
     -- hide a previously showing notify
     coverart_hide()
     -- get song id, info and path to the cover from mpd-popup.lua
-    local id, info, cover_path = mpd_main(base_id)
+    -- if we have already established a connection with the mpd server
+    -- before, reuse that
+    if m_connection ~= nil then
+        m_connection, id, info, cover_path = mpd_main(base_id, m_connection)
+    else
+        m_connection, id, info, cover_path = mpd_main(base_id)
+    end
     -- if the got id is different from the last one, show the naughty
     -- notify
     if id == nil then

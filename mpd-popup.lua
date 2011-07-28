@@ -63,11 +63,14 @@ images_ext = { "jpg", "jpeg", "JPEG", "JPG", "PNG", "png", "bmp", "BMP" }
 -- table of possible patterns for the cover filename
 coverpatterns = { '.*[Ff]ront.*', '.*[Ff]older.*', '.*[Aa]lbumart.*', '.*[Cc]over.*', '.*[Tt]humb.*' }
 
-function mpd_main(argid)
-	local m
-	while m == nil do
-		-- keep trying to connect to mpd until a connection is made
-		m = connection()
+function mpd_main(argid, m_connection)
+	if m_connection then
+		local m = m_connection
+	else
+		while m == nil do
+			-- keep trying to connect to mpd until a connection is made
+			m = connection()
+		end
 	end
 	state = m:status()['state']
 	id = m:currentsong()['Id']
@@ -85,17 +88,16 @@ function mpd_main(argid)
 			file = m:currentsong()['file']
 			cover = coversearch(file, album)
 			np_string = string.format("Now Playing \nArtist:\t%s\nAlbum:\t%s\nSong:\t%s\n", artist, album, title)
-			return id, np_string, cover
+			return m, id, np_string, cover
 		elseif state == "pause" then
 			artist = m:currentsong()['Artist']
 			album = m:currentsong()['Album']
 			title = m:currentsong()['Title']
-			return id
+			return m, id
 		else
-			return id
+			return m, id
 		end
 	else
-		return id
+		return m, id
 	end
-
 end
