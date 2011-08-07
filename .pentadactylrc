@@ -31,3 +31,6 @@ set passkeys+="https://duckduckgo\.com/":jkv
 "set passkeys+="https://www\.google\.com/reader/":-=/?12aefgjklmnporstuvAFNPOSX 
 " those above don't work, enable passthrough on all Google sites
 :autocmd LocationChange '^https://(www|mail)\.google\.com/' :normal! <C-z>
+
+" Add the current url as a task for taskwarrior.org
+:map <C-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
