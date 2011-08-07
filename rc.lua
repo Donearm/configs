@@ -14,7 +14,7 @@ require("mpd-popup")
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/alessandraambrosio02"
+theme_path = home .. "/.config/awesome/themes/candiceswanepoel03"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
