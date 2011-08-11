@@ -36,41 +36,17 @@ macro generic <f1> "!less /usr/share/doc/mutt-1.4.1i/manual.txt\n" "Show Mutt do
 macro index   <f1> "!less /usr/share/doc/mutt-1.4.1i/manual.txt\n" "Show Mutt documentation"
 macro pager   <f1> "!less /usr/share/doc/mutt-1.4.1i/manual.txt\n" "Show Mutt documentation"
 
-# macro to write the sender mail to a white or a spam list
-#macro index \ew "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/spam_list" "Aggiunge mittente in spam_list"
-#macro pager \ew "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/spam_list" "Aggiunge mittente in spam_list"
-#macro index \eq "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/white_list" "aggiunge mittente in white_list"
-#macro index \eq "|formail -x From: |~/documents/Script/Mailextract.pl >> ~/mail/.Pm/white_list" "aggiunge mittente in white_list"
-
 # pass mail as ham or spam to spamassassin
 #macro index \ew "|/usr/bin/sa-learn --ham --no-sync" "Pass mail to Spamassassin as Ham" 
 #macro pager \ew "|/usr/bin/sa-learn --ham --no-sync" "Pass mail to Spamassassin as Ham" 
 #macro index \eq "|/usr/bin/sa-learn --spam --no-sync" "Pass mail to Spamassassin as Spam" 
 #macro pager \eq "|/usr/bin/sa-learn --spam --no-sync" "Pass mail to Spamassassin as Spam" 
 
-# move mail to spam folder
-macro index S "s+.spam/\n" "Move in the spam folder"
-macro pager S "s+.spam/\n" "Move in the spam folder"
-
-# Spamassassin auto reporting
-#macro index \cy ":set wait_key=no\n|/mnt/documents/Scripts/report_spamc\n:set wait_key=yes\nd" "Reporting and Learning Spamassassin system"
-#macro pager \cy ":set wait_key=no\n|/mnt/documents/Scripts/report_spamc\n:set wait_key=yes\nd" "Reporting and Learning Spamassassin system"
-#macro index \es "|spamc -C report spamcop\r"
-#macro pager \es "|spamc -C report spamcop\r"
-
-# tag selected mails with bogofilter as GOOD ...
-#macro index \eg "|bogofilter -nl\n" "classify with bogofilter as GOOD"
-#macro pager \eg "|bogofilter -nl\n" "classify with bogofilter as GOOD"
-# ... or as JUNK
-#macro index \ej "|bogofilter -sl\n" "classify with bogofilter as JUNK"
-#macro pager \ej "|bogofilter -sl\n" "classify with bogofilter as JUNK"
-
-# Tell Razor this mail is ham and not spam
-#macro pager \ch "|/usr/bin/razor-revoke" "Tell Razor this mail is ham"
-#macro index \ch "|/usr/bin/razor-revoke" "Tell Razor this mail is ham"
-
 # test macro to automatically delete mails according to a regexp
 #macro index \et 'set folder=/dev/null; set delete=yes; push "<delete-pattern>~h regexp<enter><quit><yes>"'
+
+# move a message to a maildir
+macro index M "<save-message>?<toggle-mailboxes>" "move message to a maildir"
 
 # enable muttprofile for profiles selections
 macro index <F9> ":source ~/.mutt/gia\n" "Load profile: Gia"
@@ -189,7 +165,7 @@ macro compose I ":set ispell='/usr/bin/aspell -d en -x check'\n;<ispell>"
 # message could include a line like "[-- PGP output follows ..." and
 # give it the same color as your attachment color.
 # 
-#
+# 
 alternates     ^(me1|me2)@gmail\\.com$ ^otheraccount@somewhere\\.net$
 #
 # Name: alternates
