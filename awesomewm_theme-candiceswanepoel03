@@ -6,7 +6,7 @@ theme = {}
 
 theme.font          = "Corbel 9"  -- from ttf-vista-fonts
 
-theme.bg_normal     = "#f1f1f1"
+theme.bg_normal     = "#dcdcdc"
 theme.bg_focus      = "#6f90b0"
 theme.bg_urgent     = "#436483"
 theme.bg_minimize   = "#4f6070"
