@@ -33,4 +33,4 @@ set passkeys+="https://duckduckgo\.com/":jkv
 :autocmd LocationChange '^https://(www|mail)\.google\.com/' :normal! <C-z>
 
 " Add the current url as a task for taskwarrior.org
-:map <C-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
+:map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
