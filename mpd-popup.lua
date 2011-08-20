@@ -1,8 +1,10 @@
 #!/usr/bin/env lua
 
--- Copyright 2011 Gianluca Fiore © <forod.g@gmail.com>
+--- Popup with info about current playing song in mpd.
+-- To be loaded from awesomeWM's rc.lua
+-- @author Gianluca Fiore
+-- @copyright Gianluca Fiore <forod.g@gmail.com>
 --
--- to be loaded from awesome wm rc.lua
 -- Requires lua-mpd (https://github.com/silentbicycle/lua-mpd)
 -- and Lua FileSystem 
 -- (http://keplerproject.github.com/luafilesystem/index.html)
@@ -11,13 +13,13 @@ local mpd = require("mpd")
 local lfs = require("lfs")
 
 
--- connect/reconnect function
+--- Connect/Reconnect function to the mpd server.
 function connection()
 	local m = mpd.connect()
 	if m then return m end
 end
 
--- get mpd music directory
+--- Get path of the mpd music directory.
 function mpd_directory()
 	local f = '/etc/mpd.conf'
 	local file = io.input(f)
@@ -30,9 +32,10 @@ function mpd_directory()
 	end
 end
 
+--- Find the path to the cover album image of the current playing song.
+-- @param file The path of the song currently being played.
+-- @param album The name of the album.
 function coversearch(file, album)
-	-- search on the mpd collection path for a cover for the current 
-	-- playing song
 	local dir = string.gsub(file, '(.*)/.*', "%1")
 	local mpd_dir = mpd_directory()
 	for files in lfs.dir(mpd_dir .. '/' .. dir) do
@@ -63,6 +66,10 @@ images_ext = { "jpg", "jpeg", "JPEG", "JPG", "PNG", "png", "bmp", "BMP" }
 -- table of possible patterns for the cover filename
 coverpatterns = { '.*[Ff]ront.*', '.*[Ff]older.*', '.*[Aa]lbumart.*', '.*[Cc]over.*', '.*[Tt]humb.*' }
 
+--- Main loop function.
+-- @param argid A numeric value corresponding to the Id of the song 
+-- played.
+-- @param m_connection A previous connection to the mpd server.
 function mpd_main(argid, m_connection)
 	if m_connection then
 		local m = m_connection
