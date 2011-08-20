@@ -14,6 +14,10 @@ class CustomApplications(DefaultApps):
         else:
             return tup('/usr/local/bin/mplayerss.sh', *c)
 
+    def app_gnomemplayer(self, c):
+        c.flags += 'd'
+        return tup('gnome-mplayer', '--playlist', c.file.path)
+
     def app_unrar(self, c):
         c.flags += 'd'
         return tup('unrar', 'x -kb -y', c.file.path)
@@ -68,6 +72,8 @@ class CustomApplications(DefaultApps):
                 return self.app_soffice(c)
             if f.extension in ('ts', ):
                 return self.app_mplayer(c)
+            if f.extension in ('pls', ):
+                return self.app_gnomemplayer(c)
             if f.extension in ('mobi', 'epub'):
                 return self.app_fbreader(c)
 
