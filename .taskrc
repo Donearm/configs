@@ -1,14 +1,32 @@
 data.location=~/.task
-confirmation=yes
-next=4
-dateformat=d/m/Y
-dateformat.annotation=d/m/Y
-dateformat.report=d/m/Y
-weekstart=Monday
-monthsperline=1
+locking=on
+
 curses=on
 defaultwidth=80
+
+confirmation=yes
+next=4
+bulk=2
+due=7
+search.case.sensitive=no
+active.indicator=*
+tag.indicator=+
+recurrence.indicator=R
+recurrence.limit=1
+
+dateformat=d/m/Y
+dateformat.holiday=YMD
+dateformat.report=d/m/Y
+dateformat.annotation=d/m/Y
+weekstart=Monday
+monthsperline=1
+
+calendar.legend=yes
+calendar.details=full
+calendar.holidays=sparse
+
 color=on
+color.header=color3
 color.overdue=bold red
 color.due=on bright red
 color.pri.H=on red
@@ -32,14 +50,16 @@ color.project.pyimageuploader=on blue
 color.project.travel=yellow on black
 color.project.portuguese=bold green on gray
 color.project.spanish=bold red on gray
-#color.keyword.car=on blue
+
 #shadow.file=~/.task/shadow.txt
 #shadow.command=list
 #shadow.notify=on
+
 default.command=tagpro
 list.all.projects=yes
 list.all.tags=yes
-due=7
+shell.prompt=task >:
+
 report.tagpro.description=List tasks with only tags and projects
 report.tagpro.columns=id,project,tags,description
 report.tagpro.sort=tags+,project+
