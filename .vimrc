@@ -1,14 +1,10 @@
-" .vimrc
-"
-"set background=light
-"set nocompatible  "Really important option, must be first
+set nocompatible  "Really important option, must be first
 set wildmenu
 set history=50
 set showcmd
 set showmode
 set showmatch
-syntax on
-set hlsearch
+set incsearch
 set smartindent
 set textwidth=72
 set ruler
@@ -17,8 +13,10 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 set tabstop=4
+set autoindent
 set modeline 
 set modelines=3
+set nobackup
 set backupdir=/tmp
 set whichwrap=b,s
 set viminfo='1000,f1,\"500
@@ -45,9 +43,11 @@ set undofile
 set undolevels=200 " maximum number of changes that can be undone
 set undoreload=1000 " maximum number of lines to save for undo on a buffer reload
 
-"set guifontset=-adobe-courier-medium-r-normal-*-10-*-*-*-*-*-iso10646-1
-filetype plugin on
-filetype plugin indent on
+if has("autocmd")
+	filetype plugin on
+	filetype plugin indent on
+endif
+
 " set a color scheme
 "color desert
 "color gianluca
@@ -56,6 +56,13 @@ color twilight256
 " custom statusline
 if has('statusline')
 	let &stl="[%f]\ ft=%{&ff}\ t=%Y\ ascii=\%04.8b\ hex=\%04.4B\ %04l,%04v[%p%%]"
+endif
+
+" switch syntax highlighting on when the terminal has colours and also 
+" highlights the last search pattern.
+if &t_Co > 2 || has("gui_running")
+	syntax on
+	set hlsearch
 endif
 
 " no automatic highlighting of brackets and such
@@ -265,6 +272,9 @@ imap <C-u> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
 imap <C-h> <Left>
+
+" command line abbreviations
+cabbrev Wq wq
 
 " paste the content of clipboard on a new line, leave a empty line after
 " it and return in normal mode
