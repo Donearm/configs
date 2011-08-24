@@ -5,6 +5,9 @@ class CustomApplications(DefaultApps):
     def app_fehgallery(self, c):
         return tup('/usr/local/bin/fehgallery.lua', *c)
 
+    def app_display(self, c):
+        return tup('display', *c)
+
     def app_mplayer(self, c):
         c.flags += 'd'
         if c.mode is 1:
@@ -72,6 +75,8 @@ class CustomApplications(DefaultApps):
                 return self.app_soffice(c)
             if f.extension in ('ts', ):
                 return self.app_mplayer(c)
+            if f.extension in ('svg', ):
+                return self.app_display(c)
             if f.extension in ('pls', ):
                 return self.app_gnomemplayer(c)
             if f.extension in ('mobi', 'epub'):
