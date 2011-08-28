@@ -13,7 +13,6 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 set tabstop=4
-set autoindent
 set modeline 
 set modelines=3
 set nobackup
@@ -144,7 +143,6 @@ if has("autocmd")
 			execute ":!pydoc " . a:module . " > " . fPath
 			execute ":sp " .fPath
 		endfunction
-		autocmd FileType python set omnifunc=pythoncomplete#Complete
 		" folding follow indentation
 		autocmd FileType python set foldmethod=indent
 		autocmd FileType python set foldlevel=99
@@ -154,15 +152,42 @@ if has("autocmd")
 		" some options for ruby files
 		autocmd FileType ruby setlocal tabstop=2
 		autocmd FileType ruby setlocal textwidth=80 
-		autocmd FileType ruby set omnifunc=rubycomplete#Complete
 	augroup END
+
+	augroup Java
+		" options for java files
+		autocmd FileType java set shiftwidth=4
+		autocmd FileType java set cindent
+		autocmd FileType java let java_comment_strings=1
+		autocmd FileType java let java_highlight_all=1
+		autocmd FileType java let java_highlight_debug=1
+		autocmd FileType java let java_highlight_java_lang_ids=1
+		autocmd FileType java let java_ignore_javadoc=1
+		autocmd FileType java let java_highlight_functions=1
+		autocmd FileType java let java_mark_braces_in_parens_as_errors=1
+		autocmd FileType java let java_minlines=150
+	augroup END
+
+	if exists("+omnifunc")
+		augroup Omnifunctions
+			" enable function-complete for supported files
+			autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
+			autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+			autocmd FileType lua set omnifunc=luacomplete#Complete
+			autocmd FileType java set omnifunc=javacomplete#Complete
+			autocmd FileType ruby set omnifunc=rubycomplete#Complete
+			autocmd FileType python set omnifunc=pythoncomplete#Complete
+			autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+			autocmd FileType c set omnifunc=ccomplete#Complete
+			" use syntax complete if nothing else available
+			autocmd FileType * if &omnifunc == "" |
+						\	setlocal omnifunc=syntaxcomplete#Complete |
+						\	endif
+		augroup END
+	endif
 
     " no tabs in spaces for make files
     autocmd FileType make set noexpandtab shiftwidth=8
-    " enable function-complete for supported files
-	autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-	autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-	autocmd FileType lua set omnifunc=luacomplete#Complete
     " Max 78 characters for line in text files
     autocmd BufRead *.txt set tw=78
 	" No limit of characters for line in csv files
@@ -226,8 +251,8 @@ if has("autocmd")
     autocmd FileType perl	call ShellComment()
     autocmd FileType cgi	call ShellComment()
     autocmd FileType sh		call ShellComment()
-    autocmd FileType java	call ShellComment()
     autocmd FileType python	call ShellComment()
+    autocmd FileType java	call CComment()
     autocmd FileType c,cpp	call CComment()
 	autocmd FileType lua	call LuaComment()
 	autocmd FileType vim	call VimComment()
