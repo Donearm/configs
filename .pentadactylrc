@@ -4,7 +4,6 @@ set titlestring=Firefox
 set editor="gvim -f +<line> <file>"
 set maxitems=12
 set cpt=sl
-set nostrictfocus
 
 " set color scheme
 :colorscheme g
