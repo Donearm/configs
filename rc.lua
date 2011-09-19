@@ -35,7 +35,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Some variables
 browser_nav = "firefox -P navigation --no-remote"
-browser_mad = "firefox -P maidens --no-remote"
+browser_mad = "luakit"
 music = terminal .. " -e ncmpcpp"
 musicPlay = "ncmpcpp toggle"
 musicStop = "ncmpcpp stop"
@@ -390,7 +390,7 @@ myawesomemenu = {
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/.icons/archlinux-wm-awesome.png") },
                                         { "open terminal", terminal, image(home .. "/.icons/terminal_prompt.png") },
                                         { "firefox (navigation)", browser_nav, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
-                                        { "firefox (maidens)", browser_mad, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
+                                        { "luakit", browser_mad, image("/usr/share/pixmaps/luakit.png") },
 --                                        { "nautilus", filemanager, image("/usr/share/icons/hicolor/16x16/apps/nautilus.png") },
                                         { "ranger", filemanager, image(home .. "/.icons/ranger-chuck.gif") },
                                         { "Music", music, image(home .. "/.icons/music.jpg") },
