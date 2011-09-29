@@ -455,7 +455,7 @@ netdownicon.image = image(home .. "/.icons/down_arrow.png")
 maildiricon = widget({ type = "imagebox" })
 maildiricon.image = image(home .. "/.icons/gmail-glossy-black.png")
 maildirwidget = widget({ type = "textbox" })
-vicious.register(maildirwidget, vicious.widgets.mdir, ' $1' .. setFg(par_color, '|') .. '$2 ', 300, { maildir })
+vicious.register(maildirwidget, vicious.widgets.mdir, ' $1', 300, { maildir })
 
 
 -- Temperatures
