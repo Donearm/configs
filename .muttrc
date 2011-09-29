@@ -1378,7 +1378,7 @@ hdr_order From: Subject: CC: BCC: To: Reply-To: Date:\
 # mailbox types.
 # 
 # 
-# set mark_old=yes
+ set mark_old=no
 #
 # Name: mark_old
 # Type: boolean
