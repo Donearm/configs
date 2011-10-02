@@ -37,6 +37,14 @@ class CustomApplications(DefaultApps):
         c.flags += 'd'
         return tup('tar', 'xvf', c.file.path)
 
+    def app_bunzip2(self, c):
+        c.flags += 'd'
+        return tup('bunzip2', c.file.path)
+
+    def app_gunzip(self, c):
+        c.flags += 'd'
+        return tup('gunzip', c.file.path)
+    
     def app_soffice(self, c):
         c.flags += 'd'
         return tup('soffice', *c)
@@ -69,8 +77,12 @@ class CustomApplications(DefaultApps):
                 return self.app_7z(c)
             if f.extension in ('f4v', 'm4v' ):
                 return self.app_mplayer(c)
-            if f.extension in ('bz2', 'gz', 'tar', 'tgz', 'tbz2', 'tbz', 'bz'):
+            if f.extension in ('tar.bz2', 'tar.gz', 'tar', 'tgz', 'tbz2', 'tbz', 'bz'):
                 return self.app_tar(c)
+            if f.extension in ('bz2'):
+                return self.app_bunzip2(c)
+            if f.extension in ('gz'):
+                return self.app_gunzip(c)
             if f.extension in ('odw', 'ods', 'odt', 'xls', 'doc', 'odg', 'rtf'):
                 return self.app_soffice(c)
             if f.extension in ('ts', ):
