@@ -455,7 +455,7 @@ netdownicon.image = image(home .. "/.icons/down_arrow.png")
 maildiricon = widget({ type = "imagebox" })
 maildiricon.image = image(home .. "/.icons/gmail-glossy-black.png")
 maildirwidget = widget({ type = "textbox" })
-vicious.register(maildirwidget, vicious.widgets.mdir, ' $1', 300, { maildir })
+vicious.register(maildirwidget, vicious.widgets.mdir, ' $1 ', 300, { maildir })
 
 
 -- Temperatures
@@ -894,6 +894,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "<unknown>" }, -- for fullscreen flash videos
       properties = { floating = true } },
+    { rule = { class = "Plugin-container" }, -- for fullscreen flash videos
+      properties = { floating = true } }, 
     { rule = { class = "Skype" },
       properties = { floating = true } },
     { rule = { class = "Hp-toolbox" },
