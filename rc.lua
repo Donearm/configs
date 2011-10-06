@@ -48,7 +48,7 @@ soundMute = "amixer set Master 0%"
 filemanager = terminal .. " -e ranger"
 mutt = terminal .. " -e mutt -y"
 maildir = home .. "/Maildir"
-lockScreen = "xscreensaver-command -lock"
+lockScreen = "slock"
 spacer = " " -- well, just a spacer
 
 
