@@ -21,9 +21,9 @@ subfont-osd-scale=2 # size of osd text
 #subfont-autoscale=1  # autoscale osd text size
 osdlevel=3 
 # Disable that damned xscreensaver
-stop-xscreensaver="yes" # First try
-#heartbeat-cmd="/usr/bin/xscreensaver-command -deactivate > /dev/null" # second try
-# Pretent do be Window Media Player
+#stop-xscreensaver="yes" # First try
+heartbeat-cmd="/usr/bin/xscreensaver-command -deactivate >&- 2>&- &" # second try
+# Pretend do be Window Media Player
 user-agent=NSPlayer/4.1.0.3856
 geometry="50%:100%"
 prefer-ipv4=yes
