@@ -665,7 +665,6 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         datebox,
-        taskicon,
         volumewidget,
         volumeicon,
         mpdwidget,
@@ -922,11 +921,12 @@ awful.rules.rules = {
 autorun = true
 autorunApps =
 {
-    "xscreensaver -no-splash",
+--    "xscreensaver -no-splash",
     "xbindkeys",
 --    "xcompmgr -c -C -r10 -o.70 -D5 &",
 --    "cairo-compmgr &",
     "xset m 0.7 2",
+    "xset dpms 0 900 2750"
     "urxvtd -q -o -f",
 }
 
