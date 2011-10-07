@@ -14,7 +14,7 @@ nvidia-settings -a PixmapCacheRoundSizeKB=2048
 
 # Start ttytter inside screen/tmux, but only if it's not already running
 #/mnt/documents/Script/ttytter_screen_startup.sh
-/mnt/documents/Script/ttytter_tmux_startup.sh
+/mnt/documents/Script/ttytter_startup.sh
 
 # proper launch of a dbus session
 source /etc/X11/xinit/xinitrc.d/30-dbus
