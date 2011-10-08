@@ -100,30 +100,30 @@ endfunction
 " some mappings
 "
 " delete rows with just spaces
-map ,del :%s/^\s\+$//g
+noremap ,del :%s/^\s\+$//g
 " delete empty rows (not even with spaces)
-map ,delempty :%s/^\n//g
+noremap ,delempty :%s/^\n//g
 " delete empty quoted rows
-nmap ,ceql :%s/^[>]\+$//
-nmap ,cqel :%s/^> \s*$//<CR>^M
-vmap ,ceql :s/^[><C-I> ]\+$//
+nnoremap ,ceql :%s/^[>]\+$//
+nnoremap ,cqel :%s/^> \s*$//<CR>^M
+vnoremap ,ceql :s/^[><C-I> ]\+$//
 " delete quoted rows with only spaces
-map ,qesl :%s/^[>]\s\+$//g
+noremap ,qesl :%s/^[>]\s\+$//g
 " substitute a dot with various spaces with a single dot and 2 spaces
-vmap ,dotsub :s/\.\+ \+/.  /g
+vnoremap ,dotsub :s/\.\+ \+/.  /g
 " substitute multiple spaces with just one
-nmap ,ksr :%s/  \+/ /g
-vmap ,ksr :s/  \+/ /g
+nnoremap ,ksr :%s/  \+/ /g
+vnoremap ,ksr :s/  \+/ /g
 " substitute various consecutive empty rows with just one
-map ,emptyblock :g/^$/,/./-j
+noremap ,emptyblock :g/^$/,/./-j
 " as above but with rows of only spaces
-map ,Sbl :g/^\s*$/,/\S/-j
+noremap ,Sbl :g/^\s*$/,/\S/-j
 " regroup multiple Re:
-map ,re 1G/^Subject: <CR>:s/\(Re: \)\+/Re: /e<CR>^M
+noremap ,re 1G/^Subject: <CR>:s/\(Re: \)\+/Re: /e<CR>^M
 " delete yahoo group links
-map ,delgyah :g#^>\? http://docs.yahoo#.-10,.d
+noremap ,delgyah :g#^>\? http://docs.yahoo#.-10,.d
 " delete every header
-map ,noheader :0,/^$/d
+noremap ,noheader :0,/^$/d
 "
 " --- MAIL END ---
 "
@@ -220,8 +220,8 @@ endif
 "
 " comments' functions
 function! ShellComment()
-    map - :s/^/#/<CR>
-    map _ :s/^\s*#\=//<CR>
+    noremap - :s/^/#/<CR>
+    noremap _ :s/^\s*#\=//<CR>
     set comments=:#
 	" trick vim by remapping the comment to 'X' and comment again, so
 	" preventing the comment to override the current indentation
@@ -229,14 +229,14 @@ function! ShellComment()
 endfunction
 
 function! CComment()
-    map - :s/^/\/\*/<CR>
-    map _ :s/^\s*\/\* \=//<CR>
+    noremap - :s/^/\/\*/<CR>
+    noremap _ :s/^\s*\/\* \=//<CR>
     set comments=:/*
 endfunction
 
 function! LuaComment()
-	map - :s/^/--/<CR>
-	map _ :s/^\s*--//<CR>
+	noremap - :s/^/--/<CR>
+	noremap _ :s/^\s*--//<CR>
 	set comments=:--
 	" trick vim by remapping the comment to 'X' and comment again, so
 	" preventing the comment to override the current indentation
@@ -244,8 +244,8 @@ function! LuaComment()
 endfunction
 
 function! VimComment()
-	map - :s/^/\"/<CR>
-	map _ :s/^\s*\"//<CR>
+	noremap - :s/^/\"/<CR>
+	noremap _ :s/^\s*\"//<CR>
 	set comments=:\"
 endfunction
 
@@ -283,47 +283,47 @@ let html_use_css=1
 " --- VARIOUS STUFF ---
 "
 "  all the text on a single row
-map ,line  :%s/\n/ /g
+noremap ,line  :%s/\n/ /g
 " save the buffer content in a temporary file with "_Y and import it
 " back in another with "_P
-nmap _Y :!echo ""> /tmp/.vi_tmp<CR><CR>:w! /tmp/.vi_tmp<CR>
-vmap _Y :w! /tmp/.vi_tmp<CR>
-nmap _P :r /tmp/.vi_tmp<CR>
+nnoremap _Y :!echo ""> /tmp/.vi_tmp<CR><CR>:w! /tmp/.vi_tmp<CR>
+vnoremap _Y :w! /tmp/.vi_tmp<CR>
+nnoremap _P :r /tmp/.vi_tmp<CR>
 " moving the cursor disables search highlighting
-nmap j <Down>:nohls<CR>
-nmap k <Up>:nohls<CR>
-nmap h <Left>:nohls<CR>
-nmap l <Right>:nohls<CR>
+nnoremap j <Down>:nohls<CR>
+nnoremap k <Up>:nohls<CR>
+nnoremap h <Left>:nohls<CR>
+nnoremap l <Right>:nohls<CR>
 " Ctrl+hjkl to navigate in insert mode (Ctrl+j doesn't work, use Ctrl+u
 " instead)
-imap <C-u> <Down>
-imap <C-k> <Up>
-imap <C-l> <Right>
-imap <C-h> <Left>
+inoremap <C-u> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-h> <Left>
 
 " command line abbreviations
 cabbrev Wq wq
 
 " paste the content of clipboard on a new line, leave a empty line after
 " it and return in normal mode
-nmap ,u o<Esc>"*p<Esc>o<Esc>
+nnoremap ,u o<Esc>"*p<Esc>o<Esc>
 " same as above but without a trailing new line
-nmap ,U o<Esc>"*p<Esc>
+nnoremap ,U o<Esc>"*p<Esc>
 
 " uppercase current word and return to insert mode
-imap <c-u> <Esc>viwUi
+inoremap <c-u> <Esc>viwUi
 
 "
 " two , in insert mode to exit instead of Esc
-imap ,, <Esc>
+inoremap ,, <Esc>
 " modify the colors of not found dictionary words highlighting because
 " sometimes changing terminal colors make them unreadable
 " other similar options are: SpellCap SpellRare and SpellLocal
 hi SpellBad term=reverse ctermfg=white ctermbg=darkred guifg=#FFFFFF guibg=#7F0000 gui=underline
 
 " Aspell checking
-map  :w!<CR>:!aspell -d it -x check %<CR>:e! %<CR>
-map  :w!<CR>:!aspell -d en -x check %<CR>:e! %<CR>
+noremap  :w!<CR>:!aspell -d it -x check %<CR>:e! %<CR>
+noremap  :w!<CR>:!aspell -d en -x check %<CR>:e! %<CR>
 
 " open link in the current row in the browser
 function! Browser ()
@@ -342,7 +342,7 @@ function! Browser ()
     exec ':silent !firefox ' . line 
 endfunction
 
-map ,w :call Browser ()<CR>
+noremap ,w :call Browser ()<CR>
 
 if has("autocmd")
 	" grouping all autocmds
