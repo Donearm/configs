@@ -310,6 +310,9 @@ nmap ,u o<Esc>"*p<Esc>o<Esc>
 " same as above but without a trailing new line
 nmap ,U o<Esc>"*p<Esc>
 
+" uppercase current word and return to insert mode
+imap <c-u> <Esc>viwUi
+
 "
 " two , in insert mode to exit instead of Esc
 imap ,, <Esc>
