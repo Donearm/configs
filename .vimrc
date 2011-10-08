@@ -35,6 +35,7 @@ set wildmenu
 set wildmode=longest,list,full
 set wildignore=*.swp,*.bak,*.pyc	" ignore those file extensions when Tab completing
 set printoptions=header:0,paper:A4
+let mapleader="," " comma as <leader>
 
 "persistent undo
 set undodir=~/.vim/undodir
@@ -100,30 +101,30 @@ endfunction
 " some mappings
 "
 " delete rows with just spaces
-noremap ,del :%s/^\s\+$//g
+noremap <leader>del :%s/^\s\+$//g
 " delete empty rows (not even with spaces)
-noremap ,delempty :%s/^\n//g
+noremap <leader>delempty :%s/^\n//g
 " delete empty quoted rows
-nnoremap ,ceql :%s/^[>]\+$//
-nnoremap ,cqel :%s/^> \s*$//<CR>^M
-vnoremap ,ceql :s/^[><C-I> ]\+$//
+nnoremap <leader>ceql :%s/^[>]\+$//
+nnoremap <leader>cqel :%s/^> \s*$//<CR>^M
+vnoremap <leader>ceql :s/^[><C-I> ]\+$//
 " delete quoted rows with only spaces
-noremap ,qesl :%s/^[>]\s\+$//g
+noremap <leader>qesl :%s/^[>]\s\+$//g
 " substitute a dot with various spaces with a single dot and 2 spaces
-vnoremap ,dotsub :s/\.\+ \+/.  /g
+vnoremap <leader>dotsub :s/\.\+ \+/.  /g
 " substitute multiple spaces with just one
-nnoremap ,ksr :%s/  \+/ /g
-vnoremap ,ksr :s/  \+/ /g
+nnoremap <leader>ksr :%s/  \+/ /g
+vnoremap <leader>ksr :s/  \+/ /g
 " substitute various consecutive empty rows with just one
-noremap ,emptyblock :g/^$/,/./-j
+noremap <leader>emptyblock :g/^$/<leader>/./-j
 " as above but with rows of only spaces
-noremap ,Sbl :g/^\s*$/,/\S/-j
+noremap <leader>Sbl :g/^\s*$/<leader>/\S/-j
 " regroup multiple Re:
-noremap ,re 1G/^Subject: <CR>:s/\(Re: \)\+/Re: /e<CR>^M
+noremap <leader>re 1G/^Subject: <CR>:s/\(Re: \)\+/Re: /e<CR>^M
 " delete yahoo group links
-noremap ,delgyah :g#^>\? http://docs.yahoo#.-10,.d
+noremap <leader>delgyah :g#^>\? http://docs.yahoo#.-10<leader>.d
 " delete every header
-noremap ,noheader :0,/^$/d
+noremap <leader>noheader :0<leader>/^$/d
 "
 " --- MAIL END ---
 "
@@ -283,7 +284,7 @@ let html_use_css=1
 " --- VARIOUS STUFF ---
 "
 "  all the text on a single row
-noremap ,line  :%s/\n/ /g
+noremap <leader>line  :%s/\n/ /g
 " save the buffer content in a temporary file with "_Y and import it
 " back in another with "_P
 nnoremap _Y :!echo ""> /tmp/.vi_tmp<CR><CR>:w! /tmp/.vi_tmp<CR>
@@ -306,9 +307,9 @@ cabbrev Wq wq
 
 " paste the content of clipboard on a new line, leave a empty line after
 " it and return in normal mode
-nnoremap ,u o<Esc>"*p<Esc>o<Esc>
+nnoremap <leader>u o<Esc>"*p<Esc>o<Esc>
 " same as above but without a trailing new line
-nnoremap ,U o<Esc>"*p<Esc>
+nnoremap <leader>U o<Esc>"*p<Esc>
 
 " uppercase current word and return to insert mode
 inoremap <c-u> <Esc>viwUi
