@@ -1,9 +1,9 @@
-! Dpi per i fonts
-Xft.dpi:	    96
+! Dpi
+Xft.dpi:			96
 Xft*antialias:	    true
 Xft*hinting:	    medium
 xterm*termname:	    xterm-color
-xterm*utf8:	    1
+xterm*utf8:			1
 
 xclock*hourColor:   blue
 xclock*minuteColor: blue
@@ -14,37 +14,37 @@ xclock*buffer:	    true
 xclock*background:  black
 
 ! Mouse Theme
-Xcursor*theme:		DMZ
+Xcursor*theme:			DMZ
+URxvt.bitdepth:			32
+Urxvt.depth:			32
+URxvt.geometry:			80x24+0+0
 ! Font options
-!rxvt*font:	    *-iso10646-1
-!rxvt*font:	    -*-freemono-medium-*-*-*-17-*-*-*-*-*-iso10646-*
-URxvt.bitdepth:	    32
-Urxvt.depth:	    32
-URxvt.geometry:	    80x24+0+0
-!URxvt.font:	    -*-candara-*-*-*-*-*-*-*-*-*-*-iso10646-1
-!URxvt.font:		-*-dejavu sans mono-*-*-*-*-*-*-*-*-*-*-iso10646-1
-!URxvt.font:	    xft:DejaVu Sans Mono:pixelsize=14:antialias=true
+!rxvt*font:				*-iso10646-1
+!rxvt*font:				-*-freemono-medium-*-*-*-17-*-*-*-*-*-iso10646-*
+!URxvt.font:			-*-candara-*-*-*-*-*-*-*-*-*-*-iso10646-1
+!URxvt.font:			-*-dejavu sans mono-*-*-*-*-*-*-*-*-*-*-iso10646-1
+!URxvt.font:			xft:DejaVu Sans Mono:pixelsize=14:antialias=true
 !URxvt.boldFont:	    xft:DejaVu Sans Mono:bold:pixelsize=14:antialias=true
-!Urxvt.italicFont:   xft:DejaVu Sans Mono:italic:pixelsize=14:antialias=true
+!Urxvt.italicFont:		xft:DejaVu Sans Mono:italic:pixelsize=14:antialias=true
 !Urxvt.boldItalicFont:	xft:DejaVu Sans Mono:bold:italic:pixelsize=14:antialias=true
-URxvt.font:	    xft:Consolas:pixelsize=14:antialias=true
-URxvt.boldFont:	    xft:Consolas:bold:pixelsize=14:antialias=true
-Urxvt.italicFont:   xft:Consolas:italic:pixelsize=14:antialias=true
+URxvt.font:				xft:Consolas:pixelsize=14:antialias=true
+URxvt.boldFont:			xft:Consolas:bold:pixelsize=14:antialias=true
+Urxvt.italicFont:		xft:Consolas:italic:pixelsize=14:antialias=true
 Urxvt.boldItalicFont:	xft:Consolas:bold:italic:pixelsize=14:antialias=true
-!urxvt.background:   rgba:0000/0000/0000/cccc
-urxvt.background:   #080403
-urxvt.foreground:   #f1f1f1
-URxvt.transparent:  true
-URxvt.shading:		10
-URxvt.fading:	    50
-URxvt.fadeColor:    black
-!URxvt.tintColor:    #6c9eab
-!URxvt.cursorColor:	#e4a900
-URxvt.cursorColor:	#6f90b0
-URxvt.cursorColor2:	#384552
-URxvt.pointerColor:	#6f90b0
+!urxvt.background:		rgba:0000/0000/0000/cccc
+urxvt.background:		#080403
+urxvt.foreground:		#f6f6f6
+URxvt.transparent:		true
+URxvt.shading:			10
+URxvt.fading:			50
+URxvt.fadeColor:		black
+!URxvt.tintColor:		#6c9eab
+!URxvt.cursorColor:		#e4a900
+URxvt.cursorColor:		#f6f6f6
+URxvt.cursorColor2:		#430b56
+URxvt.pointerColor:		#430b56
 URxvt.pointerColor2:	black
-URxvt.pointerBlank:	true
+URxvt.pointerBlank:		true
 !Black + DarkGrey
 URxvt.color0:   #121212
 URxvt.color8:   #726f6e
@@ -69,28 +69,28 @@ URxvt.color14:  #76aae8
 !LightGrey + White
 URxvt.color7:   #dcdcdc
 URxvt.color15:  #f1f1f1
-URxvt.colorBD:	#806671
-URxvt.colorUL:	#8dc9cf
-URxvt.colorIT:	    white
-URxvt.scrollBar:    true
-URxvt.scrollColor:  #6f90b0
-URxvt.scrollstyle:  plain
-URxvt.jumpScroll:	0
-URxvt.troughColor:  white
-URxvt.borderColor:  #fefefe
-URxvt.iconName:	    urxvt
-URxvt.saveLines:    3000
+URxvt.colorBD:	#766680
+URxvt.colorUL:	#c974ff
+URxvt.colorIT:			white
+URxvt.scrollBar:		true
+URxvt.scrollColor:		#430b56
+URxvt.scrollstyle:		plain
+URxvt.jumpScroll:		0
+URxvt.troughColor:		white
+URxvt.borderColor:		#fefefe
+URxvt.iconName:			urxvt
+URxvt.saveLines:		3000
 URxvt.internalBorder:	0
 URxvt.externalBorder:	0
-URxvt.termName:	    rxvt-unicode
-Urxvt.cutchars:     `"'&()*,;<=>?@[]{|}$`
-URxvt.hold:	    true
-URxvt.urlLauncher:  firefox
-URxvt.loginShell:   true
-URxvt.perl-ext-common:	    default,matcher,url-select
+URxvt.termName:			rxvt-unicode
+Urxvt.cutchars:			`"'&()*,;<=>?@[]{|}$`
+URxvt.hold:				true
+URxvt.urlLauncher:		firefox
+URxvt.loginShell:		true
+URxvt.perl-ext-common:	default,matcher,url-select
 URxvt.underlineURLs:	true
 URxvt.keysym.M-C-u:		perl:url-select:select_next
-!URxvt.matcher.button: 1
+!URxvt.matcher.button:	1
 !URxvt.perl-ext:	    tabbed,matcher
 !configure here the look of the tab bar
 URxvt.tabbed.tabbar-fg:	7
@@ -100,9 +100,9 @@ URxvt.tabbed.tab-bg:	0
 ! select input method (may be different from locale)
 !URxvt.imlocale:		it_IT.UTF-8	
 
-stjerm.key:	F1
-stjerm.mod:	windows
-stjerm.font:	Consolas 11
+stjerm.key:			F1
+stjerm.mod:			windows
+stjerm.font:		Consolas 11
 stjerm.background:	#0e1422
 stjerm.foreground:	#e6eef2
 stjerm.border:	    none

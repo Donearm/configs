@@ -14,17 +14,17 @@ require("mpd-popup")
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/candiceswanepoel03"
+theme_path = home .. "/.config/awesome/themes/elisasednaoui01"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
 use_naughty = true
-naughty.config.presets.normal.border_color = beautiful.naughty_border_color
+naughty.config.presets.normal.border_color = beautiful.menu_border_color
 naughty.config.border_width = 2
 -- Define if we want to modify client.opacity
 use_composite = false
 -- the parentheses color
-par_color = beautiful.bg_focus
+par_color = beautiful.fg_urgent
 
 
 -- This is used later as the default terminal and editor to run.
@@ -35,7 +35,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Some variables
 browser_nav = "firefox -P navigation --no-remote"
-browser_mad = "dwb "
+browser_mad = "dwb"
 music = terminal .. " -e ncmpcpp"
 musicPlay = "ncmpcpp toggle"
 musicStop = "ncmpcpp stop"
@@ -407,7 +407,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
 -- Top Statusbar widgets
 
 -- Launchbox
-mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-black.png"),
+mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-white.png"),
                                      menu = mymainmenu })
 
 -- Cpu widget
@@ -513,7 +513,7 @@ mpdwidget:buttons(
 
 -- Volume widget
 volumeicon = widget({ type = "imagebox"})
-volumeicon.image = image(home .. "/.icons/headphones-transparent.png")
+volumeicon.image = image(home .. "/.icons/sound-white.png")
 
 volumewidget = widget({ type = "textbox"})
 -- enable caching
@@ -627,13 +627,13 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     topwibox[s].widgets = {
 		{
+            mylayoutbox[s],
             mytaglist[s],
             mylauncher,
             mypromptbox[s],
 			layout = awful.widget.layout.horizontal.leftright
 		},
             s == screen.count() and mysystray or nil,
-            mylayoutbox[s],
             maildirwidget,
             maildiricon,
             netdownwidget,
