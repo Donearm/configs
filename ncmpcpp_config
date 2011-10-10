@@ -166,7 +166,7 @@ alternative_header_second_line_format = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{
 ##   not available.
 ##
 #
-song_columns_list_format = "(5f)[blue]{l} (20)[cyan]{a} (45)[]{t|f} (30)[blue]{b}"
+song_columns_list_format = "(5f)[white]{l} (20)[magenta]{a} (45)[]{t|f} (30)[white]{b}"
 #
 ##### various settings #####
 #
@@ -372,7 +372,7 @@ color1 = "white"
 #
 color2 = "green"
 #
-main_window_highlight_color = "cyan"
+main_window_highlight_color = "magenta"
 #
 progressbar_color = "default"
 #
