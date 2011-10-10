@@ -453,7 +453,7 @@ netdownicon.image = image(home .. "/.icons/down_arrow.png")
 
 -- Maildir widget
 maildiricon = widget({ type = "imagebox" })
-maildiricon.image = image(home .. "/.icons/gmail-glossy-black.png")
+maildiricon.image = image(home .. "/.icons/gmail-black.png")
 maildirwidget = widget({ type = "textbox" })
 vicious.register(maildirwidget, vicious.widgets.mdir, ' $1 ', 300, { maildir })
 
@@ -514,7 +514,6 @@ mpdwidget:buttons(
 -- Volume widget
 volumeicon = widget({ type = "imagebox"})
 volumeicon.image = image(home .. "/.icons/sound-white.png")
-
 volumewidget = widget({ type = "textbox"})
 -- enable caching
 vicious.cache(vicious.widgets.volume)
@@ -536,6 +535,7 @@ datebox:buttons(awful.util.table.join(
 ))
 vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T  "))
 
+-- Os and Uptime widgets
 osicon = widget({ type = "imagebox"})
 osicon.image = image(home .. "/.icons/tux.png")
 oswidget = widget({ type = "textbox"})
