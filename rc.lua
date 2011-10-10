@@ -194,38 +194,8 @@ end
 
 -- Temp functions
 
-function getTemp(hw)
-    local f = ''
-    if hw == "cpu" then
-        f = io.popen('cut -b 1-2 /sys/class/hwmon/hwmon0/device/temp3_input')
-    elseif hw == "mb" then
-        f = io.popen('cut -b 1-2 /sys/class/hwmon/hwmon0/device/temp1_input')
-    elseif hw == "gpu" then
-        f = io.popen('nvidia-settings -q gpucoretemp -t')
-    elseif hw == "sda" then
-        f = io.popen("sudo hddtemp /dev/" .. hw .. " -n")
-    elseif hw == "sdb" then
-        f = io.popen("sudo hddtemp /dev/" .. hw .. " -n")
-    else
-        return ''
-    end
-    local n = f:read()
-    f:close()
-    if (n == nil) then
-        return ''
-    end
-    
-    if tonumber(n) >= 70 then
-        n = setFg("#aadc43", n .. '°C')
-        return n
-    else
-        return setFg(beautiful.fg_normal, ' ' .. n .. '°C')
-    end
-end
-
 function getCpuTemp ()
     --local f = io.popen('cut -b 1-2 /sys/module/w83627ehf/drivers/platform\:w83627ehf/w83627ehf.656/temp1_input')
-    --local f = io.popen('cut -b 1-2 /sys/class/thermal/thermal_zone0/temp')
     local f = io.popen('cut -b 1-2 /sys/class/hwmon/hwmon0/device/temp3_input')
 	local n = f:read()
 	f:close()
@@ -254,20 +224,6 @@ function getGpuTemp ()
     else
 	    return setFg(beautiful.fg_normal, n..'°C ')
     end
-end
-
-function getSdaTemp ()
-	local f = io.popen("sudo hddtemp /dev/sda -n")
-	local n = f:read()
-	f:close()
-	return setFg(beautiful.fg_normal, ' '..n..'°C ')
-end
-
-function getSdbTemp ()
-	local f = io.popen("sudo hddtemp /dev/sdb -n")
-	local n = f:read()
-	f:close()
-	return setFg(beautiful.fg_normal, ' '..n..'°C ')
 end
 
 -- Calendar functions
@@ -467,19 +423,10 @@ vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 --mobotemp = widget({ type = 'textbox'})
 --vicious.register(mobotemp, vicious.widgets.thermal, "$1°C", 50, "thermal_zone1")
 --vicious.register(mobotemp, getMoboTemp, "$1", 50)
---vicious.register(mobotemp, getTemp, "$1", 50, 'mb')
 
 --gputemp = widget({ type = 'textbox'})
 --vicious.register(gputemp, getGpuTemp, "$1", 30)
  
--- Both the hddtemp widgets need hddtemp to be setuid, therefore
--- disabled
---sdatemp = widget({ type = 'textbox'})
---vicious.register(sdatemp, vicious.widgets.hddtemp, '${/dev/sda}°C', 30)
-
---sdbtemp = widget({ type = 'textbox'})
---vicious.register(sdbtemp, vicious.widgets.hddtemp, '${/dev/sdb}°C', 30)
-
 -- Bottom Statusbar widgets
 
 -- Task widget
