@@ -9,14 +9,14 @@ class Scheme(Default):
         if curses.COLORS < 88:
             return fg, bg, attr
 
-        dircolor = 24
+        dircolor = 55
         dircolor_selected = { True: 79, False: 78 }
         linkcolor = { True: 84, False: 48 }
 
         if context.in_browser:
             if context.media:
                 if context.image:
-                    fg = 22
+                    fg = 48
                 elif context.video:
                     fg = 61
                 elif context.audio:
@@ -43,7 +43,7 @@ class Scheme(Default):
 
             if context.in_titlebar:
                 if context.hostname:
-                    fg = context.bad and 60 or 66
+                    fg = context.bad and 61 or 54
                 elif context.directory:
                     fg = dircolor
                 elif context.link:
