@@ -409,7 +409,7 @@ netdownicon.image = image(home .. "/.icons/down_arrow.png")
 
 -- Maildir widget
 maildiricon = widget({ type = "imagebox" })
-maildiricon.image = image(home .. "/.icons/gmail-black.png")
+maildiricon.image = image(home .. "/.icons/gmail-b&w.png")
 maildirwidget = widget({ type = "textbox" })
 vicious.register(maildirwidget, vicious.widgets.mdir, ' $1 ', 300, { maildir })
 
@@ -417,8 +417,8 @@ vicious.register(maildirwidget, vicious.widgets.mdir, ' $1 ', 300, { maildir })
 -- Temperatures
 --
 cputemp = widget({ type = 'textbox'})
---vicious.register(cputemp, getCpuTemp, "$1", 30)
-vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
+vicious.register(cputemp, getCpuTemp, "$1", 30)
+--vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 
 --mobotemp = widget({ type = 'textbox'})
 --vicious.register(mobotemp, vicious.widgets.thermal, "$1°C", 50, "thermal_zone1")
