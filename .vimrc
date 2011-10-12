@@ -26,7 +26,6 @@ set laststatus=2
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
-set t_Co=256 " number of colors in terminal, default=88
 set hidden
 set pastetoggle=<F2> " switch to paste mode with F2
 set spelllang=en,it,es,pt
@@ -49,9 +48,12 @@ if has("autocmd")
 endif
 
 " set a color scheme
-"color desert
-"color gianluca
-color twilight256
+if &t_Co == 256 || &t_Co == 88
+	set t_Co=256 " number of colors in terminal, default=88
+	color twilight256
+else
+	color desert
+endif
 
 " custom statusline
 if has('statusline')
