@@ -16,6 +16,8 @@ alias bajkal="mutt -f imap://in.virgilio.it"
 alias alsamixer="alsamixer -V all"
 alias svim="sudo vim"
 alias voracious="voracious --age-limit 2800 -b kortirion --nobozo"
+alias dpmsoff="xset -dpms && xset s off"
+alias dpmson="xset +dpms && xset s on"
 alias vcs="vcs -j -c 4 -u nirari -H 200 -O bg_heading=lavender \
 -O bg_sign=lavender -O bg_contact=lavender \
 -O font_heading=DejaVu-Sans-Condensed-Bold"
