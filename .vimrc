@@ -261,6 +261,7 @@ if has("autocmd")
     autocmd FileType java	call CComment()
     autocmd FileType c,cpp	call CComment()
 	autocmd FileType lua	call LuaComment()
+	autocmd FileType sql	call LuaComment()
 	autocmd FileType vim	call VimComment()
 endif
 
