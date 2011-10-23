@@ -122,7 +122,7 @@ noremap <leader>emptyblock :g/^$/<leader>/./-j
 " as above but with rows of only spaces
 noremap <leader>Sbl :g/^\s*$/<leader>/\S/-j
 " regroup multiple Re:
-noremap <leader>re 1G/^Subject: <CR>:s/\(Re: \)\+/Re: /e<CR>^M
+noremap <leader>re :%s/Subject: \(Re\?: \)\+/Subject: Re: /g<CR>
 " delete yahoo group links
 noremap <leader>delgyah :g#^>\? http://docs.yahoo#.-10<leader>.d
 " delete every header
