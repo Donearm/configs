@@ -11,11 +11,11 @@ class CustomApplications(DefaultApps):
     def app_mplayer(self, c):
         c.flags += 'd'
         if c.mode is 1:
-            return tup('/usr/local/bin/mplayerss.sh', '-fs', *c)
+            return tup('nohup', 'setsid', '/usr/local/bin/mplayerss.sh', '-fs', *c)
         elif c.mode is 2:
-            return tup('/usr/local/bin/mplayerss.sh', *c)
+            return tup('nohup', 'setsid', '/usr/local/bin/mplayerss.sh', *c)
         else:
-            return tup('/usr/local/bin/mplayerss.sh', *c)
+            return tup('nohup', 'setsid', '/usr/local/bin/mplayerss.sh', *c)
 
     def app_gnomemplayer(self, c):
         c.flags += 'd'
