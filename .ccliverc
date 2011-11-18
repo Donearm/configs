@@ -1,4 +1,3 @@
 filename-format = "%t.%s"
-regexp = /(\w|\pL|\s)/g
-#exec = "mplayer -really-quiet %i"
-#format-map = "youtube:best|dailymotion:hq"
+prefer-format = ^.*youtube.*\.com:fmt38_2304p
+exec = "mplayer -really-quiet %i"
