@@ -1,5 +1,4 @@
 set nocompatible  "Really important option, must be first
-set wildmenu
 set history=50
 set showcmd
 set showmode
@@ -32,7 +31,7 @@ set spelllang=en,it,es,pt
 set formatoptions=tcqw " some formatting options, see fo-table
 set wildmenu
 set wildmode=longest,list,full
-set wildignore=*.swp,*.bak,*.pyc	" ignore those file extensions when Tab completing
+set wildignore=*.sw?,*.bak,*.pyc,*.luac	" ignore those file extensions when Tab completing
 set printoptions=header:0,paper:A4
 let mapleader="," " comma as <leader>
 
@@ -164,6 +163,8 @@ if has("autocmd")
 		" options for java files
 		autocmd FileType java set shiftwidth=4
 		autocmd FileType java set cindent
+		autocmd FileType java set foldmethod=marker
+		autocmd FileType java set foldmarker={,}
 		autocmd FileType java let java_comment_strings=1
 		autocmd FileType java let java_highlight_all=1
 		autocmd FileType java let java_highlight_debug=1
