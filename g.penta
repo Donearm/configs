@@ -1,9 +1,10 @@
 " == Pentadactyl Color Scheme ==
 
 hi StatusLine color: #f6f6f6; background: #262729; font-size: 9pt;
-hi StatusLineNormal color: #f6f6f6; background: #430b56; font-size: 9pt;
+hi StatusLineNormal color: #f6f6f6; background: #262729; font-size: 9pt;
 hi StatusLineBroken color: #dcdcdc; background: #430b56; font-size: 9pt;
 hi StatusLineSecure color: #c70c0c; background: #430b56; font-size: 9pt;
+hi StatusLineExtended color: #c70c0c; background: #430b56; font-size: 9pt;
 
 hi Normal color: #f6f6f6; background: #262729; font-size: 9pt;
 hi CmdLine color: #f6f6f6; backgdounr: #262729; font-size: 9pt;
