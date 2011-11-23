@@ -1,5 +1,7 @@
 " == Pentadactyl Color Scheme ==
 
+hi clear
+
 hi StatusLine color: #f6f6f6; background: #262729; font-size: 9pt;
 hi StatusLineNormal color: #f6f6f6; background: #262729; font-size: 9pt;
 hi StatusLineBroken color: #dcdcdc; background: #430b56; font-size: 9pt;
@@ -7,9 +9,10 @@ hi StatusLineSecure color: #c70c0c; background: #430b56; font-size: 9pt;
 hi StatusLineExtended color: #c70c0c; background: #430b56; font-size: 9pt;
 
 hi Normal color: #f6f6f6; background: #262729; font-size: 9pt;
-hi CmdLine color: #f6f6f6; backgdounr: #262729; font-size: 9pt;
+hi CmdLine color: #f6f6f6; background: #262729; font-size: 9pt;
 
 hi CompTitle color: #f6f6f6; background #262729; font-weight: normal;
+hi CompTitle>* padding: 0.5ex;
 hi CompItem[selected] color: black; background: #430b56; font-weight: bold;
 hi CompIcon width: 16px; min-width: 16px; display: inline-block; margin-right: 0.5ex;
 hi CompLess text-align: center; height: 0; line-height: 0.5ex; padding-top: 1ex;
@@ -18,13 +21,16 @@ hi CompMsg color: #262626;
 hi CompResult color: black; font-weight: normal; width: 40%; overflow: hidden;
 hi CompDesc color: black; font-weight: normal; width: 60%;
 
-hi Bell border: 0 none; background: #262729;
-hi ErrorMsg color: #262729; background: red; font-weight: bold;
+hi Bell border: 0 none; background: inherit;
+hi ErrorMsg color: red; background: #262729; font-weight: bold;
+hi Indicator color: #430b56; background: #262729;
+hi LineNr color: red; background: inherit !important;
 
 hi Hint color: #f6f6f6; background: #430b56; font-family: Terminus; font-size: 8pt; opacity: .9;
-hi HintActive color: #ff9a00;
-hi HintElem color: #e30060;
-hi HintImage opacity: .2;
+hi Hint::after content: attr(number);
+hi HintActive color: #d800ff !important; background: inherit; font-weight: bold;
+hi HintElem color: #e30060; font-weight: bold;
+hi HintImage color: #d800ff !important; opacity: .2;
 
 hi Message white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
 "hi InfoMsg color: ; background: #262729;
