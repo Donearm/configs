@@ -11,6 +11,9 @@ set cpt=sl
 " show pattern matches as you type
 set incfind
 
+" alphabetic characters instead of numbers for hints
+set hintkeys=asdfghjklònmuioprewcvt
+
 " Highlight previous search pattern matches
 set hlfind
 
