@@ -36,3 +36,6 @@ set passkeys+="https://duckduckgo\.com/":jkv
 
 " Add the current url as a task for taskwarrior.org
 :map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
+" use Ctrl+Esc for enabling passthrough mode
+map <C-v> <Nop>
+map <C-Esc> <pass-all-keys>
