@@ -1,5 +1,6 @@
 syntax on
-color bclear
+"color bclear
+color twilight256
 " Set window's size
 au GUIEnter * set lines=56 columns=100
 
