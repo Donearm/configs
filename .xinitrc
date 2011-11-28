@@ -24,7 +24,7 @@ source /etc/X11/xinit/xinitrc.d/30-dbus
 exec ck-launch-session awesome
 #exec openbox-session
 # exec /opt/kde/bin/startkde
-# exec gnome-session
+#exec ck-launch-session gnome-session
 # exec ck-launch-session /mnt/documents/Script/compiz_start.sh
 #exec /mnt/documents/Script/awesome_autostart.sh
 #exec /mnt/documents/Script/dwm_start.sh
