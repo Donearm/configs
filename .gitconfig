@@ -8,9 +8,12 @@
 	interactive = auto
 	status = auto
 	grep = yes
+[format]
+	signoff = true
 [core]
 	excludesfile = /home/gianluca/.gitignore
 [apply]
 	whitespace = fix
 [diff]
 	renames = true
+	tool = vimdiff
