@@ -45,6 +45,7 @@ color.tag.script=black on green
 color.tag.os=bold blue on black
 color.tag.eeepc=bold black on cyan
 color.tag.music=bold yellow on gray
+color.tag.android=green on white
 color.project.pyimagedownloader=on blue
 color.project.pyimageuploader=on blue
 color.project.travel=yellow on black
