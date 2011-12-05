@@ -480,7 +480,7 @@ datebox:buttons(awful.util.table.join(
     awful.button({ }, 4, function () addCalendar(-1) end),
     awful.button({ }, 5, function () addCalendar(1) end)
 ))
-vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T  "))
+vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T %F "))
 
 -- Os and Uptime widgets
 osicon = widget({ type = "imagebox"})
