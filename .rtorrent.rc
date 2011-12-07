@@ -27,8 +27,8 @@ session = /media/private/torrent/session/
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-#schedule = watch_directory,5,5,load_start=./watch/*.torrent
-#schedule = untied_directory,5,5,stop_untied=
+schedule = watch_directory,5,5,load_start=./watch/*.torrent
+schedule = untied_directory,5,5,stop_untied=
 #schedule = untied_directory,10,10,remove_untied=
 
 # Close torrents when diskspace is low.
@@ -40,6 +40,15 @@ session = /media/private/torrent/session/
 # example: stop at ratio 2.0 with at least 50 MB uploaded, or else ratio 20.0
 #schedule = ratio,60,60,"stop_on_ratio=200,50M,200"
 
+# Enable removal for all downloads added from this watch directory.
+#schedule = watch_directory,10,10,"load_start=./watch/*.torrent,d.set_custom2=1"
+
+# Clear custom2 when download completes.
+#on_finished = set_done_var,d.set_custom2=
+
+# Erase data files when a download is removed that still has custom2 set.
+#on_erase = rm_files,"branch=d.get_custom2=,\"execute={rm,-rf,--,$d.get_base_path=}\""
+
 ratio.enable=
 ratio.min.set=150
 ratio.max.set=300
@@ -48,7 +57,7 @@ ratio.upload.set=50M
 system.method.set = group.seeding.ratio.command, d.close=
 
 # copy completed torrents in the Music directory
-system.method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/ "
+#system.method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/ "
 
 # Notify at torrent completion
 system.method.set_key = event.download.finished,notify-me,"execute=notify-send,-t,7000,$d.get_name="
@@ -125,3 +134,5 @@ peer_exchange = yes
 #hash_max_tries = 10
 
 http_proxy="95.143.193.35:80"
+
+network.http.ssl_verify_peer.set=0
