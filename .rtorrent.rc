@@ -29,7 +29,7 @@ session = /media/private/torrent/session/
 # deleted.
 schedule = watch_directory,5,5,load_start=./watch/*.torrent
 schedule = untied_directory,5,5,stop_untied=
-#schedule = untied_directory,10,10,remove_untied=
+schedule = untied_directory,10,10,remove_untied=
 
 # Close torrents when diskspace is low.
 #schedule = low_diskspace,5,60,close_low_diskspace=100M
