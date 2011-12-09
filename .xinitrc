@@ -15,9 +15,6 @@ nvidia-settings -a PixmapCacheRoundSizeKB=2048
 # Start ttytter inside screen/tmux, but only if it's not already running
 /mnt/documents/Script/ttytter_startup.sh
 
-# DNSCrypt please
-sudo dnscrypt-proxy --daemonize
-
 # proper launch of a dbus session
 source /etc/X11/xinit/xinitrc.d/30-dbus
 
