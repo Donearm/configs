@@ -350,12 +350,11 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
 --                                        { "dwb", browser_mad, image("/usr/share/pixmaps/dwb.png") },
                                         { "ranger", filemanager, image(home .. "/.icons/ranger-chuck.gif") },
                                         { "Music", music, image(home .. "/.icons/music.jpg") },
+                                        { "Libreoffice", "soffice", image("/usr/share/icons/hicolor/32x32/apps/libreoffice-main.png") },
                                         { "Skype", "skype", image("/usr/share/pixmaps/skype.png") },
                                         { "Winxp", "VBoxManage startvm WinXp", image("/usr/share/pixmaps/VBox.png") },
-                                        { "HP Toolbox", "hp-toolbox", image("/usr/share/hplip/data/images/32x32/hp_logo.png") },
                                         { "Avidemux", "avidemux2_gtk", image("/usr/share/pixmaps/avidemux.png") },
-                                        { "Gimp", "gimp", image("/usr/share/gimp/2.0/images/gimp-logo.png") },
-                                        { "Gtkam", "gtkam", image("/usr/share/pixmaps/gtkam.png") }
+                                        { "Gimp", "gimp", image("/usr/share/gimp/2.0/images/gimp-logo.png") }
                                       }
                             })
 
