@@ -32,7 +32,7 @@ set formatoptions=tcqw " some formatting options, see fo-table
 set wildmenu
 set wildmode=longest,list,full
 set wildignore=*.sw?,*.bak,*.pyc,*.luac	" ignore those file extensions when Tab completing
-set printoptions=header:0,paper:A4
+set printoptions=header:0,paper:A4,left:0.5in,right:0.5in,top:0.5in,bottom:0.5in
 let mapleader="," " comma as <leader>
 
 "persistent undo
@@ -157,6 +157,11 @@ if has("autocmd")
 		" some options for ruby files
 		autocmd FileType ruby setlocal tabstop=2
 		autocmd FileType ruby setlocal textwidth=80 
+	augroup END
+
+	augroup Markdown
+		"" options for markdown files
+		autocmd FileType markdown setlocal textwidth=0
 	augroup END
 
 	augroup Java
