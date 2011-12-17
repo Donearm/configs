@@ -354,6 +354,11 @@ endfunction
 
 noremap ,w :call Browser ()<CR>
 
+" open taglist
+nnoremap ,tag :TlistToggle<CR>
+" and close vi if it's the only window open
+let Tlist_Exit_OnlyWindow = 1
+
 if has("autocmd")
 	" grouping all autocmds
 
