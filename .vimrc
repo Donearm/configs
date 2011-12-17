@@ -285,9 +285,9 @@ let html_use_css=1
 "set grepprg=grep\ -nH\ $*
 "let g:Imap_DeleteEmptyPlaceHolders=1
 "let g:Tex_DefaultTargetFormat="pdf"
-"let g:Tex_ViewRule_dvi="evince"
-"let g:Tex_ViewRule_ps="evince"
-"let g:Tex_ViewRule_pdf="evince"
+"let g:Tex_ViewRule_dvi="epdfview"
+"let g:Tex_ViewRule_ps="epdfview"
+"let g:Tex_ViewRule_pdf="epdfview"
 "let g:Tex_MultipleCompileFormats="dvi,pdf,ps"
 
 " --- VARIOUS STUFF ---
