@@ -180,6 +180,14 @@ if has("autocmd")
 		autocmd FileType java let java_minlines=150
 	augroup END
 
+	augroup Lisp
+		" options for lisp files
+		autocmd FileType lisp setlocal expandtab
+		autocmd FileType lisp setlocal shiftwidth=2
+		autocmd FileType lisp setlocal tabstop=2
+		autocmd FileType lisp setlocal softtabstop=2
+	augroup END
+
 	if exists("+omnifunc")
 		augroup Omnifunctions
 			" enable function-complete for supported files
@@ -258,6 +266,12 @@ function! VimComment()
 	set comments=:\"
 endfunction
 
+function! LispComment()
+	noremap - :s/^/\;/<CR>
+	noremap _ :s/^\s*\;//<CR>
+	set comments=:\;
+endfunction
+
 " ...and enabling them
 if has("autocmd")
     autocmd FileType perl	call ShellComment()
@@ -269,6 +283,7 @@ if has("autocmd")
 	autocmd FileType lua	call LuaComment()
 	autocmd FileType sql	call LuaComment()
 	autocmd FileType vim	call VimComment()
+	autocmd FileType lisp	call LispComment()
 endif
 
 " --- PROGRAMMING END ---
