@@ -414,6 +414,7 @@ if has("autocmd")
 	augroup bbformatting
 		autocmd BufReadPre *source.txt silent! syntax off
 		autocmd BufReadPre *0000 silent! syntax off
+		autocmd BufReadPre *credits.txt silent! syntax off
 		autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
 		autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
 		autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
