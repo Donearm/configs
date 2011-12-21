@@ -34,8 +34,8 @@ editor_cmd = terminal .. " -e " .. editor
 
 
 -- Some variables
-browser_nav = "firefox -P navigation --no-remote"
-browser_mad = "firefox -P maidens --no-remote"
+browser_nav = "firefox -P navigation"
+browser_mad = "firefox -P maidens -no-remote"
 music = terminal .. " -e ncmpcpp"
 musicPlay = "ncmpcpp toggle"
 musicStop = "ncmpcpp stop"
