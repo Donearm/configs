@@ -164,7 +164,7 @@ if has("autocmd")
 
 	augroup Markdown
 		"" options for markdown files
-		autocmd FileType markdown setlocal textwidth=0
+		autocmd FileType markdown setlocal textwidth=0 spell
 	augroup END
 
 	augroup Java
@@ -256,6 +256,15 @@ function! ShellComment()
 	inoremap # X#
 endfunction
 
+function! XdefaultsComment()
+	noremap - :s/^/!/<CR>
+	noremap _ :s/^\s*!\=//<CR>
+	set comments=:!
+	" trick vim by remapping the comment to 'X' and comment again, so
+	" preventing the comment to override the current indentation
+	inoremap ! X!
+endfunction
+
 function! CComment()
 	noremap - :s/^/\/\*/<CR>
 	noremap _ :s/^\s*\/\* \=//<CR>
@@ -295,6 +304,7 @@ if has("autocmd")
 	autocmd FileType sql	call LuaComment()
 	autocmd FileType vim	call VimComment()
 	autocmd FileType lisp	call LispComment()
+	autocmd FileType xdefaults call XdefaultsComment()
 endif
 
 " --- PROGRAMMING END ---
