@@ -2,3 +2,8 @@
 *~
 *.swp
 *.bak
+*.o
+*.so
+
+*.log
+Thumbs.db
