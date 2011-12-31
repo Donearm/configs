@@ -2,6 +2,7 @@
 Xft.dpi:			96
 Xft*antialias:	    true
 Xft*hinting:	    medium
+Xft*.lcdfilter:		lcddefault
 xterm*termname:	    xterm-color
 xterm*utf8:			1
 
