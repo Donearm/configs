@@ -1,9 +1,12 @@
 " vim: set ft=vim fdm=marker tw=0:
 
+set mapleader=","
+
 set titlestring=Firefox
 set editor="gvim -f +<line> <file>"
 set maxitems=12
 set cpt=sl
+set newtab=all
 
 " set color scheme
 :colorscheme g
@@ -23,19 +26,24 @@ set showstatuslinks=status
 " custom commands
 command -description "News reader" rss :open www.google.com/reader/view/
 
-" passkeys
+" passkeys for various sites
 set passkeys=
-" DuckDuckGo
-set passkeys+="https://duckduckgo\.com/":jkv
-" Gmail
-"set passkeys+="https://mail\.google\.com/":jkg
-" Google Reader
-"set passkeys+="https://www\.google\.com/reader/":-=/?12aefgjklmnporstuvAFNPOSX 
-" those above don't work, enable passthrough on all Google sites
-:autocmd LocationChange '^https://(www|mail)\.google\.com/' :normal! <C-z>
+set passkeys+='https://duckduckgo\.com':jkv
+set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?\*nrtgidIU+-=<Tab><Return>
+set passkeys+='plus\.google\.com':jk
+set passkeys+='google\.com/reader':jkovASNPO<Space>?
+set passkeys+='twitter\.com':jkn<CR>\.\?,gh,gr
 
 " Add the current url as a task for taskwarrior.org
 :map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
 " use Ctrl+Esc for enabling passthrough mode
 map <C-v> <Nop>
 map <C-Esc> <pass-all-keys>
+
+" faster scrolling
+noremap j 5j
+noremap k 5k
+" focus first input by default with just i
+map i gi
+" view native size of image without clicking it
+nmap <leader>z :js window.content.document.toggleImageSize();<CR>
