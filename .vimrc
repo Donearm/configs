@@ -1,5 +1,6 @@
 set nocompatible	"Really important option, must be first
 set history=50
+set title			" show a nice title
 set showcmd			" display incomplete commands
 set showmode
 set showmatch
@@ -27,7 +28,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 set hidden				" hide buffers when not displayed
-set pastetoggle=<F2>	" switch to paste mode with F2
+set pastetoggle=<leader>tp	" switch to paste mode with ,tp
 set spelllang=en,it,es,pt
 set formatoptions=tcqw	" some formatting options, see fo-table
 set wildmenu			" enable ctrl-n and ctrl-p to scroll through matches
@@ -321,9 +322,8 @@ nnoremap j <Down>:nohls<CR>
 nnoremap k <Up>:nohls<CR>
 nnoremap h <Left>:nohls<CR>
 nnoremap l <Right>:nohls<CR>
-" Ctrl+hjkl to navigate in insert mode (Ctrl+j doesn't work, use Ctrl+u
-" instead)
-inoremap <C-u> <Down>
+" Ctrl+hjkl to navigate in insert mode
+inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-h> <Left>
