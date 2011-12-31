@@ -3,7 +3,6 @@ set history=50
 set showcmd			" display incomplete commands
 set showmode
 set showmatch
-set incsearch
 set smartindent
 set textwidth=72
 set ruler
@@ -14,6 +13,7 @@ set softtabstop=4
 set tabstop=4
 set modeline 
 set modelines=3
+set listchars=tab:»\ ,trail:·,nbsp:·
 set nobackup
 set nowritebackup
 set backupdir=/tmp
@@ -65,6 +65,7 @@ endif
 if &t_Co > 2 || has("gui_running")
 	syntax on
 	set hlsearch
+	set incsearch
 endif
 
 " no automatic highlighting of brackets and such
