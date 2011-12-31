@@ -89,18 +89,18 @@ augroup END
 " --- MAIL ---
 "
 if has("autocmd")
-    autocmd FileType mail set fo=tcrqw textwidth=72 
-    autocmd FileType mail call Mail_AutoCmd()
+	autocmd FileType mail set fo=tcrqw textwidth=72
+	autocmd FileType mail call Mail_AutoCmd()
 endif
 " set mail fileformat for mails, mboxes and news messages
 au BufRead,BufNewFile /tmp/mutt-*,~/Maildir/.*,.followup*,.article* :set ft=mail 
 " various functions for mail and news
 function Mail_AutoCmd()
-    silent! %s/^\(>*\)\s\+>/\1>/g " wrong quoting
-    silent! %s/^> >/>>/ " wrong quoting 2
-    silent! %s/  \+/ /g " multiple spaces
-    silent! %s/^\s\+$//g " rows with only spaces
-    silent! %s/^[>]\+$// " empty quoted rows
+	silent! %s/^\(>*\)\s\+>/\1>/g " wrong quoting
+	silent! %s/^> >/>>/ " wrong quoting 2
+	silent! %s/  \+/ /g " multiple spaces
+	silent! %s/^\s\+$//g " rows with only spaces
+	silent! %s/^[>]\+$// " empty quoted rows
 endfunction
 " some mappings
 "
@@ -209,49 +209,57 @@ if has("autocmd")
 		augroup END
 	endif
 
-    " no tabs in spaces for make files
-    autocmd FileType make set noexpandtab shiftwidth=8
-    " Max 78 characters for line in text files
-    autocmd BufRead *.txt set tw=78
+	augroup filedetection
+		" precise filetype settings
+		autocmd BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Rules,Vagrantfile,Guardfile,Capfile set filetype=Ruby
+		autocmd BufRead,BufNewFile *.json set filetype=json
+		autocmd BufRead,BufNewFile *tmux.conf* set filetype=tmux
+		autocmd BufRead,BufNewFile *.{md,mkd,mdown,markdown} set filetype=markdown
+	augroup END
+
+	" no tabs in spaces for make files
+	autocmd FileType make set noexpandtab shiftwidth=8
+	" Max 78 characters for line in text files
+	autocmd BufRead *.txt set tw=78
 	" No limit of characters for line in csv files
 	autocmd BufRead *.csv set tw=0
-    " make every script executable
-    autocmd BufWritePost * if getline(1) =~ "^#!/" | silent exe "!chmod u+x <afile>" | endif
+	" make every script executable
+	autocmd BufWritePost * if getline(1) =~ "^#!/" | silent exe "!chmod u+x <afile>" | endif
 	" add vim options at the end of every script (currently not working)
-    "autocmd BufWritePost * if getline(1) =~ "^#!/" && if getline($) =~ "^# vi" | silent :$s/^/# vim: set ft=sh tw=0:/ | endif
-    " enable editing of gzipped files
-    augroup gzip
-	" delete first every autocmd
-	au!
+	"autocmd BufWritePost * if getline(1) =~ "^#!/" && if getline($) =~ "^# vi" | silent :$s/^/# vim: set ft=sh tw=0:/ | endif
+	" enable editing of gzipped files
+	augroup gzip
+		" delete first every autocmd
+		au!
 
-	autocmd BufReadPre,FileReadPre  *.gz set bin
-	autocmd BufReadPost,FileReadPost	*.gz let ch_save = &ch|set ch=2
-	autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
-	autocmd BufReadPost,FileReadPost	*.gz set nobin
-	autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
-	autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " - expand("%:r")
-	autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
-	autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
-	autocmd FileAppendPre   *.gz !gunzip <afile>
-	autocmd FileAppendPre   *.gz !mv <afile>:r <afile>
-	autocmd FileAppendPost  *.gz !mv <afile> <afile>:r
-    augroup END
+		autocmd BufReadPre,FileReadPre  *.gz set bin
+		autocmd BufReadPost,FileReadPost	*.gz let ch_save = &ch|set ch=2
+		autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
+		autocmd BufReadPost,FileReadPost	*.gz set nobin
+		autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
+		autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " - expand("%:r")
+		autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
+		autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
+		autocmd FileAppendPre   *.gz !gunzip <afile>
+		autocmd FileAppendPre   *.gz !mv <afile>:r <afile>
+		autocmd FileAppendPost  *.gz !mv <afile> <afile>:r
+	augroup END
 endif
 "
 " comments' functions
 function! ShellComment()
-    noremap - :s/^/#/<CR>
-    noremap _ :s/^\s*#\=//<CR>
-    set comments=:#
+	noremap - :s/^/#/<CR>
+	noremap _ :s/^\s*#\=//<CR>
+	set comments=:#
 	" trick vim by remapping the comment to 'X' and comment again, so
 	" preventing the comment to override the current indentation
 	inoremap # X#
 endfunction
 
 function! CComment()
-    noremap - :s/^/\/\*/<CR>
-    noremap _ :s/^\s*\/\* \=//<CR>
-    set comments=:/*
+	noremap - :s/^/\/\*/<CR>
+	noremap _ :s/^\s*\/\* \=//<CR>
+	set comments=:/*
 endfunction
 
 function! LuaComment()
@@ -277,12 +285,12 @@ endfunction
 
 " ...and enabling them
 if has("autocmd")
-    autocmd FileType perl	call ShellComment()
-    autocmd FileType cgi	call ShellComment()
-    autocmd FileType sh		call ShellComment()
-    autocmd FileType python	call ShellComment()
-    autocmd FileType java	call CComment()
-    autocmd FileType c,cpp	call CComment()
+	autocmd FileType perl	call ShellComment()
+	autocmd FileType cgi	call ShellComment()
+	autocmd FileType sh		call ShellComment()
+	autocmd FileType python	call ShellComment()
+	autocmd FileType java	call CComment()
+	autocmd FileType c,cpp	call CComment()
 	autocmd FileType lua	call LuaComment()
 	autocmd FileType sql	call LuaComment()
 	autocmd FileType vim	call VimComment()
@@ -354,98 +362,98 @@ noremap  :w!<CR>:!aspell -d en -x check %<CR>:e! %<CR>
 
 " open link in the current row in the browser
 function! Browser ()
-    let line0 = getline (".")
-    let line = matchstr (line0, "http[^ ]*")
-    :if line==""
-    let line = matchstr (line0, "ftp[^ ]*")
-    :endif
-    :if line==""
-    let line = matchstr (line0, "file[^ ]*")
-    :endif
-    let line = escape (line, "#=?&;|%")
-    if line==""
-     let line = "\"" . (expand("%:p")) . "\""
-    :endif
-    exec ':silent !firefox ' . line 
-endfunction
-
-noremap ,w :call Browser ()<CR>
-
-" open taglist
-nnoremap ,tag :TlistToggle<CR>
-" and close vi if it's the only window open
-let Tlist_Exit_OnlyWindow = 1
-
-if has("autocmd")
-	" grouping all autocmds
-
-	" automatically ask for the password when opening a gpg file
-	augroup encrypted
-		au!
-
-		" First make sure nothing is written to ~/.viminfo while editing
-		" an encrypted file.
-		autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
-		" We don't want a swap file, as it writes unencrypted data to disk
-		autocmd BufReadPre,FileReadPre      *.gpg set noswapfile
-		" Switch to binary mode to read the encrypted file
-		autocmd BufReadPre,FileReadPre      *.gpg set bin
-		autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
-		autocmd BufReadPre,FileReadPre      *.gpg let shsave=&sh
-		autocmd BufReadPre,FileReadPre      *.gpg let &sh='sh'
-		autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
-		autocmd BufReadPost,FileReadPost    *.gpg '[,']!gpg2 -q --decrypt --default-recipient-self 2> /dev/null
-		autocmd BufReadPost,FileReadPost    *.gpg let &sh=shsave
-
-		" Switch to normal mode for editing
-		autocmd BufReadPost,FileReadPost    *.gpg set nobin
-		autocmd BufReadPost,FileReadPost    *.gpg let &ch = ch_save|unlet ch_save
-		autocmd BufReadPost,FileReadPost    *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
-
-		" Convert all text to encrypted text before writing
-		autocmd BufWritePre,FileWritePre    *.gpg set bin
-		autocmd BufWritePre,FileWritePre    *.gpg let shsave=&sh
-		autocmd BufWritePre,FileWritePre    *.gpg let &sh='sh'
-		autocmd BufWritePre,FileWritePre    *.gpg '[,']!gpg2 -q --encrypt --default-recipient-self 2>/dev/null
-		autocmd BufWritePre,FileWritePre    *.gpg let &sh=shsave
-
-		" Undo the encryption so we are back in the normal text, directly
-		" after the file has been written.
-		autocmd BufWritePost,FileWritePost  *.gpg   silent u
-		autocmd BufWritePost,FileWritePost  *.gpg set nobin
-	augroup END
-
-	" highlight cursor line when focus is gained
-	function! HighlightCursor ()
-		setlocal cursorline
-		redraw
-		sleep 1
-		setlocal nocursorline
+	let line0 = getline (".")
+	let line = matchstr (line0, "http[^ ]*")
+	:if line==""
+	let line = matchstr (line0, "ftp[^ ]*")
+	:endif
+	:if line==""
+	let line = matchstr (line0, "file[^ ]*")
+	:endif
+	let line = escape (line, "#=?&;|%")
+	if line==""
+		let line = "\"" . (expand("%:p")) . "\""
+		:endif
+		exec ':silent !firefox ' . line 
 	endfunction
 
-	" and auto call it
-	" " currently disabled, it works only for gvim " "
-	"autocmd! FocusGained * :call HighlightCursor()
+	noremap ,w :call Browser ()<CR>
 
-	" autocmd for source.txt and 0000 files
-	augroup bbformatting
-		autocmd BufReadPre *source.txt silent! syntax off
-		autocmd BufReadPre *0000 silent! syntax off
-		autocmd BufReadPre *credits.txt silent! syntax off
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
-		autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
-		autocmd BufWritePre,FileWritePre *0000 silent! :g/^\s*$/,/\S/-j
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\n$//g
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/^\n$//g
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\]\s*\n/URL\] /gi
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\]\s*\n/URL\] /gi
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/<br>//gi
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/<br>//gi
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/>[^<]*</></g
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/>[^<]*</></g
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/fonte/\rfonte/gi
-	augroup END
-endif
+	" open taglist
+	nnoremap ,tag :TlistToggle<CR>
+	" and close vi if it's the only window open
+	let Tlist_Exit_OnlyWindow = 1
+
+	if has("autocmd")
+		" grouping all autocmds
+
+		" automatically ask for the password when opening a gpg file
+		augroup encrypted
+			au!
+
+			" First make sure nothing is written to ~/.viminfo while editing
+			" an encrypted file.
+			autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
+			" We don't want a swap file, as it writes unencrypted data to disk
+			autocmd BufReadPre,FileReadPre      *.gpg set noswapfile
+			" Switch to binary mode to read the encrypted file
+			autocmd BufReadPre,FileReadPre      *.gpg set bin
+			autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
+			autocmd BufReadPre,FileReadPre      *.gpg let shsave=&sh
+			autocmd BufReadPre,FileReadPre      *.gpg let &sh='sh'
+			autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
+			autocmd BufReadPost,FileReadPost    *.gpg '[,']!gpg2 -q --decrypt --default-recipient-self 2> /dev/null
+			autocmd BufReadPost,FileReadPost    *.gpg let &sh=shsave
+
+			" Switch to normal mode for editing
+			autocmd BufReadPost,FileReadPost    *.gpg set nobin
+			autocmd BufReadPost,FileReadPost    *.gpg let &ch = ch_save|unlet ch_save
+			autocmd BufReadPost,FileReadPost    *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
+
+			" Convert all text to encrypted text before writing
+			autocmd BufWritePre,FileWritePre    *.gpg set bin
+			autocmd BufWritePre,FileWritePre    *.gpg let shsave=&sh
+			autocmd BufWritePre,FileWritePre    *.gpg let &sh='sh'
+			autocmd BufWritePre,FileWritePre    *.gpg '[,']!gpg2 -q --encrypt --default-recipient-self 2>/dev/null
+			autocmd BufWritePre,FileWritePre    *.gpg let &sh=shsave
+
+			" Undo the encryption so we are back in the normal text, directly
+			" after the file has been written.
+			autocmd BufWritePost,FileWritePost  *.gpg   silent u
+			autocmd BufWritePost,FileWritePost  *.gpg set nobin
+		augroup END
+
+		" highlight cursor line when focus is gained
+		function! HighlightCursor ()
+			setlocal cursorline
+			redraw
+			sleep 1
+			setlocal nocursorline
+		endfunction
+
+		" and auto call it
+		" " currently disabled, it works only for gvim " "
+		"autocmd! FocusGained * :call HighlightCursor()
+
+		" autocmd for source.txt and 0000 files
+		augroup bbformatting
+			autocmd BufReadPre *source.txt silent! syntax off
+			autocmd BufReadPre *0000 silent! syntax off
+			autocmd BufReadPre *credits.txt silent! syntax off
+			autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
+			autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
+			autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
+			autocmd BufWritePre,FileWritePre *0000 silent! :g/^\s*$/,/\S/-j
+			autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\n$//g
+			autocmd BufWritePre,FileWritePre *0000 silent! %s/^\n$//g
+			autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\]\s*\n/URL\] /gi
+			autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\]\s*\n/URL\] /gi
+			autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
+			autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
+			autocmd BufWritePre,FileWritePre *0000 silent! %s/<br>//gi
+			autocmd BufWritePre,FileWritePre *source.txt silent! %s/<br>//gi
+			autocmd BufWritePre,FileWritePre *0000 silent! %s/>[^<]*</></g
+			autocmd BufWritePre,FileWritePre *source.txt silent! %s/>[^<]*</></g
+			autocmd BufWritePre,FileWritePre *source.txt silent! %s/fonte/\rfonte/gi
+		augroup END
+	endif
