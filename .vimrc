@@ -1,6 +1,6 @@
-set nocompatible  "Really important option, must be first
+set nocompatible	"Really important option, must be first
 set history=50
-set showcmd
+set showcmd			" display incomplete commands
 set showmode
 set showmatch
 set incsearch
@@ -15,6 +15,7 @@ set tabstop=4
 set modeline 
 set modelines=3
 set nobackup
+set nowritebackup
 set backupdir=/tmp
 set whichwrap=b,s
 set viminfo='1000,f1,\"500
@@ -25,21 +26,21 @@ set laststatus=2
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
-set hidden
-set pastetoggle=<F2> " switch to paste mode with F2
+set hidden				" hide buffers when not displayed
+set pastetoggle=<F2>	" switch to paste mode with F2
 set spelllang=en,it,es,pt
-set formatoptions=tcqw " some formatting options, see fo-table
-set wildmenu
+set formatoptions=tcqw	" some formatting options, see fo-table
+set wildmenu			" enable ctrl-n and ctrl-p to scroll through matches
 set wildmode=longest,list,full
-set wildignore=*.sw?,*.bak,*.pyc,*.luac	" ignore those file extensions when Tab completing
+set wildignore=*.sw?,*.bak,*.pyc,*.luac,*.png,*.gif,*.jpg,*.zip,*.jar,*.rar	" ignore those file extensions when Tab completing
 set printoptions=header:0,paper:A4,left:0.5in,right:0.5in,top:0.5in,bottom:0.5in
-let mapleader="," " comma as <leader>
+let mapleader=","		" comma as <leader>
 
 "persistent undo
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=200 " maximum number of changes that can be undone
-set undoreload=1000 " maximum number of lines to save for undo on a buffer reload
+set undolevels=200		" maximum number of changes that can be undone
+set undoreload=1000		" maximum number of lines to save for undo on a buffer reload
 
 if has("autocmd")
 	filetype plugin on
@@ -48,7 +49,7 @@ endif
 
 " set a color scheme
 if &t_Co == 256 || &t_Co == 88
-	set t_Co=256 " number of colors in terminal, default=88
+	set t_Co=256		" number of colors in terminal, default=88
 	color twilight256
 else
 	color desert
