@@ -3,12 +3,12 @@
 # uncomment the options you wish to enable.
 
 # Maximum and minimum number of peers to connect to per torrent.
-#min_peers = 40
-#max_peers = 100
+min_peers = 40
+max_peers = 500
 
 # Same as above but for seeding completed torrents (-1 = same as downloading)
-#min_peers_seed = 10
-#max_peers_seed = 50
+min_peers_seed = 10
+max_peers_seed = 100
 
 # Maximum number of simultanious uploads per torrent.
 max_uploads = 10
@@ -27,9 +27,9 @@ session = /media/private/torrent/session/
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory,5,5,load_start=./watch/*.torrent
+schedule = watch_directory,5,5,"load_start=./watch/*.torrent"
 schedule = untied_directory,5,5,stop_untied=
-schedule = untied_directory,10,10,remove_untied=
+#schedule = untied_directory,10,10,remove_untied=
 
 # Close torrents when diskspace is low.
 #schedule = low_diskspace,5,60,close_low_diskspace=100M
