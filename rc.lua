@@ -118,6 +118,17 @@ function setFont(font, text)
     return '<span font_desc="'..font..'">'..text..'</span>'
 end
 
+-- Show clipboard contents
+function show_clipboard()
+    local paste = selection()
+    paste = naughty.notify({
+        text = paste,
+        timeout = 3,
+        hover_timeout = 3,
+        width = 300,
+    })
+end
+
 -- Xprop function
 function xprop(c)
     f = function (prop, str)
@@ -669,6 +680,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, alt         }, "f", function () awful.util.spawn(browser_nav) end),
     awful.key({ modkey, "Control"   }, "f", function () awful.util.spawn(browser_mad) end),
     awful.key({ alt                 }, "f", function () awful.util.spawn(filemanager) end),
+    awful.key({ modkey              }, "p", function () show_clipboard() end),
     awful.key({ none                }, "XF86AudioPlay", function () awful.util.spawn(musicPlay) end),
     awful.key({ none                }, "XF86AudioStop", function () awful.util.spawn(musicStop) end),
     awful.key({ none                }, "XF86AudioPrev", function () awful.util.spawn(musicPrev) end),
