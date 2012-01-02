@@ -51,6 +51,10 @@ maildir = home .. "/Maildir"
 lockScreen = "slock"
 spacer = " " -- well, just a spacer
 
+-- menu bindings
+awful.menu.menu_keys.up = {"k"}
+awful.menu.menu_keys.down = {"j"}
+awful.menu.menu_keys.exec = {"i"}
 
 -- Alt is Mod1
 alt = "Mod1"
