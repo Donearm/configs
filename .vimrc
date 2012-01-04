@@ -345,6 +345,8 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-h> <Left>
+" Convert to html a markdown text
+nnoremap <leader>mh :%!/usr/local/bin/Markdown.pl <CR>
 
 " command line abbreviations
 cabbrev Wq wq
@@ -460,10 +462,12 @@ function! Browser ()
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\]\s*\n/URL\] /gi
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
+			autocmd BufWritePre,FileWritePre *source.mdown silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/<br>//gi
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/<br>//gi
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/>[^<]*</></g
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/>[^<]*</></g
+			autocmd BufWritePre,FileWritePre *source.mdown silent! %s/>[^<]*</></g
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/fonte/\rfonte/gi
 		augroup END
 	endif
