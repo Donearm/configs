@@ -26,10 +26,10 @@ hi ErrorMsg color: red; background: #262729; font-weight: bold;
 hi Indicator color: #430b56; background: #262729;
 hi LineNr color: red; background: inherit !important;
 
-hi Hint color: #f6f6f6; background: #430b56; font-family: Terminus; font-size: 8pt; opacity: .9;
+hi Hint color: #f6f6f6; background: #430b56; font-family: Terminus; opacity: .9;
 hi Hint::after content: attr(number);
-hi HintActive color: #d800ff !important; background: inherit; font-weight: bold;
-hi HintElem color: #e30060; font-weight: bold;
+hi HintActive color: #d800ff !important; background: inherit;
+hi HintElem color: #e30060;
 hi HintImage color: #d800ff !important; opacity: .2;
 
 hi Message white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
@@ -39,7 +39,7 @@ hi ModeMsg color: #afafaf; background: #262729;
 hi MoreMsg color: #afafaf; background: #262729;
 
 hi NonText min-height: 16px; padding-left: 2px;
-hi Question color: #e5e5e5; background: #f6f6f6; font-weight: bold;
+hi Question color: #e5e5e5; background: #430b56; font-weight: bold;
 
 hi Title color: black; background #262729; font-weight: normal;
 hi URL color: #f6f6f6; text-decoration: none;
