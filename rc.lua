@@ -676,10 +676,10 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ alt                 }, "m", function () awful.util.spawn(music) end),
+    awful.key({ modkey, alt         }, "m", function () awful.util.spawn(music) end),
     awful.key({ modkey, alt         }, "f", function () awful.util.spawn(browser_nav) end),
     awful.key({ modkey, "Control"   }, "f", function () awful.util.spawn(browser_mad) end),
-    awful.key({ alt                 }, "f", function () awful.util.spawn(filemanager) end),
+    awful.key({ modkey, alt         }, "r", function () awful.util.spawn(filemanager) end),
     awful.key({ modkey              }, "p", function () show_clipboard() end),
     awful.key({ none                }, "XF86AudioPlay", function () awful.util.spawn(musicPlay) end),
     awful.key({ none                }, "XF86AudioStop", function () awful.util.spawn(musicStop) end),
