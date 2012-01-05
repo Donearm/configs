@@ -452,6 +452,8 @@ function! Browser ()
 			autocmd BufReadPre *source.txt silent! syntax off
 			autocmd BufReadPre *0000 silent! syntax off
 			autocmd BufReadPre *credits.txt silent! syntax off
+			autocmd BufReadPre *credits.mdown silent! syntax off
+			autocmd BufReadPre *source.mdown silent! syntax off
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
 			autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
@@ -467,7 +469,6 @@ function! Browser ()
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/<br>//gi
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/>[^<]*</></g
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/>[^<]*</></g
-			autocmd BufWritePre,FileWritePre *source.mdown silent! %s/>[^<]*</></g
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/fonte/\rfonte/gi
 		augroup END
 	endif
