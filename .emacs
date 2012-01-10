@@ -5,6 +5,8 @@
 	ido-enable-flex-matching t
 	ido-use-filename-at-point 'guess))
 
+;; add .emacs.d
+(add-to-list 'load-path "~/.emacs.d/")
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))))
 (set-terminal-coding-system 'utf-8)
@@ -71,3 +73,8 @@
 ;; remember last position of cursor in any file
 (require 'saveplace)
 (setq-default save-place t)
+
+;; Rainbow delimiters
+;; highlight parentheses in a different colour according to their depth
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
