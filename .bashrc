@@ -196,6 +196,8 @@ export HISTSIZE=5000
 # add date and time to history elements
 export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth # no doubles in bash_history
+# Colorized grep output
+export GREP_OPTIONS="--color"
 
 # set the desktop integration for OO (may be kde or gnome)
 export OOO_FORCE_DESKTOP=gnome
