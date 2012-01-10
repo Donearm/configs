@@ -199,6 +199,49 @@ export HISTCONTROL=ignoreboth # no doubles in bash_history
 # Colorized grep output
 export GREP_OPTIONS="--color"
 
+# set ls colors
+# di=directories, fi=files, ln=symbolic links, pi=fifo, so=sockets,
+# bd=block files, cd=character files, or=symbolic orphaned links,
+# mi=non-existent files that have a symbolic link to them,
+# ex=executables
+#
+# Color numbers:
+# 0 (default)
+# 1 (bold)
+# 4 (underlined)
+# 5 (flashing)
+# 7 (reverse field)
+# 31 (red)
+# 32 (green)
+# 33 (orange)
+# 34 (blue)
+# 35 (purple)
+# 36 (cyan)
+# 37 (grey)
+# 40 (black background)
+# 41 (red background)
+# 42 (green background)
+# 43 (orange background)
+# 44 (blue background)
+# 45 (purple background)
+# 46 (cyan background)
+# 47 (grey background)
+# 90 (dark grey)
+# 91 (light red)
+# 92 (light green)
+# 93 (yellow)
+# 94 (light blue)
+# 95 (light purple)
+# 96 (turquoise)
+# 100 (dark grey background)
+# 101 (light red background)
+# 102 (light green background)
+# 103 (yellow background)
+# 104 (light blue background)
+# 105 (light purple background)
+# 106 (turquoise background
+export LS_COLORS="di=1:fi=0:ln=95:pi=93:so=32:bd=96:cd=96:or=95,101:mi=95,101:ex=94"
+
 # set the desktop integration for OO (may be kde or gnome)
 export OOO_FORCE_DESKTOP=gnome
 # to improve firefox responsiveness
