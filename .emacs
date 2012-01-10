@@ -51,3 +51,18 @@
 
 ;; Highlight matching parentheses when the pointer is on them
 (show-paren-mode 1)
+
+;; Hunspell please
+(setq ispell-program-name "hunspell")
+
+;; 4 spaces for tab
+(setq tab-width 4)
+
+;; Highlight selection
+(transient-mark-mode t)
+
+;; No toolbar
+(tool-bar-mode -1)
+
+;; Edit tar/jar/gzip files automatically
+(auto-compression-mode 1)
