@@ -66,3 +66,8 @@
 
 ;; Edit tar/jar/gzip files automatically
 (auto-compression-mode 1)
+
+;; SavePlace
+;; remember last position of cursor in any file
+(require 'saveplace)
+(setq-default save-place t)
