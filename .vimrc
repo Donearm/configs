@@ -191,6 +191,11 @@ if has("autocmd")
 		autocmd FileType lisp setlocal softtabstop=2
 	augroup END
 
+	augroup Haskell
+		" options for haskell files
+		autocmd FileType haskell setlocal expandtab tabstop=4 shiftwidth=4 textwidth=79
+	augroup END
+
 	if exists("+omnifunc")
 		augroup Omnifunctions
 			" enable function-complete for supported files
