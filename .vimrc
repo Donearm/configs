@@ -89,7 +89,7 @@ augroup END
 " --- MAIL ---
 "
 if has("autocmd")
-	autocmd FileType mail set fo=tcrqw textwidth=72
+	autocmd FileType mail set fo=tcrqw textwidth=72 spell
 	autocmd FileType mail call Mail_AutoCmd()
 endif
 " set mail fileformat for mails, mboxes and news messages
@@ -454,10 +454,11 @@ function! Browser ()
 
 		" autocmd for source.txt and 0000 files
 		augroup bbformatting
-			autocmd BufReadPre *source.txt silent! syntax off setlocal nospell
-			autocmd BufReadPre *0000 silent! syntax off setlocal nospell
-			autocmd BufReadPre *credits.txt silent! syntax off setlocal nospell
-			autocmd BufReadPre *credits.mdown silent! syntax off setlocal nospell
+			au!
+			autocmd BufRead *source.txt silent! syntax off setlocal nospell
+			autocmd BufRead *0000 silent! syntax off setlocal nospell
+			autocmd BufRead *credits.txt silent! syntax off setlocal nospell
+			autocmd BufRead *credits.mdown silent! syntax off setlocal nospell
 			autocmd BufReadPre *source.mdown silent! syntax off setlocal nospell
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
