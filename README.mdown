@@ -1,0 +1,6 @@
+My dot files. Not each one up to date nor still used but all, hopefully, 
+useful/of inspiration for somebody.
+
+(c) Gianluca Fiore
+All code is licensed under the GNU GPL version 3 License unless the program 
+source code says otherwise.
