@@ -455,10 +455,10 @@ function! Browser ()
 		" autocmd for source.txt and 0000 files
 		augroup bbformatting
 			au!
-			autocmd BufRead *source.txt silent! syntax off setlocal nospell
-			autocmd BufRead *0000 silent! syntax off setlocal nospell
-			autocmd BufRead *credits.txt silent! syntax off setlocal nospell
-			autocmd BufRead *credits.mdown silent! syntax off setlocal nospell
+			autocmd BufReadPre *source.txt silent! syntax off setlocal nospell
+			autocmd BufReadPre *0000 silent! syntax off setlocal nospell
+			autocmd BufReadPre *credits.txt silent! syntax off setlocal nospell
+			autocmd BufReadPre *credits.mdown silent! syntax off setlocal nospell
 			autocmd BufReadPre *source.mdown silent! syntax off setlocal nospell
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
