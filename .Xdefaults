@@ -42,8 +42,8 @@ URxvt.fadeColor:		black
 !URxvt.tintColor:		#6c9eab
 !URxvt.cursorColor:		#e4a900
 URxvt.cursorColor:		#f6f6f6
-URxvt.cursorColor2:		#430b56
-URxvt.pointerColor:		#430b56
+URxvt.cursorColor2:		#6b544c
+URxvt.pointerColor:		#6b544c
 URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
 !Black + DarkGrey
@@ -62,8 +62,8 @@ URxvt.color11:  #fbd257
 URxvt.color4:   #304d82
 URxvt.color12:  #0b48b8
 !DarkMagenta + Magenta
-URxvt.color5:	#772982
-URxvt.color13:  #c52edb
+URxvt.color5:	#6b544c
+URxvt.color13:  #b59076
 !DarkCyan + Cyan
 URxvt.color6:   #6f90b0
 URxvt.color14:  #76aae8
@@ -74,7 +74,7 @@ URxvt.colorBD:	#766680
 URxvt.colorUL:	#c974ff
 URxvt.colorIT:			white
 URxvt.scrollBar:		true
-URxvt.scrollColor:		#430b56
+URxvt.scrollColor:		#6b544c
 URxvt.scrollstyle:		plain
 URxvt.jumpScroll:		0
 URxvt.troughColor:		white
