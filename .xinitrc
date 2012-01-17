@@ -9,9 +9,6 @@
 # Terminate X with Ctrl+Alt+Backspace
 setxkbmap -option terminate:ctrl_alt_bksp &
 
-# nvidia pixmap cache. 1024 default
-nvidia-settings -a PixmapCacheRoundSizeKB=2048
-
 # Start ttytter inside screen/tmux, but only if it's not already running
 /mnt/documents/Script/ttytter_startup.sh
 
