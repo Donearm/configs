@@ -49,7 +49,6 @@ filemanager = terminal .. " -e ranger"
 mutt = terminal .. " -e mutt -y"
 maildir = home .. "/Maildir"
 lockScreen = "slock"
-spacer = " " -- well, just a spacer
 
 -- menu bindings
 awful.menu.menu_keys.up = {"k"}
@@ -330,13 +329,13 @@ end
 -- Define a tag table which hold all screen tags.
 tags = {}
 tags.setup = {
-    { name = "1", layout = layouts[1] },
-    { name = "2", layout = layouts[1] },
-    { name = "3", layout = layouts[7] },
-    { name = "4", layout = layouts[1] },
-    { name = "5", layout = layouts[1] },
-    { name = "6", layout = layouts[1] },
-    { name = "7", layout = layouts[1] },
+    { name = "♒", layout = layouts[1] },
+    { name = "♂", layout = layouts[1] },
+    { name = "♀", layout = layouts[7] },
+    { name = "⚒", layout = layouts[1] },
+    { name = "☥", layout = layouts[1] },
+    { name = "♔", layout = layouts[1] },
+    { name = "☢", layout = layouts[1] },
 }
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
