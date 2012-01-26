@@ -421,7 +421,15 @@ memicon.image = image(beautiful.ram_image)
 memwidget = widget({ type = "textbox"})
 memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
 memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
-vicious.register(memwidget, vicious.widgets.mem, ' $1%' .. setFg(par_color, '|') .. '$2MB', 10)
+vicious.register(memwidget, vicious.widgets.mem,
+    function (widget, args)
+        if args[1] > 70 then
+            return setFg(beautiful.fg_urgent, ' ' .. args[1] .. '%') .. setFg(par_color, '|') .. setFg(beautiful.fg_urgent, args[2] .. 'MB'), 10
+        else
+            return ' ' .. args[1] .. '%' .. setFg(par_color, '|') .. args[2] .. 'MB', 10
+        end
+    end
+)
 
 
 -- Network widget
