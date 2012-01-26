@@ -363,18 +363,18 @@ myawesomemenu = {
    { "reboot", "sudo reboot"}
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/.icons/archlinux-wm-awesome.png") },
-                                        { "open terminal", terminal, image(home .. "/.icons/terminal_prompt.png") },
-                                        { "firefox (navigation)", browser_nav, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
-                                        { "firefox (maidens)", browser_mad, image("/usr/share/icons/hicolor/32x32/apps/firefox.png") },
---                                        { "dwb", browser_mad, image("/usr/share/pixmaps/dwb.png") },
-                                        { "ranger", filemanager, image(home .. "/.icons/ranger-chuck.gif") },
-                                        { "Music", music, image(home .. "/.icons/music.jpg") },
-                                        { "Libreoffice", "soffice", image("/usr/share/icons/hicolor/32x32/apps/libreoffice-main.png") },
-                                        { "Skype", "skype", image("/usr/share/pixmaps/skype.png") },
-                                        { "Winxp", "VBoxManage startvm WinXp", image("/usr/share/pixmaps/VBox.png") },
-                                        { "Avidemux", "avidemux2_gtk", image("/usr/share/pixmaps/avidemux.png") },
-                                        { "Gimp", "gimp", image("/usr/share/gimp/2.0/images/gimp-logo.png") }
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(beautiful.awesomewm_image) },
+                                        { "open terminal", terminal, image(beautiful.terminal_image) },
+                                        { "firefox (navigation)", browser_nav, image(beautiful.firefox_image) },
+                                        { "firefox (maidens)", browser_mad, image(beautiful.firefox_image) },
+--                                        { "dwb", browser_mad, image(beautiful.dwb_image) },
+                                        { "ranger", filemanager, image(beautiful.filemanager_image) },
+                                        { "Music", music, image(beautiful.music_image) },
+                                        { "Libreoffice", "soffice", image(beautiful.office_image) },
+                                        { "Skype", "skype", image(beautiful.skype_image) },
+                                        { "Winxp", "VBoxManage startvm WinXp", image(beautiful.vbox_image) },
+                                        { "Avidemux", "avidemux2_gtk", image(beautiful.avidemux_image) },
+                                        { "Gimp", "gimp", image(beautiful.gimp_image) }
                                       }
                             })
 
@@ -382,12 +382,12 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(home .. "/
 -- Top Statusbar widgets
 
 -- Launchbox
-mylauncher = awful.widget.launcher({ image = image(home .. "/.icons/arch-logo-white.png"),
+mylauncher = awful.widget.launcher({ image = image(beautiful.archlinux_image),
                                      menu = mymainmenu })
 
 -- Cpu widget
 cpuicon = widget({ type = "imagebox"})
-cpuicon.image = image(home .. "/.icons/amd_cpu.png")
+cpuicon.image = image(beautiful.amdcpu_image)
 cpuwidget = widget({ type = "textbox" })
 cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
@@ -397,15 +397,15 @@ vicious.register(cpuwidget, vicious.widgets.cpu,
 
 -- Motherboard icon
 moboicon = widget({ type = "imagebox" })
-moboicon.image = image(home .. "/.icons/motherboard.png")
+moboicon.image = image(beautiful.mobo_image)
 
 -- Gpu icon
 gpuicon = widget({ type = "imagebox" })
-gpuicon.image = image(home .. "/.icons/nvidia-black.png")
+gpuicon.image = image(beautiful.nvidia_image)
 
 -- Memory widget
 memicon = widget({ type = "imagebox"})
-memicon.image = image(home .. "/.icons/ram_drive.png")
+memicon.image = image(beautiful.ram_image)
 memwidget = widget({ type = "textbox"})
 memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
 memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
@@ -422,13 +422,13 @@ netdownwidget = widget({ type = "textbox"})
 vicious.register(netdownwidget, vicious.widgets.net,
 	'${eth0 down_kb} ' .. setFg(par_color, '[') .. '${eth0 rx_mb}M' ..  setFg(par_color, ']'), nil, nil, 3)
 netupicon = widget({ type = "imagebox"})
-netupicon.image = image(home .. "/.icons/up_arrow.png")
+netupicon.image = image(beautiful.up_arrow_image)
 netdownicon = widget({ type = "imagebox" })
-netdownicon.image = image(home .. "/.icons/down_arrow.png")
+netdownicon.image = image(beautiful.down_arrow_image)
 
 -- Maildir widget
 maildiricon = widget({ type = "imagebox" })
-maildiricon.image = image(home .. "/.icons/gmail-b&w.png")
+maildiricon.image = image(beautiful.mail_image)
 maildirwidget = widget({ type = "textbox" })
 vicious.register(maildirwidget, vicious.widgets.mdir, ' $1 ', 300, { maildir })
 
@@ -450,7 +450,7 @@ vicious.register(cputemp, getCpuTemp, "$1", 30)
 
 -- Task widget
 taskicon = widget({ type = "imagebox" })
-taskicon.image = image(home .. "/.icons/taskwarrior.png")
+taskicon.image = image(beautiful.taskwarrior_image)
 taskicon:buttons(awful.util.table.join(
     awful.button({ }, 1, function() taskShow() end)
     )
@@ -479,7 +479,7 @@ mpdwidget:buttons(
 
 -- Volume widget
 volumeicon = widget({ type = "imagebox"})
-volumeicon.image = image(home .. "/.icons/sound-white.png")
+volumeicon.image = image(beautiful.sound_image)
 volumewidget = widget({ type = "textbox"})
 -- enable caching
 vicious.cache(vicious.widgets.volume)
@@ -503,7 +503,7 @@ vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T 
 
 -- Os and Uptime widgets
 osicon = widget({ type = "imagebox"})
-osicon.image = image(home .. "/.icons/tux.png")
+osicon.image = image(beautiful.tux_image)
 oswidget = widget({ type = "textbox"})
 vicious.cache(vicious.widgets.os)
 vicious.register(oswidget, vicious.widgets.os, " $3" .. setFg(beautiful.bg_focus, "@") .. "$4", 600)
@@ -561,6 +561,8 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
+    -- Set a screen margin for borders
+    awful.screen.padding(screen[s], { top = 0 })
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
     mylayoutbox[s] = awful.widget.layoutbox(s)
