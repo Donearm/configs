@@ -24,7 +24,7 @@ naughty.config.border_width = 2
 -- Define if we want to modify client.opacity
 use_composite = false
 -- the parentheses color
-par_color = beautiful.fg_urgent
+par_color = beautiful.fg_focus
 
 
 -- This is used later as the default terminal and editor to run.
@@ -391,8 +391,20 @@ cpuicon.image = image(beautiful.amdcpu_image)
 cpuwidget = widget({ type = "textbox" })
 cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
+cputextformat = fun
 vicious.register(cpuwidget, vicious.widgets.cpu,
-    setFg(par_color, '[') .. "$2%" .. setFg(par_color, '][') .. "$3%" .. setFg(par_color, ']'), 5)
+    function (widget, args)
+        if args[2] and args[3] > 50 then
+            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2]) .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3]) .. setFg(par_color, ']'), 5
+        elseif args[2] > 50 then
+            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2]) .. setFg(par_color, '][') .. args[3] .. setFg(par_color, ']'), 5
+        elseif args[3] > 50 then
+            return setFg(par_color, '[') .. args[2] .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3]) .. setFg(par_color, ']'), 5
+        else
+            return setFg(par_color, '[') .. args[2] .. setFg(par_color, '][') .. args[3] .. setFg(par_color, ']'), 5
+        end
+    end
+)
 
 
 -- Motherboard icon
