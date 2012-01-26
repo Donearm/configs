@@ -563,8 +563,6 @@ mytasklist.buttons = awful.util.table.join(
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
 			awful.button({ }, 1, function () awful.layout.inc(layouts, 1)
@@ -573,7 +571,6 @@ for s = 1, screen.count() do
 				naughty.notify({ text = awful.layout.getname(awful.layout.get(1))}) end),
 			awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
 			awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
-    mylayoutbox[s].image = image("/usr/share/awesome/themes/default/layouts/tile.png")
 
     -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
@@ -594,7 +591,6 @@ for s = 1, screen.count() do
     topwibox[s].widgets = {
 		{
             mytaglist[s],
-            mylayoutbox[s],
             mylauncher,
             mypromptbox[s],
 			layout = awful.widget.layout.horizontal.leftright
@@ -625,6 +621,7 @@ for s = 1, screen.count() do
     -- adding widgets to the wibox
     bottomwibox[s].widgets = {
         { 
+            mylayoutbox[s],
             osicon,
             oswidget,
             uptimewidget,
