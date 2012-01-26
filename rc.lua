@@ -593,8 +593,8 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     topwibox[s].widgets = {
 		{
-            mylayoutbox[s],
             mytaglist[s],
+            mylayoutbox[s],
             mylauncher,
             mypromptbox[s],
 			layout = awful.widget.layout.horizontal.leftright
