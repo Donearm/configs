@@ -437,10 +437,24 @@ netupwidget = widget({type = "textbox"})
 -- the last 3 options are interval-in-seconds, properties-name, padding
 vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
-	'${eth0 up_kb} ' .. setFg(par_color, '[') .. '${eth0 tx_mb}M' .. setFg(par_color, ']'), nil, nil, 3)
+    function (widget, args)
+        if tonumber(args["{eth0 up_kb}"]) > 80 then
+            return setFg(beautiful.fg_urgent, args["{eth0 up_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+        else
+            return args["{eth0 up_kb}"] .. setFg(par_color, ' [') .. args["{eth0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+        end
+    end
+)
 netdownwidget = widget({ type = "textbox"})
 vicious.register(netdownwidget, vicious.widgets.net,
-	'${eth0 down_kb} ' .. setFg(par_color, '[') .. '${eth0 rx_mb}M' ..  setFg(par_color, ']'), nil, nil, 3)
+    function (widget, args)
+        if tonumber(args["{eth0 down_kb}"]) > 200 then
+            return setFg(beautiful.fg_urgent, args["{eth0 down_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+        else
+            return args["{eth0 down_kb}"] .. setFg(par_color, ' [') .. args["{eth0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+        end
+    end
+)
 netupicon = widget({ type = "imagebox"})
 netupicon.image = image(beautiful.up_arrow_image)
 netdownicon = widget({ type = "imagebox" })
