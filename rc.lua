@@ -395,13 +395,13 @@ cputextformat = fun
 vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
         if args[2] and args[3] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2]) .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3]) .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3] .. '%') .. setFg(par_color, ']'), 5
         elseif args[2] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2]) .. setFg(par_color, '][') .. args[3] .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2] .. '%') .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, ']'), 5
         elseif args[3] > 50 then
-            return setFg(par_color, '[') .. args[2] .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3]) .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3] .. '%') .. setFg(par_color, ']'), 5
         else
-            return setFg(par_color, '[') .. args[2] .. setFg(par_color, '][') .. args[3] .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, ']'), 5
         end
     end
 )
