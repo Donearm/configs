@@ -8,6 +8,7 @@ max_history_size = 200
 max_console_history_size = 500
 
 # Case insensitive sorting
+sort = 'basename'
 sort_case_insensitive = True
 
 # Personalized colorscheme
