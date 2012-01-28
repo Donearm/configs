@@ -512,12 +512,10 @@ mpdwidget:buttons(
 )
 
 -- Volume widget
-volumeicon = widget({ type = "imagebox"})
-volumeicon.image = image(beautiful.sound_image)
 volumewidget = widget({ type = "textbox"})
 -- enable caching
 vicious.cache(vicious.widgets.volume)
-vicious.register(volumewidget, vicious.widgets.volume, "$1% ", 1, "Master")
+vicious.register(volumewidget, vicious.widgets.volume, "♫ $1% ", 1, "Master")
 volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function() awful.util.spawn(soundPerfectVolume) end),
     awful.button({ }, 4, function() awful.util.spawn(soundRaiseVolume) end),
@@ -665,7 +663,6 @@ for s = 1, screen.count() do
         },
         datebox,
         volumewidget,
-        volumeicon,
         mpdwidget,
         layout = awful.widget.layout.horizontal.rightleft
     }
