@@ -367,7 +367,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(beautiful.
                                         { "open terminal", terminal, image(beautiful.terminal_image) },
                                         { "firefox (navigation)", browser_nav, image(beautiful.firefox_image) },
                                         { "firefox (maidens)", browser_mad, image(beautiful.firefox_image) },
---                                        { "dwb", browser_mad, image(beautiful.dwb_image) },
                                         { "ranger", filemanager, image(beautiful.filemanager_image) },
                                         { "Music", music, image(beautiful.music_image) },
                                         { "Libreoffice", "soffice", image(beautiful.office_image) },
@@ -533,15 +532,6 @@ datebox:buttons(awful.util.table.join(
 ))
 vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T %F "))
 
--- Os and Uptime widgets
-osicon = widget({ type = "imagebox"})
-osicon.image = image(beautiful.tux_image)
-oswidget = widget({ type = "textbox"})
-vicious.cache(vicious.widgets.os)
-vicious.register(oswidget, vicious.widgets.os, " $3" .. setFg(beautiful.bg_focus, "@") .. "$4", 600)
-
-uptimewidget = widget({ type = "textbox"})
-vicious.register(uptimewidget, vicious.widgets.uptime, " since " .. setFg(beautiful.bg_focus, "$1d $2:$3"))
 
 -- {{{ Wibox
 -- Set the default text in textbox
@@ -656,9 +646,6 @@ for s = 1, screen.count() do
     bottomwibox[s].widgets = {
         { 
             mylayoutbox[s],
-            osicon,
-            oswidget,
-            uptimewidget,
             layout = awful.widget.layout.horizontal.leftright
         },
         datebox,
