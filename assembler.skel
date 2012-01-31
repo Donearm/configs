@@ -11,6 +11,15 @@
 
 SECTION	.data
 
+global _start
+
 SECTION .bss
 
 SECTION .text
+
+_start:
+
+	; exit nicely
+	mov eax,1
+	mov ebx,0
+	int 80H

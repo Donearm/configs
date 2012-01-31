@@ -81,6 +81,7 @@ augroup Templates
 	au BufNewFile *.py 0read ~/.vim/skel/python.skel | normal G
 	au BufNewFile *.tex 0r ~/.vim/skel/tex.skel | normal G
 	au BufNewFile *.lua 0r ~/.vim/skel/lua.skel | normal G
+	au BufNewFile *.asm 0r ~/.vim/skel/assembler.skel | normal G
 	au BufNewFile 0000 silent! 0r ~/.vim/skel/0000
 	au BufNewFile source.txt silent! 0r ~/.vim/skel/source.%:e
 	au BufNewFile credits silent! 0r ~/.vim/skel/credits
