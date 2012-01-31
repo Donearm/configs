@@ -1,0 +1,16 @@
+;	Executable name		:
+;	Version				:
+;	Created date		:	
+;	Last update			:
+;	Author				:	Gianluca Fiore
+;	Description			:
+;
+;	Build using these commands:
+;
+;
+
+SECTION	.data
+
+SECTION .bss
+
+SECTION .text
