@@ -221,6 +221,7 @@ if has("autocmd")
 		autocmd BufRead,BufNewFile *.json set filetype=json
 		autocmd BufRead,BufNewFile *tmux.conf* set filetype=tmux
 		autocmd BufRead,BufNewFile *.{md,mkd,mdown,markdown} set filetype=markdown
+		autocmd BufRead,BufNewFile *.asm setlocal filetype=nasm
 	augroup END
 
 	" no tabs in spaces for make files
