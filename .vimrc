@@ -197,6 +197,11 @@ if has("autocmd")
 		autocmd FileType haskell setlocal expandtab tabstop=4 shiftwidth=4 textwidth=79
 	augroup END
 
+	augroup Html
+		" options for html files
+		autocmd FileType html setlocal expandtab
+	augroup END
+
 	if exists("+omnifunc")
 		augroup Omnifunctions
 			" enable function-complete for supported files
