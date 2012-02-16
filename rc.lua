@@ -14,7 +14,7 @@ require("mpd-popup")
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/jessicabiel01"
+theme_path = home .. "/.config/awesome/themes/blueyes"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -536,7 +536,7 @@ datebox:buttons(awful.util.table.join(
     awful.button({ }, 4, function () addCalendar(-1) end),
     awful.button({ }, 5, function () addCalendar(1) end)
 ))
-vicious.register(datebox, vicious.widgets.date, setFg(beautiful.bg_focus, "  %T %F "))
+vicious.register(datebox, vicious.widgets.date, " %T %F ")
 
 
 -- {{{ Wibox

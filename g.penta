@@ -2,48 +2,48 @@
 
 hi clear
 
-hi StatusLine color: #f6f6f6; background: #262729; font-size: 9pt;
-hi StatusLineNormal color: #f6f6f6; background: #262729; font-size: 9pt;
-hi StatusLineBroken color: #dcdcdc; background: #6b544c; font-size: 9pt;
-hi StatusLineSecure color: #c70c0c; background: #6b544c; font-size: 9pt;
-hi StatusLineExtended color: #c70c0c; background: #6b544c; font-size: 9pt;
+hi StatusLine color: #c9cec7; background: #120d1b; font-size: 9pt;
+hi StatusLineNormal color: #c9cec7; background: #120d1b; font-size: 9pt;
+hi StatusLineBroken color: #dcdcdc; background: #315670; font-size: 9pt;
+hi StatusLineSecure color: #c70c0c; background: #315670; font-size: 9pt;
+hi StatusLineExtended color: #c70c0c; background: #315670; font-size: 9pt;
 
-hi Normal color: #f6f6f6; background: #262729; font-size: 9pt;
-hi CmdLine color: #f6f6f6; background: #262729; font-size: 9pt;
+hi Normal color: #c9cec7; background: #120d1b; font-size: 9pt;
+hi CmdLine color: #c9cec7; background: #120d1b; font-size: 9pt;
 
-hi CompTitle color: #f6f6f6; background #262729; font-weight: normal;
+hi CompTitle color: #c9cec7; background #120d1b; font-weight: normal;
 hi CompTitle>* padding: 0.5ex;
-hi CompItem[selected] color: black; background: #6b544c; font-weight: bold;
+hi CompTitleSep color: #315670;
+hi CompItem[selected] color: #c9cec7; background: #304d82; font-weight: bold;
 hi CompIcon width: 16px; min-width: 16px; display: inline-block; margin-right: 0.5ex;
 hi CompLess text-align: center; height: 0; line-height: 0.5ex; padding-top: 1ex;
 hi CompMore text-align: center; height: .5ex; line-height: 0.5ex; margin-bottom: -0.5ex;
-hi CompMsg color: #262626;
-hi CompResult color: black; font-weight: normal; width: 40%; overflow: hidden;
-hi CompDesc color: black; font-weight: normal; width: 60%;
+hi CompMsg color: #120d1b;
+hi CompResult color: #c9cec7; font-weight: normal; width: 40%; overflow: hidden;
+hi CompDesc color: #c9cec7; font-weight: normal; width: 60%;
 
 hi Bell border: 0 none; background: inherit;
-hi ErrorMsg color: red; background: #262729; font-weight: bold;
-hi Indicator color: #6b544c; background: #262729;
+hi ErrorMsg color: red; background: #120d1b; font-weight: bold;
+hi Indicator color: #315670; background: #120d1b;
 hi LineNr color: red; background: inherit !important;
 
-hi Hint color: #f6f6f6; background: #6b544c; font-family: Terminus; opacity: .9;
+hi Hint color: #c9cec7; background: #315670; font-family: Terminus; opacity: .9;
 hi Hint::after content: attr(number);
-hi HintActive color: #d800ff !important; background: inherit;
+hi HintActive color: #7c3e99 !important; background: inherit;
 hi HintElem color: #e30060;
-hi HintImage color: #d800ff !important; opacity: .2;
+hi HintImage color: #7c3e99 !important; opacity: .2;
 
 hi Message white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
-"hi InfoMsg color: ; background: #262729;
-hi WarningMsg color: #ff0000; background: #262729;
-hi ModeMsg color: #afafaf; background: #262729;
-hi MoreMsg color: #afafaf; background: #262729;
+hi WarningMsg color: #ff0000; background: #120d1b;
+hi ModeMsg color: #afafaf; background: #120d1b;
+hi MoreMsg color: #afafaf; background: #120d1b;
 
 hi NonText min-height: 16px; padding-left: 2px;
-hi Question color: #e5e5e5; background: #6b544c; font-weight: bold;
+hi Question color: #e5e5e5; background: #315670; font-weight: bold;
 
-hi Title color: black; background #262729; font-weight: normal;
-hi URL color: #f6f6f6; text-decoration: none;
+hi Title color: black; background #120d1b; font-weight: normal;
+hi URL color: #c9cec7; text-decoration: none;
 hi URL:hover text-decoration: underline; cursor: pointer;
-hi Tag color: #17590b; text-decoration: underline;
+hi Tag color: #315670; text-decoration: underline;
 
 " vim: set ft=vim tw=0:
