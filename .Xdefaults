@@ -24,10 +24,10 @@ URxvt.geometry:			80x24+0+0
 !rxvt*font:				-*-freemono-medium-*-*-*-17-*-*-*-*-*-iso10646-*
 !URxvt.font:			-*-candara-*-*-*-*-*-*-*-*-*-*-iso10646-1
 !URxvt.font:			-*-dejavu sans mono-*-*-*-*-*-*-*-*-*-*-iso10646-1
-URxvt.font:				xft:Luxi Sans:pixelsize=10
-URxvt.boldFont:			xft:Luxi Sans:bold:pixelsize=10
-Urxvt.italicFont:		xft:Luxi Sans:italic:pixelsize=10
-Urxvt.boldItalicFont:	xft:Luxi Sans:bold:italic:pixelsize=10
+URxvt.font:				xft:Inconsolata Sans Mono:pixelsize=10
+URxvt.boldFont:			xft:Inconsolata Sans Mono:bold:pixelsize=10
+Urxvt.italicFont:		xft:Inconsolata Sans Mono:italic:pixelsize=10
+Urxvt.boldItalicFont:	xft:Inconsolata Sans Mono:bold:italic:pixelsize=10
 !URxvt.font:			xft:Consolas:pixelsize=14
 !URxvt.boldFont:		xft:Consolas:bold:pixelsize=14
 !Urxvt.italicFont:		xft:Consolas:italic:pixelsize=14
