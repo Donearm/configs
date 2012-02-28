@@ -90,9 +90,6 @@ pngtojpeg() {
 	done
 }
 
-eval "$(fasd --init-bash)"
-eval "$(fasd --init-alias)"
-
 # No one should read/write/execute my files by default
 #umask 0077
 
