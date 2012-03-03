@@ -404,6 +404,16 @@ function! Browser ()
 
 	noremap ,w :call Browser ()<CR>
 
+" Set up a writing environment for long text (not code!)
+function! WritingMode()
+	setlocal formatoptions=l
+	setlocal noexpandtab
+	set complete+=kspell
+	setlocal wrap
+	setlocal linebreak
+endfunction
+com! WritingMode call WritingMode()
+
 	" open taglist
 	nnoremap ,tag :TlistToggle<CR>
 	" and close vi if it's the only window open
