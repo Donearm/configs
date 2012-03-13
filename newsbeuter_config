@@ -1,0 +1,17 @@
+urls-source "googlereader"
+googlereader-login	"xxxx"
+googlereader-password	"xxxx"
+googlereader-min-items "1000"
+googlereader-flag-share	"S"
+googlereader-flag-star	"b"
+show-read-feeds	no
+auto-reload "yes"
+reload-time "60"
+browser "firefox %u"
+cleanup-on-quit "yes"
+download-full-page "yes"
+notify-program "notify-send"
+user-agent "Mozilla/5.0 (X11; Linux x86_64; rv:10.0.2) Gecko/20100101 Firefox/10.0.2"
+
+bind-key "j" "down"
+bind-key "k" "up"
