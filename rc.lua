@@ -10,6 +10,15 @@ require("vicious")
 
 require("mpd-popup")
 
+-- {{{ Error handling
+-- Check if awesome encountered an error during startup and fell back to
+-- another config (This code will only ever execute for the fallback config)
+if awesome.startup_errors then
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
+end
+
 -- {{{ Variable definitions
 -- Home directory
 home = os.getenv("HOME")
@@ -81,8 +90,6 @@ layouts =
     awful.layout.suit.spiral,           -- [11]
     awful.layout.suit.spiral.dwindle    -- [12]
 }
-
-
 
 -- Define if we want to use titlebar on all applications.
 use_titlebar = false
