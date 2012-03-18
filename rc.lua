@@ -369,8 +369,8 @@ end
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "lock screen", "xscreensaver-command -lock" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+   { "lock screen", lockScreen },
+   { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit },
    { "reboot", "sudo reboot"}
@@ -556,8 +556,8 @@ vicious.register(datebox, vicious.widgets.date, " %T %F ")
 -- Set the default text in textbox
 mypromptbox = widget({ type = "textbox" })
 
--- Create a systray 
-mysystray = widget({ type = "systray" }) 
+-- Create a systray
+mysystray = widget({ type = "systray" })
 
 -- Create a wibox for each screen and add it
 topwibox = {}
@@ -567,22 +567,27 @@ mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
-        awful.button({ }, 1, awful.tag.viewonly),
-        awful.button({ modkey }, 1, awful.client.movetotag),
-        --awful.button({ }, 3, function(tag) tag.selected = not tag.selected end),
-		awful.button({ }, 3, awful.tag.viewtoggle),
-        awful.button({ modkey }, 3, awful.client.toggletag),
-        awful.button({ }, 4, awful.tag.viewnext),
-        awful.button({ }, 5, awful.tag.viewprev)
-        )
+                    awful.button({ }, 1, awful.tag.viewonly),
+                    awful.button({ modkey }, 1, awful.client.movetotag),
+                    awful.button({ }, 3, awful.tag.viewtoggle),
+                    awful.button({ modkey }, 3, awful.client.toggletag),
+                    awful.button({ }, 4, awful.tag.viewnext),
+                    awful.button({ }, 5, awful.tag.viewprev)
+                    )
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
-                                              if not c:isvisible() then
-                                                  awful.tag.viewonly(c:tags()[1])
+                                            if c == client.focus then
+                                                c.minimized = true
+                                            else
+                                                if not c:isvisible() then
+                                                    awful.tag.viewonly(c:tags()[1])
+                                                  end
+                                                  -- This will also un-minimize
+                                                  -- the client, if needed
+                                                  client.focus = c
+                                                  c:raise()
                                               end
-                                              client.focus = c
-                                              c:raise()
                                           end),
                      awful.button({ }, 3, function ()
                                               if instance then
