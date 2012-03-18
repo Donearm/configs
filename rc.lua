@@ -611,6 +611,8 @@ for s = 1, screen.count() do
     awful.screen.padding(screen[s], { top = 0 })
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
+    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
+    -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
 			awful.button({ }, 1, function () awful.layout.inc(layouts, 1)
@@ -619,7 +621,6 @@ for s = 1, screen.count() do
 				naughty.notify({ text = awful.layout.getname(awful.layout.get(1))}) end),
 			awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
 			awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
-
     -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
 
@@ -677,7 +678,6 @@ for s = 1, screen.count() do
         mpdwidget,
         layout = awful.widget.layout.horizontal.rightleft
     }
-
 end
 -- }}}
 
@@ -691,21 +691,21 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,         }, "Left",      awful.tag.viewprev       ),
-    awful.key({ modkey,         }, "Right",     awful.tag.viewnext       ),
-    awful.key({ modkey,         }, "Escape",    awful.tag.history.restore),
+    awful.key({ modkey,             }, "Left",      awful.tag.viewprev       ),
+    awful.key({ modkey,             }, "Right",     awful.tag.viewnext       ),
+    awful.key({ modkey,             }, "Escape",    awful.tag.history.restore),
 
-    awful.key({ modkey,         }, "j",
+    awful.key({ modkey,             }, "j",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,         }, "k",
+    awful.key({ modkey,             }, "k",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,         }, "w", function () mymainmenu:show({keygrabber=true}) end),
+    awful.key({ modkey,             }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"     }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -722,6 +722,24 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
+    awful.key({ modkey,             }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, "Control"   }, "r", awesome.restart),
+    awful.key({ modkey, "Shift"     }, "q", awesome.quit),
+
+
+    awful.key({ modkey,             }, "l", function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,             }, "h", function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey, "Shift"     }, "h", function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, "Shift"     }, "l", function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, "Control"   }, "h", function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Control"   }, "l", function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey,             }, "space", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift"     }, "space", function () awful.layout.inc(layouts, -1) end),
+
+    awful.key({ modkey, "Control"   }, "n", awful.client.restore),
+
+    -- DailyActivties popup
+    awful.key({ modkey,             }, "a", function () dailyActivities()             end),
     awful.key({ modkey, alt         }, "m", function () awful.util.spawn(music) end),
     awful.key({ modkey, alt         }, "f", function () awful.util.spawn(browser_nav) end),
     awful.key({ modkey, "Control"   }, "f", function () awful.util.spawn(browser_mad) end),
@@ -736,25 +754,11 @@ globalkeys = awful.util.table.join(
     awful.key({ none                }, "XF86AudioMute", function () awful.util.spawn(soundMute) end),
     awful.key({ none                }, "XF86Sleep", function () awful.util.spawn(lockScreen) end),
     awful.key({ none                }, "XF86Mail", function () awful.util.spawn(mutt) end),
-    awful.key({ modkey,             }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control"   }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"     }, "q", awesome.quit),
     awful.key({ modkey, "Control"   }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
     -- Win+z: stop any widget but battery and wifi, Win+Shift+z:
     -- reactivate all widgets
     awful.key({ modkey,             }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh stop") end),
     awful.key({ modkey, "Shift"     }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh start") end),
-
-    awful.key({ modkey,             }, "l", function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,             }, "h", function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"     }, "h", function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"     }, "l", function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control"   }, "h", function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control"   }, "l", function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,             }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"     }, "space", function () awful.layout.inc(layouts, -1) end),
-    -- DailyActivties popup
-    awful.key({ modkey,             }, "a", function () dailyActivities()             end),
 
     -- Mod4+s set the window sticky; pressing it again leave the window
     -- only on the current tag
@@ -772,15 +776,15 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey              }, "r", function () mypromptbox[mouse.screen]:run() end),
 
-    awful.key({ modkey              }, "x", function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end)
+    awful.key({ modkey              }, "x",
+            function ()
+                awful.prompt.run({ prompt = "Run Lua code: " },
+                mypromptbox[mouse.screen].widget,
+                awful.util.eval, nil,
+                awful.util.getdir("cache") .. "/history_eval")
+            end)
 )
 
--- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them
 clientkeys = awful.util.table.join(
     awful.key({ modkey,             }, "f", function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"     }, "c", function (c) c:kill()                         end),
@@ -789,14 +793,18 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,             }, "o", awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"     }, "r", function (c) c:redraw()                       end),
     awful.key({ modkey,             }, "t", function (c) c.ontop = not c.ontop            end),
-    awful.key({ modkey,			    }, "n",	function (c) c.minimized = not c.minimized    end),
     awful.key({ modkey, "Shift"     }, "x", function (c) xprop(c) end),
-    awful.key({ modkey,             }, "m",
+    awful.key({ modkey,             }, "n",
+        function (c)
+            -- The client currently has the input focus, so it cannot be
+            -- minimized, since minimized clients can't have the focus.
+            c.minimized = true
+        end),
+    awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
         end)
-
 )
 
 -- Compute the maximum number of digit we need, limited to 9
@@ -874,12 +882,11 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = {
-            border_width = beautiful.border_width,
-            border_color = beautiful.border_normal,
-            focus = true,
-            keys = clientkeys,
-            buttons = clientbuttons } },
+      properties = { border_width = beautiful.border_width,
+                     border_color = beautiful.border_normal,
+                     focus = true,
+                     keys = clientkeys,
+                     buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "Gimp" },
