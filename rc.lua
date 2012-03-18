@@ -964,19 +964,21 @@ if autorun then
         awful.util.spawn(autorunApps[app])
     end
 end
+
+-- }}}
 		
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
     -- add a titlebar to each floating client
-    if awful.client.floating.get(c)
-    or awful.layout.get(c.screen) == awful.layout.suit.floating then
-    --    if not c.titlebar and c.class ~= "Xmessage" then
-    --        awful.titlebar.add(c, { modkey = modkey })
-    --    end
-        -- floating clients are always on top
-        c.above = true
-    end
+--    if awful.client.floating.get(c)
+--    or awful.layout.get(c.screen) == awful.layout.suit.floating then
+--    --    if not c.titlebar and c.class ~= "Xmessage" then
+--    --        awful.titlebar.add(c, { modkey = modkey })
+--    --    end
+--        -- floating clients are always on top
+--        c.above = true
+--    end
 
     -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
@@ -985,8 +987,7 @@ client.add_signal("manage", function (c, startup)
             client.focus = c
         end
     end)
- 
-    -- client placement
+
     if not startup then
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
@@ -995,9 +996,7 @@ client.add_signal("manage", function (c, startup)
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
-            if not (c.instance == "<unknown>" and not c.class == "<unknown>" and not c.name == "<unknown>") then
-                awful.placement.no_offscreen(c)
-            end
+            awful.placement.no_offscreen(c)
         end
     end
     -- honor size hints
@@ -1014,9 +1013,7 @@ client.add_signal("manage", function (c, startup)
     --        end
     --    end
     --end
-    --
 end)
-
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
