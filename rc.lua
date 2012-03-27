@@ -912,6 +912,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Plugin-container" }, -- for fullscreen flash videos
       properties = { floating = true } }, 
+    { rule = { class = "Wine" },
+      properties = { floating = true } },
     { rule = { class = "Skype" },
       properties = { floating = true } },
     { rule = { class = "Hp-toolbox" },
@@ -942,6 +944,7 @@ autorunApps =
     "xbindkeys",
 --    "xcompmgr -c -C -r10 -o.70 -D5 &",
 --    "cairo-compmgr &",
+    "compton -cC -fF -I 0.065 -O 0.065 -D 10 -b",
     "xset m 0.7 2",
     "xset dpms 0 900 2750",
     "urxvtd -q -o -f",
