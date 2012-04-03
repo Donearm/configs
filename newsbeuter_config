@@ -18,6 +18,8 @@ user-agent "Mozilla/5.0 (X11; Linux x86_64; rv:10.0.2) Gecko/20100101 Firefox/10
 bind-key "j" "down"
 bind-key "k" "up"
 
+define-filter "time-consuming feeds" "tags !# \"fashion\""
+
 color background	color63		default
 color listnormal	color69		default
 color listfocus		white		default
