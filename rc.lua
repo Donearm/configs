@@ -632,6 +632,7 @@ for s = 1, screen.count() do
     -- Create the top wibox
     topwibox[s] = awful.wibox({ 
         position = "top", 
+        type = '_NET_WM_WINDOW_TYPE_DOCK',
         screen = s,
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
@@ -663,6 +664,7 @@ for s = 1, screen.count() do
     -- Create the bottom wibox
     bottomwibox[s] = awful.wibox({
         position = "bottom",
+        type = '_NET_WM_WINDOW_TYPE_DOCK',
         screen = s,
         fg = beautiful.fg_normal,
         bg = beautiful.bg_normal,
