@@ -245,6 +245,8 @@ export LS_COLORS="di=1:fi=0:ln=95:pi=93:so=36:bd=96:cd=96:or=95,101:mi=95,101:ex
 export OOO_FORCE_DESKTOP=gnome
 # to improve firefox responsiveness
 export MOZ_DISABLE_PANGO=1
+# fix for Nvidia leaking overlay with Flash
+export VDPAU_NVIDIA_NO_OVERLAY=1
 
 # Check terminal size
 shopt -s checkwinsize
