@@ -254,5 +254,6 @@ shopt -s checkwinsize
 # auto completion
 source /etc/bash_completion.d/git
 source /etc/bash_completion.d/tmux
+source /usr/share/bash-completion/completions/task
 
 clear # clear the screen if something is on it
