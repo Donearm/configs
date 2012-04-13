@@ -23,6 +23,7 @@ set viminfo='1000,f1,\"500
 " disabled, this are the digraphs made with {char} <backspace> {char}
 "set digraph
 set noerrorbells
+set autoread " auto reload files changed outside vim (but not if deleted)
 set laststatus=2
 set encoding=utf-8
 set fileencoding=utf-8
@@ -46,6 +47,8 @@ set undoreload=1000		" maximum number of lines to save for undo on a buffer relo
 if has("autocmd")
 	filetype plugin on
 	filetype plugin indent on
+	" resize splits when the window is resized
+	au VimResized * :wincmd =
 endif
 
 " set a color scheme
@@ -86,6 +89,8 @@ augroup Templates
 	au BufNewFile source.txt silent! 0r ~/.vim/skel/source.%:e
 	au BufNewFile credits silent! 0r ~/.vim/skel/credits
 augroup END
+
+
 "
 " --- MAIL ---
 "
