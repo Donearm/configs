@@ -87,7 +87,6 @@ augroup Templates
 	au BufNewFile *.asm 0r ~/.vim/skel/assembler.skel | normal G
 	au BufNewFile 0000 silent! 0r ~/.vim/skel/0000
 	au BufNewFile source.txt silent! 0r ~/.vim/skel/source.%:e
-	au BufNewFile credits silent! 0r ~/.vim/skel/credits
 augroup END
 
 
@@ -160,6 +159,12 @@ if has("autocmd")
 		" folding follow indentation
 		autocmd FileType python set foldmethod=indent
 		autocmd FileType python set foldlevel=99
+	augroup END
+
+
+	augroup C
+		autocmd FileType c set makeprg=gcc\ -o\ %<\ %
+		autocmd FileType c setlocal cindent
 	augroup END
 
 	augroup Ruby
@@ -480,8 +485,6 @@ com! WritingMode call WritingMode()
 			au!
 			autocmd FileReadPost *source.txt silent! syntax off setlocal nospell
 			autocmd FileReadPost *0000 silent! syntax off setlocal nospell
-			autocmd FileReadPost *credits.txt silent! syntax off setlocal nospell
-			autocmd FileReadPost *credits.mdown silent! syntax off setlocal nospell
 			autocmd FileReadPost *source.mdown silent! syntax off setlocal nospell
 			autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
 			autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
