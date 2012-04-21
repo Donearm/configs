@@ -164,6 +164,8 @@ if has("autocmd")
 	augroup C
 		autocmd FileType c set makeprg=gcc\ -o\ %<\ %
 		autocmd FileType c setlocal cindent
+		ab #i #include
+		ab #d #define
 	augroup END
 
 	augroup Ruby
