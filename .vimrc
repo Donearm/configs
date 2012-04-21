@@ -287,8 +287,8 @@ function! XdefaultsComment()
 endfunction
 
 function! CComment()
-	noremap - :s/^/\/\*/<CR>
-	noremap _ :s/^\s*\/\* \=//<CR>
+	noremap - :s/^/\/\*/<CR> \| :s/$/ \*\//<CR> \| :nohls<CR>
+	noremap _ :s/^\s*\/\* \=//<CR> \| :s/\s*\*\/$//<CR> \| :nohls<CR>
 	set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
 endfunction
 
