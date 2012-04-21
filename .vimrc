@@ -161,7 +161,6 @@ if has("autocmd")
 		autocmd FileType python set foldlevel=99
 	augroup END
 
-
 	augroup C
 		autocmd FileType c set makeprg=gcc\ -o\ %<\ %
 		autocmd FileType c setlocal cindent
@@ -290,7 +289,7 @@ endfunction
 function! CComment()
 	noremap - :s/^/\/\*/<CR>
 	noremap _ :s/^\s*\/\* \=//<CR>
-	set comments=:/*
+	set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
 endfunction
 
 function! LuaComment()
