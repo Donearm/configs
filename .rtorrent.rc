@@ -27,7 +27,7 @@ session = /media/private/torrent/session/
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-#schedule = watch_directory,5,5,"load_start=./watch/*.torrent"
+#schedule = watch_directory,5,5,load_start=./watch/*.torrent
 #schedule = untied_directory,5,5,stop_untied=
 #schedule = untied_directory,10,10,remove_untied=
 
@@ -57,7 +57,7 @@ ratio.upload.set=50M
 system.method.set = group.seeding.ratio.command, d.close=
 
 # copy completed torrents in the Music directory
-#system.method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/ "
+system.method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/"
 
 # Notify at torrent completion
 system.method.set_key = event.download.finished,notify-me,"execute=notify-send,-t,7000,$d.get_name="
