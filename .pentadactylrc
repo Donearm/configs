@@ -7,6 +7,9 @@ set editor="gvim -f +<line> <file>"
 set maxitems=12
 set cpt=sl
 set newtab=all
+set downloadsort='-time'
+set pageinfo=gefms
+set shell='/bin/bash'
 
 " set color scheme
 :colorscheme g
