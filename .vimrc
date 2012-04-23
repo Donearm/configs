@@ -36,6 +36,8 @@ set wildmenu			" enable ctrl-n and ctrl-p to scroll through matches
 set wildmode=longest,list,full
 set wildignore=*.sw?,*.bak,*.pyc,*.luac,*.png,*.gif,*.jpg,*.zip,*.jar,*.rar	" ignore those file extensions when Tab completing
 set printoptions=header:0,paper:A4,left:0.5in,right:0.5in,top:0.5in,bottom:0.5in
+set pumheight=20
+set ttyfast
 let mapleader=","		" comma as <leader>
 
 "persistent undo
