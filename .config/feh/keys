@@ -1,0 +1,3 @@
+next_img	l	Right	space
+prev_img	h	Left	BackSpace
+delete		D	C-d
