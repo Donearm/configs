@@ -250,6 +250,8 @@ export VDPAU_NVIDIA_NO_OVERLAY=1
 
 # Check terminal size
 shopt -s checkwinsize
+# autocorrect cd typos
+shopt -s cdspell
 
 # auto completion
 source /etc/bash_completion.d/git
