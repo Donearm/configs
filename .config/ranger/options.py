@@ -12,4 +12,4 @@ sort = 'basename'
 sort_case_insensitive = True
 
 # Personalized colorscheme
-colorscheme = "blue"
+colorscheme = "orange"
