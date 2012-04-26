@@ -23,7 +23,7 @@ end
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/blueyes"
+theme_path = home .. "/.config/awesome/themes/skatergirl"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -404,8 +404,8 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.archlinux_image),
                                      menu = mymainmenu })
 
 -- Cpu widget
-cpuicon = widget({ type = "imagebox"})
-cpuicon.image = image(beautiful.amdcpu_image)
+cputag = widget({ type = "textbox"})
+cputag.text = "CPU"
 cpuwidget = widget({ type = "textbox" })
 cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
@@ -425,17 +425,9 @@ vicious.register(cpuwidget, vicious.widgets.cpu,
 )
 
 
--- Motherboard icon
-moboicon = widget({ type = "imagebox" })
-moboicon.image = image(beautiful.mobo_image)
-
--- Gpu icon
-gpuicon = widget({ type = "imagebox" })
-gpuicon.image = image(beautiful.nvidia_image)
-
 -- Memory widget
-memicon = widget({ type = "imagebox"})
-memicon.image = image(beautiful.ram_image)
+memtag = widget({ type = "textbox"})
+memtag.text = "RAM"
 memwidget = widget({ type = "textbox"})
 memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
 memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
@@ -473,14 +465,14 @@ vicious.register(netdownwidget, vicious.widgets.net,
         end
     end
 )
-netupicon = widget({ type = "imagebox"})
-netupicon.image = image(beautiful.up_arrow_image)
-netdownicon = widget({ type = "imagebox" })
-netdownicon.image = image(beautiful.down_arrow_image)
+netuptag = widget({ type = "textbox"})
+netuptag.text = "UP "
+netdowntag = widget({ type = "textbox"})
+netdowntag.text = "DOWN "
 
 -- Maildir widget
-maildiricon = widget({ type = "imagebox" })
-maildiricon.image = image(beautiful.mail_image)
+malidirtag = widget({ type = "textbox" })
+malidirtag.text = "MAIL"
 maildirwidget = widget({ type = "textbox" })
 vicious.register(maildirwidget, vicious.widgets.mdir, ' $1 ', 300, { maildir })
 
@@ -647,16 +639,16 @@ for s = 1, screen.count() do
 		},
             s == screen.count() and mysystray or nil,
             maildirwidget,
-            maildiricon,
+            malidirtag,
             netdownwidget,
-            netdownicon,
+            netdowntag,
             netupwidget,
-            netupicon,
+            netuptag,
             memwidget,
-            memicon,
+            memtag,
             cpuwidget,
             cputemp,
-            cpuicon,
+            cputag,
             mytasklist[s],
             layout = awful.widget.layout.horizontal.rightleft
     }
