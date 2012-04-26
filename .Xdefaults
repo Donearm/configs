@@ -48,7 +48,7 @@ URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
 !Black + DarkGrey
 URxvt.color0:   #121212
-URxvt.color8:   #8b877b
+URxvt.color8:   #534f44
 !DarkRed + Red
 URxvt.color1:   #8a110e
 URxvt.color9:   #b01010
