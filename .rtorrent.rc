@@ -25,6 +25,7 @@ session = /media/private/torrent/session/
 schedule = books,5,5,"load_start=/media/private/torrent/watch/books/*.torrent,d.set_directory=/media/private/torrents/Books/"
 schedule = vids,5,5,"load_start=/media/private/torrent/watch/vids/*.torrent,d.set_directory=/media/private/torrents/Vids/"
 schedule = music,5,5,"load_start=/media/private/torrent/watch/music/*.torrent,d.set_directory=/media/private/torrents/Music/"
+schedule = others,5,5,"load_start=/media/private/torrent/watch/others/*.torrent,d.set_directory=/media/private/torrents/Others/"
 schedule = untied_directory,5,5,stop_untied=
 
 # Close torrents when diskspace is low.
