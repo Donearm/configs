@@ -2,13 +2,13 @@
 # (default=transparent)
 
 color normal     default		default		# normal text
-color indicator  black			yellow		# indicator of selected message/mailbox in index
-color tree       yellow			default		# tree arrows
+color indicator  white			red			# indicator of selected message/mailbox in index
+color tree       brightred			default		# tree arrows
 color status	 brightyellow	black		# statusline
 color error      red			default		# errors
-color message    cyan			default		# info messages
-color signature  brightgreen    default
-color attachment white			default		# mime attachments
+color message    yellow			default		# info messages
+color signature  white			default
+color attachment yellow			default		# mime attachments
 color search     brightmagenta  default
 color tilde      black			default		# ~ at end of messages
 color markers    red			white		# + at start of lines
@@ -17,13 +17,13 @@ color underline  black          default		# underlined text in body
 
 
 # Headers
-color hdrdefault brightgreen	default		# default headers
-color header     brightyellow	default  "^(from|subject):"  # from and subject headers
+color hdrdefault blue		default		# default headers
+color header     brightblue	default  "^(from|subject):"  # from and subject headers
 
 color body       yellow    default  "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?" 
 color body       brightred      default  "[-a-z_0-9.+]+@[-a-z_0-9.]+" 
 color body       red            default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]" 
-color body       green          default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]" 
+color body       cyan			default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]" 
 color body       brightcyan     default  "[;:][-o][)/(|]"    # emoticons
 color body       brightcyan     default	 "[;:][)(|]"         # emoticons
 color body       brightcyan     default  "[ ][*][^*]*[*][ ]?" # emoticons
@@ -32,16 +32,16 @@ color body       brightcyan     default "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
                                         |FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|\
                                         |IRL|RTFM|ROTFL|ROFL|YMMV|AFAIK)[*]?" # acronyms
 # *bold*
-color body       blue           default "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+color body       red           default "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
 mono  body       bold                   "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
 # _underline_
-color body       blue           default "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+color body       brightyellow           default "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
 mono  body       underline              "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
 # /italic/  (Sometimes gets directory names)
 #color body      blue           default "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
 #mono body       underline              "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
 # Border lines.
-color body       blue           default  "( *[-+=#*~_]){6,}"
+color body       white           default  "( *[-+=#*~_]){6,}"
 
 color quoted     blue           default
 color quoted1    yellow         default 
@@ -54,31 +54,31 @@ color quoted7    red            default
 color quoted8    red            default
 color quoted9    red            default
 
-color index      red			default "~F"			# flagged messages
-color index		 red			default	"~N~F"			# new flagged messages
-color index      blue			default "~N"			# new messages
+color index      brightred		default "~F"			# flagged messages
+color index		 brightred		default	"~N~F"			# new flagged messages
+color index      red			default "~N"			# new messages
 color index      magenta		default "~T"			# tagged messages
 color index      black			red		"~D"			# deleted messages
 color index		 brightred		default	"~E"			# expired messages
 color index		 blue			default	"~O"			# old messages
 color index		 green			default	"~S"			# superseded messages
 color index		 brightred		red		"~="			# duplicated messages
-color index		 brightmagenta	default	"~Q"			# messages that have been replied to
-color index		 cyan			default	"~R"			# read messages
-color index		 blue			default	"~U"			# unread messages
-color index		 blue			default "~U~$"			# unread, unreferenced messages
+color index		 red			default	"~Q"			# messages that have been replied to
+color index		 white			default	"~R"			# read messages
+color index		 yellow			default	"~U"			# unread messages
+color index		 yellow			default "~U~$"			# unread, unreferenced messages
 color index		 brightyellow	default	"~v"			# messages part of a collapsed thread
 color index		 brightyellow	default	"~P"			# my messages (from: me)
-color index		 brightcyan		default	"~p!~F"			# messages to me
-color index		 brightcyan		default "~N~p!~F"		# new messages to me
-color index		 brightcyan		default	"~U~p!~F"		# unread messages to me
-color index		 cyan			default	"~R~p!~F"		# read messages to me
-color index		 red			default "~F~p"			# flagged messages to me
-color index		 red			default "~N~F~p"		# new flagged messages to me
-color index		 red			default "~U~F~p"		# unread flagged messages to me
-color index      brightcyan     default "~v~(!~N)"      # collapsed thread with no unread
+color index		 brightyellow		default	"~p!~F"			# messages to me
+color index		 brightyellow		default "~N~p!~F"		# new messages to me
+color index		 brightyellow		default	"~U~p!~F"		# unread messages to me
+color index		 yellow			default	"~R~p!~F"		# read messages to me
+color index		 yellow			default "~F~p"			# flagged messages to me
+color index		 yellow			default "~N~F~p"		# new flagged messages to me
+color index		 yellow			default "~U~F~p"		# unread flagged messages to me
+color index      brightyellow     default "~v~(!~N)"      # collapsed thread with no unread
 color index		 yellow			default	"~v~(~N)"		# collapsed thread with some unread
-color index		 green			default "~N~v~(~N)"		# collapsed thread with unread parent
+color index		 yellow			default "~N~v~(~N)"		# collapsed thread with unread parent
 color index		 red			black	"~v~(~F)!~N"	# collapsed thread with flagged, no unread
 color index		 yellow			black	"~v~(~F~N)"		# collapsed thread with some unread & flagged
 color index		 green			black	"~N~v~(~F~N)"	# collapsed thread with unread parent & flagged
