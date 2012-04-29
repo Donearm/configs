@@ -427,16 +427,16 @@ vicious.register(cpuwidget, vicious.widgets.cpu,
 
 -- Memory widget
 memtag = widget({ type = "textbox"})
-memtag.text = "RAM"
+memtag.text = " RAM "
 memwidget = widget({ type = "textbox"})
 memwidget:add_signal("mouse::enter", function () psByMemory(0) end)
 memwidget:add_signal("mouse::leave", function () psByMemory(1) end)
 vicious.register(memwidget, vicious.widgets.mem,
     function (widget, args)
         if args[1] > 70 then
-            return setFg(beautiful.fg_urgent, ' ' .. args[1] .. '%') .. setFg(par_color, '|') .. setFg(beautiful.fg_urgent, args[2] .. 'MB'), 10
+            return setFg(beautiful.fg_urgent, args[1] .. '%') .. setFg(par_color, '|') .. setFg(beautiful.fg_urgent, args[2] .. 'MB'), 10
         else
-            return ' ' .. args[1] .. '%' .. setFg(par_color, '|') .. args[2] .. 'MB', 10
+            return args[1] .. '%' .. setFg(par_color, '|') .. args[2] .. 'MB', 10
         end
     end
 )
@@ -466,15 +466,15 @@ vicious.register(netdownwidget, vicious.widgets.net,
     end
 )
 netuptag = widget({ type = "textbox"})
-netuptag.text = "UP "
+netuptag.text = " UP "
 netdowntag = widget({ type = "textbox"})
-netdowntag.text = "DOWN "
+netdowntag.text = " DOWN "
 
 -- Maildir widget
 malidirtag = widget({ type = "textbox" })
-malidirtag.text = "MAIL"
+malidirtag.text = " MAIL "
 maildirwidget = widget({ type = "textbox" })
-vicious.register(maildirwidget, vicious.widgets.mdir, ' $1 ', 300, { maildir })
+vicious.register(maildirwidget, vicious.widgets.mdir, '$1 ', 300, { maildir })
 
 
 -- Temperatures
