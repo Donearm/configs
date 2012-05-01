@@ -1,11 +1,11 @@
-VERSION: 3.x.x
-BBCDWRITER: /dev/cdrom
-BBCDROM: /dev/cdrom1
-BBCDMNT: /dev/cdrom1
+VERSION: 3.1.0
+BBCDWRITER: /dev/sr0
+BBCDROM: /dev/cdrom
+BBCDMNT: /media/cdrom
 BBSPEED: -1
 BBBLANKING: fast
-BBNUMDEV: 2
-BBBURNDIR: /mnt/documents/burn/
+BBNUMDEV: 1
+BBBURNDIR: /mnt/documents/tempstuff/burn/
 BBLABEL: <ask-me>
 BBDESCRIPTION: Burnt with BashBurn
 BBAUTHOR: Gianluca Fiore
@@ -13,13 +13,13 @@ BBNORMALIZE: no
 BBDRIVEROPT:
 BBFIFODIR: /tmp
 BBDELTEMPBURN: no
-BBOVERBURN: yes
-BBBITRATE: 256
+BBOVERBURN: no
+BBBITRATE: 320
 BBLANG: English
 BBISCONF: 0
 BBDTAO: -tao
 BBPADDING: -nopad
-BBCONFFILE: /home/gianluca//.bashburnrc
+BBCONFFILE: /home/gianluca/.bashburnrc
 BB_CDBURNCMD: cdrecord
 BB_DVDBURNCMD: growisofs
 BB_DVDBURNCMDOPTS: -r -f -v -J -joliet-long
@@ -36,3 +36,4 @@ BB_OGGDEC: oggdec
 BB_FLACCMD: flac
 BB_EJECT: eject
 BB_NORMCMD: normalize
+BB_NRG2ISO: nrg2iso
