@@ -1,0 +1,8 @@
+# Mutt sender profile: default settings
+set record=+.Sent/
+
+set signature="~/.signature"
+my_hdr X-Operating-System: ArchLinux - Kernel `uname -r`
+my_hdr X-Editor: Vim
+
+# vim: ft=muttrc:

@@ -1,0 +1,23 @@
+# Mutt sender profile: me on yahoo
+#
+
+source ~/.mutt/defaults.mutt_profile
+
+set signature="~/.mutt/sign_gianluca-yahoo"
+set attribution='On %d, %n began a\ntale with:'
+set editor="vim -c 'set tw=72 et' \
+ -c 'set fo=tcrq' \
+ -c 'set syntax=mail' \
+ -c ':0;/^To: '\
+ -c 'set nobackup' \
+ -c 'set spell' \
+ -c 'set spelllang=en_gb' "
+
+set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o?Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b?Inc:%b?%?l? %l?]---(%s/%S)-yahoo-%>-(%P)---"
+set index_format='%4C %Z %{%b %d} %-10.10F (%4c) %s'
+
+unmy_hdr *
+my_hdr From: gianluca12 <gianluca1181@yahoo.it>
+my_hdr Reply-To: gianluca1181@yahoo.it
+
+# vim: ft=muttrc:
