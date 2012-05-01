@@ -11,7 +11,7 @@ color signature  white			default
 color attachment yellow			default		# mime attachments
 color search     brightmagenta  default
 color tilde      black			default		# ~ at end of messages
-color markers    red			white		# + at start of lines
+color markers    red			default		# + at start of lines
 color bold       black          default		# bold text in body
 color underline  black          default		# underlined text in body
 
@@ -72,9 +72,9 @@ color index		 brightyellow	default	"~P"			# my messages (from: me)
 color index		 brightyellow		default	"~p!~F"			# messages to me
 color index		 brightyellow		default "~N~p!~F"		# new messages to me
 color index		 brightyellow		default	"~U~p!~F"		# unread messages to me
-color index		 yellow			default	"~R~p!~F"		# read messages to me
-color index		 yellow			default "~F~p"			# flagged messages to me
-color index		 yellow			default "~N~F~p"		# new flagged messages to me
+color index		 default		default	"~R~p!~F"		# read messages to me
+color index		 default		default "~F~p"			# flagged messages to me
+color index		 default		default "~N~F~p"		# new flagged messages to me
 color index		 yellow			default "~U~F~p"		# unread flagged messages to me
 color index      brightyellow     default "~v~(!~N)"      # collapsed thread with no unread
 color index		 yellow			default	"~v~(~N)"		# collapsed thread with some unread
