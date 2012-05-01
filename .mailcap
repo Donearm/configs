@@ -1,8 +1,4 @@
-#; ~/.mutt/local/mailcap.mutt
 #; Local mailcap preferences for the MUTT mail client.
-#; This might change if you are on a remote shell server,
-#; local X11 desktop, etc. I like to keep it simple.
-#;
 
 
 text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
