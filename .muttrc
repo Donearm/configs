@@ -54,7 +54,7 @@ set bounce=yes			# don't ask about bouncing messages, just do it
 #set forward_format="[%a: %s]"	# subject to use when forwarding messages
 #set forward_quote		# quote the header and body of forward msgs
 #set index_format="%4C %Z %{%m/%d} [%2N] %-15.15F (%4c) %s"
-set index_format="%4C %Z %{%m/%d} %-15.15F (%4c) %s" # format of the index
+set index_format="%4C %Z %{%d/%m/%Y} %-15.15F (%4c) %s" # format of the index
 set hdrs			# include `my_hdr' lines in outgoing messages
 #set header			# include message header when replying
 set help			# show the help lines
