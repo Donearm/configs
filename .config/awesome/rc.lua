@@ -101,11 +101,16 @@ use_titlebar = false
 -- basically move the pointer to the bottom right of the screen with
 -- Mod4+Ctrl+m, useful to remove it when it stands in the middle of the
 -- screen but without using the touchpad
-local safeCoords = {x=1680, y=1050}
+local safeCoords = {x=800, y=1050}
 function moveMouse(x_co, y_co)
     mouse.coords({ x=x_co, y=y_co })
 end
 
+-- Simulate mouse click
+local function simulateClick()
+    root.fake_input("button_press", 1)
+    root.fake_input("button_release", 1)
+end
 
 -- Markup functions
 function setBg(bgcolor, text)
@@ -749,6 +754,7 @@ globalkeys = awful.util.table.join(
     awful.key({ none                }, "XF86Sleep", function () awful.util.spawn(lockScreen) end),
     awful.key({ none                }, "XF86Mail", function () awful.util.spawn(mutt) end),
     awful.key({ modkey, "Control"   }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
+    awful.key({ modkey,             }, "c", function() simulateClick() end),
     -- Win+z: stop any widget but battery and wifi, Win+Shift+z:
     -- reactivate all widgets
     awful.key({ modkey,             }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh stop") end),
