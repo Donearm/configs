@@ -266,6 +266,8 @@ alternative_order text/plain text/html
 source ~/.mutt/hooks
 # Source list of mailboxes
 source ~/.mutt/mailboxes
+# load the aliases
+source ~/.mail_aliases
 # My color theme of choice
 source ~/.mutt/skatergirl-colors.muttrc
 
