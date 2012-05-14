@@ -30,6 +30,10 @@ beautiful.init(theme_path)
 use_naughty = true
 naughty.config.presets.normal.border_color = beautiful.menu_border_color
 naughty.config.border_width = 2
+-- Naughty notifications opacity
+naughty.config.presets.normal.opacity = 1
+naughty.config.presets.low.opacity = 0.8
+naughty.config.presets.critical.opacity = 1
 -- Define if we want to modify client.opacity
 use_composite = false
 -- the parentheses color
