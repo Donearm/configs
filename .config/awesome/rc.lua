@@ -401,6 +401,9 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(beautiful.
                                         { "Skype", "skype", image(beautiful.skype_image) },
                                         { "Avidemux", "avidemux2_gtk", image(beautiful.avidemux_image) },
                                         { "Gimp", "gimp", image(beautiful.gimp_image) },
+                                        { "Shotwell", "shotwell", image(beautiful.shotwell_image) },
+                                        { "Shotwell 2", "shotwell -d /mnt/documents/Maidens/.shotwell2/", 
+                                            image(beautiful.shotwell_image) },
                                         { "Other OS", vboxmenu, image(beautiful.vbox_image) }
                                       }
                             })
