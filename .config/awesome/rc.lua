@@ -902,6 +902,8 @@ awful.rules.rules = {
       properties = { slave = true } },
     { rule = { role = "gimp-dock" },
       properties = { slave = true } },
+    { rule = { class = "Shotwell" },
+      properties = { tag = tags[1][5]} },
     { rule = { class = "feh" },
       properties = { floating = true } },
     { rule = { class = "gcolor2" }, 
