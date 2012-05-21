@@ -257,5 +257,7 @@ shopt -s cdspell
 source /etc/bash_completion.d/git
 source /usr/share/bash-completion/completions/tmux
 source /usr/share/bash-completion/completions/task
+# udisks functions
+source /mnt/documents/Script/utilities/udisks_functions
 
 clear # clear the screen if something is on it
