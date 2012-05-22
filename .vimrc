@@ -179,6 +179,8 @@ if has("autocmd")
 	augroup Markdown
 		"" options for markdown files
 		autocmd FileType markdown setlocal textwidth=0 spell
+		nnoremap <leader>* i**<Esc>ea**<Esc>
+		nnoremap <leader>_ i_<Esc>ea_<Esc>
 	augroup END
 
 	augroup Java
@@ -374,10 +376,8 @@ inoremap <C-h> <Left>
 " Convert to html a markdown text
 nnoremap <leader>mh :%!/usr/local/bin/Markdown.lua %<CR>
 
-" Add parentheses, * or _ around current word; use it from the beginning
+" Add parentheses around current word; use it from the beginning
 " of the word
-nnoremap <leader>* i*<Esc>ea*<Esc>
-nnoremap <leader>_ i_<Esc>ea_<Esc>
 nnoremap <leader>( i(<Esc>ea)<Esc>
 
 " command line abbreviations
