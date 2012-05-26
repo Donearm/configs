@@ -12,6 +12,10 @@
 	signoff = true
 [core]
 	excludesfile = /home/gianluca/.gitignore
+[alias]
+	l = log --graph --decorate --no-merges --oneline
+	lp = log --graph --decorate --pretty=short -p --word-diff
+	discard = reset HEAD --hard
 [apply]
 	whitespace = fix
 [diff]
