@@ -63,3 +63,7 @@ nnoremap <leader>j :jumps<CR>
 map i gi
 " view native size of image without clicking it
 nmap <leader>z :js window.content.document.toggleImageSize();<CR>
+
+" qmarks
+qmark k file:///home/gianluca/.tiddlywiki/kortirion_tiddlywiki.html
+qmark v file:///home/gianluca/.tiddlywiki/viaggi.html
