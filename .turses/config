@@ -55,14 +55,14 @@ thread = T
 hashtags = L
 help = ?
 reload_config = C
-quit = q
+quit = Q
 openurl = o
 open_status_url = O
 redraw = ctrl l
 
 [colors]
 active_tab = white
-active_tab_bg = dark blue
+active_tab_bg = dark red
 visible_tab = yellow
 visible_tab_bg = dark blue
 inactive_tab = dark blue
