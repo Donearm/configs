@@ -38,7 +38,7 @@ urxvt.foreground:		#dedede
 URxvt.transparent:		true
 URxvt.shading:			10
 URxvt.fading:			50
-URxvt.fadeColor:		#736758
+URxvt.fadeColor:		#141413
 !URxvt.tintColor:		#6c9eab
 !URxvt.cursorColor:		#e4a900
 URxvt.cursorColor:		#dedede
