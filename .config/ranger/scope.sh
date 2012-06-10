@@ -42,9 +42,9 @@ case "$extension" in
 		success && exit 0 || acat "$path" | head -n $maxln && exit 3
 		exit 1;;
 	# PDF documents:
-	pdf)
-		pdftotext -l 10 -nopgbrk -q "$path" - | head -n $maxln | fmt -s -w $width
-		success && exit 0 || exit 1;;
+#	pdf)
+#		pdftotext -l 10 -nopgbrk -q "$path" - | head -n $maxln | fmt -s -w $width
+#		success && exit 0 || exit 1;;
 	# BitTorrent Files
 	torrent)
 		transmission-show "$path" | head -n $maxln && exit 3
