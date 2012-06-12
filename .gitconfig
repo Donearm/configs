@@ -21,3 +21,6 @@
 [diff]
 	renames = true
 	tool = vimdiff
+[merge]
+# show a third section in the middle with the common ancestor code
+	conflictstyle = diff3
