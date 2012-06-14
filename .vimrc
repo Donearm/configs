@@ -375,7 +375,7 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-h> <Left>
 " Convert to html a markdown text
-nnoremap <leader>mh :%!/usr/local/bin/Markdown.lua %<CR>
+nnoremap <leader>mh :%!/usr/local/bin/markdownitall.lua %<CR>
 
 " Add parentheses around current word; use it from the beginning
 " of the word
