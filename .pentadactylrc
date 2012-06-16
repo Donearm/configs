@@ -67,3 +67,7 @@ nmap <leader>z :js window.content.document.toggleImageSize();<CR>
 " qmarks
 qmark k file:///home/gianluca/.tiddlywiki/kortirion_tiddlywiki.html
 qmark v file:///home/gianluca/.tiddlywiki/viaggi.html
+
+" customized next and previous patterns
+set nextpattern=^>$,[Nn]ext,[Mm]ore,([Ss]ucc|[Ss]uccessiva),([Pp]ross|[Pp]rossima),^(>>|»)$,^(>|»),(>|»)$
+set previouspattern=^<$,([Pp]rev|[Pp]revious),([Pp]re|[Pp]recedente),^(<<|«)$,^(<|«),(<|«)$
