@@ -132,6 +132,10 @@ txtreset="\033[0m" # text reset
 #export PATH=/usr/X11R6/bin:/usr/sbin:/sbin/:/usr/local/sbin/:/usr/local/bin:/opt/kde/bin:/usr/lib/python2.5/:/opt/gnome/bin:/lib/splash/bin:/opt/xfce4/bin/:/opt/texlive/bin:$PATH
 export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:$PATH
 
+# Variables for the git prompt
+GIT_PS1_SHOWDIRTYSTATE="1"
+GIT_PS1_SHOWUNTRACKEDFILES="1"
+
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
