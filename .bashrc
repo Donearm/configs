@@ -129,34 +129,35 @@ bgwhite="\033[47m"
 txtreset="\033[0m" # text reset
 
 
-
 #export PATH=/usr/X11R6/bin:/usr/sbin:/sbin/:/usr/local/sbin/:/usr/local/bin:/opt/kde/bin:/usr/lib/python2.5/:/opt/gnome/bin:/lib/splash/bin:/opt/xfce4/bin/:/opt/texlive/bin:$PATH
 export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:$PATH
 
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    #export PS1='\[\e[1;34;40m\][\[\e[31;40m\]\u\[\e[34;40m\]@\[\e[31;40m\]\H\[\e[34;40m\] \W]\[\e[36;40m\]$ \[\e[0m\]' # scritte rosse, sfondo nero, directories blu
-    export PS1="${bBlue}\[[${bRed}\u${bnc}@${bRed}\H ${bBlue}\W${bBlue}]\]$ ${bnc}"
+    #PS1='\[\e[1;34;40m\][\[\e[31;40m\]\u\[\e[34;40m\]@\[\e[31;40m\]\H\[\e[34;40m\] \W]\[\e[36;40m\]$ \[\e[0m\]' # scritte rosse, sfondo nero, directories blu
+    PS1="${bBlue}\[[${bRed}\u${bnc}@${bRed}\H ${bBlue}\W${bBlue}]\]$ ${bnc}"
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
-		export PS1=".:\$(date +%d/%m/%Y):. :${WINDOW}: \w \n ${bred} >: ${bnc}"
+		PS1=".:\$(date +%d/%m/%Y):. :${WINDOW}: \w \n${bred} >: ${bnc}"
     else
-		export PS1=".:\$(date +%d/%m/%Y):. :${WINDOW}: \w \n >: "
+		PS1=".:\$(date +%d/%m/%Y):. :${WINDOW}: \w \n >: "
     fi
-elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" ]]
+elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" ]]
 then
 	# 256 colors available?
-	if [ -e /usr/share/terminfo/r/rxvt-256color ]; then
-		export TERM='rxvt-256color'
-	else
-		continue
+	if [[ "$TERM" != "rxvt-256color" ]]; then
+		if [ -e /usr/share/terminfo/r/rxvt-256color ]; then
+			export TERM='rxvt-256color'
+		else
+			continue
+		fi
 	fi
     if [[ `whoami` == "root" ]]; then
-		export PS1=".:\$(date +%d/%m/%Y):. \w \n ${bred} >: ${bnc}"
+		PS1=".:\$(date +%d/%m/%Y):. \w \n${bred} >: ${bnc}"
     else
-		export PS1=".:\$(date +%d/%m/%Y):. \w \n >: "
+		PS1=".:\$(date +%d/%m/%Y) \$(__git_ps1 [%s]):. \w \n >: "
     fi
     #export TITLEBAR='\[\e]0;\u | term | \w\007\]'
 # Let's try
@@ -164,9 +165,9 @@ then
     export COLORTERM='rxvt-unicode'
 else
     if [[ `whoami` == "root" ]]; then
-		export PS1=".:\$(date +%d/%m/%Y):. \w \n ${bred} >: ${bnc}"
+		PS1=".:\$(date +%d/%m/%Y):. \w \n${bred} >: ${bnc}"
     else
-		export PS1=".:\$(date +%d/%m/%Y):. \w \n >: "
+		PS1=".:\$(date +%d/%m/%Y):. \w \n >: "
     fi
 fi
 
@@ -255,6 +256,7 @@ shopt -s cdspell
 
 # auto completion
 source /etc/bash_completion.d/git
+source /usr/share/git/completion/git-completion.bash
 source /usr/share/bash-completion/completions/tmux
 source /usr/share/bash-completion/completions/task
 # udisks functions
