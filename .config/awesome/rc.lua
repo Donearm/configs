@@ -6,7 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-require("vicious")
+local vicious = require("vicious")
 
 require("mpd-popup")
 
