@@ -47,8 +47,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 
 -- Some variables
-browser_nav = "firefox -P navigation"
-browser_mad = "firefox -P maidens -no-remote"
+browser = "firefox -P navigation"
 music = terminal .. " -e ncmpcpp"
 musicPlay = "ncmpcpp toggle"
 musicStop = "ncmpcpp stop"
@@ -393,8 +392,7 @@ vboxmenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, image(beautiful.awesomewm_image) },
                                         { "open terminal", terminal, image(beautiful.terminal_image) },
-                                        { "firefox (navigation)", browser_nav, image(beautiful.firefox_image) },
-                                        { "firefox (maidens)", browser_mad, image(beautiful.firefox_image) },
+                                        { "firefox", browser, image(beautiful.firefox_image) },
                                         { "ranger", filemanager, image(beautiful.filemanager_image) },
                                         { "Music", music, image(beautiful.music_image) },
                                         { "Libreoffice", "soffice", image(beautiful.office_image) },
@@ -745,8 +743,7 @@ globalkeys = awful.util.table.join(
     -- DailyActivties popup
     awful.key({ modkey,             }, "a", function () dailyActivities()             end),
     awful.key({ modkey, alt         }, "m", function () awful.util.spawn(music) end),
-    awful.key({ modkey, alt         }, "f", function () awful.util.spawn(browser_nav) end),
-    awful.key({ modkey, "Control"   }, "f", function () awful.util.spawn(browser_mad) end),
+    awful.key({ modkey, alt         }, "f", function () awful.util.spawn(browser) end),
     awful.key({ modkey, alt         }, "r", function () awful.util.spawn(filemanager) end),
     awful.key({ modkey              }, "p", function () show_clipboard() end),
     awful.key({ none                }, "XF86AudioPlay", function () awful.util.spawn(musicPlay) end),
