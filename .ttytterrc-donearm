@@ -17,3 +17,6 @@ wrap=79
 lat=40.85134
 long=14.332103
 location=0
+# WOEID: italy and worldwide
+woeid=23424853
+#woeid=1
