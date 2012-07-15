@@ -74,4 +74,4 @@ application/x-pkcs7-mime; openssl smime -pk7out -inform DER | \
 openssl pkcs7 -print_certs -text -noout |\
 less ; nametemplate=%s.p7m ; test=test %{smime-type} == signed-data
 
-# vim: syntax=muttrc ts=8 sw=8 nowrap
+# vim: syntax=mailcap ts=8 sw=8 nowrap
