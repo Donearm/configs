@@ -37,22 +37,20 @@ set passkeys+='twitter\.com':jkn<CR>\.\?,gh,gr
 set passkeys+='getprismatic\.com':jkobs
 
 " Add the current url as a task for taskwarrior.org
-:map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
+map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
 " use Ctrl+Esc for enabling passthrough mode
 map <C-v> <Nop>
 map <C-Esc> <pass-all-keys>
 
 " faster scrolling
-map j 5j
-map k 5k
+map -b j 5j
+map -b k 5k
 
-" Ctr+hjkl navigation
-map <C-j> <down>
-map <C-k> <up>
-map <C-l> <END>
-map <C-h> <NOP>
-map <C-j> <down>
-map <C-k> <up>
+" Ctrl+hjkl navigation
+map -b <C-j> <down>
+map -b <C-k> <up>
+map -b <C-l> <END>
+map -b <C-h> <NOP>
 
 map , <Leader>
 " recent history "jumps"
