@@ -1,7 +1,5 @@
 " vim: set ft=vim fdm=marker tw=0:
 
-set mapleader=","
-
 set titlestring=Firefox
 set editor="gvim -f +<line> <file>"
 set maxitems=12
@@ -45,24 +43,25 @@ map <C-v> <Nop>
 map <C-Esc> <pass-all-keys>
 
 " faster scrolling
-noremap j 5j
-noremap k 5k
+map j 5j
+map k 5k
 
 " Ctr+hjkl navigation
-cnoremap <C-j> <down>
-cnoremap <C-k> <up>
-cnoremap <C-l> <END>
-nnoremap <C-h> <NOP>
-nnoremap <C-j> <down>
-nnoremap <C-k> <up>
+map <C-j> <down>
+map <C-k> <up>
+map <C-l> <END>
+map <C-h> <NOP>
+map <C-j> <down>
+map <C-k> <up>
 
+map , <Leader>
 " recent history "jumps"
-nnoremap <leader>j :jumps<CR>
+map <Leader>j :jumps<CR>
 
 " focus first input by default with just i
 map i gi
 " view native size of image without clicking it
-nmap <leader>z :js window.content.document.toggleImageSize();<CR>
+map <Leader>z :js window.content.document.toggleImageSize();<CR>
 
 " qmarks
 qmark k file:///home/gianluca/.tiddlywiki/kortirion_tiddlywiki.html
