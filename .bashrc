@@ -90,6 +90,10 @@ pngtojpeg() {
 	done
 }
 
+vboxbuild() {
+	sudo dkms install vboxhost/$1 -k $(uname -r)/$(uname -m)
+}
+
 # No one should read/write/execute my files by default
 #umask 0077
 
