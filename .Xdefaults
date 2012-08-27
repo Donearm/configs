@@ -86,11 +86,13 @@ URxvt.externalBorder:	0
 URxvt.termName:			rxvt-unicode
 Urxvt.cutchars:			`"'&()*,;<=>?@[]{|}$`
 URxvt.hold:				true
-URxvt.urlLauncher:		firefox
 URxvt.loginShell:		true
 URxvt.perl-ext-common:	default,matcher,url-select
-URxvt.underlineURLs:	true
 URxvt.keysym.M-C-u:		perl:url-select:select_next
+URxvt.url-select.autocopy: true
+URxvt.url-select.button: 2
+URxvt.url-select.launcher: firefox
+URxvt.url-select.underline: true
 !URxvt.matcher.button:	1
 !URxvt.perl-ext:	    tabbed,matcher
 !configure here the look of the tab bar
