@@ -263,8 +263,7 @@ shopt -s checkwinsize
 shopt -s cdspell
 
 # auto completion
-source /etc/bash_completion.d/git
-source /usr/share/git/completion/git-completion.bash
+source /usr/share/bash-completion/completions/git
 source /usr/share/bash-completion/completions/tmux
 source /usr/share/bash-completion/completions/task
 # udisks functions
