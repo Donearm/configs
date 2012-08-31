@@ -41,6 +41,8 @@ hi MoreMsg color: #121212; background: #dedede;
 hi NonText min-height: 16px; padding-left: 2px;
 hi Question color: #e5e5e5; background: #e25a74; font-weight: bold;
 
+hi Filter color: #e25a74; font-weight: bold;
+
 hi Title color: black; background #dedede; font-weight: normal;
 hi URL color: #963f14; text-decoration: none;
 hi URL:hover text-decoration: underline; cursor: pointer;
