@@ -5,14 +5,14 @@ set editor="gvim -f +<line> <file>"
 set maxitems=20
 set cpt=sl
 set newtab=all
-set pageinfo=gefms
+set pageinfo=gfm
 set shell='/bin/bash'
 
 " set color scheme
 :colorscheme g
 
 " show pattern matches as you type
-set incfind
+set incsearch
 
 " alphabetic characters instead of numbers for hints
 set hintchars=asdfghjklònmuioprewcvt
@@ -24,34 +24,27 @@ set hlsearch
 set showstatuslinks=1
 
 " custom commands
-command -description "News reader" rss :open www.google.com/reader/view/
+command -nargs="0" -description="News reader" rss open www.google.com/reader/view/
 
-" passkeys for various sites
-set passkeys=
-set passkeys+='https://duckduckgo\.com':jkv
-set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?\*nrtgidIU+-=<Tab><Return>
-set passkeys+='plus\.google\.com':jk
-set passkeys+='google\.com/reader':jkovASNPO<Space>?
-set passkeys+='twitter\.com':jkn<CR>\.\?,gh,gr
-set passkeys+='getprismatic\.com':jkobs
-
-" Add the current url as a task for taskwarrior.org
-map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
-" use Ctrl+Esc for enabling passthrough mode
-map <C-v> <Nop>
-map <C-Esc> <pass-all-keys>
+" pass through mode for some sites, automatically
+autocmd LocationChange .* js modes.passAllKeys=0
+autocmd LocationChange .* js modes.passAllKeys = /twitter\.com/.test(buffer.URL)
+autocmd LocationChange .* js modes.passAllKeys = /duckduckgo\.com/.test(buffer.URL)
+autocmd LocationChange .* js modes.passAllKeys = /getprismatic\.com/.test(buffer.URL)
+autocmd LocationChange /(www|mail|plus)\.google\.com/ -javascript modes.passAllKeys=1
 
 " faster scrolling
-map -b j 5j
-map -b k 5k
+map j 5<C-e>
+map k 5<C-y>
 
 " Ctrl+hjkl navigation
-map -b <C-j> <down>
-map -b <C-k> <up>
-map -b <C-l> <END>
-map -b <C-h> <NOP>
+map <C-j> <down>
+map <C-k> <up>
+map <C-l> <END>
+map <C-h> <NOP>
 
-map , <Leader>
+let mapleader = ","
+
 " recent history "jumps"
 map <Leader>j :jumps<CR>
 
