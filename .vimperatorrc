@@ -1,0 +1,69 @@
+" vim: set ft=vim fdm=marker tw=0:
+
+set titlestring=Firefox
+set editor="gvim -f +<line> <file>"
+set maxitems=20
+set cpt=sl
+set newtab=all
+set pageinfo=gefms
+set shell='/bin/bash'
+
+" set color scheme
+:colorscheme g
+
+" show pattern matches as you type
+set incfind
+
+" alphabetic characters instead of numbers for hints
+set hintchars=asdfghjklònmuioprewcvt
+
+" Highlight previous search pattern matches
+set hlsearch
+
+" show destination links in 1=status line, 2=command line
+set showstatuslinks=1
+
+" custom commands
+command -description "News reader" rss :open www.google.com/reader/view/
+
+" passkeys for various sites
+set passkeys=
+set passkeys+='https://duckduckgo\.com':jkv
+set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?\*nrtgidIU+-=<Tab><Return>
+set passkeys+='plus\.google\.com':jk
+set passkeys+='google\.com/reader':jkovASNPO<Space>?
+set passkeys+='twitter\.com':jkn<CR>\.\?,gh,gr
+set passkeys+='getprismatic\.com':jkobs
+
+" Add the current url as a task for taskwarrior.org
+map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
+" use Ctrl+Esc for enabling passthrough mode
+map <C-v> <Nop>
+map <C-Esc> <pass-all-keys>
+
+" faster scrolling
+map -b j 5j
+map -b k 5k
+
+" Ctrl+hjkl navigation
+map -b <C-j> <down>
+map -b <C-k> <up>
+map -b <C-l> <END>
+map -b <C-h> <NOP>
+
+map , <Leader>
+" recent history "jumps"
+map <Leader>j :jumps<CR>
+
+" focus first input by default with just i
+map i gi
+" view native size of image without clicking it
+map <Leader>z :js window.content.document.toggleImageSize();<CR>
+
+" qmarks
+qmark k file:///home/gianluca/.tiddlywiki/kortirion_tiddlywiki.html
+qmark v file:///home/gianluca/.tiddlywiki/viaggi.html
+
+" customized next and previous patterns
+set nextpattern=^>$,[Nn]ext,[Mm]ore,([Ss]ucc|[Ss]uccessiva),([Pp]ross|[Pp]rossima),([Aa]vanti),^(>>|»)$,^(>|»),(>|»)$
+set previouspattern=^<$,([Pp]rev|[Pp]revious),([Pp]re|[Pp]recedente),([Ii]ndietro),^(<<|«)$,^(<|«),(<|«)$
