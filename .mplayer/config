@@ -18,6 +18,8 @@ spuaa=4
 alang=it,en
 slang=it,en
 subfont-osd-scale=2 # size of osd text
+unicode=yes # subtitle file encoding
+utf8=yes # subtitle file encoding
 #subfont-autoscale=1  # autoscale osd text size
 osdlevel=3 
 # Disable that damned xscreensaver
