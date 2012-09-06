@@ -452,6 +452,14 @@ hi SpellBad term=reverse ctermfg=white ctermbg=darkred guifg=#FFFFFF guibg=#7F00
 noremap  :w!<CR>:!aspell -d it -x check %<CR>:e! %<CR>
 noremap  :w!<CR>:!aspell -d en -x check %<CR>:e! %<CR>
 
+" Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" My bundles (including Vundle itself!)
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-surround'
+
 " open link in the current row in the browser
 function! Browser ()
 	let line0 = getline (".")
