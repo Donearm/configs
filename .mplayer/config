@@ -32,6 +32,8 @@ prefer-ipv4=yes
 msglevel=decvideo=0:identify=6
 # No filters work with vdpau!
 vf-clr=yes
+cache=12000
+cache-min=99
 
 #quiet = yes # disable most of the output (really-quiet disable nearly every message)
 #monitoraspect = "1.6" # for 16:10 aspect ratio monitors
@@ -54,7 +56,7 @@ vc=ffmpeg12mc
 [cdda]
 profile-desc="Cdda profile"
 cache=16000
-cache-min=12
+cache-min=99
 
 # Mplayer in the framebuffer
 [vo.fb]
