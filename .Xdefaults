@@ -33,7 +33,7 @@ Urxvt.boldItalicFont:	xft:DejaVu Sans Mono:bold:italic:pixelsize=12
 !Urxvt.italicFont:		xft:Consolas:italic:pixelsize=14
 !Urxvt.boldItalicFont:	xft:Consolas:bold:italic:pixelsize=14
 !urxvt.background:		rgba:0000/0000/0000/cccc
-urxvt.background:		#ededed
+urxvt.background:		#193041
 urxvt.foreground:		#dedede
 URxvt.transparent:		true
 URxvt.shading:			10
@@ -51,28 +51,28 @@ URxvt.color0:   #121212
 URxvt.color8:   #a0a0a0
 !DarkRed + Red
 URxvt.color1:   #8a110e
-URxvt.color9:   #b01010
+URxvt.color9:   #a00618
 !DarkGreen + Green
-URxvt.color2:   #5b7b43
-URxvt.color10:  #78c16e
+URxvt.color2:   #494b36
+URxvt.color10:  #8d9a7b
 !DarkYellow + Yellow
-URxvt.color3:   #d2b61a
-URxvt.color11:  #d9d2ad
+URxvt.color3:   #867621
+URxvt.color11:  #d1b934
 !DarkBlue + Blue
 URxvt.color4:   #3a4953
 URxvt.color12:  #315772
 !DarkMagenta + Magenta
 URxvt.color5:	#161d42
-URxvt.color13:  #433862
+URxvt.color13:  #5b3b78
 !DarkCyan + Cyan
-URxvt.color6:   #4987ad
-URxvt.color14:  #2ca0a4
+URxvt.color6:   #2f5473
+URxvt.color14:  #4e88b7
 !LightGrey + White
 URxvt.color7:   #dedede
 URxvt.color15:  #fdfdfd
 URxvt.colorBD:	#4e88b7
 URxvt.colorUL:	#315772
-URxvt.colorIT:			white
+URxvt.colorIT:			#fdfdfd
 URxvt.scrollBar:		true
 URxvt.scrollColor:		#4e88b7
 URxvt.scrollstyle:		plain
