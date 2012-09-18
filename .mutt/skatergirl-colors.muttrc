@@ -2,11 +2,11 @@
 # (default=transparent)
 
 color normal     default		default		# normal text
-color indicator  white			red			# indicator of selected message/mailbox in index
+color indicator  white			cyan		# indicator of selected message/mailbox in index
 color tree       brightred			default		# tree arrows
-color status	 brightyellow	black		# statusline
+color status	 brightblue	black		# statusline
 color error      red			default		# errors
-color message    yellow			default		# info messages
+color message    blue			default		# info messages
 color signature  white			default
 color attachment yellow			default		# mime attachments
 color search     brightmagenta  default
@@ -20,7 +20,7 @@ color underline  black          default		# underlined text in body
 color hdrdefault blue		default		# default headers
 color header     brightblue	default  "^(from|subject):"  # from and subject headers
 
-color body       yellow    default  "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?" 
+color body       brightcyan    default  "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?" 
 color body       brightred      default  "[-a-z_0-9.+]+@[-a-z_0-9.]+" 
 color body       red            default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]" 
 color body       cyan			default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]" 

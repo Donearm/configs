@@ -1,51 +1,51 @@
-" == Pentadactyl Color Scheme ==
+" == Vimperator Color Scheme ==
 
 hi clear
 
-hi StatusLine color: #963f14; background: #dedede; font-size: 9pt;
-"hi StatusLineNormal color: #963f14; background: #dedede; font-size: 9pt;
-"hi StatusLineBroken color: #dcdcdc; background: #e25a74; font-size: 9pt;
-"hi StatusLineSecure color: #c70c0c; background: #e25a74; font-size: 9pt;
-"hi StatusLineExtended color: #c70c0c; background: #e25a74; font-size: 9pt;
+hi StatusLine color: #161d42; background: #ededed; font-size: 9pt;
+"hi StatusLineNormal color: #161d42; background: #ededed; font-size: 9pt;
+"hi StatusLineBroken color: #dcdcdc; background: #a0718a; font-size: 9pt;
+"hi StatusLineSecure color: #c70c0c; background: #a0718a; font-size: 9pt;
+"hi StatusLineExtended color: #c70c0c; background: #a0718a; font-size: 9pt;
 
-hi Normal color: #963f14; background: #dedede; font-size: 9pt;
-hi CmdLine color: #963f14; background: #dedede; font-size: 9pt;
+hi Normal color: #161d42; background: #ededed; font-size: 9pt;
+hi CmdLine color: #161d42; background: #ededed; font-size: 9pt;
 
-hi CompTitle color: #963f14; background #dedede; font-weight: normal;
+hi CompTitle color: #161d42; background #ededed; font-weight: normal;
 hi CompTitle>* padding: 0.5ex;
-"hi CompTitleSep color: #e25a74;
-hi CompItem[selected] color: #963f14; background: #8b877b; font-weight: bold;
+"hi CompTitleSep color: #a0718a;
+hi CompItem[selected] color: #161d42; background: #a0949a; font-weight: bold;
 hi CompIcon width: 16px; min-width: 16px; display: inline-block; margin-right: 0.5ex;
 "hi CompLess text-align: center; height: 0; line-height: 0.5ex; padding-top: 1ex;
 "hi CompMore text-align: center; height: .5ex; line-height: 0.5ex; margin-bottom: -0.5ex;
-hi CompMsg color: #dedede;
-hi CompResult color: #963f14; font-weight: normal; width: 40%; overflow: hidden;
-hi CompDesc color: #963f14; font-weight: normal; width: 60%;
+hi CompMsg color: #ededed;
+hi CompResult color: #161d42; font-weight: normal; width: 40%; overflow: hidden;
+hi CompDesc color: #161d42; font-weight: normal; width: 60%;
 
 hi Bell border: 0 none; background: inherit;
-hi ErrorMsg color: red; background: #dedede; font-weight: bold;
-hi Indicator color: #e25a74; background: #dedede;
+hi ErrorMsg color: red; background: #ededed; font-weight: bold;
+hi Indicator color: #a0718a; background: #ededed;
 hi LineNr color: red; background: inherit !important;
 
-hi Hint color: #dedede; background: #963f14; font-family: Terminus; opacity: .9; font-size: 120%;
+hi Hint color: #ededed; background: #161d42; font-family: Terminus; opacity: .9; font-size: 120%;
 hi Hint::after content: attr(number);
-hi HintActive color: #d44a25 !important; background: inherit;
-hi HintElem color: #e30060;
-hi HintImage color: #d44a25 !important; opacity: .2;
+hi HintActive color: #4e88b7 !important; background: inherit;
+hi HintElem color: #4e88b7;
+hi HintImage color: #4e88b7 !important; opacity: .2;
 
 hi Message white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
-hi WarningMsg color: #ff0000; background: #dedede;
-hi ModeMsg color: #121212; background: #dedede;
-hi MoreMsg color: #121212; background: #dedede;
+hi WarningMsg color: #ff0000; background: #ededed;
+hi ModeMsg color: #121212; background: #ededed;
+hi MoreMsg color: #121212; background: #ededed;
 
 hi NonText min-height: 16px; padding-left: 2px;
-hi Question color: #e5e5e5; background: #e25a74; font-weight: bold;
+hi Question color: #ededed; background: #a0718a; font-weight: bold;
 
-hi Filter color: #e25a74; font-weight: bold;
+hi Filter color: #a0718a; font-weight: bold;
 
-hi Title color: black; background #dedede; font-weight: normal;
-hi URL color: #963f14; text-decoration: none;
+hi Title color: black; background #ededed; font-weight: normal;
+hi URL color: #161d42; text-decoration: none;
 hi URL:hover text-decoration: underline; cursor: pointer;
-hi Tag color: #e25a74; text-decoration: underline;
+hi Tag color: #a0718a; text-decoration: underline;
 
 " vim: set ft=vim tw=0:

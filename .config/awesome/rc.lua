@@ -23,7 +23,7 @@ end
 -- Home directory
 home = os.getenv("HOME")
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/skatergirl"
+theme_path = home .. "/.config/awesome/themes/tera01"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
