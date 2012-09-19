@@ -53,7 +53,7 @@ URxvt.color8:   #a0a0a0
 URxvt.color1:   #8a110e
 URxvt.color9:   #a00618
 !DarkGreen + Green
-URxvt.color2:   #494b36
+URxvt.color2:   #3f4418
 URxvt.color10:  #8d9a7b
 !DarkYellow + Yellow
 URxvt.color3:   #867621
