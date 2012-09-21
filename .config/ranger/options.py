@@ -25,8 +25,7 @@ column_ratios = (1, 3, 4)
 
 # Which files should be hidden?  Toggle this by typing `zh' or
 # changing the setting `show_hidden'
-hidden_filter = regexp(
-	r'^\.|\.(?:pyc|pyo|bak|swp)$|^lost\+found$|^__(py)?cache__$')
+hidden_filter = r'^\.|\.(?:pyc|pyo|bak|swp)$|^lost\+found$|^__(py)?cache__$'
 show_hidden = False
 
 # Which script is used to generate file previews?
@@ -56,6 +55,10 @@ collapse_preview = True
 
 # Save the console history on exit?
 save_console_history = True
+
+# Draw a progress bar in the status bar which displays the average state of all
+# currently running tasks which support progress bars?
+draw_progress_bar_in_status_bar = True
 
 # Draw borders around columns?
 draw_borders = False
