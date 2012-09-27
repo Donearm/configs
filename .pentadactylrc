@@ -64,6 +64,7 @@ map <Leader>z :js window.content.document.toggleImageSize();<CR>
 " qmarks
 qmark k file:///home/gianluca/.tiddlywiki/kortirion_tiddlywiki.html
 qmark v file:///home/gianluca/.tiddlywiki/viaggi.html
+qmark d http://donearm.github.com/
 
 " customized next and previous patterns
 set nextpattern=^>$,[Nn]ext,[Mm]ore,([Ss]ucc|[Ss]uccessiva),([Pp]ross|[Pp]rossima),([Aa]vanti),^(>>|»)$,^(>|»),(>|»)$
