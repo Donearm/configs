@@ -5,7 +5,6 @@ alias cp="cp -p"
 alias df="df -T"
 alias du="du -h -c"
 alias bash="/bin/bash --login"
-alias konsole="konsole --ls"
 alias slrn="slrn --kill-log $HOME/.slrn/kill_log.log"
 alias startx="startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors"
 alias fetf="fetchmail -F pop.mail.yahoo.it pop3.live.com"
@@ -16,14 +15,13 @@ alias bajkal="mutt -f imap://in.virgilio.it"
 alias pop3yahoo="mutt -f pop://gianluca1181@pop.mail.yahoo.it"
 alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
 alias alsamixer="alsamixer -V all"
-alias voracious="voracious --age-limit 2800 -b kortirion --nobozo"
 alias dpmsoff="xset -dpms && xset s off"
 alias dpmson="xset +dpms && xset s on"
 alias vcs="vcs -j -c 4 -u nirari -H 200 -O bg_heading=lavender \
 -O bg_sign=lavender -O bg_contact=lavender \
 -O font_heading=DejaVu-Sans-Condensed-Bold"
 alias dvdburn="growisofs -Z /dev/cdrom -J -R"
-alias httpsharedir="python2 /usr/lib/python2.7/SimpleHTTPServer.py 8001"
+alias httpsharedir="python -m http.server 8001"
 # Skype using gtk instead of qt
 alias skype="skype --disable-cleanlooks -style GTK"
 # Mplayer using 2 threads/cpu by default 
