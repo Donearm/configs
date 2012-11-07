@@ -67,8 +67,12 @@ mkmv() {
 }
 
 startX() {
-	nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors
-	#nohup &> /dev/null sudo telinit 5
+	if [ -z "$XDG_VTNR" ]; then
+		nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors
+	else
+		nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 vt$XDG_VTNR 2> ~/.xsession-errors
+	fi
+	disown
 	logout
 }
 
