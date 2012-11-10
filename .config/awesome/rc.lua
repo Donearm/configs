@@ -47,7 +47,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 
 -- Some variables
-browser = "firefox -P navigation"
+browser = "firefox"
 music = terminal .. " -e ncmpcpp"
 musicPlay = "ncmpcpp toggle"
 musicStop = "ncmpcpp stop"
