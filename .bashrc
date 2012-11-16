@@ -250,7 +250,8 @@ export GREP_OPTIONS="--color"
 # 104 (light blue background)
 # 105 (light purple background)
 # 106 (turquoise background
-export LS_COLORS="di=1:fi=0:ln=95:pi=93:so=36:bd=96:cd=96:or=95,101:mi=95,101:ex=94"
+#export LS_COLORS="di=1:fi=0:ln=95:pi=93:so=36:bd=96:cd=96:or=95,101:mi=95,101:ex=94"
+eval $(dircolors -b ~/.dir_colors/dircolors.256dark)
 
 # set the desktop integration for OO (may be kde or gnome)
 export OOO_FORCE_DESKTOP=gnome
