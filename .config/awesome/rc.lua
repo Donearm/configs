@@ -945,9 +945,8 @@ autorunApps =
 {
 --    "xscreensaver -no-splash",
     "xbindkeys",
---    "xcompmgr -c -C -r10 -o.70 -D5 &",
---    "cairo-compmgr &",
-    "compton -cC -fF -t 0.015 -I 0.065 -O 0.065 -D 10 -r 0.5 -b",
+--    "compton -cC -fF -t 0.015 -I 0.065 -O 0.065 -D 10 -r 0.5 -b",
+    "compton --config ~/.config/compton.conf",
     "xset m 0.7 2",
     "xset dpms 0 900 2750",
     "urxvtd -q -o -f",
