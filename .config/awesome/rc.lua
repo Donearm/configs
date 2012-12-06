@@ -946,7 +946,7 @@ autorunApps =
 --    "xscreensaver -no-splash",
     "xbindkeys",
 --    "compton -cC -fF -t 0.015 -I 0.065 -O 0.065 -D 10 -r 0.5 -b",
-    "compton --config ~/.config/compton.conf",
+    "compton --config ~/.config/compton.conf -b",
     "xset m 0.7 2",
     "xset dpms 0 900 2750",
     "urxvtd -q -o -f",
