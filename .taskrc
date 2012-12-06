@@ -52,6 +52,7 @@ color.project.pyimageuploader=on blue
 color.project.travel=yellow on black
 color.project.portuguese=bold green on gray
 color.project.spanish=bold red on gray
+color.project.wiki=bold magenta on black
 
 #shadow.file=~/.task/shadow.txt
 #shadow.command=list
