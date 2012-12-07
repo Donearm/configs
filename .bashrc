@@ -96,6 +96,13 @@ vboxbuild() {
 	sudo dkms install vboxhost/$1 -k $(uname -r)/$(uname -m)
 }
 
+gitgrep() {
+	git rev-list --all | ( while read revision; do
+		git grep -F $1 $revision;
+	done
+	)
+}
+
 # No one should read/write/execute my files by default
 #umask 0077
 
