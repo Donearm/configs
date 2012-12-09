@@ -1,12 +1,12 @@
 -- Standard awesome library
-require("awful")
-require("awful.autofocus")
-require("awful.rules")
+awful = require("awful")
+awful.autofocus = require("awful.autofocus")
+awful.rules = require("awful.rules")
 -- Theme handling library
-require("beautiful")
+beautiful = require("beautiful")
 -- Notification library
-require("naughty")
-local vicious = require("vicious")
+naughty = require("naughty")
+vicious = require("vicious")
 
 require("mpd-popup")
 
@@ -946,7 +946,7 @@ autorunApps =
 --    "xscreensaver -no-splash",
     "xbindkeys",
 --    "compton -cC -fF -t 0.015 -I 0.065 -O 0.065 -D 10 -r 0.5 -b",
-    "compton --config ~/.config/compton.conf -b",
+    "compton --config /home/gianluca/.config/compton.conf -b",
     "xset m 0.7 2",
     "xset dpms 0 900 2750",
     "urxvtd -q -o -f",
