@@ -34,7 +34,7 @@ set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?\*nrtgidIU+-=<Tab><Retur
 set passkeys+='plus\.google\.com':jk
 set passkeys+='google\.com/reader':jkovASNPO<Space>?
 set passkeys+='twitter\.com':jkn<CR>\.\?,gh,gr
-set passkeys+='getprismatic\.com':jkobs
+set passkeys+='getprismatic\.com':jkobsd,gh,gd,gs,gg
 
 " Add the current url as a task for taskwarrior.org
 map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
