@@ -8,7 +8,8 @@ beautiful = require("beautiful")
 naughty = require("naughty")
 vicious = require("vicious")
 
-require("mpd-popup")
+--require("mpd-popup")
+--local mpdpopup = require("mpd-popup")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -412,7 +413,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.archlinux_image),
 
 -- Cpu widget
 cputag = widget({ type = "textbox"})
-cputag.text = "CPU"
+cputag.text = "CPU "
 cpuwidget = widget({ type = "textbox" })
 cpuwidget:add_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:add_signal("mouse::leave", function () psByCpu(1) end)
@@ -487,8 +488,8 @@ vicious.register(maildirwidget, vicious.widgets.mdir, '$1 ', 300, { maildir })
 -- Temperatures
 --
 cputemp = widget({ type = 'textbox'})
-vicious.register(cputemp, getCpuTemp, "$1", 30)
---vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
+--vicious.register(cputemp, getCpuTemp, "$1", 30)
+vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
 
 --mobotemp = widget({ type = 'textbox'})
 --vicious.register(mobotemp, vicious.widgets.thermal, "$1°C", 50, "thermal_zone1")
@@ -946,7 +947,7 @@ autorunApps =
 --    "xscreensaver -no-splash",
     "xbindkeys",
 --    "compton -cC -fF -t 0.015 -I 0.065 -O 0.065 -D 10 -r 0.5 -b",
-    "compton --config /home/gianluca/.config/compton.conf -b",
+    "compton --config /home/gianluca/.config/compton.conf",
     "xset m 0.7 2",
     "xset dpms 0 900 2750",
     "urxvtd -q -o -f",
