@@ -20,6 +20,6 @@ exec awesome
 # exec /opt/kde/bin/startkde
 #exec ck-launch-session gnome-session
 # exec ck-launch-session /mnt/documents/Script/compiz_start.sh
-#exec /mnt/documents/Script/awesome_autostart.sh
 #exec /mnt/documents/Script/dwm_start.sh
-#exec /mnt/documents/Script/xmonad_start.sh
+#exec /home/gianluca/monsterwm_start.sh
+#exec /mnt/documents/Script/old_scripts/xmonad_start.sh
