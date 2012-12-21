@@ -170,7 +170,7 @@ then
 		fi
 	fi
     if [[ `whoami` == "root" ]]; then
-		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y)${bMagenta}»${bnc} \w \n${bred} >: ${bnc}"
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) ${bMagenta}»${bnc} \w \n${bred} >: ${bnc}"
     else
 		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s])${bMagenta}»${bnc} \w \n >: "
     fi
