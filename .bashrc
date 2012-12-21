@@ -187,7 +187,7 @@ else
 fi
 
 
-export BROWSER="/usr/bin/firefox"
+export BROWSER="firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 export SERVER='news.tin.it'
