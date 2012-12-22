@@ -353,7 +353,7 @@ tags = {}
 tags.setup = {
     { name = "♒", layout = layouts[1] },
     { name = "♂", layout = layouts[1] },
-    { name = "♀", layout = layouts[7] },
+    { name = "∞", layout = layouts[7] },
     { name = "⚒", layout = layouts[1] },
     { name = "☥", layout = layouts[1] },
     { name = "♔", layout = layouts[1] },
