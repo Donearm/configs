@@ -516,6 +516,7 @@ mpdwidget = widget({ type = 'textbox' })
 vicious.register(mpdwidget, vicious.widgets.mpd,
     function (widget, args)
     if args["{state}"] == "Stop" then
+        mpdicon.image = image(beautiful.transparent_image)
         return ""
     elseif args["{state}"] == "Play" then
         mpdicon.image = image(beautiful.playing_image)
