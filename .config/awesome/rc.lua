@@ -508,6 +508,9 @@ taskicon:buttons(awful.util.table.join(
     )
 )
 
+-- Mpd icon
+mpdicon = widget({ type = "imagebox" })
+
 -- Mpd widget
 mpdwidget = widget({ type = 'textbox' })
 vicious.register(mpdwidget, vicious.widgets.mpd,
@@ -515,9 +518,11 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
     if args["{state}"] == "Stop" then
         return ""
     elseif args["{state}"] == "Play" then
+        mpdicon.image = image(beautiful.playing_image)
         return ' ' .. setFg(par_color, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(par_color, '] ')
     elseif args["{state}"] == "Pause" then
-        return ' ' .. setFg(par_color, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(par_color, ']') .. '{PAUSED} '
+        mpdicon.image = image(beautiful.pause_playing_image)
+        return ' ' .. setFg(par_color, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(par_color, ']')
     end
 end, 2 )
 mpdwidget:buttons(
@@ -678,6 +683,7 @@ for s = 1, screen.count() do
         datebox,
         volumewidget,
         mpdwidget,
+        mpdicon,
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
