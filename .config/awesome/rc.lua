@@ -542,10 +542,6 @@ globalkeys = awful.util.table.join(
     awful.key({ none                }, "XF86Mail", function () awful.util.spawn(mutt) end),
     awful.key({ modkey, "Control"   }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
     awful.key({ modkey,             }, "c", function() simulateClick() end),
-    -- Win+z: stop any widget but battery and wifi, Win+Shift+z:
-    -- reactivate all widgets
-    awful.key({ modkey,             }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh stop") end),
-    awful.key({ modkey, "Shift"     }, "z", function() io.popen(home .. "/Script/awesome_widgets.sh start") end),
 
     -- Mod4+s set the window sticky; pressing it again leave the window
     -- only on the current tag
