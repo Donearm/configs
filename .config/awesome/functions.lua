@@ -93,6 +93,43 @@ function xprop(c)
     })
 end
 
+-- Wifi naughty message
+function wifiMessage(adapter)
+    local f = io.open("cat /sys/class/net/"..adapter.."/wireless/link")
+    local wifiStrength = f:read("*a")
+    f:close()
+    if wifiStrength == "0" then
+        naughty.notify({ title = "Wifi message",
+            text = "No wireless connectivity!",
+            timeout = 3,
+            position = "top_right",
+            fg = beautiful.fg_focus,
+            bg = beautiful.bg_focus
+        })
+	end
+end
+
+-- Wifi signal
+function wifiInfo(adapter)
+    local f = io.open("/sys/class/net/"..adapter.."/wireless/link")
+    local wifiStrength = f:read()
+    f:close()
+
+
+    if wifiStrength == "0" then
+        wifiStrength = setFg('#ff6565', wifiStrength) .. "%"
+        naughty.notify({ title = "Wifi message",
+            text = "No wireless connectivity!",
+            timeout = 3,
+            position = "top_right",
+            fg = beautiful.fg_focus,
+            bg = beautiful.bg_focus
+        })
+    else
+        wifiStrength = wifiStrength.."%"
+    end
+    wifiwidget.text = setFg(beautiful.fg_normal, wifiStrength) 
+end
 
 --- Cover art showing function
 local coverart_on
@@ -176,6 +213,14 @@ function getGpuTemp ()
     end
 end
 
+-- Get temp of /dev/sda hard disk (via hddtemp)
+function getSdaTemp ()
+	local f = io.popen("sudo hddtemp /dev/sda | awk '{print $4}'")
+	local n = f:read()
+	f:close()
+	return setFg(beautiful.fg_normal, ' '..n..'°C ')
+end
+
 ---- Calendar functions
 -- One to show the current month's calendar, another to destroy the 
 -- notification
@@ -208,6 +253,49 @@ function addCalendar(inc_offset)
     })
 end
 
+-- Battery level
+function batteryInfo(adapter)
+    local fcur = io.open("/sys/class/power_supply/"..adapter.."/charge_now")
+    local fcap = io.open("/sys/class/power_supply/"..adapter.."/charge_full")
+    local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
+    local cur = fcur:read()
+    fcur:close()
+    local cap = fcap:read()
+    fcap:close()
+    local sta = fsta:read()
+    fsta:close()
+
+    local battery = math.floor(cur * 100 / cap)
+
+    if sta:match("Charging") then
+        dir = "^"
+        battery = battery.."%"..dir
+    elseif sta:match("Discharging") then
+        dir = "v"
+        --battery  = dir..battery.."%"..dir
+        if tonumber(battery) >= 25 and tonumber(battery) <= 50 then
+            local battery_perc = battery.."%"..dir
+            battery = setFg("#e6d51d", battery_perc)
+        elseif tonumber(battery) < 25 then
+            if tonumber(battery) <= 5 then
+                naughty.notify({ title = "Battery Warning",
+                    text = "Battery low!"..spacer..battery.."%"..spacer.."left!",
+                    timeout = 5,
+                    position = "top_right",
+                    fg = beautiful.fg_focus,
+                    bg = beautiful.bg_focus
+                })
+            end
+            local battery_perc = battery.."%"..dir
+            battery = setFg("#ff6565", battery)
+        end
+    else
+        dir = "="
+        battery = "AC"..dir
+    end
+
+    batterywidget.text = spacer..setFg(beautiful.fg_normal, battery)
+end
 --- Show the 15 processes occupying the most the cpu in a naughty 
 --notification
 function psByCpu(n)
@@ -286,6 +374,23 @@ end
 -- And the function to read the temporary file
 function runGmailCheck()
     os.execute(home .. "/Script/imap_check.py > /tmp/gmailcheck &")
+end
+
+-- Show currently playing song in moc
+function mocMessage(n)
+	if n == 1 then
+		naughty.destroy(message)
+		message = nil
+	else
+		local i = io.popen("mocp --info"):read("*a")
+
+		message = naughty.notify({
+			title = "Now Playing",
+			text = i,
+			timeout = 0,
+			hover_timeout = 1
+		})
+	end
 end
 
 ---- }}}
