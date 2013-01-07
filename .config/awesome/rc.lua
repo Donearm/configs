@@ -725,31 +725,30 @@ awful.rules.rules = {
 
 -- {{{ Autorun apps
 autorun = true
-autorunApps =
-{
-    "xbindkeys",
-    "compton --config /home/gianluca/.config/compton.conf",
-    "xset m 0.7 2",
-    "xset dpms 0 900 2750",
-    "urxvtd -q -o -f",
-}
+
+--- Old method
+--autorunApps =
+--{
+--    "xbindkeys",
+--    "compton --config /home/gianluca/.config/compton.conf",
+--    "xset m 0.7 2",
+--    "xset dpms 0 900 2750",
+--    "urxvtd -q -o -f",
+--}
 
 --if autorun then
 --    for app = 1, #autorunApps do
---        local p = os.execute("pgrep " .. autorunApps[app])
---        print(p)
---        if p ~= 0 then
---            awful.util.spawn(autorunApps[app]) 
---        else
---            return nil
---        end
+--        awful.util.spawn(autorunApps[app])
 --    end
 --end
 
+--- New method
 if autorun then
-    for app = 1, #autorunApps do
-        awful.util.spawn(autorunApps[app])
-    end
+    run_once("xbindkeys")
+    run_once("compton", "--config /home/gianluca/.config/compton.conf")
+    run_once("xset", "m 0.7 2")
+    run_once("xset", "dpms 0 900 2750")
+    run_once("urxvtd", "-q -o -f")
 end
 
 -- }}}
