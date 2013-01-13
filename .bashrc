@@ -1,5 +1,6 @@
 alias vi="vim"
 alias ll="ls -asl -F -T 0 -b -H -1 --color=always"
+alias l="ls -CF"
 alias less="less -r"
 alias cp="cp -p"
 alias df="df -T"
