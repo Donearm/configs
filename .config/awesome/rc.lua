@@ -424,7 +424,6 @@ for s = 1, screen.count() do
     topwibox_left:add(mytaglist[s])
     topwibox_left:add(mylauncher)
     topwibox_left:add(mypromptbox[s])
-    topwibox_left:add(mytasklist[s])
 
     local topwibox_right = wibox.layout.fixed.horizontal()
     topwibox_right:add(cputag)
@@ -443,6 +442,7 @@ for s = 1, screen.count() do
     local topwibox_layout = wibox.layout.align.horizontal()
     topwibox_layout:set_left(topwibox_left)
     topwibox_layout:set_right(topwibox_right)
+    topwibox_layout:set_middle(mytasklist[s]) -- tasklist, alone, occupy the remaining space in the middle
     topwibox[s]:set_widget(topwibox_layout)
 
     -- Create the bottom wibox
