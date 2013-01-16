@@ -214,7 +214,6 @@ memtag:set_text(" RAM ")
 memwidget = wibox.widget.textbox()
 memwidget:connect_signal("mouse::enter", function () psByMemory(0) end)
 memwidget:connect_signal("mouse::leave", function () psByMemory(1) end)
---vicious.register(memwidget, vicious.widgets.mem, "$1|$2", 10)
 vicious.register(memwidget, vicious.widgets.mem, 
     function (widget, args)
         if args[1] > 70 then
@@ -265,13 +264,6 @@ vicious.register(maildirwidget, vicious.widgets.mdir, '$1 ', 300, { maildir })
 --
 cputemp = wibox.widget.textbox()
 vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
-
---mobotemp = wibox.widget.textbox()
---vicious.register(mobotemp, vicious.widgets.thermal, "$1°C", 50, "thermal_zone1")
---vicious.register(mobotemp, getMoboTemp, "$1", 50)
-
---gputemp = wibox.widget.textbox()
---vicious.register(gputemp, getGpuTemp, "$1", 30)
  
 -- Bottom Statusbar widgets
 
@@ -442,7 +434,7 @@ for s = 1, screen.count() do
     local topwibox_layout = wibox.layout.align.horizontal()
     topwibox_layout:set_left(topwibox_left)
     topwibox_layout:set_right(topwibox_right)
-    topwibox_layout:set_middle(mytasklist[s]) -- tasklist, alone, occupy the remaining space in the middle
+    topwibox_layout:set_middle(mytasklist[s]) -- tasklist, alone, occupies the remaining space in the middle
     topwibox[s]:set_widget(topwibox_layout)
 
     -- Create the bottom wibox
@@ -682,6 +674,8 @@ awful.rules.rules = {
       properties = { slave = true } },
     { rule = { class = "Shotwell" },
       properties = { tag = tags[1][5]} },
+    { rule = { class = "Digikam" },
+      properties = { tag = tags[1][5]} },
     { rule = { class = "feh" },
       properties = { floating = true } },
     { rule = { class = "gcolor2" }, 
@@ -705,10 +699,6 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Hp-toolbox" },
       properties = { floating = true } },
-    { rule = { class = "Slimrat-gui" },
-      properties = { floating = true } },
-    { rule = { class = "evince" },
-      properties = { floating = true } },
     { rule = { class = "Pidgin" },
       properties = { tag = tags[1][6] },
       callback = awful.client.setslave },
@@ -716,17 +706,14 @@ awful.rules.rules = {
       properties = { tag = tags[1][6] } },
     { rule = { role = "conversation" },
       properties = { tag = tags[1][6] } },
-    { rule = { class = "Choqok" },
-      properties = { floating = true } },
     { rule = { name = "JDownloader" },
       properties = { tag = tags[1][7] } },
   }
 
-
 -- {{{ Autorun apps
 autorun = true
 
---- Old method
+--- Old way
 --autorunApps =
 --{
 --    "xbindkeys",
@@ -742,7 +729,7 @@ autorun = true
 --    end
 --end
 
---- New method
+--- New way
 if autorun then
     run_once("xbindkeys")
     run_once("compton", "--config /home/gianluca/.config/compton.conf")
