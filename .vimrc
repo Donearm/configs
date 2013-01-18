@@ -216,6 +216,8 @@ if has("autocmd")
 		autocmd FileType c setlocal cindent
 		ab #i #include
 		ab #d #define
+		inoremap //	/*
+		inoremap \\ */
 	augroup END
 
 	augroup Ruby
