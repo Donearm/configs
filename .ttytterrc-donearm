@@ -4,6 +4,7 @@ dostream=1
 # no foursquare and other annoying tweets...
 filter="count,/^I'm\sat/ || /http\:\/\/4sq\.com/ || /^I\sjust\sbecame\sthe\sma[yj]or/ || /^Latoya/ || /^I\sjust\sunlocked/ || /^I\sjust\sousted/ || /^Was\sout\srunning/ || /^I\sunlocked/ || /getglue/ || /http\:\/\/ask\.fm/"
 hold=1
+filterflags=count
 notifies=dm,reply,default
 #notifytype=libnotify
 urlopen=firefox -new-tab %U
