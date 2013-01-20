@@ -212,7 +212,7 @@ if has("autocmd")
 	augroup END
 
 	augroup C
-		autocmd FileType c set makeprg=gcc\ -o\ %<\ %
+		autocmd FileType c set makeprg=gcc\ -Wall\ -o\ %<\ %
 		autocmd FileType c setlocal cindent
 		ab #i #include
 		ab #d #define
