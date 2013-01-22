@@ -227,8 +227,8 @@ if has("autocmd")
 	augroup Markdown
 		"" options for markdown files
 		autocmd FileType markdown setlocal textwidth=0 spell
-		nnoremap <leader>* i**<Esc>ea**<Esc>
-		nnoremap <leader>_ i_<Esc>ea_<Esc>
+		autocmd FileType markdown nnoremap <leader>* i**<Esc>ea**<Esc>
+		autocmd FileType markdown nnoremap <leader>_ i_<Esc>ea_<Esc>
 	augroup END
 
 	augroup Java
