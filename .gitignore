@@ -4,6 +4,7 @@
 *.bak
 *.o
 *.so
+tags
 
 *.log
 Thumbs.db
