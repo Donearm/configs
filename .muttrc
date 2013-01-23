@@ -138,7 +138,7 @@ set tmpdir="/tmp"		# where to store temp files
 #set use_8bitmime		# enable the -B8BITMIME sendmail flag
 set nouse_domain		# don't qualify local addresses with $domain
 #set use_from			# always generate the `From:' header field
-set implicit_autoview=yes	# pager shows parts having a mailcap viewer
+set implicit_autoview=no	# if yes, pager will show parts having a mailcap viewer
 set visual=vim			# editor invoked by ~v in the builtin editor
 #set nowait_key			# prompt when a pipe returns normal status
 set write_inc=25		# show progress while writing mailboxes
