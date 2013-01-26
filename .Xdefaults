@@ -83,7 +83,7 @@ URxvt.iconName:			urxvt
 URxvt.saveLines:		3000
 URxvt.internalBorder:	0
 URxvt.externalBorder:	0
-URxvt.termName:			rxvt-unicode
+URxvt.termName:			rxvt-unicode-256color
 Urxvt.cutchars:			`"'&()*,;<=>?@[]{|}$`
 URxvt.hold:				true
 URxvt.loginShell:		true
