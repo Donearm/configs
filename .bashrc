@@ -161,7 +161,7 @@ then
     else
 		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) ${bMagenta}»${bnc} \w \n >: "
     fi
-elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" ]]
+elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" ]]
 then
 	# 256 colors available?
 	if [[ "$TERM" != "rxvt-256color" ]]; then
@@ -182,9 +182,9 @@ then
     export COLORTERM='rxvt-unicode'
 else
     if [[ `whoami` == "root" ]]; then
-		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y)${bMagenta}»${bnc} \w \n${bred} >: ${bnc}"
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y)${bMagenta} »${bnc} \w \n${bred} >: ${bnc}"
     else
-		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y)${bMagenta}»${bnc} \w \n >: "
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y)${bMagenta} »${bnc} \w \n >: "
     fi
 fi
 
