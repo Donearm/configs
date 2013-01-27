@@ -30,7 +30,8 @@ alias skype="skype --disable-cleanlooks -style GTK"
 #alias mplayer="mplayer -lavdopts fast:threads=2"
 # Feh alias for loading all the images in the directory
 #alias fehall="feh --scale-down -S filename ."
-alias orphans="pacman -Qtdq"
+alias orphans="pacman -Qtdq" # packages not required by any other
+alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 # Rsync alias to sync between laptop and desktop over ssh
 alias ssrsync="rsync -avz --progress --inplace --delete-after --rsh='ssh -p8898'"
 # Two openssl aliases to encode/decode files
