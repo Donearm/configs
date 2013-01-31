@@ -34,6 +34,16 @@ bindsym Mod1+d exec dmenu_run
 # installed.
 # bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
 
+# colours
+#class					border	background	text
+client.focused			#306088	#ededed		#4e88b7
+client.focused.inactive #306088	#ededed		#161d42
+client.unfocused		#ededed	#ededed		#161d42
+client.urgent			#306088	#161d42		#a0718a
+
+new_window none
+new_float 1pixel
+
 # change focus
 bindsym Mod1+j focus left
 bindsym Mod1+k focus down
@@ -84,6 +94,15 @@ bindsym Mod1+a focus parent
 # focus the child container
 #bindsym Mod1+d focus child
 
+# set workspaces' names
+#set $ws1 1:♒
+#set $ws2 2:♂
+#set $ws3 3:∞
+#set $ws4 4:⚒
+#set $ws5 5:☥
+#set $ws6 6:♔
+#set $ws7 7:☢
+
 # switch to workspace
 bindsym Mod1+1 workspace 1
 bindsym Mod1+2 workspace 2
@@ -92,9 +111,6 @@ bindsym Mod1+4 workspace 4
 bindsym Mod1+5 workspace 5
 bindsym Mod1+6 workspace 6
 bindsym Mod1+7 workspace 7
-bindsym Mod1+8 workspace 8
-bindsym Mod1+9 workspace 9
-bindsym Mod1+0 workspace 10
 
 # move focused container to workspace
 bindsym Mod1+Shift+1 move container to workspace 1
@@ -104,9 +120,6 @@ bindsym Mod1+Shift+4 move container to workspace 4
 bindsym Mod1+Shift+5 move container to workspace 5
 bindsym Mod1+Shift+6 move container to workspace 6
 bindsym Mod1+Shift+7 move container to workspace 7
-bindsym Mod1+Shift+8 move container to workspace 8
-bindsym Mod1+Shift+9 move container to workspace 9
-bindsym Mod1+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym Mod1+Shift+c reload
@@ -145,8 +158,19 @@ bindsym Mod1+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+		colors {
+			background	#ededed
+			statusline	#161d42
+#								#border	background	text
+			focused_workspace	#306088	#ededed		#4e88b7
+			active_workspace	#306088	#ededed		#161d42
+			inactive_workspace	#ededed	#a0949a		#161d42
+			urgent_workspace	#306088	#161d42		#a0718a
+		}
 }
 
+# float
+for_window [class="MPlayer"] floating enable
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
@@ -156,4 +180,3 @@ bar {
 #
 # Please remove the following exec line:
 #######################################################################
-#exec i3-config-wizard
