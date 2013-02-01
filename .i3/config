@@ -21,6 +21,9 @@ font pango:DejaVu Sans Mono 9
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
+# startup applications
+exec --no-startup-id ~/.i3/i3_startup
+
 # start a terminal
 bindsym Mod1+Return exec i3-sensible-terminal
 

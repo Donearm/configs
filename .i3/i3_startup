@@ -1,0 +1,17 @@
+#!/bin/sh
+
+feh --bg-scale /mnt/documents/Maidens/img/Wallpapers/MellisaClarke-wallpaper01.jpg &
+
+urxvtc "$@"
+if [ $? -eq 2 ]; then
+	urxvtd -q -o -f
+fi
+
+xbindkeys
+compton --config ~/.config/compton.conf &
+xset m 0.7 2
+xset dpms 0 900 2750
+
+exit 0
+
+# vi: ft=sh:
