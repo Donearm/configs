@@ -1,11 +1,14 @@
-! Dpi
+! Font settings
 Xft*antialias:	    1
 Xft*hinting:		medium
 Xft.hintstyle:		hintfull
 Xft*.lcdfilter:		lcddefault
+
+! XTerm
 xterm*termname:	    xterm-color
 xterm*utf8:			1
 
+! Xclock
 xclock*hourColor:   blue
 xclock*minuteColor: blue
 xclock*secondColor: blue
@@ -19,7 +22,7 @@ Xcursor*theme:			Obsidian
 URxvt.bitdepth:			32
 Urxvt.depth:			32
 URxvt.geometry:			80x24+0+0
-! Font options
+! Rxvt font options
 !rxvt*font:				*-iso10646-1
 !rxvt*font:				-*-freemono-medium-*-*-*-17-*-*-*-*-*-iso10646-*
 !URxvt.font:			-*-candara-*-*-*-*-*-*-*-*-*-*-iso10646-1
@@ -103,6 +106,7 @@ URxvt.tabbed.tab-bg:	0
 ! select input method (may be different from locale)
 !URxvt.imlocale:		it_IT.UTF-8	
 
+! Stjerm
 stjerm.key:			F1
 stjerm.mod:			windows
 stjerm.font:		Consolas 11
@@ -118,5 +122,6 @@ stjerm.lines:	    10000
 stjerm.showtab:	    one
 stjerm.tabpos:	    top
 
+! Lalcal
 lalcal*format:	    %a %e %b %l.%M%P
 lalcal*width:	    140
