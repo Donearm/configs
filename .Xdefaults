@@ -15,7 +15,7 @@ xclock*buffer:	    true
 xclock*background:  black
 
 ! Mouse Theme
-Xcursor*theme:			DMZ
+Xcursor*theme:			Obsidian
 URxvt.bitdepth:			32
 Urxvt.depth:			32
 URxvt.geometry:			80x24+0+0
