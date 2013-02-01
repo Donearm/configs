@@ -16,6 +16,7 @@
 	l = log --graph --decorate --no-merges --oneline
 	lp = log --graph --decorate --pretty=short -p --word-diff
 	discard = reset HEAD --hard
+	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
 [apply]
 	whitespace = fix
 [diff]
