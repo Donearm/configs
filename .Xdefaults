@@ -1,7 +1,7 @@
 ! Font settings
 Xft*antialias:	    1
 Xft*hinting:		medium
-Xft.hintstyle:		hintfull
+Xft.hintstyle:		hintlight
 Xft*.lcdfilter:		lcddefault
 
 ! XTerm
@@ -31,10 +31,10 @@ URxvt.geometry:			80x24+0+0
 !URxvt.boldFont:		xft:DejaVu Sans Mono:bold:pixelsize=12
 !Urxvt.italicFont:		xft:DejaVu Sans Mono:italic:pixelsize=12
 !Urxvt.boldItalicFont:	xft:DejaVu Sans Mono:bold:italic:pixelsize=12
-URxvt.font:				xft:Anonymous Pro:pixelsize=13
-URxvt.boldFont:			xft:Anonymous Pro:bold:pixelsize=13
-Urxvt.italicFont:		xft:Anonymous Pro:italic:pixelsize=13
-Urxvt.boldItalicFont:	xft:Anonymous Pro:bold:italic:pixelsize=13
+URxvt.font:				xft:Liberation Mono:pixelsize=12
+URxvt.boldFont:			xft:Liberation Mono:bold:pixelsize=12
+Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
+Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
 urxvt.background:		#193041
 urxvt.foreground:		#dedede
