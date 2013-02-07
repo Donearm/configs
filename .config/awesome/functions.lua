@@ -3,6 +3,7 @@
 local beautiful = require("beautiful")
 local awful = require("awful")
 local naughty = require("naughty")
+local mpdpopup = require("mpd-popup")
 
 ---- }}}
 
@@ -132,31 +133,24 @@ function wifiInfo(adapter)
     wifiwidget.text = setFg(beautiful.fg_normal, wifiStrength) 
 end
 
+---- MPD Popup ----
+
 --- Cover art showing function
 local coverart_on
 local base_id = 0
-local m_connection
 function coverart_show()
-    local id
-    local info
-    local cover_path
     -- hide a previously showing notify
     coverart_hide()
     -- get song id, info and path to the cover from mpd-popup.lua
-    -- if we have already established a connection with the mpd server
-    -- before, reuse that
-    if m_connection ~= nil then
-        m_connection, id, info, cover_path = mpd_main(base_id, m_connection)
-    else
-        m_connection, id, info, cover_path = mpd_main(base_id)
-    end
-    -- if the got id is different from the last one, show the naughty
+	local id, info, cover_path = mpd_main(base_id)
+
+    -- if the obtained id is different from the last one, show the naughty
     -- notify
     if id == nil then
         return
     end
     if base_id ~= id then
-        local img = image(cover_path)
+        local img = cover_path
         local ico = img
         local txt = info
         coverart_on = naughty.notify({
@@ -176,6 +170,8 @@ function coverart_hide()
         naughty.destroy(coverart_on)
     end
 end
+
+---- End MPD Popup ----
 
 ---- Temp functions
 
@@ -249,7 +245,7 @@ function addCalendar(inc_offset)
         text = string.format('<span font_desc="%s">%s</span>', "monospace", os.date("%a, %d %B %Y") .. "\n" .. cal),
         timeout = 0,
         hover_timeout = 0.5,
-        width = 150,
+        width = 160,
         position = "bottom_right",
     })
 end

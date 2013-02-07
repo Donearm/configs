@@ -23,7 +23,6 @@ local vicious = require("vicious")
 
 -- Custom functions
 local functions = require("functions")
---local mpdpopup = require("mpd-popup")
 
 -- }}}
 
@@ -831,9 +830,9 @@ end)
 
 
 -- call coverart_show every 2 seconds
---mpdtimer = timer({ timeout = 2 })
---mpdtimer:connect_signal("timeout", function () coverart_show() end)
---mpdtimer:start()
+mpdtimer = timer({ timeout = 2 })
+mpdtimer:connect_signal("timeout", function () coverart_show() end)
+mpdtimer:start()
 
 -- }}}
 
