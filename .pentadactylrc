@@ -33,7 +33,7 @@ set passkeys+='https://duckduckgo\.com':jkv
 set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?\*nrtgidIU+-=<Tab><Return>
 set passkeys+='plus\.google\.com':jk
 set passkeys+='google\.com/reader':jkovASNPO<Space>?
-set passkeys+='twitter\.com':jkn<CR>\.\?,gh,gr
+set passkeys+='https://twitter\.com':jkn<CR>\.\?,gh,gr,gd,gp,gf,gl,gm,gs,gu,ga,gc
 set passkeys+='getprismatic\.com':jkobsd,gh,gd,gs,gg
 
 " Add the current url as a task for taskwarrior.org

@@ -36,17 +36,17 @@ URxvt.boldFont:			xft:Liberation Mono:bold:pixelsize=12
 Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
 Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
-urxvt.background:		#193041
-urxvt.foreground:		#dedede
+urxvt.background:		#00408a
+urxvt.foreground:		#f2f3ed
 URxvt.transparent:		true
 URxvt.shading:			10
 URxvt.fading:			50
-URxvt.fadeColor:		#141413
+URxvt.fadeColor:		#00172d
 !URxvt.tintColor:		#6c9eab
 !URxvt.cursorColor:		#e4a900
-URxvt.cursorColor:		#4e88b7
-URxvt.cursorColor2:		#161d42
-URxvt.pointerColor:		#4e88b7
+URxvt.cursorColor:		#f00001
+URxvt.cursorColor2:		#f2f3ed
+URxvt.pointerColor:		#bfcfc3
 URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
 !Black + DarkGrey
@@ -54,34 +54,34 @@ URxvt.color0:   #121212
 URxvt.color8:   #a0a0a0
 !DarkRed + Red
 URxvt.color1:   #8a110e
-URxvt.color9:   #a00618
+URxvt.color9:   #f00001
 !DarkGreen + Green
-URxvt.color2:   #3f4418
-URxvt.color10:  #8d9a7b
+URxvt.color2:   #072c04
+URxvt.color10:  #61b505
 !DarkYellow + Yellow
-URxvt.color3:   #867621
-URxvt.color11:  #d1b934
+URxvt.color3:   #f7b03c
+URxvt.color11:  #f0fe01
 !DarkBlue + Blue
-URxvt.color4:   #3a4953
-URxvt.color12:  #315772
+URxvt.color4:   #003768
+URxvt.color12:  #0556a9
 !DarkMagenta + Magenta
-URxvt.color5:	#161d42
-URxvt.color13:  #5b3b78
+URxvt.color5:	#431577
+URxvt.color13:  #8648cb
 !DarkCyan + Cyan
-URxvt.color6:   #2f5473
-URxvt.color14:  #4e88b7
+URxvt.color6:   #0064ac
+URxvt.color14:  #006fc7
 !LightGrey + White
-URxvt.color7:   #dedede
-URxvt.color15:  #fdfdfd
-URxvt.colorBD:	#4e88b7
-URxvt.colorUL:	#315772
-URxvt.colorIT:			#fdfdfd
+URxvt.color7:   #bec8bd
+URxvt.color15:  #f2f3ed
+URxvt.colorBD:	#0064ac
+URxvt.colorUL:	#025870
+URxvt.colorIT:			#f2f3ed
 URxvt.scrollBar:		true
-URxvt.scrollColor:		#4e88b7
+URxvt.scrollColor:		#f00001
 URxvt.scrollstyle:		plain
 URxvt.jumpScroll:		0
 URxvt.throughColor:		yellow
-URxvt.borderColor:		#161d42
+URxvt.borderColor:		#f00001
 URxvt.iconName:			urxvt
 URxvt.saveLines:		3000
 URxvt.internalBorder:	0

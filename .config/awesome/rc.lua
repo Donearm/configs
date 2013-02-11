@@ -71,8 +71,7 @@ local mutt = terminal .. " -e mutt -y"
 local maildir = home .. "/Maildir"
 local lockScreen = "slock"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/mellisaclarke01"
---theme_path = "/usr/share/awesome/themes/default/theme.lua"
+theme_path = home .. "/.config/awesome/themes/cocktail_beach"
 -- Actually load theme
 beautiful.init(theme_path)
 -- the parentheses color
@@ -194,11 +193,11 @@ cpuwidget:connect_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
         if args[2] and args[3] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3] .. '%') .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, ']'), 5
         elseif args[2] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_urgent, args[2] .. '%') .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, ']'), 5
         elseif args[3] > 50 then
-            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_urgent, args[3] .. '%') .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, ']'), 5
         else
             return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, ']'), 5
         end
@@ -216,7 +215,7 @@ memwidget:connect_signal("mouse::leave", function () psByMemory(1) end)
 vicious.register(memwidget, vicious.widgets.mem, 
     function (widget, args)
         if args[1] > 70 then
-            return setFg(beautiful.fg_urgent, args[1] .. '%') .. setFg(par_color, '|') .. setFg(beautiful.fg_urgent, args[2] .. 'MB'), 10
+            return setFg(beautiful.fg_focus, args[1] .. '%') .. setFg(par_color, '|') .. setFg(beautiful.fg_focus, args[2] .. 'MB'), 10
         else
             return args[1] .. '%' .. setFg(par_color, '|') .. args[2] .. 'MB', 10
         end
@@ -231,7 +230,7 @@ vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
     function (widget, args)
         if tonumber(args["{eth0 up_kb}"]) > 80 then
-            return setFg(beautiful.fg_urgent, args["{eth0 up_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return setFg(beautiful.fg_focus, args["{eth0 up_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         else
             return args["{eth0 up_kb}"] .. setFg(par_color, ' [') .. args["{eth0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         end
@@ -241,7 +240,7 @@ netdownwidget = wibox.widget.textbox()
 vicious.register(netdownwidget, vicious.widgets.net,
     function (widget, args)
         if tonumber(args["{eth0 down_kb}"]) > 200 then
-            return setFg(beautiful.fg_urgent, args["{eth0 down_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return setFg(beautiful.fg_focus, args["{eth0 down_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         else
             return args["{eth0 down_kb}"] .. setFg(par_color, ' [') .. args["{eth0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         end

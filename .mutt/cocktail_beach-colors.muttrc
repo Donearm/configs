@@ -2,11 +2,11 @@
 # (default=transparent)
 
 color normal     default		default		# normal text
-color indicator  white			cyan		# indicator of selected message/mailbox in index
+color indicator  white			red			# indicator of selected message/mailbox in index
 color tree       brightred			default		# tree arrows
-color status	 brightblue	black		# statusline
+color status	 brightred		default # statusline
 color error      red			default		# errors
-color message    blue			default		# info messages
+color message    brightblue		default		# info messages
 color signature  white			default
 color attachment yellow			default		# mime attachments
 color search     brightmagenta  default
