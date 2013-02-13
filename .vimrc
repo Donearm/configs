@@ -385,13 +385,6 @@ endif
 
 " --- PROGRAMMING END ---
 "
-" --- HTML E XML ---
-" options for xml.vim (make tags compatible with xhtml)
-let xml_use_xhtml=1	    
-let xml_tag_completion_map = "<C-l>"
-" use css for generated html files
-let html_use_css=1
-
 " --- Tex and Latex ---
 "  settingf for vim-latex
 "set grepprg=grep\ -nH\ $*
