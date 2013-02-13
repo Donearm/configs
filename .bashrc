@@ -18,9 +18,6 @@ alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
 alias alsamixer="alsamixer -V all"
 alias dpmsoff="xset -dpms && xset s off"
 alias dpmson="xset +dpms && xset s on"
-alias vcs="vcs -j -c 4 -u nirari -H 200 -O bg_heading=lavender \
--O bg_sign=lavender -O bg_contact=lavender \
--O font_heading=DejaVu-Sans-Condensed-Bold"
 alias dvdburn="growisofs -Z /dev/cdrom -J -R"
 alias httpsharedir="python -m http.server 8001"
 # Skype using gtk instead of qt
