@@ -59,7 +59,7 @@ URxvt.color9:   #f00001
 URxvt.color2:   #072c04
 URxvt.color10:  #61b505
 !DarkYellow + Yellow
-URxvt.color3:   #f7b03c
+URxvt.color3:   #a4af04
 URxvt.color11:  #f0fe01
 !DarkBlue + Blue
 URxvt.color4:   #003768
