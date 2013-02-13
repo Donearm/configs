@@ -257,11 +257,6 @@ maildirtag:set_text(" MAIL ")
 maildirwidget = wibox.widget.textbox()
 vicious.register(maildirwidget, vicious.widgets.mdir, '$1 ', 300, { maildir })
 
-
--- Temperatures
---
-cputemp = wibox.widget.textbox()
-vicious.register(cputemp, vicious.widgets.thermal, "$1°C", 30, "thermal_zone0")
  
 -- Bottom Statusbar widgets
 
@@ -417,7 +412,6 @@ for s = 1, screen.count() do
 
     local topwibox_right = wibox.layout.fixed.horizontal()
     topwibox_right:add(cputag)
-    topwibox_right:add(cputemp)
     topwibox_right:add(cpuwidget)
     topwibox_right:add(memtag)
     topwibox_right:add(memwidget)
