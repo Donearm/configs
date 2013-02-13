@@ -538,28 +538,4 @@ if has("autocmd")
 	" and auto call it
 	" " currently disabled, it works only for gvim " "
 	"autocmd! FocusGained * :call HighlightCursor()
-
-	" autocmd for source.txt and 0000 files
-	augroup bbformatting
-		au!
-		autocmd FileReadPost *source.txt silent! syntax off setlocal nospell
-		autocmd FileReadPost *0000 silent! syntax off setlocal nospell
-		autocmd FileReadPost *source.mdown silent! syntax off setlocal nospell
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\s*//g
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/^\s*//g
-		autocmd BufWritePre,FileWritePre *source.txt silent! :g/^\s*$/,/\S/-j
-		autocmd BufWritePre,FileWritePre *0000 silent! :g/^\s*$/,/\S/-j
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/^\n$//g
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/^\n$//g
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\]\s*\n/URL\] /gi
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\]\s*\n/URL\] /gi
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
-		autocmd BufWritePre,FileWritePre *source.mdown silent! %s/URL\][^[]*\[URL/URL\] \[URL/gi
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/<br>//gi
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/<br>//gi
-		autocmd BufWritePre,FileWritePre *0000 silent! %s/>[^<]*</></g
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/>[^<]*</></g
-		autocmd BufWritePre,FileWritePre *source.txt silent! %s/fonte/\rfonte/gi
-	augroup END
 endif
