@@ -1,4 +1,4 @@
-" vim: set ft=vim fdm=marker tw=0:
+" vim: set ft=pentadactyl fdm=marker tw=0:
 
 set titlestring=Firefox
 set editor="gvim -f +<line> <file>"
