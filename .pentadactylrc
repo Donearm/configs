@@ -33,7 +33,7 @@ set passkeys+=https://duckduckgo.com:jkv
 set passkeys+=mail.google.com:!#*+-./<C-Down><C-s><Enter>?INU[]acefjklmnopqrsuvxyz\',*a,*n,*r,*s,*t,*u,ga,gc,gd,gi,gl,gs,gt,yo
 set passkeys+=plus.google.com:jk
 set passkeys+=google.com/reader:jkovASNPO<Space>?
-set passkeys+=https://twitter.com:jkn<CR>\.\?,gh,gr,gd,gp,gf,gl,gm,gs,gu,ga,gc
+set passkeys+=https://twitter.com:jkn<CR>\.\?\/,gh,gr,gd,gp,gf,gl,gm,gs,gu,ga,gc
 set passkeys+=getprismatic.com:jkobsd,gh,gd,gs,gg
 
 " set laissez-fair focus to allow passkeys sites to grab focus
