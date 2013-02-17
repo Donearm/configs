@@ -280,5 +280,7 @@ source /usr/share/bash-completion/completions/task
 source /mnt/documents/Script/utilities/udisks_functions
 # git prompt
 source /usr/share/git/git-prompt.sh
+# To.sh shell bookmarking
+source /mnt/documents/Script/utilities/to.sh
 
 clear # clear the screen if something is on it
