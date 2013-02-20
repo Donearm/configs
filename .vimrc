@@ -404,11 +404,8 @@ noremap <leader>line  :%s/\n/ /g
 nnoremap _Y :!echo ""> /tmp/.vi_tmp<CR><CR>:w! /tmp/.vi_tmp<CR>
 vnoremap _Y :w! /tmp/.vi_tmp<CR>
 nnoremap _P :r /tmp/.vi_tmp<CR>
-" moving the cursor disables search highlighting
-nnoremap j <Down>:nohls<CR>
-nnoremap k <Up>:nohls<CR>
-nnoremap h <Left>:nohls<CR>
-nnoremap l <Right>:nohls<CR>
+" Leader+q removes search hightlights
+nnoremap <leader>q :nohls<CR>
 " Ctrl+hjkl to navigate in insert mode
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
