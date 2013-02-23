@@ -450,6 +450,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'int3/vim-taglist-plus'
+Bundle 'Donearm/WritingMode.vim'
 
 " open link in the current row in the browser
 function! Browser ()
@@ -469,16 +470,6 @@ function! Browser ()
 	endfunction
 
 	noremap ,w :call Browser ()<CR>
-
-" Set up a writing environment for long text (not code!)
-function! WritingMode()
-	setlocal formatoptions=l
-	setlocal noexpandtab
-	set complete+=kspell
-	setlocal wrap
-	setlocal linebreak
-endfunction
-com! WritingMode call WritingMode()
 
 " open taglist
 nnoremap ,tag :TlistToggle<CR>
