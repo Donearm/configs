@@ -1,9 +1,9 @@
 #; Local mailcap preferences for the MUTT mail client.
 
 
-text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
+#text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
 text/html; firefox -new-tab %s; nametemplate=%s.html; copiousoutput
-#text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
+text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
 
 
