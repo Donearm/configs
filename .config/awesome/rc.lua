@@ -62,9 +62,9 @@ local musicPlay = "ncmpcpp toggle"
 local musicStop = "ncmpcpp stop"
 local musicPrev = "ncmpcpp prev"
 local musicNext = "ncmpcpp next"
-local soundRaiseVolume = "amixer set Master 5%+ unmute"
-local soundLowerVolume = "amixer set Master 5%- unmute"
-local soundPerfectVolume = "amixer set Master 5% unmute"
+local soundRaiseVolume = "amixer set Master 3%+ unmute"
+local soundLowerVolume = "amixer set Master 3%- unmute"
+local soundPerfectVolume = "amixer set Master 10% unmute"
 local soundMute = "amixer set Master mute"
 local filemanager = terminal .. " -e ranger"
 local mutt = terminal .. " -e mutt -y"
@@ -192,14 +192,24 @@ cpuwidget:connect_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:connect_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
-        if args[2] and args[3] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, ']'), 5
+        if args[2] and args[3] and args[4] and args[5] > 50 then
+            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, '][') 
+            .. setFg(beautiful.fg_focus, args[4] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[5] .. '%') .. setFg(par_color, ']['), 5
         elseif args[2] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][') 
+            .. args[4] .. '%' .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']['), 5
         elseif args[3] > 50 then
-            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, '][')
+            .. args[4] .. '%' .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']['), 5
+        elseif args[4] > 50 then
+            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][') 
+            .. setFg(beautiful.fg_focus, args[4] .. '%') .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']['), 5
+        elseif args[5] > 50 then
+            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][') 
+            .. args[4] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[5] .. '%') .. setFg(par_color, ']['), 5
         else
-            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, ']'), 5
+            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][')
+            .. args[4] .. '%' .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']['), 5
         end
     end, 5
 )
@@ -229,20 +239,20 @@ netupwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
     function (widget, args)
-        if tonumber(args["{eth0 up_kb}"]) > 80 then
-            return setFg(beautiful.fg_focus, args["{eth0 up_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+        if tonumber(args["{enp4s0 up_kb}"]) > 80 then
+            return setFg(beautiful.fg_focus, args["{enp4s0 up_kb}"]) .. setFg(par_color, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         else
-            return args["{eth0 up_kb}"] .. setFg(par_color, ' [') .. args["{eth0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return args["{enp4s0 up_kb}"] .. setFg(par_color, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         end
     end, nil, nil, 3
 )
 netdownwidget = wibox.widget.textbox()
 vicious.register(netdownwidget, vicious.widgets.net,
     function (widget, args)
-        if tonumber(args["{eth0 down_kb}"]) > 200 then
-            return setFg(beautiful.fg_focus, args["{eth0 down_kb}"]) .. setFg(par_color, ' [') .. args["{eth0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+        if tonumber(args["{enp4s0 down_kb}"]) > 200 then
+            return setFg(beautiful.fg_focus, args["{enp4s0 down_kb}"]) .. setFg(par_color, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         else
-            return args["{eth0 down_kb}"] .. setFg(par_color, ' [') .. args["{eth0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return args["{enp4s0 down_kb}"] .. setFg(par_color, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
         end
     end, nil, nil, 3
 )
@@ -823,9 +833,9 @@ end)
 
 
 -- call coverart_show every 2 seconds
-mpdtimer = timer({ timeout = 2 })
-mpdtimer:connect_signal("timeout", function () coverart_show() end)
-mpdtimer:start()
+--mpdtimer = timer({ timeout = 2 })
+--mpdtimer:connect_signal("timeout", function () coverart_show() end)
+--mpdtimer:start()
 
 -- }}}
 

@@ -3,7 +3,7 @@
 local beautiful = require("beautiful")
 local awful = require("awful")
 local naughty = require("naughty")
-local mpdpopup = require("mpd-popup")
+--local mpdpopup = require("mpd-popup")
 
 ---- }}}
 
