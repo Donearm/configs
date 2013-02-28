@@ -277,10 +277,10 @@ source /usr/share/bash-completion/completions/git
 source /usr/share/bash-completion/completions/tmux
 source /usr/share/bash-completion/completions/task
 # udisks functions
-source /mnt/documents/Script/utilities/udisks_functions
+source /mnt/d/Script/utilities/udisks_functions
 # git prompt
 source /usr/share/git/git-prompt.sh
 # To.sh shell bookmarking
-source /mnt/documents/Script/utilities/to.sh
+source /mnt/d/Script/utilities/to.sh
 
 clear # clear the screen if something is on it
