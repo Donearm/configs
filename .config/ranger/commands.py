@@ -477,7 +477,7 @@ class terminal(Command):
         if command not in get_executables():
             command = 'x-terminal-emulator'
         if command not in get_executables():
-            command = 'xterm'
+            command = 'urxvtc'
         self.fm.run(command, flags='f')
 
 
