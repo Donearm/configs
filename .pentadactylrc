@@ -38,7 +38,7 @@ set passkeys+=getprismatic.com:jkobsd,gh,gd,gs,gg
 set passkeys+=feedly.com:rjknpovmxset,gm,ga,gg
 
 " set laissez-fair focus to allow passkeys sites to grab focus
-set strictfocus=google.com:laissez-faire,duckduckgo.com:laissez-faire,twitter.com:laissez-faire,getprismatic.com:laissez-faire,'chrome:*':laissez-faire,*:moderate
+set strictfocus=google.com:laissez-faire,duckduckgo.com:laissez-faire,twitter.com:laissez-faire,getprismatic.com:laissez-faire,feedly.com:laissez-faire,'chrome:*':laissez-faire,*:moderate
 
 " Add the current url as a task for taskwarrior.org
 map <C-S-t> -js io.run("task", ["add", buffer.URL], false); dactyl.echomsg("Added task for " + buffer.URL);
