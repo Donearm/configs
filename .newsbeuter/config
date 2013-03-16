@@ -13,6 +13,9 @@ user-agent "Mozilla/5.0 (X11; Linux x86_64; rv:19.0) Gecko/20100101 Firefox/19.0
 bind-key "j" "down"
 bind-key "k" "up"
 bind-key "i" "open"
+bind-key "h" "prev-dialog"
+bind-key "l" "next-dialog"
+bind-key "L" "toggle-show-read-feeds"
 
 color background	color130	default
 color listnormal	color166	default
