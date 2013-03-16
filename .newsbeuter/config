@@ -1,0 +1,21 @@
+show-read-feeds	no
+auto-reload "yes"
+reload-time "60"
+browser "/mnt/d/Script/feh_or_browser.lua %u"
+max-items "200"
+cleanup-on-quit "yes"
+confirm-exit "yes"
+download-full-page "yes"
+notify-program "notify-send"
+cache-file "/mnt/c/Tempstuff/newsbeuter_cache/cache.db"
+user-agent "Mozilla/5.0 (X11; Linux x86_64; rv:19.0) Gecko/20100101 Firefox/19.0"
+
+bind-key "j" "down"
+bind-key "k" "up"
+bind-key "i" "open"
+
+color background	color130	default
+color listnormal	color166	default
+color listfocus		white		default
+color info			color253	default
+color article		color248	default
