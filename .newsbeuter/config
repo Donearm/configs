@@ -17,8 +17,8 @@ bind-key "h" "prev-dialog"
 bind-key "l" "next-dialog"
 bind-key "L" "toggle-show-read-feeds"
 
-color background	color130	default
-color listnormal	color166	default
+color background	color27		default
+color listnormal	color160	default
 color listfocus		white		default
 color info			color253	default
 color article		color248	default
