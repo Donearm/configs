@@ -226,7 +226,7 @@ if has("autocmd")
 
 	augroup Markdown
 		"" options for markdown files
-		autocmd FileType markdown setlocal textwidth=0 spell
+		autocmd FileType markdown setlocal textwidth=80 spell
 		autocmd FileType markdown nnoremap <leader>* i**<Esc>ea**<Esc>
 		autocmd FileType markdown nnoremap <leader>_ i_<Esc>ea_<Esc>
 	augroup END
