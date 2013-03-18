@@ -35,7 +35,7 @@ set passkeys+=plus.google.com:jk
 set passkeys+=google.com/reader:jkovASNPO<Space>?
 set passkeys+=https://twitter.com:jkn<CR>\.\?\/,gh,gr,gd,gp,gf,gl,gm,gs,gu,ga,gc
 set passkeys+=getprismatic.com:jkobsd,gh,gd,gs,gg
-set passkeys+=feedly.com:rjknpovmxset,gm,ga,gg
+set passkeys+=www.feedly.com:rjknpovmxset,gm,ga,gg
 set passkeys+=tumblr.com:jkln<Space><A-r><A-e>
 
 " set laissez-fair focus to allow passkeys sites to grab focus
