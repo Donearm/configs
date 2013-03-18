@@ -238,6 +238,13 @@ bind pager G bottom	# just like vi and less
 
 #bind editor \cy eol	# make ^Y jump to the end of the line
 
+# Notmuch setup
+macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" "notmuch: search mail"  
+macro index <F9> "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+"search and reconstruct owning thread with notmuch"
+macro index <F6> "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>notmuch-mutt -- tag -inbox<enter>" \
+"remove message from inbox with notmuch"
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # Specify the order of the headers to appear when displaying a message
