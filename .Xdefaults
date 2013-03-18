@@ -40,7 +40,7 @@ urxvt.background:		#00408a
 urxvt.foreground:		#f2f3ed
 URxvt.transparent:		true
 URxvt.shading:			10
-URxvt.fading:			50
+URxvt.fading:			30
 URxvt.fadeColor:		#00172d
 !URxvt.tintColor:		#6c9eab
 !URxvt.cursorColor:		#e4a900
