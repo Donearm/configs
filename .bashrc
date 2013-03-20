@@ -264,6 +264,10 @@ export OOO_FORCE_DESKTOP=gnome
 export MOZ_DISABLE_PANGO=1
 # Make Qt use Gtk2 themes
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+# Two variables to use vdpau backend via Gallium3d on open source Amd
+# drivers
+export LIBVA_DRIVER_NAME=vdpau
+export VDPAU_DRIVER=radeonsi
 
 # Check terminal size
 shopt -s checkwinsize
