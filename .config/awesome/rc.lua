@@ -71,11 +71,9 @@ local mutt = terminal .. " -e mutt -y"
 local maildir = home .. "/Maildir"
 local lockScreen = "slock"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/cocktail_beach"
+theme_path = home .. "/.config/awesome/themes/barbarapalvin01"
 -- Actually load theme
 beautiful.init(theme_path)
--- the parentheses color
-local par_color = beautiful.fg_focus
 -- Define if we want to see naughty notifications
 use_naughty = true
 naughty.config.presets.normal.border_color = beautiful.menu_border_color
@@ -193,23 +191,23 @@ cpuwidget:connect_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
         if args[2] and args[3] and args[4] and args[5] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, '][') 
-            .. setFg(beautiful.fg_focus, args[4] .. '%') .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[5] .. '%') .. setFg(par_color, ']'), 5
+            return setFg(beautiful.fg_divisions, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(beautiful.fg_divisions, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(beautiful.fg_divisions, '][') 
+            .. setFg(beautiful.fg_focus, args[4] .. '%') .. setFg(beautiful.fg_divisions, '][') .. setFg(beautiful.fg_focus, args[5] .. '%') .. setFg(beautiful.fg_divisions, ']'), 5
         elseif args[2] > 50 then
-            return setFg(par_color, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][') 
-            .. args[4] .. '%' .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']'), 5
+            return setFg(beautiful.fg_divisions, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(beautiful.fg_divisions, '][') .. args[3] .. '%' .. setFg(beautiful.fg_divisions, '][') 
+            .. args[4] .. '%' .. setFg(beautiful.fg_divisions, '][') .. args[5] .. '%' .. setFg(beautiful.fg_divisions, ']'), 5
         elseif args[3] > 50 then
-            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(par_color, '][')
-            .. args[4] .. '%' .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']'), 5
+            return setFg(beautiful.fg_divisions, '[') .. args[2] .. '%' .. setFg(beautiful.fg_divisions, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(beautiful.fg_divisions, '][')
+            .. args[4] .. '%' .. setFg(beautiful.fg_divisions, '][') .. args[5] .. '%' .. setFg(beautiful.fg_divisions, ']'), 5
         elseif args[4] > 50 then
-            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][') 
-            .. setFg(beautiful.fg_focus, args[4] .. '%') .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']'), 5
+            return setFg(beautiful.fg_divisions, '[') .. args[2] .. '%' .. setFg(beautiful.fg_divisions, '][') .. args[3] .. '%' .. setFg(beautiful.fg_divisions, '][') 
+            .. setFg(beautiful.fg_focus, args[4] .. '%') .. setFg(beautiful.fg_divisions, '][') .. args[5] .. '%' .. setFg(beautiful.fg_divisions, ']'), 5
         elseif args[5] > 50 then
-            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][') 
-            .. args[4] .. '%' .. setFg(par_color, '][') .. setFg(beautiful.fg_focus, args[5] .. '%') .. setFg(par_color, ']'), 5
+            return setFg(beautiful.fg_divisions, '[') .. args[2] .. '%' .. setFg(beautiful.fg_divisions, '][') .. args[3] .. '%' .. setFg(beautiful.fg_divisions, '][') 
+            .. args[4] .. '%' .. setFg(beautiful.fg_divisions, '][') .. setFg(beautiful.fg_focus, args[5] .. '%') .. setFg(beautiful.fg_divisions, ']'), 5
         else
-            return setFg(par_color, '[') .. args[2] .. '%' .. setFg(par_color, '][') .. args[3] .. '%' .. setFg(par_color, '][')
-            .. args[4] .. '%' .. setFg(par_color, '][') .. args[5] .. '%' .. setFg(par_color, ']'), 5
+            return setFg(beautiful.fg_divisions, '[') .. args[2] .. '%' .. setFg(beautiful.fg_divisions, '][') .. args[3] .. '%' .. setFg(beautiful.fg_divisions, '][')
+            .. args[4] .. '%' .. setFg(beautiful.fg_divisions, '][') .. args[5] .. '%' .. setFg(beautiful.fg_divisions, ']'), 5
         end
     end, 5
 )
@@ -225,9 +223,9 @@ memwidget:connect_signal("mouse::leave", function () psByMemory(1) end)
 vicious.register(memwidget, vicious.widgets.mem, 
     function (widget, args)
         if args[1] > 70 then
-            return setFg(beautiful.fg_focus, args[1] .. '%') .. setFg(par_color, '|') .. setFg(beautiful.fg_focus, args[2] .. 'MB'), 10
+            return setFg(beautiful.fg_focus, args[1] .. '%') .. setFg(beautiful.fg_divisions, '|') .. setFg(beautiful.fg_focus, args[2] .. 'MB'), 10
         else
-            return args[1] .. '%' .. setFg(par_color, '|') .. args[2] .. 'MB', 10
+            return args[1] .. '%' .. setFg(beautiful.fg_divisions, '|') .. args[2] .. 'MB', 10
         end
     end, 10
 )
@@ -240,9 +238,9 @@ vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
     function (widget, args)
         if tonumber(args["{enp4s0 up_kb}"]) > 80 then
-            return setFg(beautiful.fg_focus, args["{enp4s0 up_kb}"]) .. setFg(par_color, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return setFg(beautiful.fg_focus, args["{enp4s0 up_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         else
-            return args["{enp4s0 up_kb}"] .. setFg(par_color, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return args["{enp4s0 up_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         end
     end, nil, nil, 3
 )
@@ -250,9 +248,9 @@ netdownwidget = wibox.widget.textbox()
 vicious.register(netdownwidget, vicious.widgets.net,
     function (widget, args)
         if tonumber(args["{enp4s0 down_kb}"]) > 200 then
-            return setFg(beautiful.fg_focus, args["{enp4s0 down_kb}"]) .. setFg(par_color, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return setFg(beautiful.fg_focus, args["{enp4s0 down_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         else
-            return args["{enp4s0 down_kb}"] .. setFg(par_color, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(par_color, ']'), nil, nil, 3
+            return args["{enp4s0 down_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         end
     end, nil, nil, 3
 )
@@ -290,10 +288,10 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
         return ""
     elseif args["{state}"] == "Play" then
 		mpdicon:set_image(beautiful.playing_image)
-        return ' ' .. setFg(par_color, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(par_color, '] ')
+        return ' ' .. setFg(beautiful.fg_divisions, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(beautiful.fg_divisions, '] ')
     elseif args["{state}"] == "Pause" then
 		mpdicon:set_image(beautiful.pause_playing_image)
-        return ' ' .. setFg(par_color, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(par_color, ']') .. '{PAUSED} '
+        return ' ' .. setFg(beautiful.fg_divisions, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(beautiful.fg_divisions, ']') .. '{PAUSED} '
     end
 end, 2 )
 mpdwidget:buttons(

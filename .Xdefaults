@@ -36,52 +36,52 @@ URxvt.boldFont:			xft:Liberation Mono:bold:pixelsize=12
 Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
 Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
-urxvt.background:		#00408a
-urxvt.foreground:		#f2f3ed
+urxvt.background:		#010101
+urxvt.foreground:		#f7f7f7
 URxvt.transparent:		true
 URxvt.shading:			10
 URxvt.fading:			30
-URxvt.fadeColor:		#00172d
+URxvt.fadeColor:		#bdbdbd
 !URxvt.tintColor:		#6c9eab
 !URxvt.cursorColor:		#e4a900
-URxvt.cursorColor:		#f00001
-URxvt.cursorColor2:		#f2f3ed
-URxvt.pointerColor:		#bfcfc3
+URxvt.cursorColor:		#377fe2
+URxvt.cursorColor2:		#bdbdbd
+URxvt.pointerColor:		#bdbdbd
 URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
 !Black + DarkGrey
-URxvt.color0:   #121212
-URxvt.color8:   #a0a0a0
+URxvt.color0:   #010101
+URxvt.color8:   #484848
 !DarkRed + Red
 URxvt.color1:   #8a110e
-URxvt.color9:   #f00001
+URxvt.color9:   #ed3838
 !DarkGreen + Green
-URxvt.color2:   #072c04
-URxvt.color10:  #61b505
+URxvt.color2:   #042c15
+URxvt.color10:  #064320
 !DarkYellow + Yellow
-URxvt.color3:   #a4af04
-URxvt.color11:  #f0fe01
+URxvt.color3:   #c2c211
+URxvt.color11:  #ebeb1b
 !DarkBlue + Blue
-URxvt.color4:   #003768
-URxvt.color12:  #0556a9
+URxvt.color4:   #002a4f
+URxvt.color12:  #004582
 !DarkMagenta + Magenta
-URxvt.color5:	#431577
-URxvt.color13:  #8648cb
+URxvt.color5:	#452c61
+URxvt.color13:  #5e3c84
 !DarkCyan + Cyan
-URxvt.color6:   #0064ac
-URxvt.color14:  #006fc7
+URxvt.color6:   #3168b5
+URxvt.color14:  #377ef2
 !LightGrey + White
-URxvt.color7:   #bec8bd
-URxvt.color15:  #f2f3ed
-URxvt.colorBD:	#0064ac
-URxvt.colorUL:	#025870
-URxvt.colorIT:			#f2f3ed
+URxvt.color7:   #bdbdbd
+URxvt.color15:  #f7f7f7
+URxvt.colorBD:	#377ef2
+URxvt.colorUL:	#701a02
+URxvt.colorIT:			#bb0335
 URxvt.scrollBar:		true
-URxvt.scrollColor:		#f00001
+URxvt.scrollColor:		#377fe2
 URxvt.scrollstyle:		plain
 URxvt.jumpScroll:		0
-URxvt.throughColor:		yellow
-URxvt.borderColor:		#f00001
+URxvt.throughColor:		cyan
+URxvt.borderColor:		#f7f7f7
 URxvt.iconName:			urxvt
 URxvt.saveLines:		3000
 URxvt.internalBorder:	0

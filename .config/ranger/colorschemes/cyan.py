@@ -24,12 +24,12 @@ class Scheme(Default):
                 fg = blue
             if context.directory:
                 attr |= bold
-                fg = 60
+                fg = 68
             elif context.executable and not \
                     any((context.media, context.container,
                         context.fifo, context.socket)):
                 attr |= bold
-                fg = 25
+                fg = 26
 
             if context.link and not context.directory:
                 fg = linkcolor[context.good]
@@ -38,17 +38,17 @@ class Scheme(Default):
                 fg = magenta
                 attr |= bold
             if context.fifo or context.device:
-                fg = 59
+                fg = 111
                 if context.device:
                     attr |= bold
             if context.link:
-                fg = context.good and cyan or 69
+                fg = context.good and blue or 69
             if context.tag_marker and not context.selected:
                 attr |= bold
-                if fg in (27, 63):
+                if fg in (147, 153):
                     fg = white
                 else:
-                    fg = 27
+                    fg = 147
             if not context.selected and (context.cut or context.copied):
                 fg = black
                 attr |= bold
@@ -57,7 +57,7 @@ class Scheme(Default):
                     attr |= bold
                 if context.marked:
                     attr |= bold
-                    fg = 69
+                    fg = 147
             if context.badinfo:
                 if attr & reverse:
                     bg = blue
@@ -66,9 +66,9 @@ class Scheme(Default):
 
         elif context.in_titlebar:
             if context.hostname:
-                fg = context.bad and 69 or 63
+                fg = context.bad and 69 or 21
             elif context.directory:
-                fg = 60
+                fg = 66
             elif context.tab:
                 if context.good:
                     attr |= bold
@@ -76,12 +76,12 @@ class Scheme(Default):
         elif context.in_statusbar:
             if context.permissions:
                 if context.good:
-                    fg = 59
+                    fg = 111
                 elif context.bad:
                     fg = red
             if context.marked:
                 attr |= bold | reverse
-                fg = 59
+                fg = 111
             if context.message:
                 if context.bad:
                     attr |= bold
