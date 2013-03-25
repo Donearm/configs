@@ -46,6 +46,8 @@ set undofile
 set undolevels=200		" maximum number of changes that can be undone
 set undoreload=1000		" maximum number of lines to save for undo on a buffer reload
 
+set tags+=~/.vim/tags/
+
 if has("autocmd")
 	filetype plugin on
 	filetype plugin indent on
@@ -451,6 +453,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'int3/vim-taglist-plus'
 Bundle 'Donearm/WritingMode.vim'
+Bundle 'AutoTag'
 
 " open link in the current row in the browser
 function! Browser ()
