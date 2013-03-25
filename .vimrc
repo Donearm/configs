@@ -77,9 +77,6 @@ if &t_Co > 2 || has("gui_running")
 	set incsearch
 endif
 
-" no automatic highlighting of brackets and such
-"let loaded_matchparen = 1
-"
 " save fold before closing
 au BufWinLeave * mkview
 au BufWinEnter * silent! loadview
@@ -90,10 +87,7 @@ augroup Templates
 	au BufNewFile *.tex 0r ~/.vim/skel/tex.skel | normal G
 	au BufNewFile *.lua 0r ~/.vim/skel/lua.skel | normal G
 	au BufNewFile *.asm 0r ~/.vim/skel/assembler.skel | normal G
-	au BufNewFile 0000 silent! 0r ~/.vim/skel/0000
-	au BufNewFile source.txt silent! 0r ~/.vim/skel/source.%:e
 augroup END
-
 
 "
 " --- MAIL ---
@@ -112,6 +106,7 @@ function Mail_AutoCmd()
 	silent! %s/^\s\+$//g " rows with only spaces
 	silent! %s/^[>]\+$// " empty quoted rows
 endfunction
+"
 " some mappings
 "
 " delete rows with just spaces
@@ -135,13 +130,10 @@ noremap <leader>emptyblock :g/^$/<leader>/./-j
 noremap <leader>Sbl :g/^\s*$/<leader>/\S/-j
 " regroup multiple Re:
 noremap <leader>re :%s/Subject: \(Re\?: \)\+/Subject: Re: /g<CR>
-" delete yahoo group links
-noremap <leader>delgyah :g#^>\? http://docs.yahoo#.-10<leader>.d
 " delete every header
 noremap <leader>noheader :0<leader>/^$/d
 "
 " --- MAIL END ---
-"
 "
 " --- PROGRAMMING ---
 if has("autocmd")
@@ -304,23 +296,6 @@ if has("autocmd")
 	autocmd BufWritePost * if getline(1) =~ "^#!/" | silent exe "!chmod u+x <afile>" | endif
 	" add vim options at the end of every script (currently not working)
 	"autocmd BufWritePost * if getline(1) =~ "^#!/" && if getline($) =~ "^# vi" | silent :$s/^/# vim: set ft=sh tw=0:/ | endif
-	" enable editing of gzipped files
-	augroup gzip
-		" delete first every autocmd
-		au!
-
-		autocmd BufReadPre,FileReadPre  *.gz set bin
-		autocmd BufReadPost,FileReadPost	*.gz let ch_save = &ch|set ch=2
-		autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
-		autocmd BufReadPost,FileReadPost	*.gz set nobin
-		autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
-		autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " - expand("%:r")
-		autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
-		autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
-		autocmd FileAppendPre   *.gz !gunzip <afile>
-		autocmd FileAppendPre   *.gz !mv <afile>:r <afile>
-		autocmd FileAppendPost  *.gz !mv <afile> <afile>:r
-	augroup END
 endif
 "
 " comments' functions
@@ -387,16 +362,6 @@ endif
 
 " --- PROGRAMMING END ---
 "
-" --- Tex and Latex ---
-"  settingf for vim-latex
-"set grepprg=grep\ -nH\ $*
-"let g:Imap_DeleteEmptyPlaceHolders=1
-"let g:Tex_DefaultTargetFormat="pdf"
-"let g:Tex_ViewRule_dvi="epdfview"
-"let g:Tex_ViewRule_ps="epdfview"
-"let g:Tex_ViewRule_pdf="epdfview"
-"let g:Tex_MultipleCompileFormats="dvi,pdf,ps"
-
 " --- VARIOUS STUFF ---
 "
 "  all the text on a single row
@@ -431,9 +396,8 @@ nnoremap <leader>U o<Esc>"*p<Esc>
 
 " uppercase current word and return to insert mode
 inoremap <c-u> <Esc>viwUi
-
 "
-" two , in insert mode to exit instead of Esc
+" two , in insert mode to exit insertion instead of Esc
 inoremap ,, <Esc>
 " modify the colors of not found dictionary words highlighting because
 " sometimes changing terminal colors make them unreadable
@@ -470,63 +434,11 @@ function! Browser ()
 		let line = "\"" . (expand("%:p")) . "\""
 		:endif
 		exec ':silent !firefox ' . line 
-	endfunction
+endfunction
 
-	noremap ,w :call Browser ()<CR>
+noremap ,w :call Browser ()<CR>
 
 " open taglist
 nnoremap ,tag :TlistToggle<CR>
 " and close vi if it's the only window open
 let Tlist_Exit_OnlyWindow = 1
-
-if has("autocmd")
-	" grouping all autocmds
-
-	" automatically ask for the password when opening a gpg file
-	augroup encrypted
-		au!
-
-		" First make sure nothing is written to ~/.viminfo while editing
-		" an encrypted file.
-		autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
-		" We don't want a swap file, as it writes unencrypted data to disk
-		autocmd BufReadPre,FileReadPre      *.gpg set noswapfile
-		" Switch to binary mode to read the encrypted file
-		autocmd BufReadPre,FileReadPre      *.gpg set bin
-		autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
-		autocmd BufReadPre,FileReadPre      *.gpg let shsave=&sh
-		autocmd BufReadPre,FileReadPre      *.gpg let &sh='sh'
-		autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
-		autocmd BufReadPost,FileReadPost    *.gpg '[,']!gpg2 -q --decrypt --default-recipient-self 2> /dev/null
-		autocmd BufReadPost,FileReadPost    *.gpg let &sh=shsave
-
-		" Switch to normal mode for editing
-		autocmd BufReadPost,FileReadPost    *.gpg set nobin
-		autocmd BufReadPost,FileReadPost    *.gpg let &ch = ch_save|unlet ch_save
-		autocmd BufReadPost,FileReadPost    *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
-
-		" Convert all text to encrypted text before writing
-		autocmd BufWritePre,FileWritePre    *.gpg set bin
-		autocmd BufWritePre,FileWritePre    *.gpg let shsave=&sh
-		autocmd BufWritePre,FileWritePre    *.gpg let &sh='sh'
-		autocmd BufWritePre,FileWritePre    *.gpg '[,']!gpg2 -q --encrypt --default-recipient-self 2>/dev/null
-		autocmd BufWritePre,FileWritePre    *.gpg let &sh=shsave
-
-		" Undo the encryption so we are back in the normal text, directly
-		" after the file has been written.
-		autocmd BufWritePost,FileWritePost  *.gpg   silent u
-		autocmd BufWritePost,FileWritePost  *.gpg set nobin
-	augroup END
-
-	" highlight cursor line when focus is gained
-	function! HighlightCursor ()
-		setlocal cursorline
-		redraw
-		sleep 1
-		setlocal nocursorline
-	endfunction
-
-	" and auto call it
-	" " currently disabled, it works only for gvim " "
-	"autocmd! FocusGained * :call HighlightCursor()
-endif
