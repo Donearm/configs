@@ -46,7 +46,8 @@ set undofile
 set undolevels=200		" maximum number of changes that can be undone
 set undoreload=1000		" maximum number of lines to save for undo on a buffer reload
 
-set tags+=~/.vim/tags/
+" set various tags' files
+set tags+=~/.vim/tags/*/tags
 
 if has("autocmd")
 	filetype plugin on
