@@ -27,3 +27,6 @@
 	conflictstyle = diff3
 [push]
 	default = simple
+[pretty]
+    # http://stackoverflow.com/questions/7430093/git-log-formatting, slightly modified
+    vonc = format:%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%aN>%Creset
