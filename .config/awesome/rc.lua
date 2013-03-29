@@ -182,9 +182,8 @@ mylauncher = awful.widget.launcher({ image = beautiful.archlinux_image,
 -- Top Statusbar widgets
 
 -- Cpu widget
-cputag = wibox.widget.textbox()
-cputag:set_text("CPU ")
---cpuwidget = widget({ type = "textbox" })
+cpuicon = wibox.widget.imagebox()
+cpuicon:set_image(beautiful.cpu_icon)
 cpuwidget = wibox.widget.textbox()
 cpuwidget:connect_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:connect_signal("mouse::leave", function () psByCpu(1) end)
@@ -214,9 +213,8 @@ vicious.register(cpuwidget, vicious.widgets.cpu,
 
 
 -- Memory widget
-memtag = wibox.widget.textbox()
---memtag.text = " RAM "
-memtag:set_text(" RAM ")
+memicon = wibox.widget.imagebox()
+memicon:set_image(beautiful.ram_icon)
 memwidget = wibox.widget.textbox()
 memwidget:connect_signal("mouse::enter", function () psByMemory(0) end)
 memwidget:connect_signal("mouse::leave", function () psByMemory(1) end)
@@ -232,6 +230,8 @@ vicious.register(memwidget, vicious.widgets.mem,
 
 
 -- Network widget
+netupicon = wibox.widget.imagebox()
+netupicon:set_image(beautiful.net_up_icon)
 netupwidget = wibox.widget.textbox()
 -- the last 3 options are interval-in-seconds, properties-name, padding
 vicious.cache(vicious.widgets.net)
@@ -244,6 +244,9 @@ vicious.register(netupwidget, vicious.widgets.net,
         end
     end, nil, nil, 3
 )
+
+netdownicon = wibox.widget.imagebox()
+netdownicon:set_image(beautiful.net_down_icon)
 netdownwidget = wibox.widget.textbox()
 vicious.register(netdownwidget, vicious.widgets.net,
     function (widget, args)
@@ -254,14 +257,10 @@ vicious.register(netdownwidget, vicious.widgets.net,
         end
     end, nil, nil, 3
 )
-netuptag = wibox.widget.textbox()
-netuptag:set_text(" UP ")
-netdowntag = wibox.widget.textbox()
-netdowntag:set_text(" DOWN ")
 
 -- Maildir widget
-maildirtag = wibox.widget.textbox()
-maildirtag:set_text(" MAIL ")
+maildiricon = wibox.widget.imagebox()
+maildiricon:set_image(beautiful.mail_icon)
 maildirwidget = wibox.widget.textbox()
 vicious.register(maildirwidget, vicious.widgets.mdir, '$1 ', 300, { maildir })
 
@@ -305,9 +304,11 @@ mpdwidget:buttons(
 
 -- Volume widget
 volumewidget = wibox.widget.textbox()
+volumeicon = wibox.widget.imagebox()
+volumeicon:set_image(beautiful.speaker_icon)
 -- enable caching
 vicious.cache(vicious.widgets.volume)
-vicious.register(volumewidget, vicious.widgets.volume, "♫ $1% ", 1, "Master")
+vicious.register(volumewidget, vicious.widgets.volume, "$1% ", 1, "Master")
 volumewidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function() awful.util.spawn(soundPerfectVolume) end),
     awful.button({ }, 4, function() awful.util.spawn(soundRaiseVolume) end),
@@ -419,15 +420,15 @@ for s = 1, screen.count() do
     topwibox_left:add(mypromptbox[s])
 
     local topwibox_right = wibox.layout.fixed.horizontal()
-    topwibox_right:add(cputag)
+    topwibox_right:add(cpuicon)
     topwibox_right:add(cpuwidget)
-    topwibox_right:add(memtag)
+    topwibox_right:add(memicon)
     topwibox_right:add(memwidget)
-    topwibox_right:add(netuptag)
+    topwibox_right:add(netupicon)
     topwibox_right:add(netupwidget)
-    topwibox_right:add(netdowntag)
+    topwibox_right:add(netdownicon)
     topwibox_right:add(netdownwidget)
-    topwibox_right:add(maildirtag)
+    topwibox_right:add(maildiricon)
     topwibox_right:add(maildirwidget)
     topwibox_right:add(mysystray)
 
@@ -451,6 +452,7 @@ for s = 1, screen.count() do
     local bottomwibox_right = wibox.layout.fixed.horizontal()
 	bottomwibox_right:add(mpdicon)
     bottomwibox_right:add(mpdwidget)
+    bottomwibox_right:add(volumeicon)
     bottomwibox_right:add(volumewidget)
     bottomwibox_right:add(datebox)
 
