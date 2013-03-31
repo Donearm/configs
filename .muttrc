@@ -229,16 +229,6 @@ bind index \e\t	    previous-unread
 macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
 macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
 
-#macro index \#	"<search>bug<Enter>"	# search for bugs
-#macro index "\""	"<enter-command> set realname=\"real hairy macro\" ?realname<Enter>" # and a comment to boot!
-#macro index f1	"<enter-command>woohoo!"
-
-bind pager G bottom	# just like vi and less
-#macro   pager   \Ck     "<pipe-message> pgp -kaf<Enter>"   # a comment is valid here
-#macro pager X "<pipe-message> morepgp<Enter>"	# pipe PGP message to a script
-
-#bind editor \cy eol	# make ^Y jump to the end of the line
-
 # Notmuch setup
 macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" "notmuch: search mail"  
 macro index <F9> "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
