@@ -1,5 +1,3 @@
-" vim: set ft=pentadactyl fdm=marker tw=0:
-
 set titlestring=Firefox
 set editor="gvim -f +<line> <file>"
 set maxitems=12
@@ -78,3 +76,5 @@ qmark d http://donearm.github.com/
 " customized next and previous patterns
 set nextpattern=^>$,[Nn]ext,[Mm]ore,([Ss]ucc|[Ss]uccessiva),([Pp]ross|[Pp]rossima),([Aa]vanti),^(>>|»)$,^(>|»),(>|»)$
 set previouspattern=^<$,([Pp]rev|[Pp]revious),([Pp]re|[Pp]recedente),([Ii]ndietro),^(<<|«)$,^(<|«),(<|«)$
+
+" vim: set ft=pentadactyl fdm=marker tw=0:
