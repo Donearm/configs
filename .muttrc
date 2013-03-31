@@ -203,6 +203,14 @@ X-Url Mail-Followup-To:
 #		editor		line editor
 #		pager		text viewer
 #		
+
+# vi-like movements
+bind index gg	first-entry
+bind index G	last-entry
+bind index <space> collapse-thread
+# rebinding those because gg overlaps group-reply
+bind index R	group-reply
+bind index p	recall-message
 # move a message to a maildir
 macro index M "<save-message>?<toggle-mailboxes>" "move message to a maildir"
 
