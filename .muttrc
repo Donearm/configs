@@ -206,14 +206,14 @@ X-Url Mail-Followup-To:
 # move a message to a maildir
 macro index M "<save-message>?<toggle-mailboxes>" "move message to a maildir"
 
+# save message to ~
+macro index \es "<pipe-message>cat > ~/" "save message as"
+
 # Aspell macros
 macro compose i ":set ispell='/usr/bin/aspell -d it -x check'\n;<ispell>"
 macro compose I ":set ispell='/usr/bin/aspell -d en -x check'\n;<ispell>"
 
 macro index \cb "<pipe-message> urlview<Enter>"	# simulate the old browse-url function
-
-macro index S "<save-message>+spam<Enter>"
-macro pager S "<save-message>+spam<Enter>"
 
 # imitate the old search-body function
 macro index \eb '/~b ' 'search in message bodies'
