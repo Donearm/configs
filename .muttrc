@@ -204,6 +204,7 @@ X-Url Mail-Followup-To:
 #		pager		text viewer
 #		
 
+## Index
 # vi-like movements
 bind index gg	first-entry
 bind index G	last-entry
@@ -211,31 +212,26 @@ bind index <space> collapse-thread
 # rebinding those because gg overlaps group-reply
 bind index R	group-reply
 bind index p	recall-message
+
 # move a message to a maildir
 macro index M "<save-message>?<toggle-mailboxes>" "move message to a maildir"
 
+# simulate the old browse-url function
+macro index \cb "<pipe-message> urlview<Enter>"
+
 # save message to ~
 macro index \es "<pipe-message>cat > ~/" "save message as"
-
-# Aspell macros
-macro compose i ":set ispell='/usr/bin/aspell -d it -x check'\n;<ispell>"
-macro compose I ":set ispell='/usr/bin/aspell -d en -x check'\n;<ispell>"
-
-macro index \cb "<pipe-message> urlview<Enter>"	# simulate the old browse-url function
 
 # imitate the old search-body function
 macro index \eb '/~b ' 'search in message bodies'
 
 # use Tab and Esc-Tab to move from an Old message to a New or Old one
 # instead than from New to New
-bind pager \t	next-unread
 bind index \t	next-unread
-bind pager \e\t	    previous-unread
 bind index \e\t	    previous-unread
 
 # simulate the old url menu
 macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
-macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
 
 # Notmuch setup
 macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" "notmuch: search mail"  
@@ -243,6 +239,22 @@ macro index <F9> "<enter-command>unset wait_key<enter><enter-command>unignore me
 "search and reconstruct owning thread with notmuch"
 macro index <F6> "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>notmuch-mutt -- tag -inbox<enter>" \
 "remove message from inbox with notmuch"
+
+## Compose
+
+# Aspell macros
+macro compose i ":set ispell='/usr/bin/aspell -d it -x check'\n;<ispell>"
+macro compose I ":set ispell='/usr/bin/aspell -d en -x check'\n;<ispell>"
+
+## Pager
+
+# use Tab and Esc-Tab to move from an Old message to a New or Old one
+# instead than from New to New
+bind pager \t	next-unread
+bind pager \e\t	    previous-unread
+
+# simulate the old url menu
+macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
