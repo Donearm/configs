@@ -66,6 +66,10 @@ map i gi
 " view native size of image without clicking it
 map <Leader>z :js window.content.document.toggleImageSize();<CR>
 
+" switch tabs with parens
+map -b ) :tn<CR>
+map -b ( :tp<CR>
+
 " qmarks
 qmark k file:///home/gianluca/.tiddlywiki/kortirion_tiddlywiki.html
 qmark v file:///home/gianluca/.tiddlywiki/viaggi.html
