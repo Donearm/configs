@@ -43,7 +43,7 @@ monitoraspect="16:10"
 #vo=gl:yuv=2:rectangle=2:swapinterval=-1
 #vo=vdpau:deint=4,xv,
 #vc=ffmpeg12vdpau,ffh264vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
-vo=gl
+vo=gl_nosw
 ao=alsa
 vf=scale
 # Increase volume beyond audiocard's maximum
