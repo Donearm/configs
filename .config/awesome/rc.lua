@@ -833,9 +833,12 @@ end)
 
 
 -- call coverart_show every 2 seconds
-mpdtimer = timer({ timeout = 2 })
-mpdtimer:connect_signal("timeout", function () coverart_show() end)
-mpdtimer:start()
+--mpdtimer = timer({ timeout = 2 })
+--mpdtimer:connect_signal("timeout", function () coverart_show() end)
+--mpdtimer:start()
+--xmmstimer = timer({ timeout = 2 })
+--xmmstimer:connect_signal("timeout", function () coverart_show() end)
+--xmmstimer:start()
 
 -- }}}
 
