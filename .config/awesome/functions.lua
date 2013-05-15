@@ -147,7 +147,8 @@ function coverart_show()
     -- if the obtained id is different from the last one, show the naughty
     -- notify
     if id == nil then
-        return
+		id = base_id
+--        return
     end
     if base_id ~= id then
         local img = cover_path
