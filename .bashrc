@@ -25,8 +25,6 @@ alias skype="skype --disable-cleanlooks -style GTK"
 # Mplayer using 2 threads/cpu by default 
 # disabled because it make playing dvds impossible
 #alias mplayer="mplayer -lavdopts fast:threads=2"
-# Feh alias for loading all the images in the directory
-#alias fehall="feh --scale-down -S filename ."
 alias orphans="pacman -Qtdq" # packages not required by any other
 alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 # Rsync alias to sync between laptop and desktop over ssh
@@ -40,30 +38,11 @@ alias etterspoof="sudo ettercap -T -M arp:remote -P autoadd /192.168.1.3/ /192.1
 alias lg_emulator="emulator -no-boot-anim -verbose -avd FakeLgOptimus"
 
 
-# Set the keycodes for the extra keys that aren't usually recognized by
-# the kernel
-#setkeycodes e002 131 &	# n°1
-#setkeycodes e003 132 &	# n°2
-#setkeycodes e004 133 &	# n°3
-#setkeycodes e005 134 &	# n°4
-#setkeycodes e006 135 &	# n°5
-#setkeycodes e026 136 &	# ?
-#setkeycodes e059 137 &	# the search icon
-#setkeycodes e00a 138 &	# the book icon
-#setkeycodes e009 139 &	# the exit icon
-#setkeycodes e018 140 &	# the eject icon
-
 # top 15 most used commands
 topfifteen() {
 	history | awk '{if ($4 == "sudo") {print $5} else {print $4}}' | \
 		awk 'BEGIN {FS ="|"} {print $1}' \
 		| grep -v topfifteen | sort | uniq -c | sort -rn | head -15
-}
-# mkmv - creates a new directory and moves the file into it, in 1 step
-# Usage: mkmv <file> <directory>
-mkmv() {
-    mkdir "$2"
-    mv "$1" "$2"
 }
 
 startX() {
@@ -85,7 +64,7 @@ fahstat() {
 	echo
 }
 
-# Pngtojpeg - converts each png file in the current directory in a jpeg
+# Pngtojpeg - converts each png in the current directory in jpeg
 pngtojpeg() {
 	for p in *.[pP][nN][gG] ; do
 		convert "$p" "${p%.*}.jpg" ;
