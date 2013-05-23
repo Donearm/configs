@@ -2,7 +2,8 @@
 
 
 #text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
-text/html; firefox -new-tab %s; nametemplate=%s.html; copiousoutput
+#text/html; firefox -new-tab %s; nametemplate=%s.html; copiousoutput
+text/html; chromium %s; nametemplate=%s.html; test=test -n "$DISPLAY"; needsterminal
 text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
 
