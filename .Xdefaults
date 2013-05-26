@@ -94,7 +94,7 @@ URxvt.perl-ext-common:	default,matcher,url-select
 URxvt.keysym.M-C-u:		perl:url-select:select_next
 URxvt.url-select.autocopy: true
 URxvt.url-select.button: 2
-URxvt.url-select.launcher: chromium
+URxvt.url-select.launcher: firefox-beta-bin
 URxvt.url-select.underline: true
 !URxvt.matcher.button:	1
 !URxvt.perl-ext:	    tabbed,matcher
