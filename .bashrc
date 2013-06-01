@@ -166,7 +166,7 @@ else
 fi
 
 
-export BROWSER="firefox-aurora"
+export BROWSER="firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 export SERVER='news.tin.it'
