@@ -739,6 +739,7 @@ if autorun then
     run_once("xset", "dpms 0 900 2750")
     run_once("urxvtd", "-q -o -f")
     run_once(browser)
+    run_once("jingo", "-c /mnt/c/Projects/Kortirion_wikis/config.yaml")
 end
 
 -- }}}
