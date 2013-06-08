@@ -264,4 +264,9 @@ source /usr/share/git/git-prompt.sh
 # To.sh shell bookmarking
 source /mnt/d/Script/utilities/to.sh
 
+# Launch ssh-agent, but only if it's not been launched already!
+if [[ -z `pgrep ssh-agent` ]]; then
+	eval $(ssh-agent)
+fi
+
 clear # clear the screen if something is on it
