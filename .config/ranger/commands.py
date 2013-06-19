@@ -42,9 +42,9 @@
 #      the user pressed 6X, self.quantifier will be 6.
 # self.arg(n): The n-th argument, or an empty string if it doesn't exist.
 # self.rest(n): The n-th argument plus everything that followed.  For example,
-#      If the command was "search foo bar a b c", rest(2) will be "bar a b c"
-# self.start(n): The n-th argument and anything before it.  For example,
-#      If the command was "search foo bar a b c", rest(2) will be "bar a b c"
+#      if the command was "search foo bar a b c", rest(2) will be "bar a b c"
+# self.start(n): Anything before the n-th argument.  For example, if the
+#      command was "search foo bar a b c", start(2) will be "search foo"
 #
 # ===================================================================
 # And this is a little reference for common ranger functions and objects:
@@ -77,8 +77,6 @@
 # ===================================================================
 
 from ranger.api.commands import *
-from ranger.ext.get_executables import get_executables
-from ranger.core.runner import ALLOWED_FLAGS
 
 class alias(Command):
     """:alias <newcommand> <oldcommand>
@@ -179,16 +177,6 @@ class chain(Command):
     def execute(self):
         for command in self.rest(1).split(";"):
             self.fm.execute_console(command)
-
-
-class search(Command):
-    def execute(self):
-        self.fm.search_file(self.rest(1), regexp=True)
-
-
-class search_inc(Command):
-    def quick(self):
-        self.fm.search_file(self.rest(1), regexp=True, offset=0)
 
 
 class shell(Command):
@@ -327,60 +315,6 @@ class open_with(Command):
 
     def _is_mode(self, arg):
         return all(x in '0123456789' for x in arg)
-
-
-class find(Command):
-    """:find <string>
-
-    The find command will attempt to find a partial, case insensitive
-    match in the filenames of the current directory and execute the
-    file automatically.
-    """
-
-    count = 0
-    tab = Command._tab_directory_content
-
-    def execute(self):
-        if self.quick():
-            if self.rest(1) == '..':
-                self.fm.move(left=1)
-            else:
-                self.fm.move(right=1)
-            self.fm.block_input(0.5)
-        else:
-            self.fm.cd(self.rest(1))
-
-    def quick(self):
-        self.count = 0
-        cwd = self.fm.thisdir
-        arg = self.rest(1)
-        if not arg:
-            return False
-
-        if arg == '.':
-            return False
-        if arg == '..':
-            return True
-
-        deq = deque(cwd.files)
-        deq.rotate(-cwd.pointer)
-        i = 0
-        case_insensitive = arg.lower() == arg
-        for fsobj in deq:
-            if case_insensitive:
-                filename = fsobj.basename_lower
-            else:
-                filename = fsobj.basename
-            if arg in filename:
-                self.count += 1
-                if self.count == 1:
-                    cwd.move(to=(cwd.pointer + i) % len(cwd.files))
-                    self.fm.thisfile = cwd.pointed_obj
-            if self.count > 1:
-                return False
-            i += 1
-
-        return self.count == 1
 
 
 class set_(Command):
@@ -1261,7 +1195,7 @@ class diff(Command):
     """
     :diff
 
-    Displays a diff of selected files against last last commited version
+    Displays a diff of selected files against the last commited version
     """
     def execute(self):
         from ranger.ext.vcs import VcsError
