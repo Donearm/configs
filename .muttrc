@@ -290,6 +290,6 @@ source ~/.mutt/mailboxes
 # load the aliases
 source ~/.mail_aliases
 # My color theme of choice
-source ~/.mutt/barbarapalvin01-colors.muttrc
+source ~/.mutt/santorini_cityscape-colors.muttrc
 
 # EOF
