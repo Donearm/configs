@@ -130,7 +130,7 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    PS1="${bBlue}\[[${bYellow}\u${bnc}@${bYellow}\H ${bBlue}\W${bBlue}]\]$ ${bnc}"
+    PS1="${bCyan}\[[${bYellow}\u${bnc}@${bYellow}\H ${bCyan}\W${bCyan}]\]$ ${bnc}"
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
