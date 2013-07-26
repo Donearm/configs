@@ -189,7 +189,7 @@ cpuwidget:connect_signal("mouse::enter", function () psByCpu(0) end)
 cpuwidget:connect_signal("mouse::leave", function () psByCpu(1) end)
 vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
-        if args[2] and args[3] and args[4] and args[5] > 50 then
+        if (args[2] > 50) and (args[3] > 50) and (args[4] > 50) and (args[5] > 50) then
             return setFg(beautiful.fg_divisions, '[') .. setFg(beautiful.fg_focus, args[2] .. '%') .. setFg(beautiful.fg_divisions, '][') .. setFg(beautiful.fg_focus, args[3] .. '%') .. setFg(beautiful.fg_divisions, '][') 
             .. setFg(beautiful.fg_focus, args[4] .. '%') .. setFg(beautiful.fg_divisions, '][') .. setFg(beautiful.fg_focus, args[5] .. '%') .. setFg(beautiful.fg_divisions, ']'), 5
         elseif args[2] > 50 then
