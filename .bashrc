@@ -121,7 +121,7 @@ bgwhite="\033[47m"
 txtreset="\033[0m" # text reset
 
 
-export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:$PATH
+export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:/usr/lib/go/site/bin/:$PATH
 
 # Variables for the git prompt
 GIT_PS1_SHOWDIRTYSTATE="1"
