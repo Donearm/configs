@@ -174,6 +174,40 @@ end
 
 ---- End MPD Popup ----
 
+---- MPD Popup with Go script ----
+function go_coverart_show()
+	coverart_hide()
+
+	local status_table = {}
+	local statusmpd = io.popen("statusmpd"):read("*all")
+	for k in string.gmatch(statusmpd, "(.+)\n") do
+		print(k)
+		table.insert(status_table, k)
+	end
+
+	local id = status_table[1]
+	local status_str = string.format("%s \nArtist:\t%s\nAlbum:\t%s\nSong:\t%s\n", status_table[2], status_table[3], status_table[4], status_table[5])
+
+	if id == nil then
+		id = base_id
+	end
+	if base_id ~= id then
+		local img = status_table[6]
+		local ico = img
+		local txt = status_str
+		coverart_on = naughty.notify({
+			icon = ico,
+			icon_size = 80,
+			text = txt,
+			timeout = 3,
+			position = "bottom_right"
+		})
+		base_id = id
+	end
+end
+
+---- End MPD Popup with Go script ----
+
 ---- Temp functions
 
 --- Get Cpu temperature
