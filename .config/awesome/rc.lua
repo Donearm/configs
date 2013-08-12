@@ -668,6 +668,8 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
+    { rule = { class = "mpv" },
+      properties = { floating = true } },
     { rule = { class = "Gimp" },
       properties = { floating = true , tag = tags[1][5], switchtotag = true} },
     { rule = { role = "gimp-toolbox" },
