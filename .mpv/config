@@ -1,0 +1,19 @@
+vo=opengl-hq
+ao=alsa
+softvol=no
+# Pretend to be Winamp
+# Fixes playback of some NSV streams
+user-agent="Winamp NSV Player/5.12 (ultravox/2.0)"
+cache = 8192
+# Prefill 20% of the cache before starting playback.
+cache-min = 20.0
+# Prefill 50% of the cache before restarting playback after the cache emptied.
+cache-seek-min = 50
+slang = it,en
+alang = it,en
+monitoraspect=16:10
+# Enable hardware decoding if available. Often, this requires using an certain
+# video output, otherwise no hardware decoding will be used.
+#hwdec = auto
+geometry="50%:100%"
+osd-level=3
