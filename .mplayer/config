@@ -29,7 +29,6 @@ geometry="50%:100%"
 prefer-ipv4=yes
 msglevel=decvideo=0:identify=6
 # No filters work with vdpau!
-vf-clr=yes
 cache=12000
 cache-min=99
 
@@ -41,9 +40,7 @@ lavdopts=threads=2
 monitoraspect="16:10"
 # swapinterval is for nvidia drivers >=195.xx
 #vo=gl:yuv=2:rectangle=2:swapinterval=-1
-#vo=vdpau:deint=4,xv,
-#vc=ffmpeg12vdpau,ffh264vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
-vo=gl_nosw
+#vo=gl_nosw
 ao=alsa
 vf=scale
 # Increase volume beyond audiocard's maximum
@@ -54,6 +51,13 @@ vf=scale
 profile-desc="Xvmc profile"
 vo=xvmc
 vc=ffmpeg12mc
+
+# Vdpau profile
+[vo.vdpau]
+profile-desc="Vdpau accelerated decoding profile"
+vo=vdpau
+vc=ffmpeg12vdpau,ffh264vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
+vf-clr=yes
 
 # Cdda profile. Use with -profile cdda
 [cdda]
