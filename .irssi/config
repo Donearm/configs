@@ -137,7 +137,7 @@ channels = (
     autojoin = "no";
   },
   {
-	name = "#geekzone";
+	name = "#geeks";
 	chatnet = "QuakeNet";
 	autojoin = "yes";
   }
