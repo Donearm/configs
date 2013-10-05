@@ -534,6 +534,7 @@ globalkeys = awful.util.table.join(
     awful.key({ none                }, "XF86AudioMute", function () awful.util.spawn(soundMute) end),
     awful.key({ none                }, "XF86Sleep", function () awful.util.spawn(lockScreen) end),
     awful.key({ none                }, "XF86Mail", function () awful.util.spawn(mutt) end),
+    awful.key({ modkey              }, "XF86HomePage", function () awful.util.spawn("sudo systemctl suspend") end),
     awful.key({ modkey, "Control"   }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
     awful.key({ modkey,             }, "c", function() simulateClick() end),
 
