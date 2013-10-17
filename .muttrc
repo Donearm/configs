@@ -9,6 +9,7 @@ set folder=~/Maildir		# where i keep my mailboxes
 set folder_format="%2C %t %N %f"
 
 set realname="Gianluca Fiore"
+set use_envelope_from=yes	# force same address in envelope as in From:
 set abort_unmodified=yes	# automatically abort replies if I don't
 				# change the message
 set alias_file=~/.mail_aliases	# where I keep my aliases
