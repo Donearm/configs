@@ -119,6 +119,7 @@ set reverse_realname
 set nosave_empty		# remove files when no messages are left
 #set save_name			# save outgoing messages by recipient, if the
 #set sendmail="/usr/lib/sendmail -oi -oem"	# how to deliver mail
+set sendmail="/usr/bin/msmtp"
 #set shell="/bin/zsh"		# program to use for shell escapes
 set signature="~/.signature"	# file which contains my signature
 
@@ -291,6 +292,6 @@ source ~/.mutt/mailboxes
 # load the aliases
 source ~/.mail_aliases
 # My color theme of choice
-source ~/.mutt/santorini_cityscape-colors.muttrc
+source ~/.mutt/coffee_chocolate-colors.muttrc
 
 # EOF

@@ -36,7 +36,7 @@ URxvt.boldFont:			xft:Liberation Mono:bold:pixelsize=12
 Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
 Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
-urxvt.background:		#010101
+urxvt.background:		#140701
 urxvt.foreground:		#f7f7f7
 URxvt.transparent:		true
 URxvt.shading:			10
@@ -44,13 +44,13 @@ URxvt.fading:			30
 URxvt.fadeColor:		#bdbdbd
 !URxvt.tintColor:		#6c9eab
 !URxvt.cursorColor:		#e4a900
-URxvt.cursorColor:		#b87d2e
+URxvt.cursorColor:		#7a2613
 URxvt.cursorColor2:		#bdbdbd
-URxvt.pointerColor:		#bdbdbd
+URxvt.pointerColor:		#ad8062
 URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
 !Black + DarkGrey
-URxvt.color0:   #010101
+URxvt.color0:   #140701
 URxvt.color8:   #484848
 !DarkRed + Red
 URxvt.color1:   #8a110e
@@ -73,11 +73,11 @@ URxvt.color14:  #377ef2
 !LightGrey + White
 URxvt.color7:   #bdbdbd
 URxvt.color15:  #f7f7f7
-URxvt.colorBD:	#377ef2
-URxvt.colorUL:	#701a02
-URxvt.colorIT:			#bb0335
+URxvt.colorBD:	#7a2613
+URxvt.colorUL:	#ad8062
+URxvt.colorIT:			#ba7653
 URxvt.scrollBar:		true
-URxvt.scrollColor:		#b87d2e
+URxvt.scrollColor:		#7a2613
 URxvt.scrollstyle:		plain
 URxvt.jumpScroll:		0
 URxvt.throughColor:		cyan
