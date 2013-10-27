@@ -683,8 +683,6 @@ awful.rules.rules = {
       properties = { tag = tags[1][5]} },
     { rule = { class = "feh" },
       properties = { floating = true } },
-    { rule = { class = "Sxiv" },
-      properties = { floating = true } },
     { rule = { class = "gcolor2" }, 
       properties = { floating = true } },
     { rule = { class = "Gmusicbrowser" },
