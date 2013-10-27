@@ -22,7 +22,7 @@ alias dvdburn="growisofs -Z /dev/cdrom -J -R"
 alias httpsharedir="python -m http.server 8001"
 # Skype using gtk instead of qt
 alias skype="skype --disable-cleanlooks -style GTK"
-# Mplayer using 2 threads/cpu by default 
+# Mplayer using 2 threads/cpu by default
 # disabled because it make playing dvds impossible
 #alias mplayer="mplayer -lavdopts fast:threads=2"
 alias orphans="pacman -Qtdq" # packages not required by any other
@@ -130,7 +130,7 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    PS1="${bRed}\[[${bYellow}\u${bnc}@${bYellow}\H ${bRed}\W${bRed}]\]$ ${bnc}"
+    PS1="${bRed}\[[${bnc}\u@\H ${bRed}\W${bRed}]\]$ ${bnc}"
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
