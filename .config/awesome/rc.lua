@@ -322,7 +322,7 @@ weatherwidget = wibox.widget.textbox()
 vicious.register(weatherwidget, vicious.contrib.openweather,
     function (widget, args)
         return ' Weather for ' .. args["{city}"] .. ': W' .. setFg(beautiful.fg_divisions, ' [') .. args["{wind aim}"] .. '/' .. args["{wind kmh}"] .. 'Kmh' ..  setFg(beautiful.fg_divisions, '] ') .. 'Now' .. setFg(beautiful.fg_divisions, ' [') .. args["{sky}"] .. setFg(beautiful.fg_divisions, '] ') .. 'Later' .. setFg(beautiful.fg_divisions, ' [') .. args["{weather}"] .. setFg(beautiful.fg_divisions, '] ') .. 'Temp' .. setFg(beautiful.fg_divisions, ' [') .. args["{temp c}"] .. '°C' .. setFg(beautiful.fg_divisions, '] ') .. 'Humidity' .. setFg(beautiful.fg_divisions, ' [') .. args["{humid}"] .. '%' .. setFg(beautiful.fg_divisions, '] ')
-    end, 1, 3172394)
+    end, 1800, 3172394)
 
 -- Date widget
 datebox = wibox.widget.textbox()
