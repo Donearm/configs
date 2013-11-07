@@ -121,7 +121,7 @@ bgwhite="\033[47m"
 txtreset="\033[0m" # text reset
 
 
-export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:/usr/lib/go/site/bin/:$PATH
+export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:/usr/lib/go/site/bin/:$HOME/.go/bin/:$PATH
 
 # Variables for the git prompt
 GIT_PS1_SHOWDIRTYSTATE="1"
@@ -174,6 +174,7 @@ export SLANG_EDITOR='vim'
 export NNTPSERVER='news.tin.it'
 export MAILCHECK=600000000000 # I don't really need a shell mailcheck....
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
+export GOPATH=$HOME/.go/:$GOPATH
 export LANG=it_IT.utf8
 export LANGUAGE=it_IT.utf8
 export LC_TYPE=it_IT.utf8
