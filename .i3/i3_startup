@@ -1,6 +1,6 @@
 #!/bin/sh
 
-feh --bg-scale /mnt/documents/Maidens/img/Wallpapers/MellisaClarke-wallpaper01.jpg &
+display -window root /mnt/documents/Images/Coffee_chocolate.jpg &
 
 urxvtc "$@"
 if [ $? -eq 2 ]; then
