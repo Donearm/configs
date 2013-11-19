@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2009-2013  Roman Zimbelmann <hut@lavabit.com>
+# Copyright (C) 2009-2013  Roman Zimbelmann <hut@lepus.uberspace.de>
 # This configuration file is licensed under the same terms as ranger.
 # ===================================================================
 # This file contains ranger's commands.
@@ -1195,7 +1195,7 @@ class diff(Command):
     """
     :diff
 
-    Displays a diff of selected files against the last commited version
+    Displays a diff of selected files against the last committed version
     """
     def execute(self):
         from ranger.ext.vcs import VcsError
