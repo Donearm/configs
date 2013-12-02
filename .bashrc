@@ -82,6 +82,23 @@ gitgrep() {
 	)
 }
 
+# Easily mark and jump in the filesystem
+# From
+# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+export MARKPATH=$HOME/.marks
+function mjump() {
+	cd -P "$MARKPATH/$1" 2>/dev/null || echo "No suck mark: $1"
+}
+function mmark() {
+	mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function munmark() {
+	rm -i "$MARKPATH/$1"
+}
+function mmarks() {
+	\ls -l "$MARKPATH" | grep -v '^total' | awk '{printf "%-15s -> %s\n", $9,$11}' && echo
+}
+
 # No one should read/write/execute my files by default
 #umask 0077
 
