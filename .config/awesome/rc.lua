@@ -292,6 +292,8 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
     elseif args["{state}"] == "Pause" then
 		mpdicon:set_image(beautiful.pause_playing_image)
         return ' ' .. setFg(beautiful.fg_divisions, '[') .. args["{Artist}"] .. ' - ' .. args["{Album}"] .. ' - ' .. args["{Title}"] .. setFg(beautiful.fg_divisions, ']') .. '{PAUSED} '
+    else
+        return ''
     end
 end, 2 )
 mpdwidget:buttons(
