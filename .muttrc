@@ -70,6 +70,7 @@ set mailcap_path="~/.mailcap:/usr/local/share/mailcap"
 set nomark_old			# i don't care about whether a message is old
 set mail_check=10		# how often to poll for new mail
 set mbox="~/Maildir/"			# where to store read messages
+set mbox_type="maildir"
 set smart_wrap
 set wrapmargin=5
 #set menu_scroll		# no implicit next-page/prev-page
