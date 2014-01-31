@@ -27,14 +27,14 @@ URxvt.geometry:			80x24+0+0
 !rxvt*font:				-*-freemono-medium-*-*-*-17-*-*-*-*-*-iso10646-*
 !URxvt.font:			-*-candara-*-*-*-*-*-*-*-*-*-*-iso10646-1
 !URxvt.font:			-*-dejavu sans mono-*-*-*-*-*-*-*-*-*-*-iso10646-1
-!URxvt.font:			xft:DejaVu Sans Mono:pixelsize=12
-!URxvt.boldFont:		xft:DejaVu Sans Mono:bold:pixelsize=12
-!Urxvt.italicFont:		xft:DejaVu Sans Mono:italic:pixelsize=12
-!Urxvt.boldItalicFont:	xft:DejaVu Sans Mono:bold:italic:pixelsize=12
-URxvt.font:				xft:Liberation Mono:pixelsize=12
-URxvt.boldFont:			xft:Liberation Mono:bold:pixelsize=12
-Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
-Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
+!URxvt.font:			xft:Liberation Mono:pixelsize=12
+!URxvt.boldFont:		xft:Liberation Mono:bold:pixelsize=12
+!Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
+!Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
+URxvt.font:				xft:MonoOne:pixelsize=12
+URxvt.boldFont:			xft:MonoOne:bold:pixelsize=12
+Urxvt.italicFont:		xft:MonoOne:italic:pixelsize=12
+Urxvt.boldItalicFont:	xft:MonoOne:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
 urxvt.background:		#140701
 urxvt.foreground:		#f7f7f7
