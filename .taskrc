@@ -49,6 +49,7 @@ color.project.pyimagedownloader=on blue
 color.project.travel=yellow on black
 color.project.portuguese=bold green on gray
 color.project.spanish=bold red on gray
+color.project.blog=bold blue on gray
 
 #shadow.file=~/.task/shadow.txt
 #shadow.command=list
