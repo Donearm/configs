@@ -60,7 +60,7 @@ list.all.tags=yes
 shell.prompt=task >:
 
 report.tagpro.description=List tasks with only tags and projects
-report.tagpro.columns=id,project,tags,description
+report.tagpro.columns=id,project,due,tags,description
 report.tagpro.sort=tags+,project+
 report.tagpro.filter=status:pending
 report.veryminimal.description=List only tasks descriptions and id (useful for scripts)
