@@ -293,6 +293,6 @@ source ~/.mutt/mailboxes
 # load the aliases
 source ~/.mail_aliases
 # My color theme of choice
-source ~/.mutt/coffee_chocolate-colors.muttrc
+source ~/.mutt/doutzenkroes01-colors.muttrc
 
 # EOF

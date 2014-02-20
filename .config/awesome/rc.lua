@@ -72,7 +72,7 @@ local mutt = terminal .. " -e mutt -y"
 local maildir = home .. "/Maildir"
 local lockScreen = "slock"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/coffee_chocolate"
+theme_path = home .. "/.config/awesome/themes/doutzen_kroes01"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
