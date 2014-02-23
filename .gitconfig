@@ -17,6 +17,7 @@
 	lp = log --graph --decorate --pretty=short -p --word-diff
 	discard = reset HEAD --hard
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+	gofmt = !echo $(git diff --cached --name-only --diff-filter=ACM | grep .go) | xargs gofmt -w -l
 [apply]
 	whitespace = fix
 [diff]
