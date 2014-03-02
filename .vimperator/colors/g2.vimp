@@ -1,0 +1,53 @@
+" == Pentadactyl Color Scheme ==
+"
+" Maintainer: Gianluca Fiore <forod.g@gmail.com>
+
+hi clear
+
+hi StatusLine color: #df253f; background: #ffffff; font-size: 9pt;
+hi StatusLineNormal color: #df253f; background: #ffffff; font-size: 9pt;
+hi StatusLineBroken color: #484848; background: #ffffff; font-size: 9pt;
+hi StatusLineSecure color: #cdcc3f; background: #ffffff; font-size: 9pt;
+hi StatusLineExtended color: #fffc5d; background: #ffffff; font-size: 9pt;
+
+hi Normal color: #df253f; background: #ffffff; font-size: 9pt;
+hi CmdLine color: #df253f; background: #ffffff; font-size: 9pt;
+
+hi CompTitle color: #df253f; background #ffffff; font-weight: normal;
+hi CompTitle>* padding: 0.5ex;
+hi CompTitleSep color: #ced530;
+hi CompItem[selected] color: #df253f; background: #ced530; font-weight: bold;
+hi CompIcon width: 16px; min-width: 16px; display: inline-block; margin-right: 0.5ex;
+hi CompLess text-align: center; height: 0; line-height: 0.5ex; padding-top: 1ex;
+hi CompMore text-align: center; height: .5ex; line-height: 0.5ex; margin-bottom: -0.5ex;
+hi CompMsg color: #ffffff;
+hi CompResult color: #df253f; font-weight: normal; width: 40%; overflow: hidden;
+hi CompDesc color: #df253f; font-weight: normal; width: 60%;
+
+hi Bell border: 0 none; background: inherit;
+hi ErrorMsg color: red; background: #ffffff; font-weight: bold;
+hi Indicator color: #999c36; background: #ffffff;
+hi LineNr color: red; background: inherit !important;
+
+hi Hint color: #ffffff; background: #df253f; font-family: Terminus; opacity: .9; font-size: 120%;
+hi Hint::after content: attr(number);
+hi HintActive color: #999c36 !important; background: inherit;
+hi HintElem color: #722f1f;
+hi HintImage color: #999c36 !important; opacity: .2;
+
+hi Message white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
+hi WarningMsg color: #ff0000; background: #ffffff;
+hi ModeMsg color: #3d3230; background: #ffffff;
+hi MoreMsg color: #3d3230; background: #ffffff;
+
+hi NonText min-height: 16px; padding-left: 2px;
+hi Question color: #ffffff; background: #999c36; font-weight: bold;
+
+hi Filter color: #999c36; font-weight: bold;
+
+hi Title color: black; background #ffffff; font-weight: normal;
+hi URL color: #df253f; text-decoration: none;
+hi URL:hover text-decoration: underline; cursor: pointer;
+hi Tag color: #999c36; text-decoration: underline;
+
+" vim: set ft=vim tw=0:
