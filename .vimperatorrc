@@ -26,6 +26,7 @@ set showstatuslinks=1
 " pass through mode for some sites, automatically
 autocmd LocationChange .* js modes.passAllKeys=0
 autocmd LocationChange .* js modes.passAllKeys = /twitter\.com/.test(buffer.URL)
+autocmd LocationChange .* js modes.passAllKeys = /tumblr\.com/.test(buffer.URL)
 autocmd LocationChange .* js modes.passAllKeys = /duckduckgo\.com/.test(buffer.URL)
 autocmd LocationChange .* js modes.passAllKeys = /getprismatic\.com/.test(buffer.URL)
 autocmd LocationChange .* js modes.passAllKeys = /feedly\.com/.test(buffer.URL)
