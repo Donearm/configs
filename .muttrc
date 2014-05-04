@@ -225,6 +225,13 @@ macro index \cb "<pipe-message> urlview<Enter>"
 # save message to ~
 macro index \es "<pipe-message>cat > ~/" "save message as"
 
+# Mark all New and Old message as read
+macro index A "<tag-pattern>~U<enter>\
+<tag-prefix><clear-flag>N\
+<tag-prefix><clear-flag>O\
+<untag-pattern>~T<enter>" \
+"Mark all as read"
+
 # imitate the old search-body function
 macro index \eb '/~b ' 'search in message bodies'
 
