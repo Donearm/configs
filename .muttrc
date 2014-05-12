@@ -243,13 +243,6 @@ bind index \e\t	    previous-unread
 # simulate the old url menu
 macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
 
-# Notmuch setup
-macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" "notmuch: search mail"  
-macro index <F9> "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
-"search and reconstruct owning thread with notmuch"
-macro index <F6> "<enter-command>unset wait_key<enter><enter-command>unignore message-id<enter><pipe-message>notmuch-mutt -- tag -inbox<enter>" \
-"remove message from inbox with notmuch"
-
 ## Compose
 
 # Aspell macros
