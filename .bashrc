@@ -80,6 +80,13 @@ gitgrep() {
 	)
 }
 
+# Quickly mount/umount the Nexus 5
+nexus_on() {
+	mkdir -p nexus
+	jmtpfs -o allow_other nexus
+	echo "Nexus5 successfully mounted"
+}
+
 # Easily mark and jump in the filesystem
 # From
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
