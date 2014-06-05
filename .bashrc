@@ -91,6 +91,17 @@ nexus_on() {
 	fi
 }
 
+nexus_off() {
+	fusermount -u nexus
+	if [ $? -eq 0 ]; then
+		if [ -d nexus ]; then
+			rm -rf nexus/
+		fi
+	else
+		echo "Couldn't unmount the Nexus"
+	fi
+}
+
 # Easily mark and jump in the filesystem
 # From
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
