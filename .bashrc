@@ -84,7 +84,11 @@ gitgrep() {
 nexus_on() {
 	mkdir -p nexus
 	jmtpfs -o allow_other nexus
-	echo "Nexus5 successfully mounted"
+	if [ $? -eq 0 ]; then
+		echo "Nexus5 successfully mounted"
+	else
+		echo "Something went wrong, the Nexus couldn't be mounted"
+	fi
 }
 
 # Easily mark and jump in the filesystem
