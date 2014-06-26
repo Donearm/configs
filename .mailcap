@@ -2,9 +2,9 @@
 
 
 #text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
+text/html; chromium %s && sleep 2; nametemplate=%s.html; copiousoutput
+text/html; google-chrome-stable %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; firefox %s && sleep 2; nametemplate=%s.html; copiousoutput
-text/html; chromium %s && sleep 2; nametemplate=%s.html; test=test -n "$DISPLAY"; needsterminal
-text/html; google-chrome-stable %s && sleep 2; nametemplate=%s.html; test=test -n "$DISPLAY"; needsterminal
 text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
 
