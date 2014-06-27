@@ -203,7 +203,7 @@ else
 fi
 
 
-export BROWSER="google-chrome-stable"
+export BROWSER="firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 export SERVER='news.tin.it'
