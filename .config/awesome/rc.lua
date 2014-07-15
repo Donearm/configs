@@ -626,30 +626,6 @@ for i = 1, keynumber do
                           awful.client.toggletag(tags[client.focus.screen][i])
                       end
                   end))
---                  end),
---        awful.key({ modkey, "Shift" }, "F" .. i,
---                  function ()
---                      local screen = mouse.screen
---                      if tags[screen][i] then
---                          for k, c in pairs(awful.client.getmarked()) do
---                              awful.client.movetotag(tags[screen][i], c)
---                          end
---                      end
---                   end),
---        -- unminimize windows
---        awful.key({ modkey, "Shift"   }, "n",
---            function ()
---                local allclients = client.get(mouse.screen)
---                for _,c in pairs(allclients) do
---                    if c.minimized and c:tags()[mouse.screen] == awful.tag.selected(mouse.screen)
---                        then
---                            c.minimized = false
---                            client.focus = c
---                            c:raise()
---                            return
---                    end
---                end
---            end))
 end
     
 
@@ -685,11 +661,9 @@ awful.rules.rules = {
       properties = { tag = tags[1][5]} },
     { rule = { class = "Digikam" },
       properties = { tag = tags[1][5]} },
-    { rule = { class = "feh" },
+    { rule = { class = "sxiv" },
       properties = { floating = true } },
     { rule = { class = "gcolor2" }, 
-      properties = { floating = true } },
-    { rule = { class = "Gmusicbrowser" },
       properties = { floating = true } },
     -- trying to start Firefox's download window minimized, not working
     { rule = { class = "Firefox", instance = "Download" },
@@ -721,22 +695,6 @@ awful.rules.rules = {
 
 -- {{{ Autorun apps
 autorun = true
-
---- Old way
---autorunApps =
---{
---    "xbindkeys",
---    "compton --config /home/gianluca/.config/compton.conf",
---    "xset m 0.7 2",
---    "xset dpms 0 900 2750",
---    "urxvtd -q -o -f",
---}
-
---if autorun then
---    for app = 1, #autorunApps do
---        awful.util.spawn(autorunApps[app])
---    end
---end
 
 --- New way
 if autorun then
@@ -776,17 +734,6 @@ client.connect_signal("manage", function (c, startup)
         end
     end
 
-    -- I want Mplayer sticky in all tags
-    --if c.name:find("MPlayer") then
-    --    for s = 1, screen.count() do
-    --        tagtable = screen[s]:tags()
-    --        for k,t in pairs(tagtable) do
-    --            if t ~= awful.tag.selected() then
-    --                awful.client.toggletag(t, c)
-    --            end
-    --        end
-    --    end
-    --end
     local titlebars_enabled = false
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
         -- Widgets that are aligned to the left
