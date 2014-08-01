@@ -45,9 +45,9 @@ topfifteen() {
 
 startX() {
 	if [ -z "$XDG_VTNR" ]; then
-		nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 2> ~/.xsession-errors
+		startx -nolisten tcp -deferglyphs 16
 	else
-		nohup &> /dev/null startx -- -nolisten tcp -deferglyphs 16 vt$XDG_VTNR 2> ~/.xsession-errors
+		startx -nolisten tcp -deferglyphs 16 vt$XDG_VTNR
 	fi
 	disown
 	logout
