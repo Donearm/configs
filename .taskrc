@@ -44,10 +44,10 @@ color.tag.linux=black on white
 color.tag.script=black on green
 color.tag.os=bold blue on black
 color.tag.music=bold yellow on gray
-color.project.travel=white on blue
+color.tag.travel=white on blue
+color.tag.blog=bold blue on gray
 color.project.portuguese=bold green on gray
 color.project.spanish=bold red on gray
-color.project.blog=bold blue on gray
 
 #shadow.file=~/.task/shadow.txt
 #shadow.command=list
