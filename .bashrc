@@ -130,7 +130,7 @@ function mmarks() {
 # Bash Colors
 bblack="\033[0;30m" # black
 bred="\033[0;31m" # red
-bRed="\033[1;31m" # bold red
+bMagenta="\033[1;31m" # bold red
 bgreen="\033[0;32m" # green
 bGreen="\033[1;32m" # bold green
 byellow="\033[0;33m" # yellow
@@ -172,13 +172,13 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    PS1="${bRed}\[[${bnc}\u@\H ${bRed}\W${bRed}]\]$ ${bnc}"
+    PS1="${bMagenta}\[[${bnc}\u@\H ${bMagenta}\W${bMagenta}]\]$ ${bnc}"
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) ${bRed}»${bnc} \w \n${bred} >: ${bnc}"
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) ${bMagenta}»${bnc} \w \n${bred} >: ${bnc}"
     else
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) ${bRed}»${bnc} \w \n >: "
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) ${bMagenta}»${bnc} \w \n >: "
     fi
 elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" ]]
 then
@@ -191,9 +191,9 @@ then
 		fi
 	fi
     if [[ `whoami` == "root" ]]; then
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) ${bRed}»${bnc} \w \n${bred} >: ${bnc}"
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) ${bMagenta}»${bnc} \w \n${bred} >: ${bnc}"
     else
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bRed}»${bnc} \w \n >: "
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bMagenta}»${bnc} \w \n >: "
     fi
     #export TITLEBAR='\[\e]0;\u | term | \w\007\]'
 # Let's try
@@ -201,9 +201,9 @@ then
     export COLORTERM='rxvt-unicode'
 else
     if [[ `whoami` == "root" ]]; then
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y)${bRed} »${bnc} \w \n${bred} >: ${bnc}"
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y)${bMagenta} »${bnc} \w \n${bred} >: ${bnc}"
     else
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y)${bRed} »${bnc} \w \n >: "
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y)${bMagenta} »${bnc} \w \n >: "
     fi
 fi
 
