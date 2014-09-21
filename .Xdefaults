@@ -37,16 +37,15 @@ Urxvt.italicFont:		xft:MonoOne:italic:pixelsize=12
 Urxvt.boldItalicFont:	xft:MonoOne:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
 urxvt.background:		#3d3230
-urxvt.foreground:		#ffffff
+urxvt.foreground:		#dedad0
 URxvt.transparent:		true
 URxvt.shading:			10
 URxvt.fading:			30
 URxvt.fadeColor:		#3d3230
 !URxvt.tintColor:		#6c9eab
-!URxvt.cursorColor:		#e4a900
-URxvt.cursorColor:		#df253f
-URxvt.cursorColor2:		#ced530
-URxvt.pointerColor:		#df253f
+URxvt.cursorColor:		#dec68a
+URxvt.cursorColor2:		#3d3230
+URxvt.pointerColor:		#34243e
 URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
 !Black + DarkGrey
@@ -54,13 +53,13 @@ URxvt.color0:   #3d3230
 URxvt.color8:   #484848
 !DarkRed + Red
 URxvt.color1:   #a21b2e
-URxvt.color9:   #df253f
+URxvt.color9:   #34243e
 !DarkGreen + Green
 URxvt.color2:   #495a2b
 URxvt.color10:  #8ec43d
 !DarkYellow + Yellow
-URxvt.color3:   #cdcc3f
-URxvt.color11:  #fffc5d
+URxvt.color3:   #dec68a
+URxvt.color11:  #deba61
 !DarkBlue + Blue
 URxvt.color4:   #002a4f
 URxvt.color12:  #004582
@@ -72,12 +71,12 @@ URxvt.color6:   #3168b5
 URxvt.color14:  #377ef2
 !LightGrey + White
 URxvt.color7:   #d6c5b8
-URxvt.color15:  #ffffff
-URxvt.colorBD:			#df253f
+URxvt.color15:  #dedad0
+URxvt.colorBD:			#34243e
 URxvt.colorUL:			#a58052
 URxvt.colorIT:			#d08645
 URxvt.scrollBar:		true
-URxvt.scrollColor:		#df253f
+URxvt.scrollColor:		#34243e
 URxvt.scrollstyle:		plain
 URxvt.jumpScroll:		0
 URxvt.throughColor:		cyan
