@@ -82,7 +82,7 @@ gitgrep() {
 
 # Launch a sopcast stream
 sopcast_view() {
-	sp-sc "${1}" 3908 8908 > /dev/null && wait 30 && mplayer http://localhost:8908/tv.asf &
+	sp-sc "${1}" 3908 8908 > /dev/null 
 }
 
 # Quickly mount/umount the Nexus 5
