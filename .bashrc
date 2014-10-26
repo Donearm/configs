@@ -128,7 +128,7 @@ function mmarks() {
 # Bash Colors
 bblack="\033[0;30m" # black
 bred="\033[0;31m" # red
-bMagenta="\033[1;31m" # bold red
+bRed="\033[1;31m" # bold red
 bgreen="\033[0;32m" # green
 bGreen="\033[1;32m" # bold green
 byellow="\033[0;33m" # yellow
