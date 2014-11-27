@@ -5,6 +5,7 @@ alias less="less -r"
 alias cp="cp -p"
 alias df="df -T"
 alias du="du -h -c"
+alias grep="grep --color"
 alias bash="/bin/bash --login"
 alias slrn="slrn --kill-log $HOME/.slrn/kill_log.log"
 alias startx="startx -nolisten tcp -deferglyphs 16"
@@ -231,8 +232,6 @@ export HISTSIZE=-1
 # add date and time to history elements
 export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth # no doubles in bash_history
-# Colorized grep output
-export GREP_OPTIONS="--color"
 
 # set ls colors
 # di=directories, fi=files, ln=symbolic links, pi=fifo, so=sockets,
