@@ -3,6 +3,7 @@ HISTSIZE=5000
 SAVEHIST=3000
 setopt HIST_IGNORE_DUPS
 unsetopt beep
+setopt nohashdirs # rehash automatically new executables in $PATH
 bindkey -v
 
 zstyle :compinstall filename '/home/gianluca/.zshrc'
