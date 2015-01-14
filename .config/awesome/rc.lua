@@ -665,9 +665,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gcolor2" }, 
       properties = { floating = true } },
-    -- trying to start Firefox's download window minimized, not working
-    { rule = { class = "Firefox", instance = "Download" },
-      properties = { floating = true, minimized = true } },
+    { rule = { class = "Firefox", instance = "Places" },
+      properties = { floating = true } },
     { rule = { name = "Firefox Preferences" },
       properties = { floating = true } },
     { rule = { class = "Firefox", instance = "Abp" }, -- AdblockPlus
