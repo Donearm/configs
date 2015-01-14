@@ -669,8 +669,6 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { name = "Firefox Preferences" },
       properties = { floating = true } },
-    { rule = { class = "Firefox", instance = "Abp" }, -- AdblockPlus
-      properties = { floating = true } },
     { rule = { class = "<unknown>" }, -- for fullscreen flash videos
       properties = { floating = true } },
     { rule = { class = "Plugin-container" }, -- for fullscreen flash videos
