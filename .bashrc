@@ -84,25 +84,25 @@ sopcast_view() {
 	sp-sc "${1}" 3908 8908 > /dev/null &
 }
 
-# Quickly mount/umount the Nexus 5
-nexus_on() {
-	mkdir -p nexus
-	jmtpfs -o allow_other nexus
+# Quickly mount/umount an Android phone
+phone_on() {
+	mkdir -p phone
+	jmtpfs -o allow_other phone
 	if [ $? -eq 0 ]; then
-		echo "Nexus5 successfully mounted"
+		echo "Your phone has been successfully mounted"
 	else
-		echo "Something went wrong, the Nexus couldn't be mounted"
+		echo "Something went wrong, the phone couldn't be mounted"
 	fi
 }
 
-nexus_off() {
-	fusermount -u nexus
+phone_off() {
+	fusermount -u phone
 	if [ $? -eq 0 ]; then
-		if [ -d nexus ]; then
-			rm -rf nexus/
+		if [ -d phone ]; then
+			rm -rf phone/
 		fi
 	else
-		echo "Couldn't unmount the Nexus"
+		echo "Couldn't unmount the phone"
 	fi
 }
 
