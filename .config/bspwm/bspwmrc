@@ -1,0 +1,32 @@
+#! /bin/sh
+
+bspc config border_width        1
+bspc config window_gap			10
+bspc config top_padding			12
+bspc config left_padding		0
+bspc config bottom_padding		18
+bspc config split_ratio         0.50
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config focus_by_distance   true
+bspc config focus_follows_pointer false
+
+bspc monitor -d I II III IV V VI VII
+
+bspc desktop ^1 --layout monocle
+
+bspc rule -a Gimp desktop=^5 follow=on
+bspc rule -a mplayer floating=on
+bspc rule -a Digikam desktop=^5
+bspc rule -a sxiv floating=on
+bspc rule -a gcolor2 floating=on
+bspc rule -a Skype floating=on
+bspc rule -a lxappearance floating=on
+
+xbindkeys &
+sxhkd &
+compton --config ~/.config/compton.conf &
+xset m 0.7 2 &
+xset dpms 0 900 2750 &
+urxvtd -q -o -f &
+jingo -c /mnt/c/Projects/Kortirion_wikis/config.yaml &
