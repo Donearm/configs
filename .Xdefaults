@@ -105,22 +105,6 @@ URxvt.tabbed.tab-bg:	0
 ! select input method (may be different from locale)
 !URxvt.imlocale:		it_IT.UTF-8	
 
-! Stjerm
-stjerm.key:			F1
-stjerm.mod:			windows
-stjerm.font:		Consolas 11
-stjerm.background:	#0e1422
-stjerm.foreground:	#e6eef2
-stjerm.border:	    none
-stjerm.opacity:	    90
-stjerm.width:	    650
-stjerm.height:	    400
-stjerm.position:    right
-stjerm.scrollbar:   right
-stjerm.lines:	    10000
-stjerm.showtab:	    one
-stjerm.tabpos:	    top
-
 ! Lalcal
 lalcal*format:			%a %e %b %l.%M%P
 lalcal*width:			140
