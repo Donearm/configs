@@ -1,21 +1,21 @@
 ! Font settings
-Xft*antialias:	    1
-Xft*hinting:		medium
-Xft.hintstyle:		hintlight
-Xft*.lcdfilter:		lcddefault
+Xft*antialias:			1
+Xft*hinting:			medium
+Xft.hintstyle:			hintlight
+Xft*.lcdfilter:			lcddefault
 
 ! XTerm
-xterm*termname:	    xterm-color
-xterm*utf8:			1
+xterm*termname:			xterm-color
+xterm*utf8:				1
 
 ! Xclock
-xclock*hourColor:   blue
-xclock*minuteColor: blue
-xclock*secondColor: blue
-xclock*majorColor:  white
-xclock*minorColor:  blue
-xclock*buffer:	    true
-xclock*background:  black
+xclock*hourColor:		blue
+xclock*minuteColor:		blue
+xclock*secondColor:		blue
+xclock*majorColor:		white
+xclock*minorColor:		blue
+xclock*buffer:			true
+xclock*background:		black
 
 ! Mouse Theme
 Xcursor*theme:			Obsidian
@@ -49,29 +49,29 @@ URxvt.pointerColor:		#ef2929
 URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
 !Black + DarkGrey
-URxvt.color0:   #120d11
-URxvt.color8:   #555753
+URxvt.color0:			#120d11
+URxvt.color8:			#555753
 !DarkRed + Red
-URxvt.color1:   #a40000
-URxvt.color9:   #ef2929
+URxvt.color1:			#a40000
+URxvt.color9:			#ef2929
 !DarkGreen + Green
-URxvt.color2:   #4e9a06
-URxvt.color10:  #73d216
+URxvt.color2:			#4e9a06
+URxvt.color10:			#73d216
 !DarkYellow + Yellow
-URxvt.color3:   #c4a000
-URxvt.color11:  #edd400
+URxvt.color3:			#c4a000
+URxvt.color11:			#edd400
 !DarkBlue + Blue
-URxvt.color4:   #204a87
-URxvt.color12:  #3465a4
+URxvt.color4:			#204a87
+URxvt.color12:			#3465a4
 !DarkMagenta + Magenta
-URxvt.color5:	#5c3565
-URxvt.color13:  #ad7fa8
+URxvt.color5:			#5c3565
+URxvt.color13:			#ad7fa8
 !DarkCyan + Cyan
-URxvt.color6:   #729fcf
-URxvt.color14:  #377ef2
+URxvt.color6:			#729fcf
+URxvt.color14:			#377ef2
 !LightGrey + White
-URxvt.color7:   #babdb6
-URxvt.color15:  #fcfbf9
+URxvt.color7:			#babdb6
+URxvt.color15:			#fcfbf9
 URxvt.colorBD:			#ef2929
 URxvt.colorUL:			#f57900
 URxvt.colorIT:			#ce5c00
@@ -122,5 +122,5 @@ stjerm.showtab:	    one
 stjerm.tabpos:	    top
 
 ! Lalcal
-lalcal*format:	    %a %e %b %l.%M%P
-lalcal*width:	    140
+lalcal*format:			%a %e %b %l.%M%P
+lalcal*width:			140
