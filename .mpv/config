@@ -15,3 +15,8 @@ monitoraspect=16:10
 #hwdec = auto
 geometry="50%:100%"
 osd-level=3
+
+[vo.vdpau]
+profile-desc="Profile for hw decoding with VDPAU"
+# Use hardware decoding
+hwdec=vdpau
