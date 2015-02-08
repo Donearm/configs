@@ -3,7 +3,6 @@
 local beautiful = require("beautiful")
 local awful = require("awful")
 local naughty = require("naughty")
-local mpdpopup = require("mpd-popup")
 
 ---- }}}
 
@@ -424,6 +423,26 @@ function mocMessage(n)
 		})
 	end
 end
+
+--- Run a program just once (for startup)
+-- from the official wik http://awesome.naquadah.org/wiki/Autostart
+function run_once(prg, arg_string, pname, screen)
+	if not prg then
+		return nil
+	end
+
+	if not pname then
+		pname = prg
+	end
+
+	if not arg_string then
+		awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
+	else
+		awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. " " .. arg_string .. "' || (" .. prg .. " " .. arg_string .. ")", screen)
+	end
+end
+
+
 
 ---- }}}
 
