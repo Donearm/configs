@@ -14,4 +14,4 @@ monitoraspect=16:10
 # video output, otherwise no hardware decoding will be used.
 #hwdec = auto
 geometry="50%:100%"
-osd-level=1
+osd-level=3
