@@ -5,8 +5,6 @@ softvol=no
 # Fixes playback of some NSV streams
 user-agent="Winamp NSV Player/5.12 (ultravox/2.0)"
 cache = 8192
-# Prefill 20% of the cache before starting playback.
-cache-min = 20.0
 # Prefill 50% of the cache before restarting playback after the cache emptied.
 cache-seek-min = 50
 slang = it,en
