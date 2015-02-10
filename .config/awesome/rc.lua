@@ -783,15 +783,6 @@ client.connect_signal("manage", function (c, startup)
 	end
 end)
 
-
--- call coverart_show every 2 seconds
---mpdtimer = timer({ timeout = 2 })
---mpdtimer:connect_signal("timeout", function () coverart_show() end)
---mpdtimer:start()
---xmmstimer = timer({ timeout = 2 })
---xmmstimer:connect_signal("timeout", function () coverart_show() end)
---xmmstimer:start()
-
 -- }}}
 
 -- vim: set filetype=lua tabstop=4 shiftwidth=4:
