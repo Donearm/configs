@@ -299,7 +299,6 @@ source /usr/share/bash-completion/completions/tmux
 source /usr/share/bash-completion/completions/task
 # udisks functions
 source /mnt/d/Script/utilities/udisks_functions
-source /mnt/d/Script/utilities/sd.sh
 # git prompt
 source /usr/share/git/git-prompt.sh
 
