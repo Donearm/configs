@@ -8,15 +8,6 @@ local naughty = require("naughty")
 
 ---- {{{ Functions
 
----- Mouse remove function
--- basically move the pointer to the bottom right of the screen with
--- Mod4+Ctrl+m, useful to remove it when it stands in the middle of the
--- screen but without using the touchpad
-local safeCoords = {x=800, y=1050}
-function moveMouse(x_co, y_co)
-    mouse.coords({ x=x_co, y=y_co })
-end
-
 --- Simulate mouse click
 local function simulateClick()
     root.fake_input("button_press", 1)

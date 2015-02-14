@@ -539,7 +539,7 @@ globalkeys = awful.util.table.join(
     awful.key({ none                }, "XF86Sleep", function () awful.util.spawn(lockScreen) end),
     awful.key({ none                }, "XF86Mail", function () awful.util.spawn(mutt) end),
     awful.key({ modkey              }, "XF86HomePage", function () awful.util.spawn("sudo systemctl suspend") end),
-    awful.key({ modkey, "Control"   }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
+    awful.key({ modkey, "Control"   }, "m", function() mouse.coords({x=800, y=1500}, true) end),
     awful.key({ modkey,             }, "c", function() simulateClick() end),
 
     -- Mod4+s set the window sticky; pressing it again leave the window
