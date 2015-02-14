@@ -9,7 +9,7 @@ local naughty = require("naughty")
 ---- {{{ Functions
 
 --- Simulate mouse click
-local function simulateClick()
+function simulateClick()
     root.fake_input("button_press", 1)
     root.fake_input("button_release", 1)
 end
