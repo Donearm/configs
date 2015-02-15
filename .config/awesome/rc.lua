@@ -86,6 +86,11 @@ naughty.config.presets.critical.opacity = 1
 -- Define if we want to modify client.opacity
 use_composite = false
 
+-- Add Pomodoro widget
+-- https://github.com/nikolavp/awesome-pomodoro
+local pomodoro = require("pomodoro")
+pomodoro.init()
+
 
 -- menu bindings
 awful.menu.menu_keys = { up     = { "k", "Up" },
@@ -454,6 +459,8 @@ for s = 1, screen.count() do
     bottomwibox_left:add(mylayoutbox[s])
 
     local bottomwibox_right = wibox.layout.fixed.horizontal()
+    bottomwibox_right:add(pomodoro.icon_widget)
+    bottomwibox_right:add(pomodoro.widget)
 	bottomwibox_right:add(mpdicon)
     bottomwibox_right:add(mpdwidget)
     bottomwibox_right:add(volumeicon)
