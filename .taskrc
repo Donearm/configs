@@ -1,7 +1,6 @@
 data.location=~/.task
 locking=on
 
-curses=on
 defaultwidth=80
 
 confirmation=yes
