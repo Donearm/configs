@@ -118,7 +118,7 @@ def git(repo, action):
             print("Git returned non-zero exit status!")
             return 1
     else:
-        print("Git is not available")
+        print("Git is not available\nExiting...")
         return 1
 
 
