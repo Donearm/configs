@@ -331,7 +331,7 @@ function psByCpu(n)
             text = r,
             timeout = 0,
             hover_timeout = 3,
-            width = 300
+            width = 400
         })
     end
 end
