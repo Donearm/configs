@@ -65,6 +65,9 @@ def collect_links(directory):
         elif os.path.isdir(f):
             symlink(os.path.join(directory, f), HOME)
             collect_links(os.path.join(directory, f))
+        elif os.path.islink(f):
+            # Ignore symlinks
+            pass
         else:
             raise AssertionError("%s is neither a file nor a folder" % src)
 
