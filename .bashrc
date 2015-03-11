@@ -295,8 +295,6 @@ shopt -s cdspell
 
 # auto completion
 source /usr/share/bash-completion/completions/git
-source /usr/share/bash-completion/completions/tmux
-source /usr/share/bash-completion/completions/task
 # udisks functions
 source /mnt/d/Script/utilities/udisks_functions
 # git prompt
