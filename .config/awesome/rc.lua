@@ -25,6 +25,9 @@ vicious.contrib = require("vicious.contrib")
 -- Custom functions
 local functions = require("functions")
 
+-- awesome-redshift
+local redshift = require("redshift")
+
 -- }}}
 
 -- {{{ Error handling
@@ -72,7 +75,7 @@ local mutt = terminal .. " -e mutt -y"
 local maildir = home .. "/Maildir"
 local lockScreen = "slock"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/jac01"
+theme_path = home .. "/.config/awesome/themes/smoking_glass_whisky"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -85,11 +88,6 @@ naughty.config.presets.low.opacity = 0.8
 naughty.config.presets.critical.opacity = 1
 -- Define if we want to modify client.opacity
 use_composite = false
-
--- Add Pomodoro widget
--- https://github.com/nikolavp/awesome-pomodoro
-local pomodoro = require("pomodoro")
-pomodoro.init()
 
 
 -- menu bindings
@@ -244,10 +242,10 @@ netupwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
     function (widget, args)
-        if tonumber(args["{enp4s0 up_kb}"]) > 80 then
-            return setFg(beautiful.fg_focus, args["{enp4s0 up_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+        if tonumber(args["{wlp7s0 up_kb}"]) > 80 then
+            return setFg(beautiful.fg_focus, args["{wlp7s0 up_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         else
-            return args["{enp4s0 up_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+            return args["{wlp7s0 up_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         end
     end, nil, nil, 3
 )
@@ -257,10 +255,10 @@ netdownicon:set_image(beautiful.net_down_icon)
 netdownwidget = wibox.widget.textbox()
 vicious.register(netdownwidget, vicious.widgets.net,
     function (widget, args)
-        if tonumber(args["{enp4s0 down_kb}"]) > 200 then
-            return setFg(beautiful.fg_focus, args["{enp4s0 down_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+        if tonumber(args["{wlp7s0 down_kb}"]) > 200 then
+            return setFg(beautiful.fg_focus, args["{wlp7s0 down_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         else
-            return args["{enp4s0 down_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{enp4s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+            return args["{wlp7s0 down_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
         end
     end, nil, nil, 3
 )
@@ -310,6 +308,33 @@ mpdwidget:buttons(
         awful.button({}, 5, function () awful.util.spawn(musicPrev, false) end)
     )
 )
+
+-- Redshift widget
+redshifticon = wibox.widget.imagebox()
+redshifticon:set_image(beautiful.redshift_icon)
+redshifticon:buttons(awful.util.table.join(
+	awful.button({ }, 1, function() redshift.dim() end),
+	awful.button({ }, 3, function() redshift.undim() end)
+	)
+)
+
+-- Battery widget
+batwidget = wibox.widget.textbox()
+baticon = wibox.widget.imagebox()
+baticon:set_image(beautiful.battery_icon)
+vicious.register(batwidget, vicious.widgets.bat,
+	function (widget, args)
+		if args[1] == "-" then
+			return ' ' .. args[2] .. '% ' .. setFg(beautiful.fg_divisions, '[') .. args[3] .. ' left' .. setFg(beautiful.fg_divisions, ']')
+		elseif args[1] == "+" then
+			return ' ' .. args[2] .. '% ' .. setFg(beautiful.fg_divisions, '[') .. args[3] .. ' to full charge' .. setFg(beautiful.fg_divisions, ']')
+		elseif args[1] ~= '' then
+			return ' ' .. args[2] .. '% ' .. setFg(beautiful.fg_divisions, '[') .. 'Charged' .. setFg(beautiful.fg_divisions, ']')
+		else
+			return ''
+		end
+	end,
+62, 'BAT0')
 
 -- Volume widget
 volumewidget = wibox.widget.textbox()
@@ -459,12 +484,13 @@ for s = 1, screen.count() do
     bottomwibox_left:add(mylayoutbox[s])
 
     local bottomwibox_right = wibox.layout.fixed.horizontal()
-    bottomwibox_right:add(pomodoro.icon_widget)
-    bottomwibox_right:add(pomodoro.widget)
 	bottomwibox_right:add(mpdicon)
     bottomwibox_right:add(mpdwidget)
+	bottomwibox_right:add(baticon)
+	bottomwibox_right:add(batwidget)
     bottomwibox_right:add(volumeicon)
     bottomwibox_right:add(volumewidget)
+	bottomwibox_right:add(redshifticon)
     bottomwibox_right:add(datebox)
 
     local bottomwibox_layout = wibox.layout.align.horizontal()
@@ -536,16 +562,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, alt         }, "f", function () awful.util.spawn(browser) end),
     awful.key({ modkey, alt         }, "r", function () awful.util.spawn(filemanager) end),
     awful.key({ modkey              }, "p", function () show_clipboard() end),
-    awful.key({ none                }, "XF86AudioPlay", function () awful.util.spawn(musicPlay) end),
-    awful.key({ none                }, "XF86AudioStop", function () awful.util.spawn(musicStop) end),
-    awful.key({ none                }, "XF86AudioPrev", function () awful.util.spawn(musicPrev) end),
-    awful.key({ none                }, "XF86AudioNext", function () awful.util.spawn(musicNext) end),
-    awful.key({ none                }, "XF86AudioLowerVolume", function () awful.util.spawn(soundLowerVolume) end),
-    awful.key({ none                }, "XF86AudioRaiseVolume", function () awful.util.spawn(soundRaiseVolume) end),
-    awful.key({ none                }, "XF86AudioMute", function () awful.util.spawn(soundMute) end),
-    awful.key({ none                }, "XF86Sleep", function () awful.util.spawn(lockScreen) end),
-    awful.key({ none                }, "XF86Mail", function () awful.util.spawn(mutt) end),
-    awful.key({ modkey              }, "XF86HomePage", function () awful.util.spawn("sudo systemctl suspend") end),
     awful.key({ modkey, "Control"   }, "m", function() mouse.coords({x=800, y=1500}, true) end),
     awful.key({ modkey,             }, "c", function() simulateClick() end),
 
@@ -702,13 +718,14 @@ autorun = true
 
 --- New way
 if autorun then
-    run_once("xbindkeys")
-    run_once("compton", "--config /home/gianluca/.config/compton.conf")
+	run_once("xbindkeys")
+	--run_once("compton", "--config /home/gianluca/.config/compton.conf")
     run_once("xset", "m 0.7 2")
-    run_once("xset", "dpms 0 900 2750")
+    run_once("xset", "dpms 0 120 600")
     run_once("urxvtd", "-q -o -f")
+	--run_once("redshift")
     run_once(browser)
-    run_once("jingo", "-c /mnt/c/Projects/Kortirion_wikis/config.yaml")
+    --run_once("jingo", "-c /mnt/c/Projects/Kortirion_wikis/config.yaml")
 end
 
 -- }}}
