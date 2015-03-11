@@ -39,7 +39,7 @@ Urxvt.boldItalicFont:	xft:MonoOne:bold:italic:pixelsize=14
 urxvt.background:		#120d11
 urxvt.foreground:		#fcfbf9
 URxvt.transparent:		true
-URxvt.shading:			10
+URxvt.shading:			20
 URxvt.fading:			30
 URxvt.fadeColor:		#120d11
 !URxvt.tintColor:		#6c9eab
