@@ -286,7 +286,7 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # Two variables to use vdpau backend via Gallium3d on open source Amd
 # drivers
 export LIBVA_DRIVER_NAME=vdpau
-export VDPAU_DRIVER=r600
+export VDPAU_DRIVER=va_gl
 
 # Check terminal size
 shopt -s checkwinsize
