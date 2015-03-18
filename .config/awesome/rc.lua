@@ -726,6 +726,7 @@ if autorun then
     run_once("xset", "m 0.7 2")
     run_once("xset", "dpms 0 120 600")
     run_once("urxvtd", "-q -o -f")
+	run_once("xrandr", "--dpi 123")
 	--run_once("redshift")
     run_once(browser)
     --run_once("jingo", "-c /mnt/c/Projects/Kortirion_wikis/config.yaml")
