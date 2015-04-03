@@ -270,7 +270,7 @@ function addCalendar(inc_offset)
         text = string.format('<span font_desc="%s">%s</span>', "monospace", os.date("%a, %d %B %Y") .. "\n" .. cal),
         timeout = 0,
         hover_timeout = 0.5,
-        width = 180,
+        width = 230,
         position = "bottom_right",
     })
 end
