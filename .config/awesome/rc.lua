@@ -327,14 +327,16 @@ vicious.register(batwidget, vicious.widgets.bat,
 		local state = args[1]
 		local charge = args[2]
 		local bat_time = args[3]
-		if state == "-"  and charge ~= 100 then
-			return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. bat_time .. ' left' .. setFg(beautiful.fg_divisions, ']')
-		elseif state == "+" and charge ~= 100 then
-			return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. bat_time .. ' to full charge' .. setFg(beautiful.fg_divisions, ']')
-		elseif charge == 100 then
+		if charge == 100 then
 			return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. 'Charged' .. setFg(beautiful.fg_divisions, ']')
 		else
-			return ' '
+			if state == "−" then
+				return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. bat_time .. ' left' .. setFg(beautiful.fg_divisions, ']')
+			elseif state == "+" then
+				return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. bat_time .. ' to full charge' .. setFg(beautiful.fg_divisions, ']')
+			else
+				return ' '
+			end
 		end
 	end,
 62, 'BAT0')
