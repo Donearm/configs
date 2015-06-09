@@ -298,9 +298,7 @@ source /usr/share/bash-completion/completions/git
 # git prompt
 source /usr/share/git/git-prompt.sh
 
-# Launch ssh-agent, but only if it's not been launched already!
-if [[ -z `pgrep ssh-agent` ]]; then
-	eval $(ssh-agent)
-fi
+# Load SSH keys
+ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 
 clear # clear the screen if something is on it
