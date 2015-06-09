@@ -725,6 +725,7 @@ autorun = true
 if autorun then
 	run_once("xbindkeys")
 	run_once("setxkbmap -option compose:menu") -- menu key is Compose
+	run_once("~/Script/script_disable_touchpad.sh")
 	--run_once("compton", "--config /home/gianluca/.config/compton.conf")
     run_once("xset", "m 0.7 2")
     run_once("xset", "dpms 0 120 600")
