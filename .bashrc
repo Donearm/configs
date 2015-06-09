@@ -44,9 +44,9 @@ topfifteen() {
 
 startX() {
 	if [ -z "$XDG_VTNR" ]; then
-		startx -nolisten tcp -deferglyphs 16
+		ssh-agent startx -nolisten tcp -deferglyphs 16
 	else
-		startx -nolisten tcp -deferglyphs 16 vt$XDG_VTNR
+		ssh-agent startx -nolisten tcp -deferglyphs 16 vt$XDG_VTNR
 	fi
 	disown
 	logout
