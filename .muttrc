@@ -179,6 +179,17 @@ set pgp_list_pubring_command="/usr/bin/gpg --no-verbose --batch --quiet --with-c
 set pgp_good_sign = "^gpg: Good signature from"
 set pgp_autoencrypt=no
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# SSL hardening
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set ssl_use_sslv2=no
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # Header fields I don't normally want to see
 #
