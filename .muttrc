@@ -180,7 +180,7 @@ set pgp_good_sign = "^gpg: Good signature from"
 set pgp_autoencrypt=no
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # SSL hardening
-set ssl_force_tls=yes
+set ssl_force_tls=no
 set ssl_starttls=yes
 set ssl_use_sslv2=no
 set ssl_use_sslv3=no
