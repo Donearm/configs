@@ -44,9 +44,9 @@ topfifteen() {
 
 startX() {
 	if [ -z "$XDG_VTNR" ]; then
-		ssh-agent startx -nolisten tcp -deferglyphs 16
+		startx -nolisten tcp -deferglyphs 16
 	else
-		ssh-agent startx -nolisten tcp -deferglyphs 16 vt$XDG_VTNR
+		startx -nolisten tcp -deferglyphs 16 vt$XDG_VTNR
 	fi
 	disown
 	logout
@@ -298,6 +298,7 @@ source /usr/share/bash-completion/completions/git
 source /usr/share/git/git-prompt.sh
 
 # Load SSH keys
+eval "$(ssh-agent)"
 ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 
 clear # clear the screen if something is on it
