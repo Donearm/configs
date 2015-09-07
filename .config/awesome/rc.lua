@@ -75,7 +75,7 @@ local mutt = terminal .. " -e mutt -y"
 local maildir = home .. "/Maildir"
 local lockScreen = "slock"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/smoking_glass_whisky"
+theme_path = home .. "/.config/awesome/themes/parthenon"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
