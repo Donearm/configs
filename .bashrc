@@ -84,6 +84,8 @@ gitgrep() {
 # Launch a sopcast stream
 sopcast_view() {
 	sp-sc "${1}" 3908 8908 > /dev/null &
+	wait 5
+	mpv http://localhost:8908/tv.asf &
 }
 
 # Quickly mount/umount an Android phone
