@@ -7,6 +7,8 @@
 
 ;; add .emacs.d
 (add-to-list 'load-path "~/.emacs.d/")
+;; add .emacs.d/themes to custom-theme-load-path
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))))
 (set-terminal-coding-system 'utf-8)
