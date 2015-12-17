@@ -5,8 +5,6 @@
 	ido-enable-flex-matching t
 	ido-use-filename-at-point 'guess))
 
-;; add .emacs.d
-(add-to-list 'load-path "~/.emacs.d/")
 ;; add .emacs.d/themes to custom-theme-load-path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (when window-system
