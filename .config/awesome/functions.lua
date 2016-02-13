@@ -415,6 +415,18 @@ function mocMessage(n)
 	end
 end
 
+--- Check if audio is being reproduced (from any source)
+function audio_playing()
+	local r = os.execute("grep -q RUNNING /proc/asound/card*/pcm*/sub*/status")
+	if r == nil then
+		-- nothing is being reproduced, return false
+		return false
+	else
+		return true
+	end
+end
+	
+
 --- Run a program just once (for startup)
 -- from the official wik http://awesome.naquadah.org/wiki/Autostart
 function run_once(prg, arg_string, pname, screen)
