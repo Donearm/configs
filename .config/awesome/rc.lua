@@ -819,7 +819,7 @@ end)
 
 --- Periodically check if something is playing and if not, set back 
 --audio to a low volume
-local audio_timer = timer { timeout = 3001 }
+local audio_timer = timer { timeout = 301 }
 audio_timer:connect_signal("timeout", function()
 	if audio_playing() == false then
 		awful.util.spawn(soundPerfectVolume)
