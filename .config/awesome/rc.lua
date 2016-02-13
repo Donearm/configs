@@ -817,4 +817,14 @@ end)
 
 -- }}}
 
+--- Periodically check if something is playing and if not, set back 
+--audio to a low volume
+local audio_timer = timer { timeout = 3001 }
+audio_timer:connect_signal("timeout", function()
+	if audio_playing() == false then
+		awful.util.spawn(soundPerfectVolume)
+	end
+end)
+audio_timer:start()
+
 -- vim: set filetype=lua tabstop=4 shiftwidth=4:
