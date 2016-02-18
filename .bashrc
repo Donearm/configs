@@ -101,6 +101,11 @@ phone_off() {
 	fi
 }
 
+forecast_me() {
+	curl -S http://wttr.in/$1
+}
+
+
 # Easily mark and jump in the filesystem
 # From
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
