@@ -74,6 +74,8 @@ local filemanager = terminal .. " -e ranger"
 local mutt = terminal .. " -e mutt -y"
 local maildir = home .. "/Maildir"
 local lockScreen = "slock"
+local brightnessInc = "xbacklight -inc 10"
+local brightnessDec = "xbacklight -dec 10"
 -- Themes define colours, icons, and wallpapers
 theme_path = home .. "/.config/awesome/themes/erg_chebbi"
 -- Actually load theme
@@ -318,6 +320,15 @@ awful.button({ }, 3, function() redshift.undim() end)
 )
 )
 
+-- Inc/Dec backlight of screen. Requires xorg-xbacklight
+brightnessicon = wibox.widget.imagebox()
+brightnessicon:set_image(beautiful.brightness_icon)
+brightnessicon:buttons(awful.util.table.join(
+awful.button({}, 1, function() awful.util.spawn(brightnessInc, false) end),
+awful.button({}, 3, function() awful.util.spawn(brightnessDec, false) end)
+)
+)
+
 -- Battery widget
 batwidget = wibox.widget.textbox()
 baticon = wibox.widget.imagebox()
@@ -496,6 +507,7 @@ bottomwibox_right:add(batwidget)
 bottomwibox_right:add(volumeicon)
 bottomwibox_right:add(volumewidget)
 bottomwibox_right:add(redshifticon)
+bottomwibox_right:add(brightnessicon)
 bottomwibox_right:add(datebox)
 
 local bottomwibox_layout = wibox.layout.align.horizontal()
