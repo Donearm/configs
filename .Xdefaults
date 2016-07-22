@@ -43,7 +43,7 @@ URxvt.shading:			20
 URxvt.fading:			30
 URxvt.fadeColor:		#120d11
 !URxvt.tintColor:		#6c9eab
-URxvt.cursorColor:		#c7392f
+URxvt.cursorColor:		#4882c7
 URxvt.cursorColor2:		#120d11
 URxvt.pointerColor:		#ef2929
 URxvt.pointerColor2:	black
@@ -76,7 +76,7 @@ URxvt.colorBD:			#ef2929
 URxvt.colorUL:			#f57900
 URxvt.colorIT:			#ce5c00
 URxvt.scrollBar:		true
-URxvt.scrollColor:		#ef2929
+URxvt.scrollColor:		#4882c7
 URxvt.scrollstyle:		plain
 URxvt.jumpScroll:		0
 URxvt.throughColor:		red
