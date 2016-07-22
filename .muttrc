@@ -309,6 +309,6 @@ source ~/.mutt/mailboxes
 # load the aliases
 source ~/.mail_aliases
 # My color theme of choice
-source ~/.mutt/jac01-colors.muttrc
+source ~/.mutt/driftavalii-colors.muttrc
 
 # EOF
