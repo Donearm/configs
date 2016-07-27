@@ -1,0 +1,36 @@
+# Predefined workspaces
+
+desktop1() {
+	firefox
+}
+
+desktop2() {
+	urxvtc && urxvtc
+}
+
+desktop3() {
+	return
+}
+
+desktop4() {
+	urxvtc -name Ranger -e ranger
+}
+
+# Launch boot programs (URxvt daemon, set wallpaper, set mouse speed, 
+# DPMS settings etc.)
+xbindkeys &
+xset m 0.7 2 &
+xset dpms 0 900 2750 &
+hsetroot -fill /mnt/documents/d/Images/skeleton_green_girl.jpg
+urxvtd -q -o -f &
+
+sleep 0.5
+
+# Launch the various desktops
+desktop1 &
+desktop2 &
+desktop3 &
+desktop4 &
+
+# Launch the bar (lemonbar)
+~/.config/bspwm/bar.sh | lemonbar -g 1920x18 -f "-*-hack-*-*-*-*-15-*-*-*-*-*-*-*" -f "-*-*-bold-*-*-*-15-*-*-*-*-*-*-*" | while read line; do eval "$line"; done &
