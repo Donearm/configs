@@ -1,6 +1,6 @@
 vo=opengl-hq
 ao=alsa
-softvol-max=600
+volume-max=600
 # Pretend to be Winamp
 # Fixes playback of some NSV streams
 user-agent="Winamp NSV Player/5.12 (ultravox/2.0)"
