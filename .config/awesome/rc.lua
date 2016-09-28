@@ -711,7 +711,7 @@ awful.rules.rules = {
 	properties = { floating = true } },
 { rule = { class = "<unknown>" }, -- for fullscreen flash videos
 	properties = { floating = true } },
-{ rule = { class = "Plugin-container" }, -- for fullscreen flash videos
+{ rule = { class = "plugin-container" }, -- for fullscreen flash videos
 	properties = { floating = true } },
 { rule = { class = "Wine" },
 	properties = { floating = true } },
