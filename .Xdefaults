@@ -35,6 +35,10 @@ URxvt.font:				xft:Mononoki:pixelsize=12
 URxvt.boldFont:			xft:Mononoki:bold:pixelsize=12
 Urxvt.italicFont:		xft:Mononoki:italic:pixelsize=12
 Urxvt.boldItalicFont:	xft:Mononoki:bold:italic:pixelsize=12
+!URxvt.font:				xft:Hack:pixelsize=12
+!URxvt.boldFont:			xft:Hack:bold:pixelsize=12
+!Urxvt.italicFont:		xft:Hack:italic:pixelsize=12
+!Urxvt.boldItalicFont:	xft:Hack:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
 urxvt.background:		#120d11
 urxvt.foreground:		#fcfbf9

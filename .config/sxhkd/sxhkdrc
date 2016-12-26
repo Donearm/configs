@@ -2,7 +2,8 @@
 # bspwm hotkeys
 #
 
-super + alt + q
+# Quit bspwm
+super + alt + Escape
 	bspc quit
 
 super + w

@@ -17,6 +17,7 @@
 	lp = log --graph --decorate --pretty=short -p --word-diff
 	discard = reset HEAD --hard
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+	graph = log --graph -10 --branches --remotes --tags --format=format:'%Cgreen%h %Creset°%<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 	gofmt = !echo $(git diff --cached --name-only --diff-filter=ACM | grep .go) | xargs gofmt -w -l
 [apply]
 	whitespace = fix
@@ -31,3 +32,5 @@
 [pretty]
     # http://stackoverflow.com/questions/7430093/git-log-formatting, slightly modified
     vonc = format:%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%aN>%Creset
+[credential]
+	helper = cache

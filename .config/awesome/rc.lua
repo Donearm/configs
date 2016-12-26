@@ -178,7 +178,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                         { "Libreoffice", "soffice", beautiful.office_image },
                                         { "Skype", "skype", beautiful.skype_image },
                                         { "Gimp", "gimp", beautiful.gimp_image },
-                                        { "Digikam", "digikam", beautiful.digikam_image },
+										{ "Upwork", "upwork", beautiful.upwork_image },
                                         { "Other OS", vboxmenu, beautiful.vbox_image }
                                       }
                             })
@@ -791,5 +791,15 @@ client.connect_signal("manage", function (c, startup)
 end)
 
 -- }}}
+
+--- Periodically check if something is playing and if not, set back 
+--audio to a low volume
+local audio_timer = timer { timeout = 301 }
+audio_timer:connect_signal("timeout", function()
+	if audio_playing() == false then
+		awful.util.spawn(soundPerfectVolume)
+	end
+end)
+audio_timer:start()
 
 -- vim: set filetype=lua tabstop=4 shiftwidth=4:

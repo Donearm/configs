@@ -9,8 +9,6 @@ alias grep="grep --color"
 alias bash="/bin/bash --login"
 alias slrn="slrn --kill-log $HOME/.slrn/kill_log.log"
 alias startx="startx -nolisten tcp -deferglyphs 16"
-alias fetf="fetchmail -F pop.mail.yahoo.it pop3.live.com"
-alias fetco="fetchmail -c"
 alias gmail="mutt -f imaps://forod.g@imap.gmail.com:993"
 alias gmail2="mutt -f imaps://fioregianluca@imap.gmail.com:993"
 alias bajkal="mutt -f imap://in.virgilio.it"
@@ -79,13 +77,6 @@ gitgrep() {
 	)
 }
 
-# Launch a sopcast stream
-sopcast_view() {
-	sp-sc "${1}" 3908 8908 > /dev/null &
-	wait 5
-	mpv http://localhost:8908/tv.asf &
-}
-
 # Quickly mount/umount an Android phone
 phone_on() {
 	mkdir -p phone
@@ -107,6 +98,19 @@ phone_off() {
 		echo "Couldn't unmount the phone"
 	fi
 }
+
+forecast_me() {
+	curl -S http://wttr.in/$1
+}
+
+have_a_rainbow() {
+	 yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done
+}
+
+resizeimages() {
+	mogrify -path $3 -filter Triangle -define filter:support=2 -thumbnail $2 -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB $1
+}
+
 
 # Easily mark and jump in the filesystem
 # From
