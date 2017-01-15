@@ -19,6 +19,7 @@ alias dpmsoff="xset -dpms && xset s off"
 alias dpmson="xset +dpms && xset s on"
 alias dvdburn="growisofs -Z /dev/cdrom -J -R"
 alias httpsharedir="python -m http.server 8001"
+alias acestreamengine="acestreamengine --live-disk-cache-size 10000"
 # Mplayer using 2 threads/cpu by default
 # disabled because it make playing dvds impossible
 #alias mplayer="mplayer -lavdopts fast:threads=2"
