@@ -1,4 +1,4 @@
-vo=opengl-hq
+profile=opengl-hq
 ao=alsa
 volume-max=600
 # Pretend to be Winamp
