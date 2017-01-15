@@ -61,7 +61,7 @@ system.method.set_key = event.download.finished,notify-me,"execute=notify-send,-
 
 # The ip address reported to the tracker.
 #ip = 127.0.0.1
-ip = driftavalii
+#ip = driftavalii
 
 # The ip address the listening socket and outgoing connections is
 # bound to.
