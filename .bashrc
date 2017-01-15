@@ -180,13 +180,13 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    PS1="${bCyan}\[[${bnc}\u@\H ${bCyan}\W${bCyan}]\]$ ${bnc}"
+    PS1="${bCyan}\[[${bnc}\u@\H ${bCyan}\h:\W${bCyan}]\]$ ${bnc}"
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \w \n${bcyan} >: ${bnc}"
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h:\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \w \n >: "
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h:\w \n >: "
     fi
 elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" ]]
 then
@@ -199,19 +199,19 @@ then
 		fi
 	fi
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \w \n${bcyan} >: ${bnc}"
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h:\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bCyan}»${bnc} \w \n >: "
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bCyan}»${bnc} \h:\w \n >: "
     fi
-    #export TITLEBAR='\[\e]0;\u | term | \w\007\]'
+    #export TITLEBAR='\[\e]0;\u | term | \h:\w\007\]'
 # Let's try
     export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
     export COLORTERM='rxvt-unicode'
 else
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \w \n${bcyan} >: ${bnc}"
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h:\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \w \n >: "
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h:\w \n >: "
     fi
 fi
 
