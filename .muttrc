@@ -65,7 +65,6 @@ set history=20			# number of lines of history to remember
 set hostname="`hostname`"	# my DNS domain
 set include=ask-yes			# always include messages when replying
 set indent_string="> "		# how to quote replied text
-set locale="it_IT.ISO-8859-15"			# locale to use for printing time
 set mailcap_path="~/.mailcap:/usr/local/share/mailcap"
 set nomark_old			# i don't care about whether a message is old
 set mail_check=10		# how often to poll for new mail
