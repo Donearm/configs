@@ -1,4 +1,4 @@
-vo=opengl-hq
+vo=opengl
 ao=alsa
 softvol=no
 volume-max=600
