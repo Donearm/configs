@@ -56,7 +56,7 @@ end
 -- }}}
 -- {{{ Variable definitions
 -- Home directory
-local terminal = "urxvt"
+local terminal = "termite"
 local editor = os.getenv("EDITOR") or "gvim"
 local editor_cmd = terminal .. " -e " .. editor
 local home = os.getenv("HOME")
@@ -741,7 +741,7 @@ if autorun then
 	--run_once("compton", "--config /home/gianluca/.config/compton.conf")
     run_once("xset", "m 0.7 2")
     run_once("xset", "dpms 0 120 600")
-    run_once("urxvtd", "-q -o -f")
+    --run_once("urxvtd", "-q -o -f")
 	run_once("xrandr", "--dpi 123")
 	run_once("redshift")
     run_once(browser)
