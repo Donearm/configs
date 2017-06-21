@@ -77,7 +77,7 @@ local lockScreen = "slock"
 local brightnessInc = "xbacklight -inc 10"
 local brightnessDec = "xbacklight -dec 10"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/watercolor_woman"
+theme_path = home .. "/.config/awesome/themes/oslo_lake"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
