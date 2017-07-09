@@ -60,7 +60,7 @@ local terminal = "termite"
 local editor = os.getenv("EDITOR") or "gvim"
 local editor_cmd = terminal .. " -e " .. editor
 local home = os.getenv("HOME")
-local browser = os.getenv("BROWSER")
+local browser = "apulse " .. os.getenv("BROWSER")
 local music = terminal .. " -e ncmpcpp"
 local musicPlay = "mpc toggle"
 local musicStop = "mpc stop"
@@ -171,7 +171,7 @@ vboxmenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesomewm_image },
                                         { "open terminal", terminal, beautiful.terminal_image },
-                                        { "apulse firefox", browser, beautiful.firefox_image },
+                                        { "firefox", browser, beautiful.firefox_image },
 --                                        { "Chrome", browser, beautiful.chrome_image },
                                         { "ranger", filemanager, beautiful.filemanager_image },
                                         { "Music", music, beautiful.music_image },
