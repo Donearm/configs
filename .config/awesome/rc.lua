@@ -171,7 +171,7 @@ vboxmenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesomewm_image },
                                         { "open terminal", terminal, beautiful.terminal_image },
-                                        { "firefox", browser, beautiful.firefox_image },
+                                        { "apulse firefox", browser, beautiful.firefox_image },
 --                                        { "Chrome", browser, beautiful.chrome_image },
                                         { "ranger", filemanager, beautiful.filemanager_image },
                                         { "Music", music, beautiful.music_image },
