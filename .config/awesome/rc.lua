@@ -163,23 +163,12 @@ myawesomemenu = {
    { "reboot", "sudo reboot"}
 }
 
--- Need more OSes? Greedy bitch...
-vboxmenu = {
-    { "WinXp", "VBoxManage startvm WinXp", beautiful.windows_image },
-    { "Ubuntu", "VBoxManage startvm Ubuntu", beautiful.ubuntu_image }
-}
-
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesomewm_image },
                                         { "open terminal", terminal, beautiful.terminal_image },
                                         { "firefox", browser, beautiful.firefox_image },
---                                        { "Chrome", browser, beautiful.chrome_image },
                                         { "ranger", filemanager, beautiful.filemanager_image },
                                         { "Music", music, beautiful.music_image },
                                         { "Libreoffice", "soffice", beautiful.office_image },
-                                        { "Skype", "skypeforlinux", beautiful.skype_image },
-                                        { "Gimp", "gimp", beautiful.gimp_image },
-										{ "Upwork", "upwork", beautiful.upwork_image },
-                                        { "Other OS", vboxmenu, beautiful.vbox_image }
                                       }
                             })
 
