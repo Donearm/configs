@@ -11,7 +11,7 @@
 local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
-awful.autofocus = require("awful.autofocus")
+require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
 -- Theme handling library
@@ -341,7 +341,7 @@ function (widget, args)
 	if charge == 100 then
 		return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. 'Charged' .. setFg(beautiful.fg_divisions, ']')
 	else
-		if state == "−" then
+		if state == "-" then
 			return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. bat_time .. ' left' .. setFg(beautiful.fg_divisions, ']')
 		elseif state == "+" then
 			return ' ' .. charge .. '% ' .. setFg(beautiful.fg_divisions, '[') .. bat_time .. ' to full charge' .. setFg(beautiful.fg_divisions, ']')
