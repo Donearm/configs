@@ -1,3 +1,8 @@
+--exclude=.git
+--exclude=node_modules
+--exclude=log
+
+
 --langdef=Js
 --langmap=Js:.js
 --regex-Js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/,object/
