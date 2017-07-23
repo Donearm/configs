@@ -192,9 +192,9 @@ then
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h:\w \n${bred} >: ${bnc}"
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h:\w \n >: "
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n >: "
     fi
 elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" || "$TERM" = "xterm-termite" ]]
 then
@@ -207,9 +207,9 @@ then
 		fi
 	fi
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h:\w \n${bred} >: ${bnc}"
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bCyan}»${bnc} \h:\w \n >: "
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n >: "
     fi
     #export TITLEBAR='\[\e]0;\u | term | \h:\w\007\]'
 # Let's try
@@ -217,9 +217,9 @@ then
     export COLORTERM='rxvt-unicode'
 else
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h:\w \n${bred} >: ${bnc}"
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h${bCyan}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h:\w \n >: "
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h${bCyan}:${bnc}\w \n >: "
     fi
 fi
 
