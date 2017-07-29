@@ -15,6 +15,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Hack 10
 
+# Set locker
+set $Locker slock
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -147,10 +150,51 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+Ctrl+r mode "resize"
+
+# System mode
+set $mode_system System (l) lock, (q) quit, (r) reboot
+mode "$mode_system" {
+	bindsym l exec --no-startup-id $Locker, mode "default"
+	bindsym q exec --no-startup-id i3-msg exit, mode "default"
+	bindsym r exec --no-startup-id sudo reboot, mode "default"
+
+	# return to normal: Enter or Esc
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+Delete mode "$mode_system"
+
+# Launcher prompt
+bindsym $mod+r exec --no-startup-id i3-input -f 'exec "%s"' -P 'run:> '
+
+# No title bar
+for_window [class="^.*"] border pixel 0
+new_window normal 0 px
+
+# Startup programs
+#
+exec --no-startup-id xbindkeys
+exec --no-startup-id setxkbmap -option compose:menu
+exec --no-startup-id ~/Script/script_disable_touchpad.sh
+exec --no-startup-id xset m 0.7 2
+exec --no-startup-id xset dpms 0 120 600
+exec --no-startup-id xrandr --dpi 123
+exec --no-startup-id redshift
+exec --no-startup-id firefox
+
+# Launch Firefox on workspace 1
+assign [class="Firefox"] 1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+	font pango:Hack 8
+	colors {
+		background  "#e4e3e1"
+		statusline	"#161513"
+		separator	"#424153"
+	}
+    status_command i3status
 }
