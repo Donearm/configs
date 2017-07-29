@@ -231,7 +231,7 @@ function getGpuTemp ()
         n = setFg("#aadc43", n .. '°C')
         return n
     else
-	    return setFg(beautiful.fg_normal, n..'°C ')
+		return setFg(beautiful.fg_normal, n..'°C ')
     end
 end
 
@@ -244,7 +244,7 @@ function getSdaTemp ()
 end
 
 ---- Calendar functions
--- One to show the current month's calendar, another to destroy the 
+-- One to show the current month's calendar, another to destroy the
 -- notification
 local calendar = nil
 local offset = 0
@@ -318,7 +318,7 @@ function batteryInfo(adapter)
 
     batterywidget.text = spacer..setFg(beautiful.fg_normal, battery)
 end
---- Show the 15 processes occupying the most the cpu in a naughty 
+--- Show the 15 processes occupying the most the cpu in a naughty
 --notification
 function psByCpu(n)
     if n == 1 then
@@ -439,9 +439,9 @@ function run_once(prg, arg_string, pname, screen)
 	end
 
 	if not arg_string then
-		awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
+		awful.spawn.with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
 	else
-		awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. " " .. arg_string .. "' || (" .. prg .. " " .. arg_string .. ")", screen)
+		awful.spawn.with_shell("pgrep -f -u $USER -x '" .. pname .. " " .. arg_string .. "' || (" .. prg .. " " .. arg_string .. ")", screen)
 	end
 end
 
