@@ -27,9 +27,6 @@ vicious.contrib = require("vicious.contrib")
 -- Custom functions
 local functions = require("functions")
 
--- awesome-redshift
-local redshift = require("redshift")
-
 -- }}}
 
 -- {{{ Error handling
@@ -299,24 +296,6 @@ awful.util.table.join(
 )
 )
 
--- Redshift widget
-redshifticon = wibox.widget.imagebox()
-redshifticon:set_image(beautiful.redshift_icon)
-redshifticon:buttons(awful.util.table.join(
-awful.button({ }, 1, function() redshift.dim() end),
-awful.button({ }, 3, function() redshift.undim() end)
-)
-)
-
--- Inc/Dec backlight of screen. Requires xorg-xbacklight
-brightnessicon = wibox.widget.imagebox()
-brightnessicon:set_image(beautiful.brightness_icon)
-brightnessicon:buttons(awful.util.table.join(
-awful.button({}, 1, function() awful.spawn(brightnessInc, false) end),
-awful.button({}, 3, function() awful.spawn(brightnessDec, false) end)
-)
-)
-
 -- Battery widget
 batwidget = wibox.widget.textbox()
 baticon = wibox.widget.imagebox()
@@ -520,8 +499,6 @@ awful.screen.connect_for_each_screen(function(s)
 	bottomwibox_right:add(batwidget)
 	bottomwibox_right:add(volumeicon)
 	bottomwibox_right:add(volumewidget)
-	bottomwibox_right:add(redshifticon)
-	bottomwibox_right:add(brightnessicon)
 	bottomwibox_right:add(datebox)
 
 	local bottomwibox_layout = wibox.layout.align.horizontal()
