@@ -245,7 +245,7 @@ export LC_NUMERIC=it_IT.utf8
 export LESSCHARSET="utf-8"
 export DATE=`date +%G_%m_%d`
 # set the size of the bash history
-export HISTSIZE=-1
+export HISTSIZE=20000
 # add date and time to history elements
 export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth # no doubles in bash_history
