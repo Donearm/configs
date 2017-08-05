@@ -53,15 +53,6 @@ startX() {
 	logout
 }
 
-# Fahstat - get info about current folding@home unit
-fahstat() {
-	#echo
-	cat /opt/fah-smp/gianluca/unitinfo.txt
-	echo
-	tail -n 1 /opt/fah-smp/gianluca/FAHlog.txt
-	echo
-}
-
 # Pngtojpeg - converts each png in the current directory in jpeg
 pngtojpeg() {
 	for p in *.[pP][nN][gG] ; do
