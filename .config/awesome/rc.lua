@@ -72,7 +72,6 @@ local soundPerfectVolume = "amixer set Master 10% unmute"
 local soundMute = "amixer set Master mute"
 local filemanager = terminal .. " -e ranger"
 local mutt = terminal .. " -e mutt -y"
-local maildir = home .. "/Maildir"
 local lockScreen = "slock"
 local brightnessInc = "xbacklight -inc 10"
 local brightnessDec = "xbacklight -dec 10"
@@ -249,12 +248,6 @@ function (widget, args)
 	end
 end, nil, nil, 3
 )
-
--- Maildir widget
-maildiricon = wibox.widget.imagebox()
-maildiricon:set_image(beautiful.mail_icon)
-maildirwidget = wibox.widget.textbox()
-vicious.register(maildirwidget, vicious.widgets.mdir, '$1 ', 300, { maildir })
 
 
 -- Bottom Statusbar widgets
@@ -471,8 +464,6 @@ awful.screen.connect_for_each_screen(function(s)
 	topwibox_right:add(netupwidget)
 	topwibox_right:add(netdownicon)
 	topwibox_right:add(netdownwidget)
-	topwibox_right:add(maildiricon)
-	topwibox_right:add(maildirwidget)
 	topwibox_right:add(mysystray)
 
 	local topwibox_layout = wibox.layout.align.horizontal()
