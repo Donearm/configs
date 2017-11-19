@@ -137,4 +137,4 @@ network.http.ssl_verify_peer.set=0
 encoding_list = UTF-8
 
 
-# vim: set tw=0 cc=0 ft=perl:
+# vim: set tw=0 cc=0 ft=cfg:
