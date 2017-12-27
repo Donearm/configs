@@ -15,6 +15,7 @@ alias gmail3="mutt -f imaps://puffosaltatore@imap.gmail.com:993"
 alias bajkal="mutt -f imap://in.virgilio.it"
 alias yahoo='mutt -f imaps://gianluca1181@imap.mail.yahoo.com:993'
 alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
+alias papersounds="mutt -f pops://gianlucafiore@papersounds.eu:995"
 alias alsamixer="alsamixer -V all"
 alias dpmsoff="xset -dpms && xset s off"
 alias dpmson="xset +dpms && xset s on"
@@ -310,8 +311,6 @@ source /usr/share/bash-completion/completions/git
 # git prompt
 source /usr/share/git/git-prompt.sh
 
-# Load SSH keys
-eval "$(ssh-agent)"
-ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
 
 clear # clear the screen if something is on it
