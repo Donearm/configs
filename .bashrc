@@ -111,6 +111,15 @@ c() {
 	pwd;
 }
 
+# Go to Go project in $GOPATH
+gocode() {
+	if [ $# -eq 0 ]; then
+		cd "${GOPATH}/src/github.com/Donearm";
+	else
+		cd "${GOPATH}/src/github.com/Donearm/${1}";
+	fi
+}
+
 wheredidallthespacego() {
 	sudo du -h $1 | grep -P '^[0-9\.]+[MGT]'
 }
