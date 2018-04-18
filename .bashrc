@@ -99,6 +99,10 @@ forecast_me() {
 	curl -S http://wttr.in/$1
 }
 
+ccurrencies() {
+	curl eur.rate.sx/?n=20
+}
+
 have_a_rainbow() {
 	 yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done
 }
