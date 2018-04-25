@@ -734,6 +734,7 @@ awful.rules.rules = {
 						border_color = beautiful.border_normal,
 						focus = awful.client.focus.filter,
 						keys = clientkeys,
+						maximized = false,
 						maximized_vertical = false,
 						maximized_horizontal = false,
 						buttons = clientbuttons,
@@ -758,10 +759,6 @@ awful.rules.rules = {
 	{ rule = { class = "sxiv" },
 		properties = { floating = true } },
 	{ rule = { class = "gcolor2" },
-		properties = { floating = true } },
-	{ rule = { class = "Firefox", instance = "Places" },
-		properties = { floating = true } },
-	{ rule = { name = "Firefox Preferences" },
 		properties = { floating = true } },
 	{ rule = { class = "<unknown>" }, -- for fullscreen flash videos
 		properties = { floating = true } },
