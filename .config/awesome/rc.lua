@@ -770,6 +770,8 @@ awful.rules.rules = {
 		properties = { floating = true } },
 	{ rule = { class = "Hp-toolbox" },
 		properties = { floating = true } },
+	{ rule = { class = "Firefox" },
+		properties = { maximized = false, maximized_vertical = false, maximized_horizontal = false } },
 }
 
 -- {{{ Autorun apps
