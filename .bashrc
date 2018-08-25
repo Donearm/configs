@@ -21,7 +21,7 @@ alias dvdburn="growisofs -Z /dev/cdrom -J -R"
 alias httpsharedir="python -m http.server 8001"
 alias acestreamengine="acestreamengine --live-disk-cache-size 10000"
 # Sort of screensaver with YT downloaded videos
-alias screensaveryt="DISPLAY=:0 mpv --ao=null --fs --osd-level=0 --shuffle --loop=inf /media/private/youtube/*"
+alias screensaveryt="DISPLAY=:0 mpv --ao=null --fs --osd-level=0 --shuffle --loop-playlist=inf /media/private/youtube/*"
 # Mplayer using 2 threads/cpu by default
 # disabled because it make playing dvds impossible
 #alias mplayer="mplayer -lavdopts fast:threads=2"
