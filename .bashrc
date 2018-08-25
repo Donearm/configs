@@ -296,7 +296,7 @@ export HISTCONTROL=ignoreboth # no doubles in bash_history
 # 105 (light purple background)
 # 106 (turquoise background
 #export LS_COLORS="di=1:fi=0:ln=95:pi=93:so=36:bd=96:cd=96:or=95,101:mi=95,101:ex=94"
-eval $(dircolors -b ~/.dir_colors/dircolors.ansi-universal)
+eval $(dircolors -b ~/.dir_colors/dircolors.ansi-dark)
 
 # set the desktop integration for OO (may be kde or gnome)
 export OOO_FORCE_DESKTOP=gnome
