@@ -22,10 +22,10 @@ directory = /media/private/torrents/
 session = /media/private/torrent/session/
 
 # Load torrents from watch directories and download in different locations
-schedule = books,5,5,"load_start=/media/private/torrent/watch/books/*.torrent,d.set_directory=/media/private/torrents/Books/"
-schedule = vids,5,5,"load_start=/media/private/torrent/watch/vids/*.torrent,d.set_directory=/media/private/torrents/Vids/"
-schedule = music,5,5,"load_start=/media/private/torrent/watch/music/*.torrent,d.set_directory=/media/private/torrents/Music/"
-schedule = others,5,5,"load_start=/media/private/torrent/watch/others/*.torrent,d.set_directory=/media/private/torrents/Others/"
+schedule = books,5,5,"load.start=/media/private/torrent/watch/books/*.torrent,directory.default.set=/media/private/torrents/Books/"
+schedule = vids,5,5,"load.start=/media/private/torrent/watch/vids/*.torrent,directory.default.set=/media/private/torrents/Vids/"
+schedule = music,5,5,"load.start=/media/private/torrent/watch/music/*.torrent,directory.default.set=/media/private/torrents/Music/"
+schedule = others,5,5,"load.start=/media/private/torrent/watch/others/*.torrent,directory.default.set=/media/private/torrents/Others/"
 schedule = untied_directory,5,5,stop_untied=
 
 # Close torrents when diskspace is low.
@@ -51,13 +51,13 @@ ratio.min.set=150
 ratio.max.set=300
 ratio.upload.set=50M
 # Changing the command triggered when the ratio is reached
-system.method.set = group.seeding.ratio.command, d.close=
+method.set = group.seeding.ratio.command, d.close=
 
 # copy completed torrents in the Music directory
-system.method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/"
+method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/"
 
 # Notify at torrent completion
-system.method.set_key = event.download.finished,notify-me,"execute=notify-send,-t,7000,$d.get_name="
+method.set_key = event.download.finished,notify-me,"execute=notify-send,-t,7000,$d.get_name="
 
 # The ip address reported to the tracker.
 #ip = 127.0.0.1
@@ -80,7 +80,7 @@ port_random = yes
 #check_hash = no
 
 # Set whether the client should try to connect to UDP trackers.
-use_udp_trackers = yes
+trackers.use_udp.set = yes
 
 # Alternative calls to bind and ip that should handle dynamic ip's.
 #schedule = ip_tick,0,1800,ip=rakshasa
@@ -108,10 +108,6 @@ dht = auto
 # dht_port = 6881
 dht_port = 50009
 
-# Enable peer exchange (for torrents not marked private)
-#
-peer_exchange = yes
-
 #
 # Do not modify the following parameters unless you know what you're doing.
 #
@@ -130,7 +126,7 @@ peer_exchange = yes
 # decent hash checking rate.
 #hash_max_tries = 10
 
-http_proxy="95.143.193.35:80"
+#http_proxy="95.143.193.35:80"
 
 network.http.ssl_verify_peer.set=0
 
