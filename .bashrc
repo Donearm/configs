@@ -317,7 +317,7 @@ shopt -s cdspell
 # auto completion
 source /usr/share/bash-completion/completions/git
 # udisks functions
-source /mnt/d/Script/utilities/udisks_functions
+source /mnt/documents/d/Script/utilities/udisks_functions
 # git prompt
 source /usr/share/git/git-prompt.sh
 
