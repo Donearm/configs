@@ -116,7 +116,7 @@ def git(repo, action):
             # Default to git status
             cmd = ['git', 'status']
 
-        ret = call(cmd, stderr=STDOUT, stdout=STDOUT)
+        ret = call(cmd, stderr=STDOUT)
         if ret != 0:
             print("Git returned non-zero exit status!")
             return 1
