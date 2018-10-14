@@ -12,6 +12,7 @@
 	signoff = true
 [core]
 	excludesfile = /home/gianluca/.gitignore
+	mergeoptions = --no-edit
 [alias]
 	l = log --graph --decorate --no-merges --oneline
 	lp = log --graph --decorate --pretty=short -p --word-diff
