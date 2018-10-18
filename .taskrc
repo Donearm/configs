@@ -64,3 +64,5 @@ report.veryminimal.description=List only tasks descriptions and id (useful for s
 report.veryminimal.columns=id,description
 report.veryminimal.sort=id+
 report.veryminimal.filter=status:pending
+
+# vi: filetype=conf
