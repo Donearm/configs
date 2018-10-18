@@ -108,6 +108,9 @@ dht = auto
 # dht_port = 6881
 dht_port = 50009
 
+# RPC port
+scgi_port = 127.0.0.1:5000
+
 #
 # Do not modify the following parameters unless you know what you're doing.
 #
