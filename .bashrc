@@ -322,8 +322,15 @@ shopt -s cdspell
 # auto completion
 source /usr/share/bash-completion/completions/git
 # git prompt
-source /usr/share/git/git-prompt.sh
+#source /usr/share/git/git-prompt.sh
 
+# bash-git-prompt settings
+# (https://github.com/magicmonty/bash-git-prompt)
+GIT_PROMPT_ONLY_IN_REPO=1		# show prompt only in git repos
+GIT_PROMPT_SHOW_UPSTREAM=1		# show upstream branch
+GIT_PROMPT_THEME="Solarized"	# theme
+#GIT_PROMPT_START="${bBlue}[${bnc}\h${bBlue}:${bnc}\w${bBlue}]${bnc}"
+source ~/.bash-git-prompt/gitprompt.sh
 
 
 clear # clear the screen if something is on it
