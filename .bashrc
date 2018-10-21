@@ -319,11 +319,21 @@ source /usr/share/bash-completion/completions/git
 # udisks functions
 source /mnt/documents/d/Script/utilities/udisks_functions
 # git prompt
+<<<<<<< HEAD
 source /usr/share/git/git-prompt.sh
 
 # Launch ssh-agent, but only if it's not been launched already!
 if [[ -z `pgrep ssh-agent` ]]; then
 	eval $(ssh-agent)
 fi
+#source /usr/share/git/git-prompt.sh
+
+# bash-git-prompt settings
+# (https://github.com/magicmonty/bash-git-prompt)
+GIT_PROMPT_ONLY_IN_REPO=1		# show prompt only in git repos
+GIT_PROMPT_SHOW_UPSTREAM=1		# show upstream branch
+GIT_PROMPT_THEME="Solarized"	# theme
+#GIT_PROMPT_START="${bBlue}[${bnc}\h${bBlue}:${bnc}\w${bBlue}]${bnc}"
+source ~/.bash-git-prompt/gitprompt.sh
 
 clear # clear the screen if something is on it
