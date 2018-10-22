@@ -237,7 +237,6 @@ fi
 export BROWSER="firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
-export SERVER='news.tin.it'
 export SLANG_EDITOR='vim'
 export NNTPSERVER='news.tin.it'
 export MAILCHECK=600000000000 # I don't really need a shell mailcheck....
