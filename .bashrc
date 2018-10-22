@@ -316,11 +316,8 @@ shopt -s cdspell
 
 # auto completion
 source /usr/share/bash-completion/completions/git
-# udisks functions
-source /mnt/documents/d/Script/utilities/udisks_functions
 # git prompt
-<<<<<<< HEAD
-source /usr/share/git/git-prompt.sh
+#source /usr/share/git/git-prompt.sh
 
 # Launch ssh-agent, but only if it's not been launched already!
 if [[ -z `pgrep ssh-agent` ]]; then
