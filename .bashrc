@@ -219,7 +219,7 @@ then
     if [[ `whoami` == "root" ]]; then
 		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n >: "
+		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n >: "
     fi
     #export TITLEBAR='\[\e]0;\u | term | \h:\w\007\]'
 # Let's try
