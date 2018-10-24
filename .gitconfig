@@ -20,6 +20,7 @@
 	graph = log --graph -10 --branches --remotes --tags --format=format:'%Cgreen%h %Creset°%<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 	gofmt = !echo $(git diff --cached --name-only --diff-filter=ACM | grep .go) | xargs gofmt -w -l
 	recap = git log --all --oneline --no-merges --author=forod.g@gmail.com
+	pom = push origin master
 [apply]
 	whitespace = fix
 [diff]
