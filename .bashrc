@@ -311,8 +311,6 @@ export HISTCONTROL=ignoreboth # no doubles in bash_history
 #export LS_COLORS="di=1:fi=0:ln=95:pi=93:so=36:bd=96:cd=96:or=95,101:mi=95,101:ex=94"
 eval $(dircolors -b ~/.dir_colors/dircolors.ansi-universal)
 
-# set the desktop integration for OO (may be kde or gnome)
-export OOO_FORCE_DESKTOP=gnome
 # to improve firefox responsiveness
 export MOZ_DISABLE_PANGO=1
 # Make Qt use Gtk2 themes
