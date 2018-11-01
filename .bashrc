@@ -74,24 +74,27 @@ gitgrep() {
 }
 
 # Quickly mount/umount an Android phone
-phone_on() {
-	mkdir -p phone
-	jmtpfs -o allow_other phone
-	if [ $? -eq 0 ]; then
-		echo "Your phone has been successfully mounted"
-	else
-		echo "Something went wrong, the phone couldn't be mounted"
-	fi
-}
-
-phone_off() {
-	fusermount -u phone
-	if [ $? -eq 0 ]; then
-		if [ -d phone ]; then
-			rm -rf phone/
+phone() {
+	if [[ $1 == 'mount' ]]; then
+		mkdir -p phone
+		jmtpfs -o allow_other phone
+		if [ $? -eq 0 ]; then
+			echo "Your phone has been successfully mounted"
+		else
+			echo "Something went wrong, the phone couldn't be mounted"
+		fi
+	elif [[ $1 == 'umount' ]]; then
+		fusermount -u phone
+		if [ $? -eq 0 ]; then
+			if [ -d phone ]; then
+				rm -rf phone/
+			fi
+		else
+			echo "Couldn't unmount the phone"
 		fi
 	else
-		echo "Couldn't unmount the phone"
+		echo "Use phone (mount|umount) to mount or unmount your phone"
+		return 1
 	fi
 }
 
