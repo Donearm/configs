@@ -127,6 +127,8 @@ gocode() {
 	fi
 }
 
+# output local directories, relative to . , that suck up the most 
+# diskspace
 wheredidallthespacego() {
 	sudo du -h $1 | grep -P '^[0-9\.]+[MGT]'
 }
