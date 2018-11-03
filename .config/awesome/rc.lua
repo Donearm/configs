@@ -229,9 +229,9 @@ vicious.cache(vicious.widgets.net)
 vicious.register(netupwidget, vicious.widgets.net,
 function (widget, args)
 	if tonumber(args["{wlp7s0 up_kb}"]) > 80 then
-		return setFg(beautiful.fg_focus, args["{wlp7s0 up_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+		return setFg(beautiful.fg_focus, args["{wlp7s0 up_kb}"]), nil, nil, 3
 	else
-		return args["{wlp7s0 up_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 tx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+		return args["{wlp7s0 up_kb}"], nil, nil, 3
 	end
 end, nil, nil, 3
 )
@@ -242,9 +242,9 @@ netdownwidget = wibox.widget.textbox()
 vicious.register(netdownwidget, vicious.widgets.net,
 function (widget, args)
 	if tonumber(args["{wlp7s0 down_kb}"]) > 200 then
-		return setFg(beautiful.fg_focus, args["{wlp7s0 down_kb}"]) .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+		return setFg(beautiful.fg_focus, args["{wlp7s0 down_kb}"]), nil, nil, 3
 	else
-		return args["{wlp7s0 down_kb}"] .. setFg(beautiful.fg_divisions, ' [') .. args["{wlp7s0 rx_mb}"] .. 'M' .. setFg(beautiful.fg_divisions, ']'), nil, nil, 3
+		return args["{wlp7s0 down_kb}"], nil, nil, 3
 	end
 end, nil, nil, 3
 )
