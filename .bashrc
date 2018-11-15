@@ -36,6 +36,9 @@ alias ssl_dec="openssl aes-256-cbc -d"
 alias etterspoof="sudo ettercap -T -M arp:remote -P autoadd /192.168.1.3/ /192.168.1.1/"
 # Show user declared functions
 alias show_funcs="declare -F | grep -v _"
+# Disable/enable speakers
+alias speakeron="amixer set Speaker unmute"
+alias speakeroff="amixer set Speaker mute"
 
 
 # top 15 most used commands
