@@ -1,6 +1,6 @@
 My dot files. Most are very old and not used any more but still could be useful inspiration/example.
 
-(c) Gianluca Fiore
+(c) 2009-2019 Gianluca Fiore
 All code is licensed under the GNU GPL version 3 License unless the program 
 source code says otherwise.
 
