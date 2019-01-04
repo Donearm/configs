@@ -41,11 +41,11 @@ alias speakeron="amixer set Speaker unmute"
 alias speakeroff="amixer set Speaker mute"
 
 
-# top 15 most used commands
-topfifteen() {
+# top 20 most used commands
+toptwenty() {
 	history | awk '{if ($4 == "sudo") {print $5} else {print $4}}' | \
 		awk 'BEGIN {FS ="|"} {print $1}' \
-		| grep -v topfifteen | sort | uniq -c | sort -rn | head -15
+		| grep -v toptwenty | sort | uniq -c | sort -rn | head -20
 }
 
 startX() {
