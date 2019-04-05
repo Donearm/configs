@@ -163,7 +163,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                         { "firefox", browser, beautiful.firefox_image },
                                         { "ranger", filemanager, beautiful.filemanager_image },
                                         { "Music", music, beautiful.music_image },
-                                        { "Libreoffice", "soffice", beautiful.office_image },
                                       }
                             })
 
