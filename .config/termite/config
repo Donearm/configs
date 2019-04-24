@@ -8,7 +8,7 @@ dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
 
-font = Hack 9
+font = Hack 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
