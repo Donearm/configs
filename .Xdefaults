@@ -68,7 +68,7 @@ URxvt.color11:			#edd400
 URxvt.color4:			#204a87
 URxvt.color12:			#3465a4
 !DarkMagenta + Magenta
-URxvt.color5:			#5c3565
+URxvt.color5:			#4d648d
 URxvt.color13:			#ad7fa8
 !DarkCyan + Cyan
 URxvt.color6:			#729fcf
