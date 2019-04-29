@@ -1,6 +1,7 @@
 [user]
 	name = Gianluca Fiore
-	email = forod.g@gmail.com
+	email = gianlucafiore@papersounds.eu
+	signingkey = 7E7071DCCB1DAD19
 [color]
 	ui = true
 	branch = auto
