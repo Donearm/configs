@@ -283,7 +283,7 @@ lists ^awesome-devel@naquadah.org$
 #
 #	auto_view <type> [ <type> ... ]
 
-auto_view text/html
+#auto_view text/html
 # multipart html/text messages
 alternative_order text/plain text/html
 
@@ -295,6 +295,6 @@ source ~/.mutt/mailboxes
 # load the aliases
 source ~/.mail_aliases
 # My color theme of choice
-source ~/.mutt/jac01-colors.muttrc
+source ~/.mutt/badwolf-colors.muttrc
 
 # EOF
