@@ -2,9 +2,9 @@
 
 
 #text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
+text/html; brave %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; firefox %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; chromium %s && sleep 2; nametemplate=%s.html; copiousoutput
-text/html; google-chrome-stable %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
 
@@ -15,11 +15,13 @@ image/jpeg; sxiv %s; copiousoutput
 image/png; sxiv %s; copiousoutput
 image/gif; sxiv %s; copiousoutput
 
+video/*; mpv %s
 video/*; mplayer %s
 
+audio/*; mpv %s
 audio/*; mplayer %s
 
-application/ogg; mplayer %s: test=test "$DISPLAY" != "" 
+application/ogg; mpv %s: test=test "$DISPLAY" != "" 
 
 text/plain; cat %s; test=test "`echo %{charset} | tr '[A-Z]' '[a-z]'`" = utf-8 ; copiousoutput
 
