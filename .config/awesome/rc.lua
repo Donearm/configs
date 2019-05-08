@@ -56,7 +56,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-local terminal = "termite"
+local terminal = "kitty"
 local editor = os.getenv("EDITOR") or "gvim"
 local editor_cmd = terminal .. " -e " .. editor
 local home = os.getenv("HOME")
