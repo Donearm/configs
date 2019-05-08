@@ -220,7 +220,7 @@ then
     else
 		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n >: "
     fi
-elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" || "$TERM" = "xterm-termite" ]]
+elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" || "$TERM" = "xterm-termite" || "$TERM" = "xterm-kitty" ]]
 then
 	# 256 colors available?
 	if [[ "$TERM" != "rxvt-256color" ]]; then
@@ -248,7 +248,7 @@ else
 fi
 
 
-export BROWSER="firefox"
+export BROWSER="brave"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 export SLANG_EDITOR='vim'
@@ -333,6 +333,7 @@ shopt -s cdspell
 
 # auto completion
 source /usr/share/bash-completion/completions/git
+source <(kitty + complete setup bash)
 # git prompt
 #source /usr/share/git/git-prompt.sh
 
