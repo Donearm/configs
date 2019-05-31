@@ -18,8 +18,8 @@ format = "{1m}"
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mup}%/{MUm}GB"
-format_swap = "{SUp}%/{SUm}GB"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
 
 [[block]]
 block = "net"
