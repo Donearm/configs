@@ -1,16 +1,12 @@
 #!/bin/sh
 
-display -window root /mnt/documents/Images/Coffee_chocolate.jpg &
-
-urxvtc "$@"
-if [ $? -eq 2 ]; then
-	urxvtd -q -o -f
-fi
+#display -window root /mnt/documents/Images/Coffee_chocolate.jpg &
 
 xbindkeys
-compton --config ~/.config/compton.conf &
 xset m 0.7 2
 xset dpms 0 900 2750
+kitty
+firefox
 
 exit 0
 
