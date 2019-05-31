@@ -39,10 +39,10 @@ bindsym Mod1+d exec rofi -show run
 
 # colours
 #class					border	background	text
-client.focused			#306088	#ededed		#4e88b7
-client.focused.inactive #306088	#ededed		#161d42
-client.unfocused		#ededed	#ededed		#161d42
-client.urgent			#306088	#161d42		#a0718a
+client.focused			#a40000	#555753		#c4a000
+client.focused.inactive #a40000	#555753		#120d11
+client.unfocused		#555753	#555753		#120d11
+client.urgent			#a40000	#120d11		#ef2929
 
 new_window none
 new_float 1pixel
@@ -178,12 +178,12 @@ bar {
 	status_command i3status-rs /home/gianluca/.i3/status.toml
 	colors {
 		separator				#666666
-		background				#222222
+		background				#120d11
 		statusline				#dddddd
-		focused_workspace		#0088cc #0088cc	#ffffff
-		active_workspace		#333333	#333333	#ffffff
-		inactive_workspace		#333333 #333333 #888888
-		urgent_workspace		#2f343a #900000 #ffffff
+		focused_workspace		#a40000 #a40000	#ffffff
+		active_workspace		#555753	#555573	#ffffff
+		inactive_workspace		#555753 #555573 #888888
+		urgent_workspace		#888888 #a40000 #ffffff
 	}
 }
 
