@@ -1,5 +1,11 @@
-theme = "solarized-dark"
 icons = "awesome"
+[theme]
+name = "solarized-dark"
+[theme.overrides]
+idle_bg = "#555753"
+idle_fg = "#ffffff"
+info_bg = "#120d11"
+info_fg = "#c4a000"
 
 [[block]]
 block = "focused_window"
