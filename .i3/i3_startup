@@ -1,12 +1,12 @@
 #!/bin/sh
 
-#display -window root /mnt/documents/Images/Coffee_chocolate.jpg &
+display -window root /home/gianluca/Downloads/wallpaper2.jpg &
 
 xbindkeys
 xset m 0.7 2
 xset dpms 0 900 2750
+firefox &
 kitty
-firefox
 
 exit 0
 
