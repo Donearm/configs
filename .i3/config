@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:DejaVu Sans Mono 9
+font Iosevka 10
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -25,7 +25,7 @@ floating_modifier Mod1
 exec --no-startup-id ~/.i3/i3_startup
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec kitty
 
 # kill focused window
 bindsym Mod1+Shift+q kill
