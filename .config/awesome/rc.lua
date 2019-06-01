@@ -574,7 +574,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, alt         }, "m", function () awful.spawn(music) end),
 	awful.key({ modkey, alt         }, "f", function () awful.spawn(browser) end),
 	awful.key({ modkey, alt         }, "r", function () awful.spawn(filemanager) end),
-	awful.key({ modkey              }, "p", function () show_clipboard() end),
+	awful.key({ modkey, alt         }, "p", function () show_clipboard() end),
 	awful.key({ modkey, "Control"   }, "m", function() mouse.coords({x=800, y=1500}, true) end),
 	awful.key({ modkey,             }, "c", function() simulateClick() end),
 
