@@ -692,9 +692,18 @@ class renameConsole(Command):
     """
 
     def execute(self):
-        if "." in self.fm.thisfile.basename:
-            offset = 6 + len(self.fm.thisfile.basename) - self.fm.thisfile.basename[::-1].index('.')
-            self.fm.open_console('rename ' + self.fm.thisfile.basename, position=offset)
+        from ranger import MACRO_DELIMITER, MACRO_DELIMITER_ESC
+
+        tfile = self.fm.thisfile
+        relpath = tfile.relative_path.replace(MACRO_DELIMITER, MACRO_DELIMITER_ESC)
+        basename = tfile.basename.replace(MACRO_DELIMITER, MACRO_DELIMITER_ESC)
+
+        if basename.find('.') <= 0 or os.path.isdir(relpath):
+            self.fm.open_console('rename ' + relpath)
+            return
+
+        if self._flag_ext_all:
+            pos_ext = re.search(r'[^.]+', basename).end(0)
         else:
             self.fm.open_console('rename ' + self.fm.thisfile.basename)
 
@@ -711,9 +720,13 @@ class chmod(Command):
     """
 
     def execute(self):
-        mode = self.rest(1)
-        if not mode:
-            mode = str(self.quantifier)
+        mode_str = self.rest(1)
+        if not mode_str:
+            if self.quantifier is None:
+                self.fm.notify("Syntax: chmod <octal number> "
+                               "or specify a quantifier", bad=True)
+                return
+            mode_str = str(self.quantifier)
 
         try:
             mode = int(mode, 8)
@@ -747,7 +760,9 @@ class bulkrename(Command):
     This shell script is opened in an editor for you to review.
     After you close it, it will be executed.
     """
+
     def execute(self):
+        # pylint: disable=too-many-locals,too-many-statements,too-many-branches
         import sys
         import tempfile
         from ranger.container.file import File
@@ -776,8 +791,24 @@ class bulkrename(Command):
 
         # Generate and execute script
         cmdfile = tempfile.NamedTemporaryFile()
-        cmdfile.write(b"# This file will be executed when you close the editor.\n")
-        cmdfile.write(b"# Please double-check everything, clear the file to abort.\n")
+        script_lines = []
+        script_lines.append("# This file will be executed when you close the"
+                            " editor.")
+        script_lines.append("# Please double-check everything, clear the file"
+                            " to abort.")
+        new_dirs = []
+        for old, new in zip(filenames, new_filenames):
+            if old != new:
+                basepath, _ = os.path.split(new)
+                if (basepath is not None and basepath not in new_dirs
+                        and not os.path.isdir(basepath)):
+                    script_lines.append("mkdir -vp -- {dir}".format(
+                        dir=esc(basepath)))
+                    new_dirs.append(basepath)
+                script_lines.append("mv -vi -- {old} {new}".format(
+                    old=esc(old), new=esc(new)))
+        # Make sure not to forget the ending newline
+        script_content = "\n".join(script_lines) + "\n"
         if py3:
             cmdfile.write("\n".join("mv -vi -- " + esc(old) + " " + esc(new) \
                 for old, new in zip(filenames, new_filenames) \
@@ -1156,6 +1187,42 @@ class grep(Command):
             action.extend(['-e', self.rest(1), '-r'])
             action.extend(f.path for f in self.fm.thistab.get_selection())
             self.fm.execute_command(action, flags='p')
+
+
+class flat(Command):
+    """
+    :flat <level>
+
+    Flattens the directory view up to the specified level.
+
+        -1 fully flattened
+         0 remove flattened view
+    """
+
+    def execute(self):
+        try:
+            level_str = self.rest(1)
+            level = int(level_str)
+        except ValueError:
+            level = self.quantifier
+        if level is None:
+            self.fm.notify("Syntax: flat <level>", bad=True)
+            return
+        if level < -1:
+            self.fm.notify("Need an integer number (-1, 0, 1, ...)", bad=True)
+        self.fm.thisdir.unload()
+        self.fm.thisdir.flat = level
+        self.fm.thisdir.load_content()
+
+
+class reset_previews(Command):
+    """:reset_previews
+
+    Reset the file previews.
+    """
+    def execute(self):
+        self.fm.previews = {}
+        self.fm.ui.need_redraw = True
 
 
 # Version control commands
