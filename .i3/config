@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font Iosevka 10
+font pango:Iosevka 10
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -156,18 +156,18 @@ mode "resize" {
 }
 bindsym Mod1+r mode "resize"
 
-set $mode_system System (l), (e) logout, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
+#set mode_system System (l), (e) logout, (r) reboot, (Shift+s) shutdown
+mode "system" {
 	bindsym l exec --no-startup-id i3lock, mode "default"
-	bindsym e exec --no-startup-id i3-msg exit, mode "default"
-	bindsym l exec --no-startup-id systemctl reboot, mode "default"
-	bindsym l exec --no-startup-id systemctl poweroff, mode "default"
+	bindsym e exec --no-startup-id "i3-msg exit", mode "default"
+	bindsym r exec --no-startup-id "systemctl reboot", mode "default"
+	bindsym Shift+s exec --no-startup-id "systemctl poweroff", mode "default"
 
 	# back to normal: Enter or Escape
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
+bindsym Mod1+End mode "system"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
