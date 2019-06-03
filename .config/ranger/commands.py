@@ -996,7 +996,7 @@ class rename_append(Command):
         relpath = tfile.relative_path.replace(MACRO_DELIMITER, MACRO_DELIMITER_ESC)
         basename = tfile.basename.replace(MACRO_DELIMITER, MACRO_DELIMITER_ESC)
 
-        if basename.find('.') <= 0:
+        if basename.find('.') <= 0 or os.path.isdir(relpath):
             self.fm.open_console('rename ' + relpath)
             return
 
@@ -1028,8 +1028,9 @@ class chmod(Command):
     def execute(self):
         mode_str = self.rest(1)
         if not mode_str:
-            if not self.quantifier:
-                self.fm.notify("Syntax: chmod <octal number>", bad=True)
+            if self.quantifier is None:
+                self.fm.notify("Syntax: chmod <octal number> "
+                               "or specify a quantifier", bad=True)
                 return
             mode_str = str(self.quantifier)
 
@@ -1063,7 +1064,8 @@ class bulkrename(Command):
     After you close it, it will be executed.
     """
 
-    def execute(self):  # pylint: disable=too-many-locals,too-many-statements
+    def execute(self):
+        # pylint: disable=too-many-locals,too-many-statements,too-many-branches
         import sys
         import tempfile
         from ranger.container.file import File
@@ -1092,11 +1094,23 @@ class bulkrename(Command):
         # Generate script
         cmdfile = tempfile.NamedTemporaryFile()
         script_lines = []
-        script_lines.append("# This file will be executed when you close the editor.\n")
-        script_lines.append("# Please double-check everything, clear the file to abort.\n")
-        script_lines.extend("mv -vi -- %s %s\n" % (esc(old), esc(new))
-                            for old, new in zip(filenames, new_filenames) if old != new)
-        script_content = "".join(script_lines)
+        script_lines.append("# This file will be executed when you close the"
+                            " editor.")
+        script_lines.append("# Please double-check everything, clear the file"
+                            " to abort.")
+        new_dirs = []
+        for old, new in zip(filenames, new_filenames):
+            if old != new:
+                basepath, _ = os.path.split(new)
+                if (basepath is not None and basepath not in new_dirs
+                        and not os.path.isdir(basepath)):
+                    script_lines.append("mkdir -vp -- {dir}".format(
+                        dir=esc(basepath)))
+                    new_dirs.append(basepath)
+                script_lines.append("mv -vi -- {old} {new}".format(
+                    old=esc(old), new=esc(new)))
+        # Make sure not to forget the ending newline
+        script_content = "\n".join(script_lines) + "\n"
         if py3:
             cmdfile.write(script_content.encode("utf-8"))
         else:
@@ -1638,6 +1652,17 @@ class flat(Command):
         self.fm.thisdir.unload()
         self.fm.thisdir.flat = level
         self.fm.thisdir.load_content()
+
+
+class reset_previews(Command):
+    """:reset_previews
+
+    Reset the file previews.
+    """
+    def execute(self):
+        self.fm.previews = {}
+        self.fm.ui.need_redraw = True
+
 
 # Version control commands
 # --------------------------------

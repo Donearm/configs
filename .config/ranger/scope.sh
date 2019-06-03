@@ -31,13 +31,14 @@ IMAGE_CACHE_PATH="${4}"  # Full path that should be used to cache image preview
 PV_IMAGE_ENABLED="${5}"  # 'True' if image previews are enabled, 'False' otherwise.
 
 FILE_EXTENSION="${FILE_PATH##*.}"
-FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
+FILE_EXTENSION_LOWER="$(printf "%s" "${FILE_EXTENSION}" | tr '[:upper:]' '[:lower:]')"
 
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
-HIGHLIGHT_TABWIDTH=8
-HIGHLIGHT_STYLE='pablo'
-PYGMENTIZE_STYLE='autumn'
+HIGHLIGHT_TABWIDTH=${HIGHLIGHT_TABWIDTH:-8}
+HIGHLIGHT_STYLE=${HIGHLIGHT_STYLE:-pablo}
+HIGHLIGHT_OPTIONS="--replace-tabs=${HIGHLIGHT_TABWIDTH} --style=${HIGHLIGHT_STYLE} ${HIGHLIGHT_OPTIONS:-}"
+PYGMENTIZE_STYLE=${PYGMENTIZE_STYLE:-autumn}
 
 
 handle_extension() {
@@ -83,16 +84,32 @@ handle_extension() {
             lynx -dump -- "${FILE_PATH}" && exit 5
             elinks -dump "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
+        # JSON
+        json)
+            jq --color-output . "${FILE_PATH}" && exit 5
+            python -m json.tool -- "${FILE_PATH}" && exit 5
+            ;;
     esac
 }
 
 handle_image() {
+    # Size of the preview if there are multiple options or it has to be rendered
+    # from vector graphics. If the conversion program allows specifying only one
+    # dimension while keeping the aspect ratio, the width will be used.
+    local DEFAULT_SIZE="1920x1080"
+
     local mimetype="${1}"
     case "${mimetype}" in
         # SVG
         # image/svg+xml)
-        #     convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+        #     convert -- "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
         #     exit 1;;
+
+        # DjVu
+        # image/vnd.djvu)
+        #     ddjvu -format=tiff -quality=90 -page=1 -size="${DEFAULT_SIZE}" \
+        #           - "${IMAGE_CACHE_PATH}" < "${FILE_PATH}" \
+        #           && exit 6 || exit 1;;
 
         # Image
         image/*)
@@ -105,7 +122,7 @@ handle_image() {
                 convert -- "${FILE_PATH}" -auto-orient "${IMAGE_CACHE_PATH}" && exit 6
             fi
 
-            # `w3mimgdisplay` will be called for all images (unless overriden as above),
+            # `w3mimgdisplay` will be called for all images (unless overridden as above),
             # but might fail for unsupported types.
             exit 7;;
 
@@ -114,15 +131,48 @@ handle_image() {
         #     # Thumbnail
         #     ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
         #     exit 1;;
+
         # PDF
         # application/pdf)
         #     pdftoppm -f 1 -l 1 \
-        #              -scale-to-x 1920 \
+        #              -scale-to-x "${DEFAULT_SIZE%x*}" \
         #              -scale-to-y -1 \
         #              -singlefile \
         #              -jpeg -tiffcompression jpeg \
         #              -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
         #         && exit 6 || exit 1;;
+
+        # ePub, MOBI, FB2 (using Calibre)
+        # application/epub+zip|application/x-mobipocket-ebook|application/x-fictionbook+xml)
+        #     ebook-meta --get-cover="${IMAGE_CACHE_PATH}" -- "${FILE_PATH}" > /dev/null \
+        #         && exit 6 || exit 1;;
+
+        # ePub (using <https://github.com/marianosimone/epub-thumbnailer>)
+        # application/epub+zip)
+        #     epub-thumbnailer \
+        #         "${FILE_PATH}" "${IMAGE_CACHE_PATH}" "${DEFAULT_SIZE%x*}" \
+        #         && exit 6 || exit 1;;
+
+        # Font
+        application/font*|application/*opentype)
+            preview_png="/tmp/$(basename "${IMAGE_CACHE_PATH%.*}").png"
+            if fontimage -o "${preview_png}" \
+                         --pixelsize "120" \
+                         --fontname \
+                         --pixelsize "80" \
+                         --text "  ABCDEFGHIJKLMNOPQRSTUVWXYZ  " \
+                         --text "  abcdefghijklmnopqrstuvwxyz  " \
+                         --text "  0123456789.:,;(*!?') ff fl fi ffi ffl  " \
+                         --text "  The quick brown fox jumps over the lazy dog.  " \
+                         "${FILE_PATH}";
+            then
+                convert -- "${preview_png}" "${IMAGE_CACHE_PATH}" \
+                    && rm "${preview_png}" \
+                    && exit 6
+            else
+                exit 1
+            fi
+            ;;
 
         # Preview archives using the first image inside.
         # (Very useful for comic book collections for example.)
@@ -179,10 +229,19 @@ handle_mime() {
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
-                --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}" && exit 5
-            # pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" && exit 5
+            env HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}" highlight \
+                --out-format="${highlight_format}" \
+                --force -- "${FILE_PATH}" && exit 5
+            pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
+                -- "${FILE_PATH}" && exit 5
             exit 2;;
+
+        # DjVu
+        image/vnd.djvu)
+            # Preview as text conversion (requires djvulibre)
+            djvutxt "${FILE_PATH}" | fmt -w ${PV_WIDTH} && exit 5
+            exiftool "${FILE_PATH}" && exit 5
+            exit 1;;
 
         # Image
         image/*)
