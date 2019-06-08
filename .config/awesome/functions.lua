@@ -343,8 +343,12 @@ function psByMemory(n)
         naughty.destroy(memoryPopup)
         memoryPopup = nil
     else
-        -- memory sorting doesn't work
-        local r = io.popen("ps -eo pid,pmem,user,comm,rss --sort -rss | sed -n '1,15p'"):read("*a")
+		-- Version without awk part emits memory usage in KBs instead 
+		-- than MBs
+		-- "rev" and "column" are there just to align the results to the 
+		-- headers
+--        local r = io.popen("ps -eo pid,pmem,user,comm,rss --sort -rss | sed -n '1,15p'"):read("*a")
+        local r = io.popen("ps -eo pid,pmem,user,comm,rss --sort -rss | awk 'NR>1 {$5=int($5/1024)\"M\"}{print}' | rev | column -t | rev | sed -n '1,15p'"):read("*a")
         memoryPopup = naughty.notify({
             title = "Memory Usage",
             text = r,
