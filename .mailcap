@@ -9,11 +9,11 @@ text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
 
 
-#image/*; sxiv %s: copiousoutput
-image/pjpeg; sxiv %s; copiousoutput
-image/jpeg; sxiv %s; copiousoutput
-image/png; sxiv %s; copiousoutput
-image/gif; sxiv %s; copiousoutput
+#image/*; mirage %s: copiousoutput
+image/pjpeg; mirage %s; copiousoutput
+image/jpeg; mirage %s; copiousoutput
+image/png; mirage %s; copiousoutput
+image/gif; mirage %s; copiousoutput
 
 video/*; mplayer %s
 
