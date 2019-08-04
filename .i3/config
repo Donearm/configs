@@ -205,7 +205,7 @@ for_window [class="mpv"] floating enable
 for_window [class="Gimp"] floating enable
 
 # Assign programs to a specific workspace
-assign [class="Firefox"] 2
+assign [class="firefox"] 2
 assign [class="Gimp"] 5
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
