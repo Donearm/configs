@@ -1,3 +1,33 @@
+! Colours
+! black + DarkGrey
+*.color0:       #171717
+*.color8:       #38252c
+! DarkRed + red
+*.color1:       #fd771b
+*.color9:       #ff0000
+! DarkGreen + green
+*.color2:       #97d01a
+*.color10:      #76b639
+! DarkYello + yellow
+*.color3:       #ffa800
+*.color11:      #e1a126
+! DarkBlue + blue
+*.color4:       #16b1fb
+*.color12:      #289cd5
+! DarkMagenta + magenta
+*.color5:       #ff2491
+*.color13:      #a0175b
+! DarkCyan + cyan
+*.color6:       #0fdcb6
+*.color14:      #0cb395
+! LightGrey + white
+*.color7:       #616161
+*.color15:	    #b9b9b9
+! special colours
+*.foreground:   #ededed
+*.background:   #050505
+*.cursorColor:  #e0e0e0
+
 ! Font settings
 Xft*antialias:			1
 Xft*hinting:			medium
