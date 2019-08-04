@@ -61,10 +61,10 @@ URxvt.geometry:			80x24+0+0
 !URxvt.boldFont:		xft:Liberation Mono:bold:pixelsize=12
 !Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
 !Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
-URxvt.font:				xft:Hack:pixelsize=12
-URxvt.boldFont:			xft:Hack:bold:pixelsize=12
-Urxvt.italicFont:		xft:Hack:italic:pixelsize=12
-Urxvt.boldItalicFont:	xft:Hack:bold:italic:pixelsize=12
+URxvt.font:				xft:Iosevka:pixelsize=12
+URxvt.boldFont:			xft:Iosevka:bold:pixelsize=12
+Urxvt.italicFont:		xft:Iosevka:italic:pixelsize=12
+Urxvt.boldItalicFont:	xft:Iosevka:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
 urxvt.background:		#120d11
 urxvt.foreground:		#fcfbf9
