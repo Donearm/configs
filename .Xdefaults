@@ -12,7 +12,7 @@
 *.color3:       #ffa800
 *.color11:      #e1a126
 ! DarkBlue + blue
-*.color4:       #16b1fb
+*.color4:       #2d2dd8
 *.color12:      #289cd5
 ! DarkMagenta + magenta
 *.color5:       #ff2491
