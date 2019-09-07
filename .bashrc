@@ -240,7 +240,7 @@ else
 fi
 
 
-export BROWSER="firefox-developer-edition"
+export BROWSER="firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 export SLANG_EDITOR='vim'
