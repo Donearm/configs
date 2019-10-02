@@ -5,6 +5,7 @@
 *.o
 *.so
 tags
+!tags/
 
 *.log
 Thumbs.db
