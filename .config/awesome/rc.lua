@@ -76,7 +76,7 @@ local lockScreen = "slock"
 local brightnessInc = "xbacklight -inc 10"
 local brightnessDec = "xbacklight -dec 10"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/gdansk_green"
+theme_path = home .. "/.config/awesome/themes/joker"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
@@ -477,7 +477,7 @@ awful.screen.connect_for_each_screen(function(s)
 		screen = s,
 		fg = beautiful.fg_normal,
 		bg = beautiful.bg_normal,
-		height = 15 })
+		height = 18 })
 
 	local bottomwibox_left = wibox.layout.fixed.horizontal()
 	bottomwibox_left:add(s.mylayoutbox)

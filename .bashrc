@@ -204,13 +204,13 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    PS1="${bCyan}\[[${bnc}\u@\H ${bCyan}\W${bCyan}]\]$ ${bnc}"
+    PS1="${bYellow}\[[${bnc}\u@\H ${bYellow}\W${bYellow}]\]$ ${bnc}"
 elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
 then
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n${bred} >: ${bnc}"
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n >: "
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
     fi
 elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" || "$TERM" = "xterm-termite" || "$TERM" = "xterm-kitty" ]]
 then
@@ -223,9 +223,9 @@ then
 		fi
 	fi
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n${bred} >: ${bnc}"
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y) ${bCyan}»${bnc} \h${bCyan}:${bnc}\w \n >: "
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
     fi
     #export TITLEBAR='\[\e]0;\u | term | \h:\w\007\]'
 # Let's try
@@ -233,9 +233,9 @@ then
     export COLORTERM='rxvt-unicode'
 else
     if [[ `whoami` == "root" ]]; then
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h${bCyan}:${bnc}\w \n${bred} >: ${bnc}"
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y)${bYellow} »${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bCyan}«${bnc} \$(date +%d/%m/%Y)${bCyan} »${bnc} \h${bCyan}:${bnc}\w \n >: "
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y)${bYellow} »${bnc} \h${bYellow}:${bnc}\w \n >: "
     fi
 fi
 
