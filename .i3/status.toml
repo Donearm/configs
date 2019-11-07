@@ -9,7 +9,7 @@ info_fg = "#c4a000"
 
 [[block]]
 block = "focused_window"
-max_width = 24
+max_width = 32
 
 [[block]]
 block = "cpu"
