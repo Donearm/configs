@@ -44,8 +44,8 @@ alias = "/"
 info_type = "available"
 unit = "GB"
 interval = 80
-warning = 10.0
-alert = 5.0
+warning = 5.0
+alert = 2.0
 
 [[block]]
 block = "disk_space"
@@ -54,8 +54,8 @@ alias = "C"
 info_type = "available"
 unit = "GB"
 interval = 80
-warning = 10.0
-alert = 5.0
+warning = 5.0
+alert = 3.0
 
 [[block]]
 block = "disk_space"
@@ -64,8 +64,8 @@ alias = "D"
 info_type = "available"
 unit = "GB"
 interval = 80
-warning = 10.0
-alert = 5.0
+warning = 5.0
+alert = 3.0
 
 [[block]]
 block = "disk_space"
@@ -74,8 +74,8 @@ alias = "Private"
 info_type = "available"
 unit = "GB"
 interval = 80
-warning = 10.0
-alert = 5.0
+warning = 5.0
+alert = 3.0
 
 [[block]]
 block = "sound"
