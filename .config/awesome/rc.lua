@@ -155,12 +155,12 @@ myawesomemenu = {
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
-   { "reboot", "sudo reboot"}
+   { "reboot", "sudo systemctl reboot"}
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesomewm_image },
                                         { "open terminal", terminal, beautiful.terminal_image },
-                                        { "firefox", browser, beautiful.firefox_developer_image },
+                                        { "firefox", browser, beautiful.firefox_image },
                                         { "ranger", filemanager, beautiful.filemanager_image },
                                         { "Music", music, beautiful.music_image },
                                       }
