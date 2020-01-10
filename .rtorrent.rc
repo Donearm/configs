@@ -101,12 +101,12 @@ encryption = allow_incoming,enable_retry,try_outgoing
 # "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
 # The default is "off". For DHT to work, a session directory must be defined.
 # 
-dht = auto
+dht.mode.set = auto
 
 # UDP port to use for DHT. 
 # 
 # dht_port = 6881
-dht_port = 50009
+dht.port.set = 50009
 
 #
 # Do not modify the following parameters unless you know what you're doing.
