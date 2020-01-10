@@ -1,6 +1,7 @@
 #!/bin/sh
 
-display -window root /home/gianluca/Downloads/wallpaper2.jpg &
+#display -window root /home/gianluca/Downloads/wallpaper2.jpg &
+display -window root /home/gianluca/Downloads/wallpaper-beksinski001.jpg &
 
 xbindkeys
 xset m 0.7 2
