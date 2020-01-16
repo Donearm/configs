@@ -26,7 +26,7 @@ application/msword; /usr/bin/lowriter %s
 application/vnd.oasis.opendocument.text; /usr/bin/lowriter %s
 application/vnd.ms-excel; /usr/bin/localc %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/lowriter %s
-application/pdf; apvlv '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+application/pdf; xreader '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 application/pdf; pdftotext '%s' | less ; test=test "$DISPLAY" = ""
 
 text/x-sgml; cat %s; copiousoutput
