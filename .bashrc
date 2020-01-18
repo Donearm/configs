@@ -322,7 +322,7 @@ shopt -s checkwinsize
 shopt -s cdspell
 
 # auto completion
-source /usr/share/bash-completion/completions/git
+source /usr/share/bash-completion/completions/*
 # git prompt
 #source /usr/share/git/git-prompt.sh
 
