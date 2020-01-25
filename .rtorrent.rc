@@ -44,7 +44,7 @@ schedule = untied_directory,5,5,stop_untied=
 #on_finished = set_done_var,d.set_custom2=
 
 # Erase data files when a download is removed that still has custom2 set.
-#on_erase = rm_files,"branch=d.get_custom2=,\"execute={rm,-rf,--,$d.get_base_path=}\""
+#on_erase = rm_files,"branch=d.get_custom2=,\"execute={rm,-rf,--,$d.base_path=}\""
 
 ratio.enable=
 ratio.min.set=150
@@ -54,7 +54,7 @@ ratio.upload.set=50M
 method.set = group.seeding.ratio.command, d.close=
 
 # copy completed torrents in the Music directory
-method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/"
+method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.base_path=/media/private/torrents/;d.directory.set=/media/private/Music/"
 
 # Notify at torrent completion
 method.set_key = event.download.finished,notify-me,"execute=notify-send,-t,7000,$d.get_name="
