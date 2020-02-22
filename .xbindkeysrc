@@ -16,6 +16,12 @@
 "mpc next"
 	XF86AudioNext
 
+"xbacklight -inc 10"
+	XF86MonBrightnessUp
+
+"xbacklight -dec 10"
+	XF86MonBrightnessDown
+
 # Mapping button 8 (left-side, the upper one) of Lachesis with Back function in Firefox
 "xvkbd -xsendevent -text "\[Alt_L]\[Left]""
 m:0x0 + b:8
