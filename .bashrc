@@ -29,7 +29,7 @@ alias acestreamengine="acestreamengine --live-disk-cache-size 10000"
 alias orphans="pacman -Qtdq" # packages not required by any other
 alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 # Rsync alias to sync between laptop and desktop over ssh
-alias ssrsync="rsync -avz --progress --inplace --delete-after --rsh='ssh -p8898'"
+alias ssrsync="rsync -av -zz --progress --inplace --delete-after --rsh='ssh -p8898'"
 # Two openssl aliases to encode/decode files
 alias ssl_enc="openssl aes-256-cbc -salt"
 alias ssl_dec="openssl aes-256-cbc -d"
@@ -261,7 +261,7 @@ export LC_NUMERIC=it_IT.utf8
 export LESSCHARSET="utf-8"
 export DATE=`date +%G_%m_%d`
 # set the size of the bash history
-export HISTSIZE=20000
+export HISTSIZE=2000
 # add date and time to history elements
 export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth # no doubles in bash_history
