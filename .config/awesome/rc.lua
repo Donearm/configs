@@ -767,9 +767,7 @@ awful.rules.rules = {
 			"<unknown>",
 			"plugin-container",
 			"Wine",
-			"Skype",
-			"sxiv",
-			"imv"
+			"Skype"
 		},
 	}, properties = { floating = true },
 	{ rule = { class = "Firefox" },
