@@ -29,7 +29,7 @@ alias acestreamengine="acestreamengine --live-disk-cache-size 10000"
 alias orphans="pacman -Qtdq" # packages not required by any other
 alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 # Rsync alias to sync between laptop and desktop over ssh
-alias ssrsync="rsync -av -zz --progress --inplace --delete-after --rsh='ssh -p8898'"
+alias ssrsync="rsync -av -C --progress --inplace --delete-after -e 'ssh -p 8898'"
 # Two openssl aliases to encode/decode files
 alias ssl_enc="openssl aes-256-cbc -salt"
 alias ssl_dec="openssl aes-256-cbc -d"
