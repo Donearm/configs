@@ -757,24 +757,16 @@ awful.rules.rules = {
 						placement = awful.placement.no_overlap+awful.placement.no_offscreen
 					}
 	},
-		-- Floating clients.
-	{ rule_any = {
-		instance = {
-			"MPlayer",
-			"mpv",
-		},
-		class = {
-			"<unknown>",
-			"plugin-container",
-			"Wine",
-			"Skype"
-		},
-	}, properties = { floating = true },
 	{ rule = { class = "Firefox" },
 		properties = { screen = 1, tag = 1 } },
+	{ rule = { class = "mpv" },
+		properties = { floating = true } },
+	{ rule = { class = "<plugin-container>" },
+		properties = { floating = true } },
+	{ rule = { class = "<unknown>" },
+		properties = { floating = true } },
 	{ rule = { class = "Spotify" },
 		properties = { screen = 1, tag = 5 } },
-	}
 }
 
 -- {{{ Autorun apps
