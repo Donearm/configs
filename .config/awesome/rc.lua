@@ -77,7 +77,7 @@ local soundPerfectVolume = "amixer set Master 10% unmute"
 local soundMute = "amixer set Master mute"
 local filemanager = terminal .. " -e ranger"
 local mutt = terminal .. " -e mutt -y"
-local lockScreen = "slock"
+local lockScreen = "physlock -p 'Say, friend, and enter.'"
 local brightnessInc = "xbacklight -inc 10"
 local brightnessDec = "xbacklight -dec 10"
 -- Themes define colours, icons, and wallpapers
