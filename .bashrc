@@ -136,7 +136,7 @@ resizeimages() {
 
 # Play Youtube videos while downloading. Requires youtube-dl and mpv (or MPlayer)
 youplay() {
-	youtube-dl -o - $1 | mpv -
+	youtube-dl --geo-bypass -o - $1 | mpv -
 }
 
 # Easily mark and jump in the filesystem
