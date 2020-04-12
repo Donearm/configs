@@ -5,6 +5,7 @@ volume-max=600
 # Fixes playback of some NSV streams
 user-agent="Winamp NSV Player/5.12 (ultravox/2.0)"
 cache = yes
+force-seekable = yes
 slang = it,en
 alang = it,en
 monitoraspect=16:10
