@@ -3,14 +3,14 @@
 *.color0:       #171717
 *.color8:       #38252c
 ! DarkRed + red
-*.color1:       #fd771b
+*.color1:       #D86055
 *.color9:       #ff0000
 ! DarkGreen + green
 *.color2:       #97d01a
 *.color10:      #76b639
 ! DarkYello + yellow
-*.color3:       #ffa800
-*.color11:      #e1a126
+*.color3:       #e1a126
+*.color11:      #ece169
 ! DarkBlue + blue
 *.color4:       #2d2dd8
 *.color12:      #289cd5
@@ -106,7 +106,7 @@ URxvt.tabbed.tabbar-bg:	0
 URxvt.tabbed.tab-fg:	6
 URxvt.tabbed.tab-bg:	0
 ! select input method (may be different from locale)
-!URxvt.imlocale:		it_IT.UTF-8	
+!URxvt.imlocale:		it_IT.UTF-8
 
 ! Lalcal
 lalcal*format:			%a %e %b %l.%M%P

@@ -81,7 +81,7 @@ local lockScreen = "physlock -mp 'Say, friend, and enter.'"
 local brightnessInc = "xbacklight -inc 10"
 local brightnessDec = "xbacklight -dec 10"
 -- Themes define colours, icons, and wallpapers
-theme_path = home .. "/.config/awesome/themes/joker"
+theme_path = home .. "/.config/awesome/themes/french_polynesia"
 -- Actually load theme
 beautiful.init(theme_path)
 -- Define if we want to see naughty notifications
