@@ -10,8 +10,7 @@ set folder_format="%2C %t %N %f"
 
 set realname="Gianluca Fiore"
 set use_envelope_from=yes	# force same address in envelope as in From:
-set abort_unmodified=yes	# automatically abort replies if I don't
-				# change the message
+set abort_unmodified=yes	# automatically abort replies if I don't change the message
 set alias_file=~/.mail_aliases	# where I keep my aliases
 set alias_format="%4n %2f %t %-10a   %r"
 set allow_8bit			# never do Q-P encoding on legal 8-bit chars
@@ -220,7 +219,7 @@ X-Url Mail-Followup-To:
 #		generic		generic keymap for all of the above
 #		editor		line editor
 #		pager		text viewer
-#		
+#
 
 ## Index
 # vi-like movements
