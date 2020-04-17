@@ -1,19 +1,15 @@
 #; Local mailcap preferences for the MUTT mail client.
 
-
 #text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
-#text/html; brave %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; firefox %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; chromium %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
-
-
 image/*; kitty +kitten icat %s; copiousoutput
-image/pjpeg; sxiv %s; copiousoutput
-image/jpeg; sxiv %s; copiousoutput
-image/png; sxiv %s; copiousoutput
-image/gif; sxiv %s; copiousoutput
+image/pjpeg; imv %s; copiousoutput
+image/jpeg; imv %s; copiousoutput
+image/png; imv %s; copiousoutput
+image/gif; imv %s; copiousoutput
 
 video/*; mpv %s
 video/*; mplayer %s
@@ -39,7 +35,6 @@ text/x-tex; cat %s; copiousoutput
 text/tex; cat %s; copiousoutput
 text/x-sh; cat %s; copiousoutput
 text/english; cat %s; copiousoutput
-
 
 application/x-gzip-dvi; zcat | dvi2tty-filter -w 132; copiousoutput
 
