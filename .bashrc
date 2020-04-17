@@ -205,40 +205,14 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 if [ "$TERM" = "linux" ]
 then
     PS1="${bYellow}\[[${bnc}\u@\H ${bYellow}\W${bYellow}]\]$ ${bnc}"
-elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
-then
-    if [[ `whoami` == "root" ]]; then
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
-    else
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
-    fi
-elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" || "$TERM" = "xterm-termite" || "$TERM" = "xterm-kitty" ]]
-then
-	# 256 colors available?
-	if [[ "$TERM" != "rxvt-256color" ]]; then
-		if [ -e /usr/share/terminfo/r/rxvt-256color ]; then
-			export TERM='rxvt-256color'
-		else
-			continue
-		fi
-	fi
-    if [[ `whoami` == "root" ]]; then
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
-    else
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
-    fi
-    #export TITLEBAR='\[\e]0;\u | term | \h:\w\007\]'
-# Let's try
-    export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
-    export COLORTERM='rxvt-unicode'
 else
+    export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
     if [[ `whoami` == "root" ]]; then
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y)${bYellow} »${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
     else
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y)${bYellow} »${bnc} \h${bYellow}:${bnc}\w \n >: "
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
     fi
 fi
-
 
 export BROWSER="firefox"
 export EDITOR="vim"
