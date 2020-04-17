@@ -43,6 +43,8 @@ application/x-gunzip; zcat | less; needsterminal
 application/x-gzip; zcat; copiousoutput
 application/x-gunzip; zcat; copiousoutput
 application/x-bzip2; bzcat |less; needsterminal
+application/x-xz; xzcat | less; needsterminal
+application/x-lzma; xz --format=lzma --decompress --stdout; copiousoutput
 
 application/x-cpio; cpio -tvF --quiet %s; copiousoutput
 application/x-gtar; tar tvf %s; copiousoutput
@@ -51,6 +53,7 @@ application/x-tar-gz; tar tvfz %s; copiousoutput
 application/x-rar-compressed; rar v %s; copiousoutput
 application/x-zip-compressed; unzip -v %s; copiousoutput
 application/zip; unzip -v %s; copiousoutput
+application/x-7z-compressed; 7zr x %s; copiousoutput
 
 application/x-csh; cat %s; copiousoutput
 application/x-sh; cat %s; copiousoutput
