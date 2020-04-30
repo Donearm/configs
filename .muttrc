@@ -44,12 +44,12 @@ set edit_headers		# let me edit the message header when composing
 set editor="vim -c 'set tw=72 et' \
  -c 'set fo=tcrq' \
  -c 'set syntax=mail' \
- -c ':0;/^To: '\
  -c 'set spell'\
  -c 'redraw' \
  -c 'set nobackup' \
  -c 'set noswapfile' \
- -c 'set nowritebackup'"
+ -c 'set nowritebackup' \
+ -c '+9'"
 set bounce=yes			# don't ask about bouncing messages, just do it
 #set fast_reply			# skip initial prompts when replying
 #set fcc_attach			# keep attachments in copies of sent messages?
