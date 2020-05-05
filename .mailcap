@@ -27,6 +27,7 @@ application/vnd.ms-excel; /usr/bin/localc %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/lowriter %s
 application/pdf; apvlv '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 application/pdf; pdftotext '%s' | less ; test=test "$DISPLAY" = ""
+application/postscript; /usr/bin/xdg-open %s
 
 text/x-sgml; cat %s; copiousoutput
 text/x-chdr; cat %s; copiousoutput
