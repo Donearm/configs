@@ -152,7 +152,8 @@ set write_inc=25		# show progress while writing mailboxes
 set dsn_notify='failure,delay'	# when to return an error message
 set dsn_return=hdrs		# what to return in the error message
 
-set header_cache="/tmp/mutt_headers/" # cache database path for mail headers
+set header_cache = "~/Maildir/.hcache/" # cache folder path for mail headers
+set message_cachedir = "~/Maildir/.bcache/" # cache folder path for mail bodies
 set ts_enabled			# set terminal status line and icon name
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
