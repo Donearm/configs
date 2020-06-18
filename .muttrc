@@ -48,7 +48,9 @@ set editor="vim -c 'set tw=72 et' \
  -c ':0;/^To: '\
  -c 'set spell'\
  -c 'redraw' \
- -c 'set nobackup'"
+ -c 'set nobackup' \
+ -c 'set noswapfile' \
+ -c 'set nowritebackup'"
 set bounce=yes			# don't ask about bouncing messages, just do it
 #set fast_reply			# skip initial prompts when replying
 #set fcc_attach			# keep attachments in copies of sent messages?
@@ -178,6 +180,17 @@ set pgp_list_secring_command="/usr/bin/gpg --no-verbose --batch --quiet --with-c
 set pgp_list_pubring_command="/usr/bin/gpg --no-verbose --batch --quiet --with-colons --list-keys %r"
 set pgp_good_sign = "^gpg: Good signature from"
 set pgp_autoencrypt=no
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# SSL hardening
+set ssl_force_tls=no
+set ssl_starttls=yes
+set ssl_use_sslv2=no
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # Header fields I don't normally want to see
