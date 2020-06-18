@@ -37,6 +37,9 @@ alias ssl_enc="openssl aes-256-cbc -salt"
 alias ssl_dec="openssl aes-256-cbc -d"
 # Ettercap ARP spoofing ;)
 alias etterspoof="sudo ettercap -T -M arp:remote -P autoadd /192.168.1.3/ /192.168.1.1/"
+# Kitty terminal has issue logging into Linuxacademy.com environments. 
+# This alias fixes it
+alias sshla="kitty +kitten ssh"
 
 
 # top 15 most used commands
