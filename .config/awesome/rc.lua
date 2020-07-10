@@ -767,6 +767,8 @@ awful.rules.rules = {
 		properties = { floating = true } },
 	{ rule = { class = "Spotify" },
 		properties = { screen = 1, tag = 5 } },
+	{ rule = { class = "Picture in picture" },
+		properties = { floating = true, maximixed_horizontal = false, maximized_vertical = false } },
 }
 
 -- {{{ Autorun apps
