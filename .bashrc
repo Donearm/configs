@@ -214,7 +214,7 @@ else
     fi
 fi
 
-export BROWSER="firefox"
+export BROWSER="vivaldi-stable"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 export SLANG_EDITOR='vim'
