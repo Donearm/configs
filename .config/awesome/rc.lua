@@ -759,6 +759,8 @@ awful.rules.rules = {
 	},
 	{ rule = { class = "Firefox" },
 		properties = { screen = 1, tag = 1 } },
+	{ rule = { class = "vivaldi-stable" },
+		properties = { maximized_horizontal = false, maximized_vertical = false, floating = false } },
 	{ rule = { class = "mpv" },
 		properties = { floating = true } },
 	{ rule = { class = "<plugin-container>" },
