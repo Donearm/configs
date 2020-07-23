@@ -39,6 +39,9 @@ bindsym Mod4+d exec rofi -show run
 # installed.
 # bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
 
+# use rofi as a window switcher
+bindsym Mod4+Shift+w exec rofi -show window
+
 # colours
 #class					border	background	text
 client.focused			#11294b #163e7b		#ece169
