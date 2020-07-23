@@ -1,6 +1,7 @@
 #!/bin/sh
 
-display -window root -at 0,0 /mnt/documents/d/Images/French_Polynesia.jpg &
+#display -window root /mnt/documents/d/Images/French_Polynesia.jpg &
+feh --bg-scale /mnt/documents/d/Images/French_Polynesia.jpg &
 
 xbindkeys
 setxkbmap -option compose:menu
