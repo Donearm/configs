@@ -1,5 +1,10 @@
 [theme]
 name = "solarized-light"
+[theme.overrides]
+idle_bg = "#163e7b"
+idle_fg = "#fbf9fe"
+critical_bg = "#ece169"
+critical_fg = "#d7001c"
 [icons]
 name = "awesome"
 [icons.overrides]
@@ -9,6 +14,18 @@ music = "  "
 [[block]]
 block = "focused_window"
 max_width = 60
+
+[[block]]
+block = "cpu"
+per_core = true
+interval = 1
+format = "{barchart} {utilization}%"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
 
 [[block]]
 block = "disk_space"
@@ -21,19 +38,11 @@ warning = 10.0
 alert = 5.0
 
 [[block]]
-block = "memory"
-display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
-
-[[block]]
-block = "cpu"
-per_core = true
-interval = 1
-format = "{barchart} {utilization}%"
-
-[[block]]
 block = "sound"
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
 
 [[block]]
 block = "music"
@@ -42,13 +51,9 @@ buttons = ["prev", "play", "next"]
 max_width = 35
 
 [[block]]
-block = "backlight"
-device = "intel_backlight"
-
-[[block]]
 block = "battery"
 interval = 20
-format = "{percentage}% ({time}H remaining)"
+format = "{percentage}% ({time}H)"
 good = 70
 info = 60
 warning = 30
