@@ -9,6 +9,7 @@ critical_fg = "#d7001c"
 name = "awesome"
 [icons.overrides]
 cpu = "  "
+memory_mem = "  "
 music = "  "
 
 [[block]]
