@@ -1,0 +1,60 @@
+[theme]
+name = "solarized-light"
+[icons]
+name = "awesome"
+[icons.overrides]
+cpu = "  "
+music = "  "
+
+[[block]]
+block = "focused_window"
+max_width = 60
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 120
+warning = 10.0
+alert = 5.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+per_core = true
+interval = 1
+format = "{barchart} {utilization}%"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "music"
+player = "spotify"
+buttons = ["prev", "play", "next"]
+max_width = 35
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
+
+[[block]]
+block = "battery"
+interval = 20
+format = "{percentage}% ({time}H remaining)"
+good = 70
+info = 60
+warning = 30
+critical = 15
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"

@@ -1,16 +1,14 @@
 #!/bin/sh
 
-display -window root /mnt/documents/Images/Coffee_chocolate.jpg &
-
-urxvtc "$@"
-if [ $? -eq 2 ]; then
-	urxvtd -q -o -f
-fi
+display -window root -at 0,0 /mnt/documents/d/Images/French_Polynesia.jpg &
 
 xbindkeys
-compton --config ~/.config/compton.conf &
+setxkbmap -option compose:menu
+~/Script/script_disable_touchpad.sh
 xset m 0.7 2
-xset dpms 0 900 2750
+xset dpms 0 120 600
+xrandr --dpi 123
+vivaldi-stable &
 
 exit 0
 
