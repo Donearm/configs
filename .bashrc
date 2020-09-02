@@ -81,7 +81,7 @@ gitgrep() {
 phone() {
 	if [[ $1 == 'mount' ]]; then
 		mkdir -p phone
-		jmtpfs -o allow_other,umask=000 phone
+		go-mtpfs -o allow_other phone
 		if [ $? -eq 0 ]; then
 			echo "Your phone has been successfully mounted"
 		else
