@@ -56,7 +56,7 @@ new_float 1pixel
 bindsym Mod4+j focus left
 bindsym Mod4+k focus down
 bindsym Mod4+l focus up
-bindsym Mod4+semicolon focus right
+bindsym Mod4+n focus right
 
 # alternatively, you can use the cursor keys:
 bindsym Mod4+Left focus left
@@ -68,7 +68,7 @@ bindsym Mod4+Right focus right
 bindsym Mod4+Shift+j move left
 bindsym Mod4+Shift+k move down
 bindsym Mod4+Shift+l move up
-bindsym Mod4+Shift+semicolon move right
+bindsym Mod4+Shift+n move right
 
 # alternatively, you can use the cursor keys:
 bindsym Mod4+Shift+Left move left
