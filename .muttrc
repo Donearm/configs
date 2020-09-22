@@ -31,7 +31,7 @@ set send_charset="utf-8:iso-8859-1:iso-8859-15:us-ascii" # a list of character s
 #set ascii_chars		# use ASCII instead of ACS chars for threads
 #set askbcc
 #set askcc
-set attribution="On %d, %n wrote:"	# how to attribute replies
+set attribution="On %d, %n <%a> uttered:"	# how to attribute replies
 set autoedit			# go to the editor right away when composing
 #set auto_tag			# always operate on tagged messages
 set charset="utf-8"	# character set for your terminal
@@ -123,6 +123,7 @@ set nosave_empty		# remove files when no messages are left
 set sendmail="/usr/bin/msmtp"
 #set shell="/bin/zsh"		# program to use for shell escapes
 set signature="~/.signature"	# file which contains my signature
+set sig_on_top=yes			# don't crucify me...
 
 set sort=date # primary sorting method
 
