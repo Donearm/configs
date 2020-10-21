@@ -183,8 +183,12 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
+# Plugins for nnn
 export NNN_PLUG='p:preview-tui;k:preview-kitty'
+# Fifo for nnn
 export NNN_FIFO=/tmp/nnn.fifo
+# Bookmarks for nnn
+export NNN_BMS="h:${HOME};p:/media/private/"
 
 # No one should read/write/execute my files by default
 #umask 0077
