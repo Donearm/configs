@@ -184,7 +184,7 @@ n ()
     fi
 }
 # Plugins for nnn
-export NNN_PLUG='p:preview-tui;k:preview-kitty'
+export NNN_PLUG='p:preview-tui'
 # Fifo for nnn
 export NNN_FIFO=/tmp/nnn.fifo
 # Bookmarks for nnn
