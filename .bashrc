@@ -111,7 +111,7 @@ ccurrencies() {
 }
 
 have_a_rainbow() {
-	 yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done
+	yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done
 }
 
 # Cd with context (thanks to @smllmp)
@@ -122,7 +122,7 @@ c() {
 	pwd;
 }
 
-# output local directories, relative to . , that suck up the most 
+# output local directories, relative to . , that suck up the most
 # diskspace
 wheredidallthespacego() {
 	sudo du -h $1 | grep -P '^[0-9\.]+[MGT]'
@@ -238,14 +238,14 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    PS1="${bYellow}\[[${bnc}\u@\H ${bYellow}\W${bYellow}]\]$ ${bnc}"
+	PS1="${bYellow}\[[${bnc}\u@\H ${bYellow}\W${bYellow}]\]$ ${bnc}"
 else
-    export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
-    if [[ `whoami` == "root" ]]; then
+	export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
+	if [[ `whoami` == "root" ]]; then
 		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
-    else
+	else
 		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
-    fi
+	fi
 fi
 
 export BROWSER="vivaldi-stable"
