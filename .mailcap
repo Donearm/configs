@@ -39,6 +39,8 @@ text/tex; cat %s; copiousoutput
 text/x-sh; cat %s; copiousoutput
 text/english; cat %s; copiousoutput
 
+application/epub+zip; foliate %s; copiousoutput
+
 application/x-gzip-dvi; zcat | dvi2tty-filter -w 132; copiousoutput
 
 application/x-gzip; zcat | less; needsterminal
