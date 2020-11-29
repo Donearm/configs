@@ -47,9 +47,10 @@ device = "intel_backlight"
 
 [[block]]
 block = "music"
-player = "spotify"
 buttons = ["prev", "play", "next"]
 max_width = 35
+dynamic_width = true
+on_collapsed_click = "spotify"
 
 [[block]]
 block = "battery"
@@ -64,3 +65,4 @@ critical = 15
 block = "time"
 interval = 60
 format = "%a %d/%m %R"
+locale = "it_IT"
