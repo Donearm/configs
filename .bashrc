@@ -189,6 +189,8 @@ export NNN_PLUG='p:preview-tui'
 export NNN_FIFO=/tmp/nnn.fifo
 # Bookmarks for nnn
 export NNN_BMS="h:${HOME};p:/media/private/"
+# Colors for nnn
+export NNN_COLORS="#163e7b"
 
 # No one should read/write/execute my files by default
 #umask 0077
