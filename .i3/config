@@ -192,7 +192,7 @@ bindsym Mod4+Del mode "system"
 #}
 
 bar {
-	font pango:Iosevka FontAwesome 10
+	font pango:Iosevka FontAwesome 9
 	position bottom
 	status_command i3status-rs /home/gianluca/.config/i3status-rust/config.toml
 	colors {
