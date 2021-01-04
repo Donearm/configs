@@ -1,7 +1,7 @@
 [user]
 	name = Gianluca Fiore
-	email = gianlucafiore@papersounds.eu
-	signingkey = D33DF9231860307AD78805FD7E7071DCCB1DAD19
+	email = gianlucafiore@fountainpencreator.com
+	signingKey = FEBBD5283FC9BB2AD80A2BB79DC39761CF95D79B
 [color]
 	ui = true
 	branch = auto
