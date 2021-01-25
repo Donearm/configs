@@ -9,7 +9,7 @@ setxkbmap -option compose:menu
 xset m 0.7 2
 xset dpms 0 120 600
 xrandr --dpi 123
-vivaldi-stable &
+firefox &
 
 exit 0
 
