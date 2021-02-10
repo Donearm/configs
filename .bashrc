@@ -252,7 +252,7 @@ else
 	fi
 fi
 
-export BROWSER="vivaldi-stable"
+export BROWSER="firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 export SLANG_EDITOR='vim'
