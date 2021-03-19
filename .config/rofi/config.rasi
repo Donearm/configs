@@ -3,7 +3,7 @@ configuration {
 	width: 60;
 /*	lines: 15;*/
 /*	columns: 1;*/
-/*	font: "mono 12";*/
+	font: "sans-serif 14";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
