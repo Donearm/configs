@@ -11,6 +11,21 @@ name = "awesome"
 cpu = "  "
 memory_mem = "  "
 music = "  "
+backlight_empty = " ☀ "
+backlight_full = " ☀ "
+backlight_1 = " ☀ "
+backlight_2 = " ☀ "
+backlight_3 = " ☀ "
+backlight_4 = " ☀ "
+backlight_5 = " ☀ "
+backlight_6 = " ☀ "
+backlight_7 = " ☀ "
+backlight_8 = " ☀ "
+backlight_9 = " ☀ "
+backlight_10 = " ☀ "
+backlight_11 = " ☀ "
+backlight_12 = " ☀ "
+backlight_13 = " ☀ "
 
 [[block]]
 block = "focused_window"
@@ -18,7 +33,7 @@ max_width = 60
 
 [[block]]
 block = "cpu"
-per_core = true
+per_core = false
 interval = 1
 format = "{barchart} {utilization}%"
 
@@ -39,15 +54,24 @@ warning = 10.0
 alert = 5.0
 
 [[block]]
+block = "disk_space"
+path = "/home"
+alias = "home"
+info_type = "available"
+unit = "GB"
+interval = 120
+warning = 10.0
+alert = 5.0
+
+[[block]]
 block = "sound"
 
 [[block]]
 block = "backlight"
-device = "intel_backlight"
+device = "amdgpu_bl0"
 
 [[block]]
 block = "music"
-player = "spotify"
 buttons = ["prev", "play", "next"]
 max_width = 35
 dynamic_width = true
@@ -61,6 +85,11 @@ good = 70
 info = 60
 warning = 30
 critical = 15
+
+[[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+interval = 60
 
 [[block]]
 block = "time"
