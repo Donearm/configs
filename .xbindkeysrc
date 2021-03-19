@@ -1,26 +1,27 @@
-"amixer -c 0 sset Master 0%"
+#"amixer -c 0 sset Master 0%"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 	XF86AudioMute
 
-"amixer -c 0 set Master 4db-"
+#"amixer -c 0 set Master 4db-"
+"pactl set-sink-volume @DEFAULT_SINK@ -4%"
 	XF86AudioLowerVolume
 
-"amixer -c 0 set Master 4dB+"
+#"amixer -c 0 set Master 4dB+"
+"pactl set-sink-volume @DEFAULT_SINK@ +4%"
 	XF86AudioRaiseVolume
 
-"mpc prev"
-	XF86AudioPrev
-
-"mpc toggle"
-	XF86AudioPlay
-
-"mpc next"
-	XF86AudioNext
-
-"xbacklight -inc 10"
+"~/documents/Script/backlight_change.sh -inc 10"
 	XF86MonBrightnessUp
 
-"xbacklight -dec 10"
+"~/documents/Script/backlight_change.sh -dec 10"
 	XF86MonBrightnessDown
+
+"~/documents/Script/script_disable_touchpad.sh"
+	XF86TouchpadToggle
+
+# on the Tuxedo Pulse 15 the below button works out of the box, killing 
+# both the wireless and the bluetooth
+#	XF86RFKill
 
 # Mapping button 8 (left-side, the upper one) of Lachesis with Back function in Firefox
 "xvkbd -xsendevent -text "\[Alt_L]\[Left]""
