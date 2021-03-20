@@ -1,1 +1,0 @@
-/mnt/c/Projects/Mpd-Info/mpd-popup.lua
