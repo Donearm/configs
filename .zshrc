@@ -212,7 +212,7 @@ n ()
     fi
 }
 # Plugins for nnn
-export NNN_PLUG='p:preview-tui;m:preview-tui-ext'
+export NNN_PLUG='p:preview-tui;m:preview-tui-ext;f:-_feh -d *'
 # Fifo for nnn
 export NNN_FIFO=/tmp/nnn.fifo
 # Bookmarks for nnn
