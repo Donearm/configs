@@ -35,7 +35,7 @@ max_width = 60
 block = "cpu"
 per_core = false
 interval = 1
-format = "{barchart} {utilization}%"
+format = "{barchart} {utilization}@{frequency}"
 
 [[block]]
 block = "memory"
