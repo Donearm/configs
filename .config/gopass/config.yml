@@ -1,0 +1,11 @@
+autoclip: false
+autoimport: true
+cliptimeout: 45
+exportkeys: true
+nocolor: false
+nopager: false
+notifications: true
+parsing: true
+path: /home/gianluca/.local/share/gopass/stores/root
+safecontent: false
+mounts: {}
