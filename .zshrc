@@ -86,6 +86,12 @@ SPACESHIP_HOSTNAME_SHOW=always
 SPACESHIP_BATTERY_SHOW=always
 SPACESHIP_EXIT_CODE_SHOW=true
 
+SPACESHIP_PACKAGE_SYMBOL=📦
+SPACESHIP_NODE_SYMBOL=☊
+SPACESHIP_GOLANG_SYMBOL=ꗝ
+SPACESHIP_PYENV_SYMBOL=𝧜
+SPACESHIP_JOBS_SYMBOL=Ⓙ
+
 # Enable history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -99,7 +105,7 @@ zstyle ':completion:*' rehash true
 
 ## Aliases ##
 alias vi="vim"
-alias mutt="neomutt"
+#alias mutt="neomutt"
 alias ll="ls -asl -F -T 0 -b -H -1 --color=always"
 alias l="ls -CF"
 alias less="less -rW"
