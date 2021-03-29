@@ -10,13 +10,13 @@
 "pactl set-sink-volume @DEFAULT_SINK@ +4%"
 	XF86AudioRaiseVolume
 
-"~/documents/Script/backlight_change.sh -inc 10"
+"sudo /home/gianluca/documents/Script/backlight_change.sh -inc 10"
 	XF86MonBrightnessUp
 
-"~/documents/Script/backlight_change.sh -dec 10"
+"sudo /home/gianluca/documents/Script/backlight_change.sh -dec 10"
 	XF86MonBrightnessDown
 
-"~/documents/Script/script_disable_touchpad.sh"
+"/home/gianluca/documents/Script/script_disable_touchpad.sh"
 	XF86TouchpadToggle
 
 # on the Tuxedo Pulse 15 the below button works out of the box, killing 
