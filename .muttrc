@@ -309,5 +309,7 @@ source ~/.mutt/hooks
 source ~/.mail_aliases
 # My color theme of choice
 source ~/.mutt/driftavalii-colors.muttrc
+# Load default configuration, valid for all mailboxes
+source ~/.mutt/defaults.mutt_profile
 
 # EOF
