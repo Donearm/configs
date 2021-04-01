@@ -44,7 +44,7 @@ format_swap = "{swap_used_percents}"
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
+format = "{path} {available}"
 info_type = "available"
 unit = "GB"
 interval = 120
@@ -54,7 +54,7 @@ alert = 5.0
 [[block]]
 block = "disk_space"
 path = "/home"
-alias = "home"
+format = "{path} {available}"
 info_type = "available"
 unit = "GB"
 interval = 120
