@@ -122,7 +122,6 @@ alias gmail2="mutt -f imaps://fioregianluca@imap.gmail.com:993"
 alias gmail3="mutt -f imaps://puffosaltatore@imap.gmail.com:993"
 alias bajkal="mutt -f imap://in.virgilio.it"
 alias yahoo="mutt -f imaps://gianluca1181@imap.mail.yahoo.com:993"
-alias papersounds="mutt -f imaps://gianlucafiore@papersounds.eu@mail.papersounds.eu:993"
 alias nespressoguide="mutt -f imaps://admin@nespressoguide.com@mail.nespressoguide.com:993"
 alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
 # Show user declared functions
