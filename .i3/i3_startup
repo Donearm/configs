@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #display -window root /mnt/documents/d/Images/French_Polynesia.jpg &
-feh --bg-scale ~/documents/Images/deserted_green_island.jpg &
+feh --bg-scale ~/documents/Images/rocky_coast.jpg &
 
 xbindkeys
 setxkbmap -model pc105 -layout us -variant altgr-intl -option compose:menu
