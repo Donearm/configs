@@ -172,6 +172,11 @@ wheredidallthespacego() {
     sudo du -h $1 | grep -P '^[0-9\.]+[MGT]'
 }
 
+# reverse list of the processes using the most memory
+wheredidallthememorygo() {
+	ps aux  | awk '{print $6/1024 " MB\t\t" $11}'  | sort -n
+}
+
 # Play Youtube videos while downloading. Requires youtube-dl and mpv
 youplay() {
     youtube-dl --geo-bypass -o - $1 | mpv -
