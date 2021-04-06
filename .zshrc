@@ -131,7 +131,7 @@ alias kittyssh="kitty +kitten ssh"
 
 ## Functions ##
 toptwenty () {
-	history | awk '{if ($4 == "sudo") {print $5} else {print $4}}' | \
+	history 1 | awk '{if ($2 == "sudo") {print $3} else {print $2}}' | \
 		awk 'BEGIN {FS ="|"} {print $1}' \
 		| grep -v toptwenty | sort | uniq -c | sort -rn | head -20
 }
