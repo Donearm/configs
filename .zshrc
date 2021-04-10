@@ -239,3 +239,9 @@ export NNN_BMS="h:${HOME};p:/mnt/private/"
 export NNN_COLORS="#163e7b"
 # Archives to handle in nnn
 export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
+
+# Hardware acceleration
+export MOZ_X11_EGL=1 # For Firefox
+export MOZ_WEBRENDER=1 # For Firefox
+export LIBVA_DRIVER_NAME=radeonsi
+export VDPAU_DRIVER=radeonsi
