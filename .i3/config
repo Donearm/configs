@@ -211,6 +211,8 @@ bar {
 # float
 for_window [class="mpv"] floating enable
 for_window [class="Gimp"] floating enable
+for_window [class="microsoft teams - preview"] floating enable
+for_window [class="zoom"] floating enable
 
 # Assign programs to a specific workspace
 assign [class="Gimp"] 5
