@@ -3,7 +3,12 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=10000
 setopt EXTENDED_HISTORY
-setopt HIST_FIND_NO_DUPS
+setopt APPEND_HISTORY # append to history file
+setopt INC_APPEND_HISTORY # write to history file immediately, not when the shell exits
+setopt SHARE_HISTORY # share history between all sessions
+setopt HIST_IGNORE_DUPS  # do not record an event that was just recorded again
+setopt HIST_FIND_NO_DUPS # do not display a previously found event
+setopt HIST_IGNORE_SPACE # do not record an event starting with a space
 bindkey -v # vi-mode
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -105,7 +110,7 @@ zstyle ':completion:*' rehash true
 
 ## Aliases ##
 alias vi="vim"
-#alias mutt="neomutt"
+alias mutt="neomutt"
 alias ll="ls -asl -F -T 0 -b -H -1 --color=always"
 alias l="ls -CF"
 alias less="less -rW"
