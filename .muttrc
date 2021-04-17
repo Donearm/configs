@@ -163,7 +163,7 @@ set pgp_verify_sig=ask-yes	# ask to verify message signatures
 set pgp_entry_format="%4n %t%f %4l/0x%k %-4a %2c %u"
 set pgp_use_gpg_agent
 set pgp_replyencrypt
-set pgp_sign_as="0xE0399C72"
+set pgp_sign_as="0xD33DF9231860307AD78805FD7E7071DCCB1DAD19"
 set pgp_timeout=1800
 set pgp_sort_keys=address
 set pgp_decode_command="/usr/bin/gpg %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
