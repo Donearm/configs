@@ -207,6 +207,10 @@ resizeimages() {
     mogrify -path $3 -filter Triangle -define filter:support=2 -thumbnail $2 -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 62 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB "$1"
 }
 
+webpmaxcompression() {
+	magick $1 -quality 50 -define webp:lossless=false,thread-level=1,method=6,auto-filter=true,alpha-compression=1,alpha-filtering=2,alpha-quality=1,filter-strength=80 $2
+}
+
 n ()
 {
     # Block nesting of nnn in subshells
