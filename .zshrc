@@ -19,6 +19,7 @@ bindkey ^e end-of-line # Ctrl+e goes to the end of line
 bindkey	^a beginning-of-line # Ctrl+a goes to the beginning of line
 
 # Search history
+typeset -g -A key
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -87,7 +88,8 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 SPACESHIP_USER_SHOW=always
-SPACESHIP_HOSTNAME_SHOW=always
+SPACESHIP_HOST_SHOW=always
+SPACESHIP_HOST_SHOW_FULL=true
 SPACESHIP_BATTERY_SHOW=always
 SPACESHIP_EXIT_CODE_SHOW=true
 
