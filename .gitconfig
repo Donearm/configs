@@ -37,4 +37,4 @@
     # http://stackoverflow.com/questions/7430093/git-log-formatting, slightly modified
     vonc = format:%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%aN>%Creset
 [credential]
-	helper = cache
+	helper = cache --timeout=3600
