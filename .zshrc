@@ -1,6 +1,6 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=10000
 setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY # append to history file
