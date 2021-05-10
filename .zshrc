@@ -27,6 +27,9 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
+# And search history without using grep
+histsearch() { fc -lim "*$@*" 1 }
+
 # enable autocompletion
 autoload -Uz compinit
 compinit
