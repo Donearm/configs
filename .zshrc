@@ -116,6 +116,7 @@ zstyle ':completion:*' rehash true
 ## Aliases ##
 alias vi="vim"
 alias mutt="neomutt"
+alias firefox="firefox-developer-edition"
 alias ll="ls -asl -F -T 0 -b -H -1 --color=always"
 alias l="ls -CF"
 alias less="less -rW"
