@@ -85,6 +85,14 @@ warning = 30
 critical = 15
 
 [[block]]
+block = "temperature"
+collapsed = false
+interval = 10
+format = "{min} min, {max} max, {average} avg"
+chip = "*-pci-*"
+#input = ["amdgpu-pci-0400", "k10temp-pci-00c3"]
+
+[[block]]
 block = "keyboard_layout"
 driver = "setxkbmap"
 interval = 60
