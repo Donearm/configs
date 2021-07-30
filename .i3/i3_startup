@@ -7,7 +7,7 @@ xbindkeys
 setxkbmap -model pc105 -layout us -variant altgr-intl -option compose:menu
 xset m 0.7 1.6
 xset dpms 0 120 600
-firefox &
+waterfox-g3 &
 tuxedo-control-center &
 
 exit 0
