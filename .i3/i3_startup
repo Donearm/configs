@@ -1,12 +1,14 @@
 #!/bin/sh
 
 #display -window root /mnt/documents/d/Images/French_Polynesia.jpg &
-feh --bg-scale ~/documents/Images/rocky_coast.jpg &
+#feh --bg-scale ~/documents/Images/rocky_coast.jpg &
+feh --bg-fill ~/documents/Images/lotr-preview-2trees.jpg &
 
 xbindkeys
 setxkbmap -model pc105 -layout us -variant altgr-intl -option compose:menu
 xset m 0.7 1.6
 xset dpms 0 120 600
+lxsession &
 waterfox-g3 &
 tuxedo-control-center &
 
