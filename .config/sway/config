@@ -72,6 +72,7 @@ output * bg /home/gianluca/documents/Images/lotr-preview-2trees.jpg fill
 		dwt enabled
 		tap enabled
 		middle_emulation enabled
+		pointer_accel 0.05
 	}
 
     input "TUXEDO Keyboard" {
