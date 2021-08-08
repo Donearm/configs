@@ -1,0 +1,21 @@
+# Kickoff default config
+
+# Characters shown in front of the query.
+prompt = ''
+
+# space between window border and the content in pixel
+padding = 100
+
+font = 'Iosevka'  # otf or ttf only
+font_size = 20.0
+
+[history]
+decrease_interval = 48       # interval to decrease the number of launches
+
+[colors]
+# color format: rgb or rgba, if transparency is desired
+background = '#282c34aa'
+prompt = '#3e999fff'
+text = '#fefefeff'           # for search results
+text_query = '#d4b706ff'     # for the search query
+text_selected = '#1cd2eeff'  # for the currently selected result
