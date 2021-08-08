@@ -43,6 +43,7 @@ export MAIL="$HOME/Maildir/"
 # Use less with utf8
 export LESSCHARSET="utf-8"
 export DATE=`date +%G_%m_%d`
+export XAUTHORITY="$HOME/.Xauthority"
 eval $(dircolors -b ~/.dir_colors/dircolors.custom)
 
 # completion for kitty terminal
@@ -138,6 +139,7 @@ alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
 alias show_funcs="declare -F | grep -v _"
 # Correctly connect over ssh (kitty terminal fix)
 alias kittyssh="kitty +kitten ssh"
+alias waterfox="env MOZ_ENABLE_WAYLAND=1 waterfox-g3"
 
 ## Functions ##
 toptwenty () {
