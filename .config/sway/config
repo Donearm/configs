@@ -27,7 +27,6 @@ set $menu kickoff
 default_border none
 default_floating_border none
 
-seat * hide_cursor 10
 seat * hide_cursor when-typing enable
 
 ### Output configuration
