@@ -73,12 +73,13 @@ output * bg /home/gianluca/documents/Images/lotr-preview-2trees.jpg fill
 		tap enabled
 		middle_emulation enabled
 		pointer_accel 0.05
+		scroll_factor 0.2
 	}
 
-    input "TUXEDO Keyboard" {
+	input "TUXEDO Keyboard" {
 		xkb_layout "us"
 		xkb_variant "altgr-intl"
-    }
+	}
 
 ### Key bindings
 #
