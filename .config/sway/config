@@ -252,7 +252,7 @@ bar {
 }
 
 # Autostart
-exec swaymsg "lxsession;"
+exec swaymsg "exec lxsession;"
 exec swaymsg "workspace 1; exec env MOZ_ENABLE_WAYLAND=1 $browser;"
 exec swaymsg "workspace 2; exec $term;"
 exec swaymsg "workspace 6; exec tuxedo-control-center;"
