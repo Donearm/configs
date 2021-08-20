@@ -24,6 +24,9 @@ font pango:Iosevka 10
 floating_modifier Mod4
 
 # startup applications
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/i3-workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/i3-workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 6; append_layout ~/.config/i3/i3-workspace-6.json'"
 exec --no-startup-id ~/.config/i3/i3_startup
 
 # start a terminal
@@ -213,6 +216,7 @@ for_window [class="mpv"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="microsoft teams - preview"] floating enable
 for_window [class="zoom"] floating enable
+for_window [class="gcolor3"] floating enable
 
 # Assign programs to a specific workspace
 assign [class="Gimp"] 5

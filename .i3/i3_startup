@@ -11,6 +11,8 @@ xset dpms 0 120 600
 lxsession &
 waterfox-g3 &
 tuxedo-control-center &
+kitty &
+kitty &
 
 exit 0
 
