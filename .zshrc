@@ -140,6 +140,8 @@ alias show_funcs="declare -F | grep -v _"
 # Correctly connect over ssh (kitty terminal fix)
 alias kittyssh="kitty +kitten ssh"
 alias waterfox="env MOZ_ENABLE_WAYLAND=1 waterfox-g3"
+# Set default scanner and options for scanimage
+alias scanimage="scanimage --device 'airscan:e0:Canon MG3600 series' --progress"
 
 ## Functions ##
 toptwenty () {
@@ -191,7 +193,7 @@ wheredidallthememorygo() {
 
 # Play Youtube videos while downloading. Requires youtube-dl and mpv
 youplay() {
-    youtube-dl --geo-bypass -o - $1 | mpv -
+    yt-dlp --geo-bypass -o - $1 | mpv -
 }
 
 gitgrep() {
