@@ -83,6 +83,7 @@ good = 70
 info = 60
 warning = 30
 critical = 15
+allow_missing = true
 
 [[block]]
 block = "temperature"
