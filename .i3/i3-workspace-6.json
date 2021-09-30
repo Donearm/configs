@@ -1,0 +1,24 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 750,
+       "width": 1040,
+       "x": 440,
+       "y": 165
+    },
+    "marks": [],
+    "name": "TUXEDO Control Center",
+    "percent": 1,
+    "swallows": [
+       {
+        "class": "^tuxedo\\-control\\-center$",
+        "instance": "^tuxedo\\-control\\-center$",
+        "title": "^TUXEDO\\ Control\\ Center$"
+       }
+    ],
+    "type": "con"
+}
+
