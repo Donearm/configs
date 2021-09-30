@@ -37,7 +37,7 @@ compinit
 
 # general variables
 export GPG_TTY=$TTY
-export BROWSER="waterfox-g3"
+export BROWSER="opera"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
 # Use less with utf8
