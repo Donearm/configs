@@ -1,0 +1,39 @@
+# Files
+data.location=~/.local/share/task
+hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+include solarized-light-256.theme
+#include no-color.theme
+
+# General settings
+
+confirmation=yes
+bulk=2
+due=7
+search.case.sensitive=no
+
+# Dates
+dateformat=d/m/Y
+dateformat.holiday=YMD
+dateformat.report=d/m/Y
+dateformat.annotation=d/m/Y
+weekstart=Monday
+monthsperline=1
+
+# Calendar
+calendar.legend=yes
+calendar.details=full
+calendar.holidays=sparse
