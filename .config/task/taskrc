@@ -1,6 +1,5 @@
 # Files
 data.location=~/.local/share/task
-hooks.location=~/.config/task/hooks
 
 # Color theme (uncomment one to use)
 #include light-16.theme
@@ -19,7 +18,6 @@ include solarized-light-256.theme
 #include no-color.theme
 
 # General settings
-
 confirmation=yes
 bulk=2
 due=7
@@ -31,9 +29,16 @@ dateformat.holiday=YMD
 dateformat.report=d/m/Y
 dateformat.annotation=d/m/Y
 weekstart=Monday
-monthsperline=1
 
 # Calendar
 calendar.legend=yes
 calendar.details=full
 calendar.holidays=sparse
+
+# Time-tracking-hook settings
+max_active_tasks=3
+uda.totalactivetime.type=duration
+uda.totalactivetime.label=Total active time
+uda.totalactivetime.values=
+report.list.labels=ID,Active,Age,Time Spent,D,P,Project,Tags,R,Sch,Due,Until,Description,Urg
+report.list.columns=id,start.age,entry.age,totalactivetime,depends.indicator,priority,project,tags,recur.indicator,scheduled.countdown,due,until.remaining,description.count,urgency
