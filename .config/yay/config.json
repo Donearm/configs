@@ -1,5 +1,5 @@
 {
-	"buildDir": "/tmp/yaytmp-1000/",
+	"buildDir": "/tmp/yay/",
 	"editor": "",
 	"makepkgbin": "/usr/bin/makepkg",
 	"pacmanbin": "/usr/bin/pacman",
