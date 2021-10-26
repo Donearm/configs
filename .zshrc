@@ -142,6 +142,8 @@ alias kittyssh="kitty +kitten ssh"
 alias waterfox="env MOZ_ENABLE_WAYLAND=1 waterfox-g3"
 # Set default scanner and options for scanimage
 alias scanimage="scanimage --device 'airscan:e0:Canon MG3600 series' --progress"
+# Launch ESO
+alias eso="gtk-launch The_Elder_Scrolls_Online"
 
 ## Functions ##
 toptwenty () {
@@ -266,9 +268,6 @@ export MOZ_X11_EGL=1 # For Firefox
 export MOZ_WEBRENDER=1 # For Firefox
 export LIBVA_DRIVER_NAME=radeonsi
 export VDPAU_DRIVER=radeonsi
-
-# Load some defaults for each user
-source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # Check if gnome-keyring is running already and export the SSH_AUTH_SOCK
 # variable
