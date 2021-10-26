@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Load some defaults for each user
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
 #display -window root /mnt/documents/d/Images/French_Polynesia.jpg &
 #feh --bg-scale ~/documents/Images/rocky_coast.jpg &
 feh --bg-fill ~/documents/Images/lotr-preview-2trees.jpg &
