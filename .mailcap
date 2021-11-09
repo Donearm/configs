@@ -1,9 +1,9 @@
 #; Local mailcap preferences for the MUTT mail client.
 
 #text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
+text/html; vivaldi-stable %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; opera %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; firefox %s && sleep 2; nametemplate=%s.html; copiousoutput
-text/html; vivaldi-stable %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
 image/*; kitty +kitten icat %s; copiousoutput
@@ -28,7 +28,7 @@ application/vnd.ms-excel; /usr/bin/localc %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/lowriter %s
 application/pdf; zathura '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 application/pdf; pdftotext '%s' | less ; test=test "$DISPLAY" = ""
-application/pdf; opera %s;
+application/pdf; vivaldi-stable %s;
 application/postscript; /usr/bin/xdg-open %s
 
 text/x-sgml; cat %s; copiousoutput

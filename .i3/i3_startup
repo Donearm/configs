@@ -13,7 +13,7 @@ xset m 0.7 1.6
 xset dpms 0 120 600
 lxsession &
 parcellite &
-opera &
+vivaldi-stable &
 tuxedo-control-center &
 kitty &
 kitty &

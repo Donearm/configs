@@ -14,7 +14,7 @@
     "percent": 1,
     "swallows": [
        {
-        "class": "^Opera$"
+        "class": "^Vivaldi-stable$"
         //"instance": "^Navigator$",
         //"title": "^i3\\:\\ Layout\\ saving\\ in\\ i3\\ \\-\\ Waterfox$",
         //"window_role": "^browser$"
