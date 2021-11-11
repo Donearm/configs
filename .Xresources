@@ -1,0 +1,6 @@
+! Font settings
+Xft.dpi: 96
+Xft*antialias:          1
+Xft*hinting:            medium
+Xft.hintstyle:          hintlight
+Xft*.lcdfilter:         lcddefault
