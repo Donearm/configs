@@ -74,6 +74,7 @@ buttons = ["prev", "play", "next"]
 max_width = 35
 dynamic_width = true
 on_collapsed_click = "spotify"
+marquee_speed = 0.2
 
 [[block]]
 block = "battery"
