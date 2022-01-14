@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your default's browser
-set $browser waterfox-g3
+set $browser vivaldi-stable
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -72,7 +72,7 @@ output * bg /home/gianluca/documents/Images/lotr-preview-2trees.jpg fill
 		tap enabled
 		middle_emulation enabled
 		pointer_accel 0.05
-		scroll_factor 0.2
+		scroll_factor 0.6
 	}
 
 	input "TUXEDO Keyboard" {
@@ -84,8 +84,8 @@ output * bg /home/gianluca/documents/Images/lotr-preview-2trees.jpg fill
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
+	# Start a terminal
+	bindsym $mod+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
