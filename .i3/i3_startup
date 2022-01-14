@@ -14,8 +14,8 @@ xset dpms 0 120 600
 xrandr --dpi 96
 lxsession &
 parcellite &
+zettlr &
 vivaldi-stable &
-tuxedo-control-center &
 kitty &
 kitty &
 
