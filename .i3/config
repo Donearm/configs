@@ -26,6 +26,7 @@ floating_modifier Mod4
 # startup applications
 exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/i3-workspace-1.json'"
 exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/i3-workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.config/i3/i3-workspace-3.json'"
 exec --no-startup-id "i3-msg 'workspace 6; append_layout ~/.config/i3/i3-workspace-6.json'"
 exec --no-startup-id ~/.config/i3/i3_startup
 
