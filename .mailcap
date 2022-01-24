@@ -18,7 +18,7 @@ video/*; mplayer %s
 audio/*; mpv %s
 audio/*; mplayer %s
 
-application/ogg; mpv %s: test=test "$DISPLAY" != "" 
+application/ogg; mpv %s: test=test "$DISPLAY" != ""
 
 text/plain; cat %s; test=test "`echo %{charset} | tr '[A-Z]' '[a-z]'`" = utf-8 ; copiousoutput
 
@@ -26,7 +26,7 @@ application/msword; /usr/bin/lowriter %s
 application/vnd.oasis.opendocument.text; /usr/bin/lowriter %s
 application/vnd.ms-excel; /usr/bin/localc %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/lowriter %s
-application/pdf; zathura '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+application/pdf; $HOME/.local/bin/mutt-bgrun zathura '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 application/pdf; pdftotext '%s' | less ; test=test "$DISPLAY" = ""
 application/pdf; vivaldi-stable %s;
 application/postscript; /usr/bin/xdg-open %s
@@ -39,7 +39,7 @@ text/tex; cat %s; copiousoutput
 text/x-sh; cat %s; copiousoutput
 text/english; cat %s; copiousoutput
 
-application/epub+zip; zathura %s; copiousoutput
+application/epub+zip; $HOME/.local/bin/mutt-bgrun zathura %s; copiousoutput
 
 application/x-gzip-dvi; zcat | dvi2tty-filter -w 132; copiousoutput
 
