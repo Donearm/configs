@@ -263,6 +263,9 @@ export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SO
 # Archives to handle in nnn
 export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
 
+# Main ledger file for (h)ledger
+export LEDGER_FILE="${HOME}/.ledger/all.journal"
+
 # Hardware acceleration
 export MOZ_X11_EGL=1 # For Firefox
 export MOZ_WEBRENDER=1 # For Firefox
