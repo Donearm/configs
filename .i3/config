@@ -27,7 +27,6 @@ floating_modifier Mod4
 exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/i3-workspace-1.json'"
 exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/i3-workspace-2.json'"
 exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.config/i3/i3-workspace-3.json'"
-exec --no-startup-id "i3-msg 'workspace 6; append_layout ~/.config/i3/i3-workspace-6.json'"
 exec --no-startup-id ~/.config/i3/i3_startup
 
 # start a terminal
@@ -223,6 +222,7 @@ for_window [class="gcolor3"] floating enable
 # Assign programs to a specific workspace
 assign [class="Gimp"] 5
 assign [class="Spotify"] 5
+assign [class="zettlr"] 3
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
