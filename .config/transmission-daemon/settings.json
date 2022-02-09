@@ -26,7 +26,7 @@
     "peer-id-ttl-hours": 6,
     "peer-limit-global": 200,
     "peer-limit-per-torrent": 50,
-    "peer-port": 50032,
+    "peer-port": 50083,
     "peer-port-random-high": 50100,
     "peer-port-random-low": 50000,
     "peer-port-random-on-start": true,
