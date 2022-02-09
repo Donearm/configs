@@ -88,12 +88,11 @@ allow_missing = true
 
 [[block]]
 block = "temperature"
-driver = "sysfs"
 collapsed = false
 interval = 10
 format = "{min} min, {max} max, {average} avg"
 #chip = "*-pci-*"
-chip = "*k10temp*"
+#chip = "*k10temp*"
 #input = ["amdgpu-pci-0400", "k10temp-pci-00c3"]
 
 [[block]]
