@@ -5,7 +5,7 @@ source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 #display -window root /mnt/documents/d/Images/French_Polynesia.jpg &
 #feh --bg-scale ~/documents/Images/rocky_coast.jpg &
-feh --bg-fill ~/documents/Images/lotr-preview-2trees.jpg &
+feh --bg-fill ~/documents/Images/peru_rainforest.jpg &
 
 xbindkeys
 setxkbmap -model pc105 -layout us -variant altgr-intl -option compose:menu

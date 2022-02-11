@@ -1,10 +1,14 @@
 [theme]
-name = "solarized-light"
+name = "gruvbox-dark"
 [theme.overrides]
-idle_bg = "#163e7b"
+idle_bg = "#28352c"
 idle_fg = "#fbf9fe"
-critical_bg = "#ece169"
-critical_fg = "#d7001c"
+#critical_bg = "#ece169"
+#critical_fg = "#fbf9fe"
+#info_bg = "#000000" # the music block bg
+#info_fg = "#fe1010" # the music block fg
+good_bg = "#996633" # battery block bg
+good_fg = "#fbf9fe" # battery block fg
 [icons]
 name = "awesome"
 [icons.overrides]

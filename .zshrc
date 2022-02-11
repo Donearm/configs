@@ -54,6 +54,7 @@ autoload -Uz promptinit
 promptinit
 prompt spaceship
 
+
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
@@ -102,6 +103,15 @@ SPACESHIP_NODE_SYMBOL=☊
 SPACESHIP_GOLANG_SYMBOL=ꗝ
 SPACESHIP_PYENV_SYMBOL=𝧜
 SPACESHIP_JOBS_SYMBOL=Ⓙ
+
+# Spaceship prompt colours
+SPACESHIP_TIME_COLOR="#2d4951"
+SPACESHIP_USER_COLOR="#2d4951"
+SPACESHIP_DIR_COLOR="#336600"
+SPACESHIP_HOST_COLOR="#ece169"
+SPACESHIP_BATTERY_COLOR="#996633"
+SPACESHIP_GIT_COLOR="#996633"
+SPACESHIP_JOBS_COLOR="#996633"
 
 # Enable history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
