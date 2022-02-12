@@ -15,3 +15,4 @@ set window-title-basename true
 set window-title-home-tilde true
 set window-title-page true
 set guioptions cshv
+set selection-clipboard clipboard
