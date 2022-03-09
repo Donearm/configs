@@ -37,3 +37,5 @@
 	vonc = format:%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%aN>%Creset
 [credential]
 	helper = cache --timeout=3600
+[init]
+	defaultBranch = master
