@@ -248,23 +248,31 @@ n ()
     # NOTE: NNN_TMPFILE is fixed, should not be modified
     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
+	# this will create a fifo where all nnn selections will be written 
+	# to
+	NNN_FIFO="$(mktemp --suffix=-nnn -u)"
+	export NNN_FIFO
+	(umask 077; mkfifo "$NNN_FIFO")
+
     # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
     # stty start undef
     # stty stop undef
     # stty lwrap undef
     # stty lnext undef
 
-    nnn -c "$@"
+    nnn -a -c "$@"
 
     if [ -f "$NNN_TMPFILE" ]; then
             . "$NNN_TMPFILE"
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
+
+	rm -r "$NNN_FIFO"
 }
 # Plugins for nnn
 export NNN_PLUG='p:preview-tui;m:preview-tui-ext;f:-_feh -d *'
 # Fifo for nnn
-export NNN_FIFO=/tmp/nnn.fifo
+#export NNN_FIFO=/tmp/nnn.fifo
 # Bookmarks for nnn
 export NNN_BMS="h:${HOME};p:/mnt/private/"
 # Colors for nnn
