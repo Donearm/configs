@@ -4,20 +4,21 @@
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
-       "height": 1062,
-       "width": 1920,
+       "height": 975,
+       "width": 1600,
        "x": 0,
        "y": 0
     },
     "marks": [],
-    "name": "Browser",
+    "name": "Mozilla Firefox",
     "percent": 1,
     "swallows": [
        {
-        "class": "^Vivaldi-stable$"
-        //"instance": "^Navigator$",
-        //"title": "^i3\\:\\ Layout\\ saving\\ in\\ i3\\ \\-\\ Waterfox$",
-        //"window_role": "^browser$"
+        "class": "^firefox$",
+       // "instance": "^Navigator$",
+       // "machine": "^icarias$",
+       // "title": "^Mozilla\\ Firefox$",
+       // "window_role": "^browser$"
        }
     ],
     "type": "con"
