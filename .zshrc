@@ -292,6 +292,6 @@ export VDPAU_DRIVER=radeonsi
 
 # Check if gnome-keyring is running already and export the SSH_AUTH_SOCK
 # variable
-if [ -z "$SSH_AUTH_SOCK" ];then
-    eval $(gnome-keyring-daemon --start)
-fi
+#if [ -z "$SSH_AUTH_SOCK" ];then
+#    eval $(gnome-keyring-daemon --start)
+#fi
