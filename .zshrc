@@ -234,6 +234,10 @@ webpmaxcompression() {
 	magick $1 -quality 50 -define webp:lossless=false,thread-level=1,method=6,auto-filter=true,alpha-compression=1,alpha-filtering=2,alpha-quality=1,filter-strength=80 $2
 }
 
+du1 () {
+	du -h --max-depth=1 "$@" | sort -k 1,1h -k 2,2f
+}
+
 n ()
 {
     # Block nesting of nnn in subshells
