@@ -238,6 +238,16 @@ du1 () {
 	du -h --max-depth=1 "$@" | sort -k 1,1h -k 2,2f
 }
 
+# two quick functions to pair and unpair the Momentum3 headphones via 
+# bluetoothctl
+momentum3_pair () {
+	echo -e "power on\nconnect 00:1B:66:C0:52:9F\nquit" | bluetoothctl
+}
+
+momentum3_unpair () {
+	echo -e "disconnect 00:1B:66:C0:52:9F\nquit" | bluetoothctl
+}
+
 n ()
 {
     # Block nesting of nnn in subshells
