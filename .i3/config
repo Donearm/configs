@@ -114,6 +114,10 @@ bindsym Mod4+a focus parent
 #set $ws6 6:♔
 #set $ws7 7:☢
 
+# Scratchpad
+bindsym Mod4+minus scratchpad show
+bindsym Mod4+Shift+minus move scratchpad
+
 # switch to workspace
 bindsym Mod4+1 workspace 1
 bindsym Mod4+2 workspace 2
