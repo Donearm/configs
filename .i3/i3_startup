@@ -14,6 +14,7 @@ xrandr --dpi 96
 lxsession &
 parcellite &
 zettlr &
+zoom &
 firefox &
 kitty &
 kitty &
