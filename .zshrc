@@ -238,15 +238,21 @@ du1 () {
 	du -h --max-depth=1 "$@" | sort -k 1,1h -k 2,2f
 }
 
-# two quick functions to pair and unpair the Momentum3 headphones via 
+# two quick functions to connect and disconnect the Momentum3 headphones via 
 # bluetoothctl
-momentum3_pair () {
+momentum3_connect () {
 	echo -e "power on\nconnect 00:1B:66:C0:52:9F\nquit" | bluetoothctl
 }
 
-momentum3_unpair () {
+momentum3_disconnect () {
 	echo -e "disconnect 00:1B:66:C0:52:9F\nquit" | bluetoothctl
 }
+# function to unpair and attempt to pair again with the Momentu3 
+# headphones via bluetoothctl
+momentum3_repair () {
+	echo -e "power on\nuntrust 00:1B:66:C0:52:9F\nremove 00:1B:66:C0:52:9F\npair 00:1B:66:C0:52:9F\nquit" | bluetoothctl
+}
+
 
 n ()
 {
