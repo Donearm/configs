@@ -1,0 +1,26 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1061,
+       "width": 1920,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "Zettlr",
+    "percent": 1,
+    "swallows": [
+       {
+        "class": "^Zettlr$",
+       // "instance": "^zettlr$",
+       // "machine": "^icarias$",
+        "title": "^Zettlr$",
+       // "window_role": "^browser\\-window$"
+       },
+    ],
+    "type": "con"
+}
+
