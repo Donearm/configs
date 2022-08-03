@@ -15,7 +15,7 @@
     "swallows": [
        {
         "class": "^firefox$",
-       // "instance": "^Navigator$",
+        "instance": "^Navigator$",
        // "machine": "^icarias$",
        // "title": "^Mozilla\\ Firefox$",
        // "window_role": "^browser$"
