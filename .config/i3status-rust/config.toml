@@ -72,6 +72,15 @@ block = "sound"
 block = "backlight"
 device = "amdgpu_bl0"
 
+# Battery status is not shown with the Momentum 3 headset so disabling 
+# this
+#[[block]]
+#block = "bluetooth"
+#mac = "00:1B:66:C0:52:9F"
+#format = "Momentum3 {percentage}"
+#format_unavailable = "Momentum3 x"
+#hide_disconnected = true
+
 [[block]]
 block = "music"
 buttons = ["prev", "play", "next"]
