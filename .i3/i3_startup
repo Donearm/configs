@@ -17,9 +17,6 @@ xset dpms 0 120 600
 xrandr --dpi 96
 lxsession &
 parcellite &
-zettlr &
-zoom &
-iridium-browser &
 firefox &
 kitty &
 kitty &
