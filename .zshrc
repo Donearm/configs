@@ -187,6 +187,31 @@ phone() {
     fi
 }
 
+# Quickly mount/umount a GoPro camera
+gopro() {
+    if [[ $1 == 'mount' ]]; then
+        mkdir -p gopro
+        go-mtpfs -o allow_other -dev GoPro gopro
+        if [ $? -eq 0 ]; then
+            echo "Your GoPro has been successfully mounted"
+        else
+            echo "Something went wrong, the GoPro couldn't be mounted"
+        fi
+    elif [[ $1 == 'umount' ]]; then
+        fusermount -u gopro
+        if [ $? -eq 0 ]; then
+            if [ -d gopro ]; then
+                rm -rf gopro/
+            fi
+        else
+            echo "Couldn't unmount the GoPro"
+        fi
+    else
+        echo "Use gopro (mount|umount) to mount or unmount your GoPro"
+        return 1
+    fi
+}
+
 # weather forecast on the cli
 forecast_me() {
     curl -S http://wttr.in/$1
