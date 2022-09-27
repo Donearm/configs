@@ -145,6 +145,7 @@ alias bajkal="mutt -f imap://in.virgilio.it"
 alias yahoo="mutt -f imaps://gianluca1181@imap.mail.yahoo.com:993"
 alias nespressoguide="mutt -f imaps://admin@nespressoguide.com@mail.nespressoguide.com:993"
 alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
+alias timestamp="echo `date "+%Y-%m-%d %R"`"
 # Show user declared functions
 alias show_funcs="declare -F | grep -v _"
 # Correctly connect over ssh (kitty terminal fix)
