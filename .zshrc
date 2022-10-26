@@ -165,7 +165,7 @@ toptwenty () {
 phone() {
     if [[ $1 == 'mount' ]]; then
         mkdir -p phone
-        go-mtpfs -o allow_other phone
+        go-mtpfs phone
         if [ $? -eq 0 ]; then
             echo "Your phone has been successfully mounted"
         else
