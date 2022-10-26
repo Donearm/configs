@@ -257,10 +257,10 @@ bar {
 # Autostart
 exec swaymsg "exec lxsession;"
 exec swaymsg "exec xbindkeys;"
-exec swaymsg "exec parcellite;"
 exec swaymsg "exec xrandr --dpi 96;"
 exec swaymsg "exec setxkbmap -model pc105 -layout us -variant altgr-intl -option compose:menu;"
 exec swaymsg "workspace 1; exec env MOZ_ENABLE_WAYLAND=1 $browser;"
+exec swaymsg "workspace 2; exec parcellite;"
 exec swaymsg "workspace 2; exec $term;"
 exec swaymsg "workspace 2; exec $term;"
 
