@@ -1,4 +1,5 @@
 profile=gpu-hq
+ao=pipewire
 volume-max=600
 scale=ewa_lanczossharp
 cscale=ewa_lanczossharp
