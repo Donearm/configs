@@ -69,10 +69,10 @@ bindsym Mod4+Up focus up
 bindsym Mod4+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+j move left
-bindsym Mod4+Shift+k move down
-bindsym Mod4+Shift+l move up
-bindsym Mod4+Shift+n move right
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+bindsym Mod4+Shift+n move left
 
 # alternatively, you can use the cursor keys:
 bindsym Mod4+Shift+Left move left
