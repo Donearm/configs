@@ -50,25 +50,25 @@ eval $(dircolors -b ~/.dir_colors/dircolors.custom)
 kitty + complete setup zsh | source /dev/stdin
 
 # Enable prompt theme
-autoload -Uz promptinit
-promptinit
-prompt spaceship
+#autoload -Uz promptinit
+#promptinit
+#prompt spaceship
 
 
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stamps section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
+#SPACESHIP_PROMPT_ORDER=(
+#  time          # Time stamps section
+#  user          # Username section
+#  dir           # Current directory section
+#  host          # Hostname section
+#  git           # Git section (git_branch + git_status)
   #hg            # Mercurial section (hg_branch  + hg_status)
-  package       # Package version
-  node          # Node.js section
+#  package       # Package version
+#  node          # Node.js section
   #ruby          # Ruby section
   #elixir        # Elixir section
   #xcode         # Xcode section
   #swift         # Swift section
-  golang        # Go section
+#  golang        # Go section
   #php           # PHP section
   #rust          # Rust section
   #haskell       # Haskell Stack section
@@ -78,40 +78,43 @@ SPACESHIP_PROMPT_ORDER=(
   #gcloud        # Google Cloud Platform section
   #venv          # virtualenv section
   #conda         # conda virtualenv section
-  pyenv         # Pyenv section
+#  pyenv         # Pyenv section
   #dotnet        # .NET section
   #ember         # Ember.js section
   #kubectl       # Kubectl context section
   #terraform     # Terraform workspace section
   #exec_time     # Execution time
-  line_sep      # Line break
-  battery       # Battery level and status
+#  line_sep      # Line break
+#  battery       # Battery level and status
   #vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
+#  jobs          # Background jobs indicator
+#  exit_code     # Exit code section
+#  char          # Prompt character
+#)
 
-SPACESHIP_USER_SHOW=always
-SPACESHIP_HOST_SHOW=always
-SPACESHIP_HOST_SHOW_FULL=true
-SPACESHIP_BATTERY_SHOW=always
-SPACESHIP_EXIT_CODE_SHOW=true
+#SPACESHIP_USER_SHOW=always
+#SPACESHIP_HOST_SHOW=always
+#SPACESHIP_HOST_SHOW_FULL=true
+#SPACESHIP_BATTERY_SHOW=always
+#SPACESHIP_EXIT_CODE_SHOW=true
 
-SPACESHIP_PACKAGE_SYMBOL=📦
-SPACESHIP_NODE_SYMBOL=☊
-SPACESHIP_GOLANG_SYMBOL=ꗝ
-SPACESHIP_PYENV_SYMBOL=𝧜
-SPACESHIP_JOBS_SYMBOL=Ⓙ
+#SPACESHIP_PACKAGE_SYMBOL=📦
+#SPACESHIP_NODE_SYMBOL=☊
+#SPACESHIP_GOLANG_SYMBOL=ꗝ
+#SPACESHIP_PYENV_SYMBOL=𝧜
+#SPACESHIP_JOBS_SYMBOL=Ⓙ
 
 # Spaceship prompt colours
-SPACESHIP_TIME_COLOR="#2d4951"
-SPACESHIP_USER_COLOR="#2d4951"
-SPACESHIP_DIR_COLOR="#336600"
-SPACESHIP_HOST_COLOR="#ece169"
-SPACESHIP_BATTERY_COLOR="#996633"
-SPACESHIP_GIT_COLOR="#996633"
-SPACESHIP_JOBS_COLOR="#996633"
+#SPACESHIP_TIME_COLOR="#2d4951"
+#SPACESHIP_USER_COLOR="#2d4951"
+#SPACESHIP_DIR_COLOR="#336600"
+#SPACESHIP_HOST_COLOR="#ece169"
+#SPACESHIP_BATTERY_COLOR="#996633"
+#SPACESHIP_GIT_COLOR="#996633"
+#SPACESHIP_JOBS_COLOR="#996633"
+
+# Enable starship prompt
+eval "$(starship init zsh)"
 
 # Enable history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
