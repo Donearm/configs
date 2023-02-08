@@ -47,7 +47,7 @@ export XAUTHORITY="$HOME/.Xauthority"
 eval $(dircolors -b ~/.dir_colors/dircolors.custom)
 
 # completion for kitty terminal
-kitty + complete setup zsh | source /dev/stdin
+#kitty + complete setup zsh | source /dev/stdin
 
 # icons-in-terminal https://github.com/sebastiencs/icons-in-terminal
 source /usr/share/icons-in-terminal/icons_bash.sh
