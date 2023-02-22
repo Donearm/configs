@@ -1,5 +1,7 @@
+icons_format = "{icon}"
+
 [theme]
-name = "gruvbox-dark"
+theme = "gruvbox-dark"
 [theme.overrides]
 idle_bg = "#28352c"
 idle_fg = "#fbf9fe"
@@ -10,47 +12,48 @@ idle_fg = "#fbf9fe"
 good_bg = "#996633" # battery block bg
 good_fg = "#fbf9fe" # battery block fg
 [icons]
-name = "awesome"
+icons = "awesome4"
 [icons.overrides]
 cpu = "  "
 memory_mem = "  "
 music = "  "
-backlight_empty = " ☀ "
-backlight_full = " ☀ "
-backlight_1 = " ☀ "
-backlight_2 = " ☀ "
-backlight_3 = " ☀ "
-backlight_4 = " ☀ "
-backlight_5 = " ☀ "
-backlight_6 = " ☀ "
-backlight_7 = " ☀ "
-backlight_8 = " ☀ "
-backlight_9 = " ☀ "
-backlight_10 = " ☀ "
-backlight_11 = " ☀ "
-backlight_12 = " ☀ "
-backlight_13 = " ☀ "
+backlight = [
+    " ☀ ", # backlight_empty
+    " ☀ ", # backlight_full
+    " ☀ ", # backlight_1
+    " ☀ ", # backlight_2
+    " ☀ ", # backlight_3
+    " ☀ ", # backlight_4
+    " ☀ ", # backlight_5
+    " ☀ ", # backlight_6
+    " ☀ ", # backlight_7
+    " ☀ ", # backlight_8
+    " ☀ ", # backlight_9
+    " ☀ ", # backlight_10
+    " ☀ ", # backlight_11
+    " ☀ ", # backlight_12
+    " ☀ " # backlight_13
+]
 
 [[block]]
 block = "focused_window"
-max_width = 60
+format = "$title.str(max_w:60) |"
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{barchart} {utilization}@{frequency}"
+format = "$icon $barchart $utilization@$frequency"
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_total_used_percents}"
-format_swap = "{swap_used_percents}"
+format = "$icon $mem_total_used_percents"
+format_alt = "$icon_swap $swap_used_percents"
+
 [[block]]
 block = "disk_space"
 path = "/"
-format = "{path} {available}"
+format = "$path $available"
 info_type = "available"
-unit = "GB"
 interval = 120
 warning = 10.0
 alert = 5.0
@@ -58,9 +61,8 @@ alert = 5.0
 [[block]]
 block = "disk_space"
 path = "/home"
-format = "{path} {available}"
+format = "$path $available"
 info_type = "available"
-unit = "GB"
 interval = 120
 warning = 10.0
 alert = 5.0
@@ -72,37 +74,42 @@ block = "sound"
 block = "backlight"
 device = "amdgpu_bl0"
 
-# Battery status is not shown with the Momentum 3 headset so disabling 
+# Battery status is not shown with the Momentum 3 headset so disabling
 # this
 #[[block]]
 #block = "bluetooth"
 #mac = "00:1B:66:C0:52:9F"
-#format = "Momentum3 {percentage}"
+#format = "Momentum3 $percentage"
 #format_unavailable = "Momentum3 x"
-#hide_disconnected = true
+#disconnected_format = ""
 
 [[block]]
 block = "music"
-buttons = ["prev", "play", "next"]
-max_width = 35
-dynamic_width = true
-on_collapsed_click = "spotify"
-marquee_speed = 0.2
+format = "$icon {$combo.str(max_w:55,rot_interval:0.5) |}"
+[[block.click]]
+button = "left"
+action = "play_pause"
+[[block.click]]
+button = "right"
+action = "next"
+[[block.click]]
+button = "middle"
+action = "prev"
 
 [[block]]
 block = "battery"
 interval = 20
-format = "{percentage}% ({time}H)"
+format = " $icon $percentage ($time) "
 good = 70
 info = 60
 warning = 30
 critical = 15
+full_threshold = 100
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
-format = "{min} min, {max} max, {average} avg"
+format = " $icon $min min, $max max, $average avg "
 #chip = "*-pci-*"
 #chip = "*k10temp*"
 #input = ["amdgpu-pci-0400", "k10temp-pci-00c3"]
@@ -115,5 +122,4 @@ interval = 60
 [[block]]
 block = "time"
 interval = 60
-format = "%a %d/%m %R"
-locale = "it_IT"
+format = "$icon $timestamp.datetime(f:'%a %d/%m %R', l:it_IT)"
