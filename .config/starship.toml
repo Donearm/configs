@@ -26,7 +26,7 @@ charging_symbol = '⚡️ '
 
 # Enable git metrics module
 [git_metrics]
-disabled = false
+disabled = true
 
 # config for the username module
 [username]
