@@ -196,7 +196,7 @@ phone() {
 gopro() {
     if [[ $1 == 'mount' ]]; then
         mkdir -p gopro
-        go-mtpfs -o allow_other -dev GoPro gopro
+        go-mtpfs -allow-other -dev GoPro gopro
         if [ $? -eq 0 ]; then
             echo "Your GoPro has been successfully mounted"
         else
