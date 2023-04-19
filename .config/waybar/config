@@ -1,0 +1,201 @@
+{
+     "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 39, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": [
+		"wlr/workspaces",
+		"custom/media"
+		],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+		"mpd",
+		"network",
+		"cpu",
+		"memory",
+		"disk",
+		"temperature",
+		"backlight",
+		"pulseaudio",
+		"battery",
+		"hyprland/language",
+		"idle_inhibitor",
+		"clock",
+		"tray"
+		],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+	"wlr/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"sort-by-number": true
+	},
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+	"hyprland/language": {
+		"format": "{} ⌨"
+	},
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+		"interval": 60,
+		"format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode"				: "year",
+			"mode-mon-col"		: 3,
+			"weeks-pos"			: "right",
+			"on-scroll"			: 1,
+			"on-click-right"	: "mode",
+			"format": {
+				  "months":     "<span color='#ffead3'><b>{}</b></span>",
+				  "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				  "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				  "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				  "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+				  }
+			},
+        "actions":  {
+			"on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+            }
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "{}%  "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+	"disk": {
+		"interval": 120,
+		"format": "{free} on /",
+		"path": "/"
+	},
+    "backlight": {
+        "device": "amdgpu_b10",
+        "format": "{percent}% {icon}",
+        "format-icons": ["☀", "☀"],
+		"actions": {
+			"on-scroll-up": "sudo ~/documents/Script/backlight_change.sh -inc 5",
+			"on-scroll-down": "sudo ~/documents/Script/backlight_change.sh -dec 5"
+		}
+    },
+    "battery": {
+        "states": {
+            "good": 70,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% ({time}) {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat0": {
+        "bat": "BAT0"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+		"scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}
