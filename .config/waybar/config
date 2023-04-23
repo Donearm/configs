@@ -5,7 +5,6 @@
     // Choose the order of the modules
     "modules-left": [
 		"wlr/workspaces",
-		"custom/media"
 		],
     "modules-center": ["hyprland/window"],
     "modules-right": [
@@ -103,9 +102,10 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
+		"timezones": ["Europe/Warsaw", "UTC"],
 		"format": "{:%H:%M}",
         "format-alt": "{:%Y-%m-%d}",
+		"tooltip": true,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"interval": 60,
 		"calendar": {
@@ -132,10 +132,16 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": true
+		"format-alt": "{avg_frequency}GHz ",
+        "tooltip": true,
+		"states": {
+			"warning": 80,
+			"critical": 90
+		},
     },
     "memory": {
-        "format": "{}%  "
+        "format": "{}%  ",
+		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used  "
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -154,17 +160,18 @@
         "device": "amdgpu_b10",
         "format": "{percent}% {icon}",
         "format-icons": ["☀", "☀"],
-		"actions": {
-			"on-scroll-up": "sudo ~/documents/Script/backlight_change.sh -inc 5",
-			"on-scroll-down": "sudo ~/documents/Script/backlight_change.sh -dec 5"
-		}
+		"on-scroll-up": "light -A 10",
+		"on-scroll-down": "light -U 10"
     },
     "battery": {
         "states": {
+			"full": 100,
             "good": 70,
             "warning": 30,
-            "critical": 15
+            "critical": 15,
+			"empty": 5
         },
+		"full-at": 98,
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
