@@ -160,8 +160,8 @@
         "device": "amdgpu_b10",
         "format": "{percent}% {icon}",
         "format-icons": ["☀", "☀"],
-		"on-scroll-up": "light -A 10",
-		"on-scroll-down": "light -U 10"
+		"on-scroll-up": "brightnessctl set 10%+",
+		"on-scroll-down": "brightnessctl set 10%-"
     },
     "battery": {
         "states": {
