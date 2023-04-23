@@ -16,6 +16,7 @@ setxkbmap -model pc105 -layout us -variant altgr-intl -option compose:menu
 xset m 0.7 1.6
 xset dpms 0 120 600
 xrandr --dpi 96
+xss-lock ~/documents/Script/script_lock_screen.sh &
 lxsession &
 parcellite &
 firefox &
