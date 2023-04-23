@@ -1,7 +1,7 @@
 {
      "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 39, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
+    "width": 1920, // Waybar width
     // Choose the order of the modules
     "modules-left": [
 		"wlr/workspaces",
@@ -9,14 +9,14 @@
 		],
     "modules-center": ["hyprland/window"],
     "modules-right": [
-		"mpd",
+		"mpris",
 		"network",
 		"cpu",
 		"memory",
 		"disk",
 		"temperature",
 		"backlight",
-		"pulseaudio",
+		"wireplumber",
 		"battery",
 		"hyprland/language",
 		"idle_inhibitor",
@@ -47,7 +47,8 @@
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
         "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
+        //"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
+		"format-stopped": "",
         "unknown-tag": "N/A",
         "interval": 2,
         "consume-icons": {
@@ -70,6 +71,23 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
+	"mpris": {
+		"format": "DEFAULT: {player_icon} {dynamic}",
+		"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+		"player-icons": {
+			"default": "▶",
+			"mpv": "🎵"
+		},
+		"status-icons": {
+			"paused": "⏸"
+		},
+		"actions": {
+			"on-click": "play-pause",
+			"on-right-click": "next track",
+			"on-middle-click": "previous track"
+		},
+		// "ignored-players": ["firefox"]
+	},
 	"hyprland/language": {
 		"format": "{} ⌨"
 	},
@@ -86,10 +104,10 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-		"interval": 60,
 		"format": "{:%H:%M}",
         "format-alt": "{:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"interval": 60,
 		"calendar": {
 			"mode"				: "year",
 			"mode-mon-col"		: 3,
@@ -147,7 +165,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% ({time}) {icon}",
+        "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
@@ -186,6 +204,12 @@
 		"scroll-step": 1,
         "on-click": "pavucontrol"
     },
+	"wireplumber": {
+		"format": "{volume}% {icon}",
+		"format-muted": "",
+		"on-click": "pavucontrol",
+		"format-icons": ["", "", ""]
+	},
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",

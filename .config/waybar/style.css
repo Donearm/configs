@@ -103,6 +103,12 @@ window#waybar {
     transition: none;
     color: #E5B57C;
 }
+#wireplumber {
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: none;
+    color: #E5B57C;
+}
 #tray {
     padding-left: 10px;
     padding-right: 10px;
