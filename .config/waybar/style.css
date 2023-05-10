@@ -27,6 +27,10 @@ window#waybar {
   box-shadow: 2px 2px 2px 1px rgba(10, 10, 12, 0.7);
 }
 
+tooltip label {
+	color: #6E9DA7:
+}
+
 #custom-launcher {
   color: #a6e3a1;
   font-size: 16px;
