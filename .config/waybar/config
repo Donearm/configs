@@ -1,20 +1,22 @@
 {
-     "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+	"layer": "top",
     "height": 39, // Waybar height (to be removed for auto height)
-    "width": 1920, // Waybar width
+    //"width": 1920, // Waybar width
     // Choose the order of the modules
     "modules-left": [
 		"wlr/workspaces",
+		"hyprland/window",
 		],
-    "modules-center": ["hyprland/window"],
+    "modules-center": ["mpris"],
     "modules-right": [
-		"mpris",
 		"network",
 		"cpu",
 		"memory",
 		"disk",
 		"temperature",
 		"backlight",
+		"bluetooth",
 		"wireplumber",
 		"battery",
 		"hyprland/language",
@@ -22,27 +24,167 @@
 		"clock",
 		"tray"
 		],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+
+	// ** LEFT ** //
 	"wlr/workspaces": {
 		"format": "{icon}",
 		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
 		"sort-by-number": true
 	},
+	// ** END LEFT ** //
+	
+	// ** CENTER ** //
+	"mpris": {
+		"format": "{player_icon} {dynamic}",
+		"format-paused": "{status_icon} <i>{dynamic}</i>",
+		"player-icons": {
+			"default": "▶",
+			"mpv": "🎵",
+			"firefox": ""
+		},
+		"status-icons": {
+			"paused": "⏸"
+		},
+		"actions": {
+			"on-click": "play-pause",
+			"on-right-click": "next track",
+			"on-middle-click": "previous track"
+		},
+		// "ignored-players": ["firefox"]
+	},
+	// ** END CENTER ** //
+
+	// ** RIGHT ** //
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+		"format-alt": "{avg_frequency}GHz ",
+        "tooltip": true,
+		"states": {
+			"warning": 80,
+			"critical": 90
+		},
+    },
+    "memory": {
+        "format": "{}%  ",
+		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used  "
+    },
+	"disk": {
+		"interval": 120,
+		"format": "{free} left on /",
+		"path": "/"
+	},
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        "device": "amdgpu_b10",
+        "format": "{percent}% {icon}",
+        "format-icons": ["☀", "☀"],
+		"on-scroll-up": "brightnessctl set 10%+",
+		"on-scroll-down": "brightnessctl set 10%-"
+    },
+	"bluetooth": {
+		"format": " {status}",
+		"format-disabled": "", // an empty format will hide the module
+		"format-connected": " {num_connections} connected",
+		"tooltip": true,
+		"tooltip-format": "{controller_alias}\t{controller_address}",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+	},
+	"wireplumber": {
+		"format": "{volume}% {icon}",
+		"format-muted": "",
+		"on-click": "pavucontrol",
+		"format-icons": ["", "", ""]
+	},
+    "battery": {
+        "states": {
+			"full": 100,
+            "good": 70,
+            "warning": 30,
+            "critical": 15,
+			"empty": 5
+        },
+		"full-at": 98,
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat0": {
+        "bat": "BAT0"
+    },
+	"hyprland/language": {
+		"format": "{} ⌨",
+		"format-en": "US",
+		"format-it": "IT",
+		"format-pl": "PL",
+		"keyboard-name": "tuxedo-keyboard",
+		"actions": {
+			"on-click": "hyprctl switchxkblayout tuxedo-keyboard next"
+		},
+	},
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+    },
+    "tray": {
+         "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+		"tooltip": true,
+		"timezones": ["Europe/Warsaw", "UTC"],
+		"format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"interval": 60,
+		"calendar": {
+			"mode"				: "year",
+			"mode-mon-col"		: 3,
+			"weeks-pos"			: "right",
+			"on-scroll"			: 1,
+			"format": {
+				  "months":     "<span color='#ffead3'><b>{}</b></span>",
+				  "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				  "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				  "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				  "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+				  }
+			},
+        "actions":  {
+			"on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+            }
+    },
+	// ** END RIGHT ** //
+
+	// ** UNUSED ** //
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
         "format-disconnected": "Disconnected ",
@@ -70,129 +212,7 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
-	"mpris": {
-		"format": "DEFAULT: {player_icon} {dynamic}",
-		"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
-		"player-icons": {
-			"default": "▶",
-			"mpv": "🎵"
-		},
-		"status-icons": {
-			"paused": "⏸"
-		},
-		"actions": {
-			"on-click": "play-pause",
-			"on-right-click": "next track",
-			"on-middle-click": "previous track"
-		},
-		// "ignored-players": ["firefox"]
-	},
-	"hyprland/language": {
-		"format": "{} ⌨"
-	},
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-		"timezones": ["Europe/Warsaw", "UTC"],
-		"format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d}",
-		"tooltip": true,
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"interval": 60,
-		"calendar": {
-			"mode"				: "year",
-			"mode-mon-col"		: 3,
-			"weeks-pos"			: "right",
-			"on-scroll"			: 1,
-			"on-click-right"	: "mode",
-			"format": {
-				  "months":     "<span color='#ffead3'><b>{}</b></span>",
-				  "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-				  "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-				  "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-				  "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-				  }
-			},
-        "actions":  {
-			"on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-            }
-    },
-    "cpu": {
-        "format": "{usage}% ",
-		"format-alt": "{avg_frequency}GHz ",
-        "tooltip": true,
-		"states": {
-			"warning": 80,
-			"critical": 90
-		},
-    },
-    "memory": {
-        "format": "{}%  ",
-		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used  "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-	"disk": {
-		"interval": 120,
-		"format": "{free} on /",
-		"path": "/"
-	},
-    "backlight": {
-        "device": "amdgpu_b10",
-        "format": "{percent}% {icon}",
-        "format-icons": ["☀", "☀"],
-		"on-scroll-up": "brightnessctl set 10%+",
-		"on-scroll-down": "brightnessctl set 10%-"
-    },
-    "battery": {
-        "states": {
-			"full": 100,
-            "good": 70,
-            "warning": 30,
-            "critical": 15,
-			"empty": 5
-        },
-		"full-at": 98,
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat0": {
-        "bat": "BAT0"
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         //"format-bluetooth": "{volume}% {icon} {format_source}",
         //"format-bluetooth-muted": " {icon} {format_source}",
@@ -209,14 +229,9 @@
             "default": ["", "", ""]
         },
 		"scroll-step": 1,
-        "on-click": "pavucontrol"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
     },
-	"wireplumber": {
-		"format": "{volume}% {icon}",
-		"format-muted": "",
-		"on-click": "pavucontrol",
-		"format-icons": ["", "", ""]
-	},
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
