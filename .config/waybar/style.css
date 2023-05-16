@@ -28,7 +28,7 @@ window#waybar {
 }
 
 tooltip label {
-	color: #6E9DA7:
+	color: #6E9DA7;
 }
 
 #custom-launcher {
