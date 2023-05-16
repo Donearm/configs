@@ -223,6 +223,7 @@ for_window [class="Gimp"] floating enable
 for_window [class="microsoft teams - preview"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="gcolor3"] floating enable
+for_window [class="pavucontrol"] floating enable
 
 # Assign programs to a specific workspace
 assign [class="Gimp"] 5
