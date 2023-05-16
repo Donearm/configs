@@ -74,6 +74,9 @@ alert = 5.0
 
 [[block]]
 block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
 
 [[block]]
 block = "backlight"
