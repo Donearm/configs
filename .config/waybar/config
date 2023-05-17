@@ -95,6 +95,7 @@
         "device": "amdgpu_b10",
         "format": "{percent}% {icon}",
         "format-icons": ["☀", "☀"],
+		"on-click-right": "brightnessctl set 30%",
 		"on-scroll-up": "brightnessctl set 5%+",
 		"on-scroll-down": "brightnessctl set 5%-"
     },
