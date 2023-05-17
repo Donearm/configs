@@ -95,8 +95,8 @@
         "device": "amdgpu_b10",
         "format": "{percent}% {icon}",
         "format-icons": ["☀", "☀"],
-		"on-scroll-up": "brightnessctl set 10%+",
-		"on-scroll-down": "brightnessctl set 10%-"
+		"on-scroll-up": "brightnessctl set 5%+",
+		"on-scroll-down": "brightnessctl set 5%-"
     },
 	"bluetooth": {
 		"format": " {status}",
