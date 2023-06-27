@@ -34,7 +34,7 @@
 		"sort-by-number": true
 	},
 	// ** END LEFT ** //
-	
+
 	// ** CENTER ** //
 	"mpris": {
 		"format": "{player_icon} {dynamic}",
