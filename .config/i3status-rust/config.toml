@@ -3,16 +3,21 @@ icons_format = "{icon}"
 [theme]
 theme = "gruvbox-dark"
 [theme.overrides]
-idle_bg = "#28352c"
-idle_fg = "#fbf9fe"
-#critical_bg = "#ece169"
-#critical_fg = "#fbf9fe"
-#info_bg = "#000000" # the music block bg
-#info_fg = "#fe1010" # the music block fg
-good_bg = "#996633" # battery block bg
-good_fg = "#fbf9fe" # battery block fg
+idle_bg = "#007c93"
+idle_fg = "#fcfcfb"
+info_bg = "#1f8498" # the music block bg
+info_fg = "#fceedd" # the music block fg
+good_bg = "#a26055" # battery block bg
+good_fg = "#fceedd" # battery block fg
+warning_bg = "#d79921"
+warning_fg = "#fbf1c7"
+critical_bg = "#fceedd"
+critical_fg = "#a26055"
+separator = "\ue0b2"
+separator_bg = "auto"
+separator_fg = "auto"
 [icons]
-icons = "awesome4"
+icons = "awesome6"
 [icons.overrides]
 cpu = "  "
 memory_mem = "  "
