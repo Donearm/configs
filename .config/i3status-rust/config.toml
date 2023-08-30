@@ -46,6 +46,7 @@ format = "$icon $barchart $utilization@$frequency"
 
 [[block]]
 block = "amd_gpu"
+device = "card1"
 interval = 1
 format = " $icon $utilization "
 
@@ -80,7 +81,7 @@ cmd = "pavucontrol"
 
 [[block]]
 block = "backlight"
-device = "amdgpu_bl0"
+device = "amdgpu_bl"
 
 # Battery status is not shown with the Momentum 3 headset so disabling
 # this
