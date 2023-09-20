@@ -5,7 +5,7 @@
     //"width": 1920, // Waybar width
     // Choose the order of the modules
     "modules-left": [
-		"wlr/workspaces",
+		"hyprland/workspaces",
 		"hyprland/window",
 		],
     "modules-center": ["mpris"],
@@ -26,7 +26,7 @@
 		],
 
 	// ** LEFT ** //
-	"wlr/workspaces": {
+	"hyprland/workspaces": {
 		"format": "{icon}",
 		"on-click": "activate",
 		"on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -102,6 +102,7 @@
 	"bluetooth": {
 		"format": "",
 		"format-on": "",
+		"format-off": "", // an empty format will hide the module
 		"format-disabled": "", // an empty format will hide the module
 		"format-connected": "{num_connections} connected ",
 		"tooltip": true,
