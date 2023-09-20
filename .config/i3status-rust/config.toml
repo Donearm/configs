@@ -51,7 +51,7 @@ format = "$icon $barchart $utilization@$frequency"
 
 [[block]]
 block = "amd_gpu"
-device = "card1"
+device = "card0"
 interval = 1
 format = " $icon $utilization "
 
@@ -96,6 +96,10 @@ device = "amdgpu_bl"
 #format = "Momentum3 $percentage"
 #format_unavailable = "Momentum3 x"
 #disconnected_format = ""
+[block.battery_state]
+#"0..20" = "critical"
+#"21..70" = "warning"
+#"71..100" = "good"
 
 [[block]]
 block = "music"
