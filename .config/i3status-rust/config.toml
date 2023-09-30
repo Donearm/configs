@@ -90,16 +90,16 @@ device = "amdgpu_bl"
 
 # Battery status is not shown with the Momentum 3 headset so disabling
 # this
-#[[block]]
-#block = "bluetooth"
+[[block]]
+block = "bluetooth"
 #mac = "00:1B:66:C0:52:9F"
-#format = "Momentum3 $percentage"
-#format_unavailable = "Momentum3 x"
-#disconnected_format = ""
+mac = "34:C9:3D:CB:2C:CF"
+format = "Momentum3 $percentage"
+disconnected_format = ""
 [block.battery_state]
-#"0..20" = "critical"
-#"21..70" = "warning"
-#"71..100" = "good"
+"0..20" = "critical"
+"21..70" = "warning"
+"71..100" = "good"
 
 [[block]]
 block = "music"
