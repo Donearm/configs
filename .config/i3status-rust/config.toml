@@ -51,7 +51,7 @@ format = "$icon $barchart $utilization@$frequency"
 
 [[block]]
 block = "amd_gpu"
-device = "card0"
+device = "card0" # the device is under /sys/class/drm/
 interval = 1
 format = " $icon $utilization "
 
