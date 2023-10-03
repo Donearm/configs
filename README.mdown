@@ -1,13 +1,12 @@
-My dot files. Most are very old and not used any more but still could be useful inspiration/example.
-This repository contains my dotfiles, the configuration files used to configure 
-the programs that I regularly use. Over the time other programs have stopped 
-being useful to me but I have kept their configuration here, as an historical 
-reference.
+This repo contains my dot files. Most are very old and a large part is not used 
+any more but I left them as they can still be useful as inspiration/example. Of 
+course I offer no guarantee that such old configuration files work at all and 
+will not break your computer, make your fans spin furiously or cause a 
+thermonuclear holocaust. Compare them with the official latest version from the 
+official repo/websites of the relative projects before using these.
 
 Be aware that these files are geared toward my own specific usage. They're 
-heavily customised, especially the largest ones that I use every day. Still I 
-believe they can be useful as an example. Some have become outdated, so use at 
-your own peril.
+heavily customised, especially the largest ones that I use every day. 
 
 I decline every responsibility for any damage done to your devices, you or your 
 loved ones caused by the implementation of these files. You are invited to open 
@@ -17,7 +16,7 @@ understanding these files and I will do my best to help you.
 If you find these dotfiles helpful then I also encourage you to "star" or 
 "watch" this repository, or leave a small donation below. Thank you in advance!
 
-(c) 2009-2022 Gianluca Fiore
+(c) 2009-2023 Gianluca Fiore
 All code is licensed under the GNU GPL version 3 License unless the program source code says otherwise.
 
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/W7W7KA0Z)
