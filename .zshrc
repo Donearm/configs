@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -52,72 +59,8 @@ eval $(dircolors -b ~/.dir_colors/dircolors.custom)
 # icons-in-terminal https://github.com/sebastiencs/icons-in-terminal
 source /usr/share/icons-in-terminal/icons_bash.sh
 
-# Enable prompt theme
-#autoload -Uz promptinit
-#promptinit
-#prompt spaceship
-
-
-#SPACESHIP_PROMPT_ORDER=(
-#  time          # Time stamps section
-#  user          # Username section
-#  dir           # Current directory section
-#  host          # Hostname section
-#  git           # Git section (git_branch + git_status)
-  #hg            # Mercurial section (hg_branch  + hg_status)
-#  package       # Package version
-#  node          # Node.js section
-  #ruby          # Ruby section
-  #elixir        # Elixir section
-  #xcode         # Xcode section
-  #swift         # Swift section
-#  golang        # Go section
-  #php           # PHP section
-  #rust          # Rust section
-  #haskell       # Haskell Stack section
-  #julia         # Julia section
-  #docker        # Docker section
-  #aws           # Amazon Web Services section
-  #gcloud        # Google Cloud Platform section
-  #venv          # virtualenv section
-  #conda         # conda virtualenv section
-#  pyenv         # Pyenv section
-  #dotnet        # .NET section
-  #ember         # Ember.js section
-  #kubectl       # Kubectl context section
-  #terraform     # Terraform workspace section
-  #exec_time     # Execution time
-#  line_sep      # Line break
-#  battery       # Battery level and status
-  #vi_mode       # Vi-mode indicator
-#  jobs          # Background jobs indicator
-#  exit_code     # Exit code section
-#  char          # Prompt character
-#)
-
-#SPACESHIP_USER_SHOW=always
-#SPACESHIP_HOST_SHOW=always
-#SPACESHIP_HOST_SHOW_FULL=true
-#SPACESHIP_BATTERY_SHOW=always
-#SPACESHIP_EXIT_CODE_SHOW=true
-
-#SPACESHIP_PACKAGE_SYMBOL=📦
-#SPACESHIP_NODE_SYMBOL=☊
-#SPACESHIP_GOLANG_SYMBOL=ꗝ
-#SPACESHIP_PYENV_SYMBOL=𝧜
-#SPACESHIP_JOBS_SYMBOL=Ⓙ
-
-# Spaceship prompt colours
-#SPACESHIP_TIME_COLOR="#2d4951"
-#SPACESHIP_USER_COLOR="#2d4951"
-#SPACESHIP_DIR_COLOR="#336600"
-#SPACESHIP_HOST_COLOR="#ece169"
-#SPACESHIP_BATTERY_COLOR="#996633"
-#SPACESHIP_GIT_COLOR="#996633"
-#SPACESHIP_JOBS_COLOR="#996633"
-
-# Enable starship prompt
-eval "$(starship init zsh)"
+# Enable powerlevel10k prompt
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Enable history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -350,3 +293,6 @@ export VDPAU_DRIVER=radeonsi
 #if [ -z "$SSH_AUTH_SOCK" ];then
 #    eval $(gnome-keyring-daemon --start)
 #fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
