@@ -60,7 +60,14 @@ eval $(dircolors -b ~/.dir_colors/dircolors.custom)
 source /usr/share/icons-in-terminal/icons_bash.sh
 
 # Enable powerlevel10k prompt
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+if [ "$TERM" = "linux" ]
+then
+	autoload -Uz promptinit
+	promptinit
+	prompt walters
+else
+	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+fi
 
 # Enable history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
