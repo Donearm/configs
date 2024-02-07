@@ -110,6 +110,8 @@ alias waterfox="env MOZ_ENABLE_WAYLAND=1 waterfox-g3"
 # Set default scanner and options for scanimage
 alias scanimage="scanimage --device 'airscan:e0:Canon MG3600 series' --progress"
 alias figma="env LD_PRELOAD=/usr/lib/libm.so.6 figma-linux"
+# Helper to cast desktop on Panasonic Smart Tv
+alias casttotv='xrandr --output HDMI-A-0 --mode 3840x2160 --post "0x0" --scale 0.5x0.5'
 
 ## Functions ##
 toptwenty () {
