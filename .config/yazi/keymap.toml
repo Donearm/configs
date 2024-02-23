@@ -141,7 +141,7 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "h" ],       exec = "cd ~",             desc = "Go to the home directory" },
-	{ on = [ "g", "c" ],       exec = "cd /mnt/private/",     desc = "Go to the private directory" },
+	{ on = [ "g", "p" ],       exec = "cd /mnt/private/",     desc = "Go to the private directory" },
 	{ on = [ "g", "<Space>" ], exec = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Help
