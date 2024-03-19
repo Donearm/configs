@@ -57,7 +57,7 @@ eval $(dircolors -b ~/.dir_colors/dircolors.custom)
 #kitty + complete setup zsh | source /dev/stdin
 
 # icons-in-terminal https://github.com/sebastiencs/icons-in-terminal
-source /usr/share/icons-in-terminal/icons_bash.sh
+#source /usr/share/icons-in-terminal/icons_bash.sh
 
 # Enable powerlevel10k prompt
 if [ "$TERM" = "linux" ]
