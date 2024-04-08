@@ -57,7 +57,7 @@ format = " $icon $utilization "
 
 [[block]]
 block = "memory"
-format = "$icon $mem_total_used_percents"
+format = "$icon $mem_total_used_percents ($cached_percent)"
 format_alt = "$icon_swap $swap_used_percents"
 
 [[block]]
