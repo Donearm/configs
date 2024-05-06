@@ -14,9 +14,8 @@ dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XA
 xbindkeys
 # Force setting the options set under xorg.conf.d/00-keyboard.conf 
 # because sometimes they get not set. The empty option parameter is 
-# necessary to clear all previously set options. Alts_toggle switch the 
-# keyboard layout with both Alt pressed together
-setxkbmap -model pc105 -layout us,it,pl -variant altgr-intl,altgr-intl,altgr-intl -option  -option grp:alts_toggle -option compose:menu
+# necessary to clear all previously set options. Toggle layout with Win + Space
+setxkbmap -model pc105 -layout us,it,pl -variant qwerty -option  -option grp:win_space_toggle -option compose:menu
 xset m 0.7 1.6
 xset dpms 0 420 600
 xrandr --dpi 96
