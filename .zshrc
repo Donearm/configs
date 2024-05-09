@@ -98,8 +98,6 @@ alias gmail="mutt -f imaps://forod.g@imap.gmail.com:993"
 alias gmail2="mutt -f imaps://fioregianluca@imap.gmail.com:993"
 alias gmail3="mutt -f imaps://puffosaltatore@imap.gmail.com:993"
 alias bajkal="mutt -f imap://in.virgilio.it"
-alias yahoo="mutt -f imaps://gianluca1181@imap.mail.yahoo.com:993"
-alias nespressoguide="mutt -f imaps://admin@nespressoguide.com@mail.nespressoguide.com:993"
 alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
 alias timestamp="echo `date "+%Y-%m-%d %R"`"
 # Show user declared functions
