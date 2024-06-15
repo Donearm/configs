@@ -1,7 +1,7 @@
 [user]
 	name = Gianluca Fiore
 	email = gianlucafiore@fountainpencreator.com
-	signingKey = FEBBD5283FC9BB2AD80A2BB79DC39761CF95D79B
+	signingkey = /home/gianluca/.ssh/id_ed25519.pub
 [color]
 	ui = true
 	branch = auto
@@ -39,3 +39,5 @@
 	helper = cache --timeout=3600
 [init]
 	defaultBranch = master
+[gpg]
+	format = ssh
