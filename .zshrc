@@ -110,6 +110,8 @@ alias scanimage="scanimage --device 'airscan:e0:Canon MG3600 series' --progress"
 alias figma="env LD_PRELOAD=/usr/lib/libm.so.6 figma-linux"
 # Helper to cast desktop on Panasonic Smart Tv
 alias casttotv='xrandr --output HDMI-A-0 --mode 3840x2160 --post "0x0" --scale 0.5x0.5'
+# Force launching Obsidian under x11
+alias obsidian='obsidian --ozone-platform=x11'
 
 ## Functions ##
 toptwenty () {
