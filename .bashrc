@@ -330,7 +330,8 @@ export MOZ_DISABLE_PANGO=1
 # Make Qt use Gtk2 themes
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # Use nvidia VDPAU backend
-export $VDPAU_DRIVER=nvidia
+#export VDPAU_DRIVER=nvidia
+#export LIBVA_DRIVER_NAME=nvidia
 
 # Check terminal size
 shopt -s checkwinsize
@@ -339,7 +340,7 @@ shopt -s cdspell
 
 # auto completion
 source /usr/share/bash-completion/completions/git
-source <(kitty + complete setup bash)
+#source <(kitty + complete setup bash)
 # git prompt
 #source /usr/share/git/git-prompt.sh
 
