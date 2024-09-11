@@ -43,6 +43,8 @@ alias speakeron="amixer set Speaker unmute"
 alias speakeroff="amixer set Speaker mute"
 # Correctly connect over ssh (kitty terminal fix)
 alias kittyssh="kitty +kitten ssh"
+# Reboot, one time only, on Windows
+alias backtowindows="sudo bootctl set-oneshot auto-windows"
 
 
 # top 20 most used commands
