@@ -16,7 +16,7 @@ understanding these files and I will do my best to help you.
 If you find these dotfiles helpful then I also encourage you to "star" or 
 "watch" this repository, or leave a small donation below. Thank you in advance!
 
-(c) 2009-2023 Gianluca Fiore
+(c) 2009-2025 Gianluca Fiore
 All code is licensed under the GNU GPL version 3 License unless the program source code says otherwise.
 
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/W7W7KA0Z)
