@@ -1,24 +1,24 @@
 #; Local mailcap preferences for the MUTT mail client.
 
-
 #text/html; links -html-assume-codepage utf-8 -force-html -dump %s; test=test -z "$DISPLAY"; nametemplate=%s.html; copiousoutput
 text/html; firefox %s && sleep 2; nametemplate=%s.html; copiousoutput
-text/html; chromium %s && sleep 2; nametemplate=%s.html; copiousoutput
-text/html; google-chrome-stable %s && sleep 2; nametemplate=%s.html; copiousoutput
+text/html; vivaldi-stable %s && sleep 2; nametemplate=%s.html; copiousoutput
+text/html; opera %s && sleep 2; nametemplate=%s.html; copiousoutput
 text/html; w3m -I %{charset} -T text/html -dump; copiousoutput
 
-
 image/*; kitty +kitten icat %s; copiousoutput
-image/pjpeg; mirage %s; copiousoutput
-image/jpeg; mirage %s; copiousoutput
-image/png; mirage %s; copiousoutput
-image/gif; mirage %s; copiousoutput
+image/pjpeg; imv %s; copiousoutput
+image/jpeg; imv %s; copiousoutput
+image/png; imv %s; copiousoutput
+image/gif; imv %s; copiousoutput
 
+video/*; mpv %s
 video/*; mplayer %s
 
+audio/*; mpv %s
 audio/*; mplayer %s
 
-application/ogg; mplayer %s: test=test "$DISPLAY" != "" 
+application/ogg; mpv %s: test=test "$DISPLAY" != ""
 
 text/plain; cat %s; test=test "`echo %{charset} | tr '[A-Z]' '[a-z]'`" = utf-8 ; copiousoutput
 
@@ -26,8 +26,10 @@ application/msword; /usr/bin/lowriter %s
 application/vnd.oasis.opendocument.text; /usr/bin/lowriter %s
 application/vnd.ms-excel; /usr/bin/localc %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/lowriter %s
-application/pdf; xreader '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+application/pdf; $HOME/.local/bin/mutt-bgrun zathura '%s'; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 application/pdf; pdftotext '%s' | less ; test=test "$DISPLAY" = ""
+application/pdf; firefox %s;
+application/postscript; /usr/bin/xdg-open %s
 
 text/x-sgml; cat %s; copiousoutput
 text/x-chdr; cat %s; copiousoutput
@@ -37,6 +39,7 @@ text/tex; cat %s; copiousoutput
 text/x-sh; cat %s; copiousoutput
 text/english; cat %s; copiousoutput
 
+application/epub+zip; $HOME/.local/bin/mutt-bgrun zathura %s; copiousoutput
 
 application/x-gzip-dvi; zcat | dvi2tty-filter -w 132; copiousoutput
 
@@ -45,6 +48,8 @@ application/x-gunzip; zcat | less; needsterminal
 application/x-gzip; zcat; copiousoutput
 application/x-gunzip; zcat; copiousoutput
 application/x-bzip2; bzcat |less; needsterminal
+application/x-xz; xzcat | less; needsterminal
+application/x-lzma; xz --format=lzma --decompress --stdout; copiousoutput
 
 application/x-cpio; cpio -tvF --quiet %s; copiousoutput
 application/x-gtar; tar tvf %s; copiousoutput
@@ -53,6 +58,7 @@ application/x-tar-gz; tar tvfz %s; copiousoutput
 application/x-rar-compressed; rar v %s; copiousoutput
 application/x-zip-compressed; unzip -v %s; copiousoutput
 application/zip; unzip -v %s; copiousoutput
+application/x-7z-compressed; 7zr x %s; copiousoutput
 
 application/x-csh; cat %s; copiousoutput
 application/x-sh; cat %s; copiousoutput

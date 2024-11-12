@@ -9,6 +9,8 @@
 # layout, use the i3-config-wizard
 #
 
+set $Locker "~/documents/Script/i3lock-script.sh" 
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -18,84 +20,91 @@
 # chose a FreeType font, such as:
 font pango:Iosevka 10
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod1
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
 
 # startup applications
-exec --no-startup-id ~/.i3/i3_startup
+exec --no-startup-id "i3-msg 'workspace 5; append_layout ~/.config/i3/i3-workspace-5.json'"
+exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.config/i3/i3-workspace-3.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/i3-workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/i3-workspace-1.json'"
+exec --no-startup-id ~/.config/i3/i3_startup
 
 # start a terminal
-bindsym Mod1+Return exec kitty
+bindsym Mod4+Return exec kitty
 
 # kill focused window
-bindsym Mod1+Shift+q kill
+bindsym Mod4+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+d exec rofi -show run
+bindsym Mod4+d exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
+# bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
+
+# use rofi as a window switcher
+bindsym Mod4+Shift+w exec rofi -show window
 
 # colours
 #class					border	background	text
-client.focused			#a40000	#555753		#c4a000
-client.focused.inactive #a40000	#555753		#120d11
-client.unfocused		#555753	#555753		#120d11
-client.urgent			#a40000	#120d11		#ef2929
+client.focused			#11294b #28352c		#ece169
+client.focused.inactive #4b5637 #28352c		#fbf9fe
+client.unfocused		#4b5637	#28352c		#11294b
+client.urgent			#fbf9fe #fbf9fe		#11294b
 
 new_window none
 new_float 1pixel
 
 # change focus
-bindsym Mod1+j focus left
-bindsym Mod1+k focus down
-bindsym Mod1+l focus up
-bindsym Mod1+semicolon focus right
+bindsym Mod4+j focus left
+bindsym Mod4+k focus down
+bindsym Mod4+l focus up
+bindsym Mod4+n focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Left focus left
-bindsym Mod1+Down focus down
-bindsym Mod1+Up focus up
-bindsym Mod1+Right focus right
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
 
 # move focused window
-bindsym Mod1+Shift+j move left
-bindsym Mod1+Shift+k move down
-bindsym Mod1+Shift+l move up
-bindsym Mod1+Shift+semicolon move right
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+bindsym Mod4+Shift+n move left
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Shift+Left move left
-bindsym Mod1+Shift+Down move down
-bindsym Mod1+Shift+Up move up
-bindsym Mod1+Shift+Right move right
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+bindsym Mod4+h split h
 
 # split in vertical orientation
-bindsym Mod1+v split v
+bindsym Mod4+v split v
 
 # enter fullscreen mode for the focused container
-bindsym Mod1+f fullscreen
+bindsym Mod4+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod1+s layout stacking
-bindsym Mod1+w layout tabbed
-bindsym Mod1+e layout toggle split
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Shift+space floating toggle
+bindsym Mod4+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod1+space focus mode_toggle
+bindsym Mod4+space focus mode_toggle
 
 # focus the parent container
-bindsym Mod1+a focus parent
+bindsym Mod4+a focus parent
 
 # focus the child container
-#bindsym Mod1+d focus child
+#bindsym Mod4+d focus child
 
 # set workspaces' names
 #set $ws1 1:♒
@@ -106,30 +115,37 @@ bindsym Mod1+a focus parent
 #set $ws6 6:♔
 #set $ws7 7:☢
 
+# Scratchpad
+bindsym Mod4+minus scratchpad show
+bindsym Mod4+Shift+minus move scratchpad
+
 # switch to workspace
-bindsym Mod1+1 workspace 1
-bindsym Mod1+2 workspace 2
-bindsym Mod1+3 workspace 3
-bindsym Mod1+4 workspace 4
-bindsym Mod1+5 workspace 5
-bindsym Mod1+6 workspace 6
-bindsym Mod1+7 workspace 7
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
 
 # move focused container to workspace
-bindsym Mod1+Shift+1 move container to workspace 1
-bindsym Mod1+Shift+2 move container to workspace 2
-bindsym Mod1+Shift+3 move container to workspace 3
-bindsym Mod1+Shift+4 move container to workspace 4
-bindsym Mod1+Shift+5 move container to workspace 5
-bindsym Mod1+Shift+6 move container to workspace 6
-bindsym Mod1+Shift+7 move container to workspace 7
+bindsym Mod4+Shift+1 move container to workspace 1
+bindsym Mod4+Shift+2 move container to workspace 2
+bindsym Mod4+Shift+3 move container to workspace 3
+bindsym Mod4+Shift+4 move container to workspace 4
+bindsym Mod4+Shift+5 move container to workspace 5
+bindsym Mod4+Shift+6 move container to workspace 6
+bindsym Mod4+Shift+7 move container to workspace 7
 
 # reload the configuration file
-bindsym Mod1+Shift+c reload
+bindsym Mod4+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod1+Shift+r restart
+bindsym Mod4+Shift+r restart
+# lock session
+bindsym Mod4+Shift+p exec "~/documents/Script/i3lock-script.sh"
 # exit i3 (logs you out of your X session)
-bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym Mod4+Shift+e exec "i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -154,7 +170,22 @@ mode "resize" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym Mod1+r mode "resize"
+bindsym Mod4+r mode "resize"
+
+#set mode_system System (l), (e) logout, (r) reboot, (Shift+s) shutdown
+mode "system" {
+	bindsym l exec --no-startup-id $Locker, mode "default"
+	bindsym e exec --no-startup-id "i3-msg exit", mode "default"
+	bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+	bindsym r exec --no-startup-id "systemctl reboot", mode "default"
+	bindsym Shift+s exec --no-startup-id "systemctl poweroff", mode "default"
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym Mod4+Del mode "system"
+
 
 #set mode_system System (l), (e) logout, (r) reboot, (Shift+s) shutdown
 mode "system" {
@@ -186,27 +217,33 @@ bindsym Mod1+End mode "system"
 #}
 
 bar {
-	font pango:Iosevka FontAwesome 10
+	font pango:Iosevka FontAwesome 9
 	position bottom
-	status_command i3status-rs /home/gianluca/.i3/status.toml
+	status_command i3status-rs /home/gianluca/.config/i3status-rust/config.toml
 	colors {
-		separator				#666666
-		background				#120d11
-		statusline				#dddddd
-		focused_workspace		#a40000 #a40000	#ffffff
-		active_workspace		#555753	#120d11	#ffffff
-		inactive_workspace		#555753 #120d11 #888888
-		urgent_workspace		#888888 #a40000 #ffffff
+		separator				#007c93
+		background				#143230
+		statusline				#007c93
+# These are set as: border, background, and foreground colors
+		focused_workspace		#fcfcfb #316e6a	#fcfcfb
+		active_workspace		#116373	#116373	#c4c0b7
+		inactive_workspace		#116373 #143230 #888888
+		urgent_workspace		#888888 #2d4951 #fbf9fe
 	}
 }
 
 # float
 for_window [class="mpv"] floating enable
 for_window [class="Gimp"] floating enable
+for_window [class="microsoft teams - preview"] floating enable
+for_window [class="zoom"] floating enable
+for_window [class="gcolor3"] floating enable
+for_window [class="pavucontrol"] floating enable
 
 # Assign programs to a specific workspace
-assign [class="firefox"] 1
 assign [class="Gimp"] 5
+assign [class="Spotify"] 5
+assign [class="zettlr"] 3
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)

@@ -1,0 +1,13 @@
+{
+	"buildDir": "/tmp/yay/",
+	"editor": "",
+	"makepkgbin": "/usr/bin/makepkg",
+	"pacmanbin": "/usr/bin/pacman",
+	"pacmanconf": "/etc/pacman.conf",
+	"tarbin": "/usr/bin/bsdtar",
+	"requestsplitn": 150,
+	"sortmode": 0,
+	"timeupdate": false,
+	"noconfirm": false,
+	"devel": false
+}

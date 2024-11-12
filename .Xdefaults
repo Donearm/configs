@@ -3,14 +3,14 @@
 *.color0:       #171717
 *.color8:       #38252c
 ! DarkRed + red
-*.color1:       #fd771b
+*.color1:       #D86055
 *.color9:       #ff0000
 ! DarkGreen + green
 *.color2:       #97d01a
 *.color10:      #76b639
 ! DarkYello + yellow
-*.color3:       #ffa800
-*.color11:      #e1a126
+*.color3:       #e1a126
+*.color11:      #ece169
 ! DarkBlue + blue
 *.color4:       #2d2dd8
 *.color12:      #289cd5
@@ -61,56 +61,25 @@ URxvt.geometry:			80x24+0+0
 !URxvt.boldFont:		xft:Liberation Mono:bold:pixelsize=12
 !Urxvt.italicFont:		xft:Liberation Mono:italic:pixelsize=12
 !Urxvt.boldItalicFont:	xft:Liberation Mono:bold:italic:pixelsize=12
-URxvt.font:				xft:Mononoki:pixelsize=12
-URxvt.boldFont:			xft:Mononoki:bold:pixelsize=12
-Urxvt.italicFont:		xft:Mononoki:italic:pixelsize=12
-Urxvt.boldItalicFont:	xft:Mononoki:bold:italic:pixelsize=12
-!URxvt.font:				xft:Hack:pixelsize=12
-!URxvt.boldFont:			xft:Hack:bold:pixelsize=12
-!Urxvt.italicFont:		xft:Hack:italic:pixelsize=12
-!Urxvt.boldItalicFont:	xft:Hack:bold:italic:pixelsize=12
+URxvt.font:				xft:Iosevka:pixelsize=12
+URxvt.boldFont:			xft:Iosevka:bold:pixelsize=12
+Urxvt.italicFont:		xft:Iosevka:italic:pixelsize=12
+Urxvt.boldItalicFont:	xft:Iosevka:bold:italic:pixelsize=12
 !urxvt.background:		rgba:0000/0000/0000/cccc
 urxvt.background:		#120d11
 urxvt.foreground:		#fcfbf9
 URxvt.transparent:		true
-URxvt.shading:			10
+URxvt.shading:			20
 URxvt.fading:			30
 URxvt.fadeColor:		#120d11
-!URxvt.tintColor:		#6c9eab
-URxvt.cursorColor:		#c7392f
-URxvt.cursorColor2:		#120d11
 URxvt.pointerColor:		#ef2929
 URxvt.pointerColor2:	black
 URxvt.pointerBlank:		true
-!Black + DarkGrey
-URxvt.color0:			#120d11
-URxvt.color8:			#555753
-!DarkRed + Red
-URxvt.color1:			#a40000
-URxvt.color9:			#ef2929
-!DarkGreen + Green
-URxvt.color2:			#4e9a06
-URxvt.color10:			#73d216
-!DarkYellow + Yellow
-URxvt.color3:			#c4a000
-URxvt.color11:			#edd400
-!DarkBlue + Blue
-URxvt.color4:			#204a87
-URxvt.color12:			#3465a4
-!DarkMagenta + Magenta
-URxvt.color5:			#4d648d
-URxvt.color13:			#ad7fa8
-!DarkCyan + Cyan
-URxvt.color6:			#729fcf
-URxvt.color14:			#377ef2
-!LightGrey + White
-URxvt.color7:			#babdb6
-URxvt.color15:			#fcfbf9
 URxvt.colorBD:			#ef2929
 URxvt.colorUL:			#f57900
 URxvt.colorIT:			#ce5c00
 URxvt.scrollBar:		true
-URxvt.scrollColor:		#ef2929
+URxvt.scrollColor:		#4882c7
 URxvt.scrollstyle:		plain
 URxvt.jumpScroll:		0
 URxvt.throughColor:		red
@@ -137,7 +106,7 @@ URxvt.tabbed.tabbar-bg:	0
 URxvt.tabbed.tab-fg:	6
 URxvt.tabbed.tab-bg:	0
 ! select input method (may be different from locale)
-!URxvt.imlocale:		it_IT.UTF-8	
+!URxvt.imlocale:		it_IT.UTF-8
 
 ! Lalcal
 lalcal*format:			%a %e %b %l.%M%P

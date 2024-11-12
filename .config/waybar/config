@@ -1,0 +1,252 @@
+{
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+	"layer": "top",
+    "height": 50, // Waybar height (to be removed for auto height)
+    //"width": 1920, // Waybar width
+    // Choose the order of the modules
+    "modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window",
+		],
+    "modules-center": ["mpris"],
+    "modules-right": [
+		"network",
+		"cpu",
+		"memory",
+		"disk",
+		"disk",
+		"bluetooth",
+		"wireplumber",
+		"hyprland/language",
+		"idle_inhibitor",
+		"privacy",
+		"clock",
+		"tray"
+		],
+
+	// ** LEFT ** //
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"sort-by-number": true,
+		"format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "urgent": "",
+      "active": "",
+      "default": ""
+      }
+	},
+	// ** END LEFT ** //
+
+	// ** CENTER ** //
+	"mpris": {
+		"format": "{player_icon} {dynamic}",
+		"format-paused": "{status_icon} <i>{dynamic}</i>",
+		"player-icons": {
+			"default": "▶",
+			"mpv": "🎵",
+			"firefox": "",
+			"zen-browser": ""
+		},
+		"status-icons": {
+			"paused": "⏸"
+		},
+		"actions": {
+			"on-click": "play-pause",
+			"on-right-click": "next track",
+			"on-middle-click": "previous track"
+		},
+		// "ignored-players": ["firefox"]
+	},
+	// ** END CENTER ** //
+
+	// ** RIGHT ** //
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+		"format-alt": "{avg_frequency}GHz ",
+        "tooltip": true,
+		"states": {
+			"warning": 80,
+			"critical": 90
+		},
+    },
+    "memory": {
+        "format": "{}%  ",
+		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used  "
+    },
+	"disk": {
+		"interval": 120,
+		"format": "{free} left on /",
+		"path": "/"
+	},
+	"disk": {
+		"interval": 120,
+		"format": "{free} left on documents",
+		"path": "/mnt/documents"
+	},
+	"bluetooth": {
+		"format": "",
+		"format-on": "",
+		"format-off": "", // an empty format will hide the module
+		"format-disabled": "", // an empty format will hide the module
+		"format-connected": "{num_connections} connected ",
+		"tooltip": true,
+		"tooltip-format": "{controller_alias}\t{controller_address}",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+	},
+	"wireplumber": {
+		"format": "{volume}% {icon}",
+		"format-muted": "🔇",
+		"on-click": "pavucontrol",
+		"format-icons": ["", "", ""]
+	},
+	"hyprland/language": {
+		"format": "{} ⌨",
+		"format-en": "US",
+		"format-it": "IT",
+		"format-pl": "PL",
+		"keyboard-name": "at-translated-set-2-keyboard",
+		"actions": {
+			"on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+		},
+	},
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+    },
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 18,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},
+    "tray": {
+         "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+		"tooltip": true,
+		"timezones": ["Europe/Warsaw", "UTC"],
+		"format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"interval": 60,
+		"calendar": {
+			"mode"				: "year",
+			"mode-mon-col"		: 3,
+			"weeks-pos"			: "right",
+			"on-scroll"			: 1,
+			"format": {
+				  "months":     "<span color='#ffead3'><b>{}</b></span>",
+				  "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				  "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				  "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				  "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+				  }
+			},
+        "actions":  {
+			"on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+            }
+    },
+	// ** END RIGHT ** //
+
+	// ** UNUSED ** //
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+        "format-disconnected": "Disconnected ",
+        //"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
+		"format-stopped": "",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+		"scroll-step": 1,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}

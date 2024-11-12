@@ -1,0 +1,50 @@
+# Mutt sender profile: skeleton of an IMAP Mutt profil
+#
+
+source ~/.mutt/defaults.mutt_profile
+
+bind editor <space> noop # it should let mutt accept folders with space in their name
+set attribution='On %d, %n uttered:'
+set pgp_autoencrypt=no
+unset imap_passive			# enter in the inbox automatically at start
+set imap_idle=yes	# make use of imap IDLE
+set quit=ask-yes	# don't quit automatically when pressing "q" but ask
+set mail_check=60
+set net_inc=5
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set imap_user=""
+set imap_pass=""
+set smtp_url=""
+set smtp_pass=""
+set spoolfile="" # the IMAP server inbox usually
+set mbox="" # the IMAP server inbox too
+set folder="" # the base IMAP server address, without any mailboxes/folders
+set record="" # the IMAP server Sent folder
+set postponed="" # the IMAP server Drafts folder
+set trash="" # the IMAP server Trash/Bin folder
+set imap_check_subscribed
+set imap_list_subscribed
+set header_cache="/tmp/mutt_msgcache"
+set message_cachedir="/tmp/msgcache/"
+mailboxes '' # the list of IMAP server folders to check
+
+set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+
+
+unmy_hdr *
+my_hdr From: Gianluca Fiore <>
+my_hdr Reply-To: <>
+
+# macro for moving deleted mails in the Trash/Bin folder
+macro index,pager d "<save-message>=XXXXXX<enter>" "Trash"
+# mark as read and archive to All Mail
+macro index A "WNK<save-message>=XXXXXX<enter>" "Archive"
+# macros for quickly switching folder
+macro index gi "<change-folder>=XXXXX<enter>" "Switch to inbox"
+macro index ga "<change-folder>=XXXXX<enter>" "Switch to All Mail"
+macro index gs "<change-folder>=XXXXX<enter>" "Switch to Spam"
+macro index gt "<change-folder>=XXXXX<enter>" "Switch to Trash"
+macro index gp "<change-folder>=XXXXX<enter>" "Switch to Priority Inbox"
+
+# vim: ft=muttrc:

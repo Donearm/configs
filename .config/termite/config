@@ -8,7 +8,7 @@ dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
 
-ont = Hack 12
+font = Hack 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -48,37 +48,37 @@ highlight = #2f2f2f
 # colors from color0 to color254 can be set
 # 
 # Black
-color0 = #120d11
-# DarkRed
-color1 = #a40000
-# DarkGreen
-color2 = #4e9a06
-# DarkYellow
-color3 = #c4a000
-# DarkBlue
-color4 = #204a87
-# DarkMagenta
-color5 = #5c3565
-# DarkCyan
-color6 = #729fcf
-# LightGrey
-color7 = #babdb6
-# DarkGrey
-color8 = #555753
-# Red
-color9 = #ef2929
-# Green
-color10 = #73d216
-# Yellow
-color11 = #edd400
-# Blue
-color12 = #3465a4
-# Magenta
-color13 = #ad7fa8
-# Cyan
-color14 = #377ef2
-# White
-color15 = #fcfbf9
+#color0 = #171717
+## DarkRed
+#color1 = #fd771b
+## DarkGreen
+#color2 = #97d01a
+## DarkYellow
+#color3 = #ffa800
+## DarkBlue
+#color4 = #16b1fb
+## DarkMagenta
+#color5 = #ff2491
+## DarkCyan
+#color6 = #0fdcb6
+## LightGrey
+#color7 = #616161
+## DarkGrey
+#color8 = #38252c
+## Red
+#color9 = #ff0000
+## Green
+#color10 = #76b639
+## Yellow
+#color11 = #e1a126
+## Blue
+#color12 = #289cd5
+## Magenta
+#color13 = #a0175b
+## Cyan
+#color14 = #0cb395
+## White
+#color15 = #b9b9b9
 
 [hints]
 #font = Hack 12

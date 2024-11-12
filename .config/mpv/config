@@ -1,20 +1,17 @@
-vo=gpu
-ao=pulse
+profile=gpu-hq
+ao=pipewire
 volume-max=600
+scale=ewa_lanczossharp
+cscale=ewa_lanczossharp
 # Pretend to be Winamp
 # Fixes playback of some NSV streams
 user-agent="Winamp NSV Player/5.12 (ultravox/2.0)"
+cache = yes
+force-seekable = yes
 slang = it,en
 alang = it,en
 monitoraspect=16:10
-# Enable hardware decoding if available. Often, this requires using an certain
-# video output, otherwise no hardware decoding will be used.
-#hwdec = auto
+hwdec=vaapi
 geometry="50%:100%"
 osd-level=3
 sub-auto=fuzzy
-
-[vo.vdpau]
-profile-desc="Profile for hw decoding with VDPAU"
-# Use hardware decoding
-hwdec=vdpau

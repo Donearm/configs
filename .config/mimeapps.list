@@ -1,0 +1,21 @@
+[Default Applications]
+text/plain=vim.desktop
+text/html=firefox.desktop
+image/pjpeg=feh.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
+image/gif=feh.desktop
+image/webp=feh.desktop
+video/*=mpv.dekstop
+audio/*=mpv.desktop
+application/ogg=mpv.desktop
+application/epub+zip=foliate.desktop
+application/pdf=apvlv.desktop
+application/postscript=apvlv.desktop
+
+[Removed Applications]
+image/pjpeg=chromium.desktop
+image/jpeg=chromium.desktop
+image/png=chromium.desktop
+image/gif=chromium.desktop
+image/webp=chromium.desktop

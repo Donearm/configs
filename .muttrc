@@ -10,29 +10,28 @@ set folder_format="%2C %t %N %f"
 
 set realname="Gianluca Fiore"
 set use_envelope_from=yes	# force same address in envelope as in From:
-set abort_unmodified=yes	# automatically abort replies if I don't
-				# change the message
+set abort_unmodified=yes	# automatically abort replies if I don't change the message
 set alias_file=~/.mail_aliases	# where I keep my aliases
 set alias_format="%4n %2f %t %-10a   %r"
 set allow_8bit			# never do Q-P encoding on legal 8-bit chars
 #set arrow_cursor		# use -> instead of hiliting the whole line
 set sleep_time = 0		# make folders switch almost instantaneous
 # a regexp that specifies alternate addresses where you receive mail
-alternates	^forod.g@gmail\\.com$	^gianluca1181@yahoo\\.it$	^kinetic8@live\\.com$
+alternates ^forod.g@gmail\\.com$ ^fioregianluca@gmail\\.com$ ^puffosaltatore@gmail\\.com$ ^gianlucafiore@papersounds\\.eu$ ^gianlucafiore@fountanpencreator\\.com$
 set attach_format="%u%D%I %t%4n %T%.40d%> [%.7m/%.10M, %.6e%?C?, %C?, %s] "
 set attach_split
+set attach_save_dir=~/Downloads/
 set date_format="%a %d %b, %Y at %H:%M:%S %Z"
 set ignore_list_reply_to=yes
-set imap_authenticators="gssapi:cram-md5:digest-md5:login" # authentication methods to try for imap authentication
+#set imap_authenticators="gssapi:cram-md5:digest-md5:login" # authentication methods to try for imap authentication
 set imap_passive		# do not open new imap connections to check for new mail
 set imap_peek			# do not mark mail as read whenever fetching a message from the imap server. Might make closing mutt a tad slower
 set mask="!^\\.[^.]"	# filebrowser mask
-set ssl_usesystemcerts	# mutt will use CA certificates in the system-wide certificate store
 set send_charset="utf-8:iso-8859-1:iso-8859-15:us-ascii" # a list of character sets for outgoing messages
 #set ascii_chars		# use ASCII instead of ACS chars for threads
 #set askbcc
 #set askcc
-set attribution="On %d, %n wrote:"	# how to attribute replies
+set attribution="On %d, %n <%a> uttered:"	# how to attribute replies
 set autoedit			# go to the editor right away when composing
 #set auto_tag			# always operate on tagged messages
 set charset="utf-8"	# character set for your terminal
@@ -45,10 +44,12 @@ set edit_headers		# let me edit the message header when composing
 set editor="vim -c 'set tw=72 et' \
  -c 'set fo=tcrq' \
  -c 'set syntax=mail' \
- -c ':0;/^To: '\
  -c 'set spell'\
  -c 'redraw' \
- -c 'set nobackup'"
+ -c 'set nobackup' \
+ -c 'set noswapfile' \
+ -c 'set nowritebackup' \
+ -c '+9'"
 set bounce=yes			# don't ask about bouncing messages, just do it
 #set fast_reply			# skip initial prompts when replying
 #set fcc_attach			# keep attachments in copies of sent messages?
@@ -62,7 +63,7 @@ set hdrs			# include `my_hdr' lines in outgoing messages
 #set header			# include message header when replying
 set help			# show the help lines
 set history=20			# number of lines of history to remember
-set hostname="`hostname`"	# my DNS domain
+#set hostname="`hostname`"	# my DNS domain
 set include=ask-yes			# always include messages when replying
 set indent_string="> "		# how to quote replied text
 set mailcap_path="~/.mailcap:/usr/local/share/mailcap"
@@ -71,7 +72,6 @@ set mail_check=10		# how often to poll for new mail
 set mbox="~/Maildir/"			# where to store read messages
 set mbox_type="maildir"
 set smart_wrap
-set wrapmargin=5
 #set menu_scroll		# no implicit next-page/prev-page
 #set metoo			# remove my address when replying
 set mime_forward		# use message/rfc822 type to forward messages
@@ -122,6 +122,7 @@ set nosave_empty		# remove files when no messages are left
 set sendmail="/usr/bin/msmtp"
 #set shell="/bin/zsh"		# program to use for shell escapes
 set signature="~/.signature"	# file which contains my signature
+set sig_on_top=yes			# don't crucify me...
 
 set sort=date # primary sorting method
 
@@ -151,7 +152,8 @@ set write_inc=25		# show progress while writing mailboxes
 set dsn_notify='failure,delay'	# when to return an error message
 set dsn_return=hdrs		# what to return in the error message
 
-set header_cache="/tmp/mutt_headers/" # cache database path for mail headers
+set header_cache = "~/Maildir/.hcache/" # cache folder path for mail headers
+set message_cachedir = "~/Maildir/.bcache/" # cache folder path for mail bodies
 set ts_enabled			# set terminal status line and icon name
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -161,7 +163,7 @@ set pgp_verify_sig=ask-yes	# ask to verify message signatures
 set pgp_entry_format="%4n %t%f %4l/0x%k %-4a %2c %u"
 set pgp_use_gpg_agent
 set pgp_replyencrypt
-set pgp_sign_as="0xE0399C72"
+set pgp_sign_as="0xD33DF9231860307AD78805FD7E7071DCCB1DAD19"
 set pgp_timeout=1800
 set pgp_sort_keys=address
 set pgp_decode_command="/usr/bin/gpg %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
@@ -178,6 +180,16 @@ set pgp_list_secring_command="/usr/bin/gpg --no-verbose --batch --quiet --with-c
 set pgp_list_pubring_command="/usr/bin/gpg --no-verbose --batch --quiet --with-colons --list-keys %r"
 set pgp_good_sign = "^gpg: Good signature from"
 set pgp_autoencrypt=no
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# SSL hardening
+set ssl_force_tls=no
+set ssl_starttls=yes
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # Header fields I don't normally want to see
@@ -207,10 +219,11 @@ X-Url Mail-Followup-To:
 #		generic		generic keymap for all of the above
 #		editor		line editor
 #		pager		text viewer
-#		
+#
 
 ## Index
 # vi-like movements
+bind index g	noop
 bind index gg	first-entry
 bind index G	last-entry
 bind index <space> collapse-thread
@@ -291,10 +304,12 @@ alternative_order text/plain text/html
 # Loading hooks file
 source ~/.mutt/hooks
 # Source list of mailboxes
-source ~/.mutt/mailboxes
+#source ~/.mutt/mailboxes
 # load the aliases
 source ~/.mail_aliases
 # My color theme of choice
-source ~/.mutt/badwolf-colors.muttrc
+source ~/.mutt/driftavalii-colors.muttrc
+# Load default configuration, valid for all mailboxes
+source ~/.mutt/defaults.mutt_profile
 
 # EOF

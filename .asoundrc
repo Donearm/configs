@@ -1,0 +1,50 @@
+ctl.!default {
+	type hw
+	card 0
+}
+pcm.dmixed {
+	type asym
+	playback.pcm {
+		type dmix
+		ipc_key 5678293
+		ipc_perm 0660
+		ipc_gid audio
+		ipc_key_add_uid 0
+		slave {
+			channels 2
+			pcm {
+				type hw
+				card 0
+				device 0
+				subdevice 0
+			}
+			period_size 1024
+			buffer_size 8192
+		}
+		bindings {
+			0 0
+			1 1
+			#2 2
+			#3 3
+			#4 4
+			#5 5
+		}
+	}
+	capture.pcm "hw:0"
+}
+pcm.!default {
+	type plug
+	slave.pcm "dmixed"
+}
+pcm.!surround20 {
+	type plug
+	slave.pcm "dmixed"
+}
+pcm.!surround40 {
+	type plug
+	slave.pcm "dmixed"
+}
+pcm.!surround51 {
+	type plug
+	slave.pcm "dmixed"
+}

@@ -1,0 +1,24 @@
+[calendars]
+
+[[private]]
+path = /home/gianluca/.local/share/khal/calendars/private
+type = calendar
+color = light red
+
+[[work]]
+path = /home/gianluca/.local/share/khal/calendars/work
+type = calendar
+color = dark cyan
+
+[locale]
+timeformat = %H:%M
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M
+local_timezone = Europe/Warsaw
+default_timezone = Europe/Warsaw
+
+[default]
+default_calendar = private
+highlight_event_days = True

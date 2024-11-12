@@ -231,7 +231,7 @@ function getGpuTemp ()
         n = setFg("#aadc43", n .. '°C')
         return n
     else
-	    return setFg(beautiful.fg_normal, n..'°C ')
+		return setFg(beautiful.fg_normal, n..'°C ')
     end
 end
 
@@ -244,7 +244,7 @@ function getSdaTemp ()
 end
 
 ---- Calendar functions
--- One to show the current month's calendar, another to destroy the 
+-- One to show the current month's calendar, another to destroy the
 -- notification
 local calendar = nil
 local offset = 0
@@ -270,7 +270,7 @@ function addCalendar(inc_offset)
         text = string.format('<span font_desc="%s">%s</span>', "monospace", os.date("%a, %d %B %Y") .. "\n" .. cal),
         timeout = 0,
         hover_timeout = 0.5,
-        width = 180,
+        width = 230,
         position = "bottom_right",
     })
 end
@@ -318,7 +318,7 @@ function batteryInfo(adapter)
 
     batterywidget.text = spacer..setFg(beautiful.fg_normal, battery)
 end
---- Show the 15 processes occupying the most the cpu in a naughty 
+--- Show the 15 processes occupying the most the cpu in a naughty
 --notification
 function psByCpu(n)
     if n == 1 then
@@ -331,7 +331,7 @@ function psByCpu(n)
             text = r,
             timeout = 0,
             hover_timeout = 3,
-            width = 300
+            width = 400
         })
     end
 end
@@ -343,8 +343,12 @@ function psByMemory(n)
         naughty.destroy(memoryPopup)
         memoryPopup = nil
     else
-        -- memory sorting doesn't work
-        local r = io.popen("ps -eo pid,pmem,user,comm,rss --sort -rss | sed -n '1,15p'"):read("*a")
+		-- Version without awk part emits memory usage in KBs instead 
+		-- than MBs
+		-- "rev" and "column" are there just to align the results to the 
+		-- headers
+--        local r = io.popen("ps -eo pid,pmem,user,comm,rss --sort -rss | sed -n '1,15p'"):read("*a")
+        local r = io.popen("ps -eo pid,pmem,user,comm,rss --sort -rss | awk 'NR>1 {$5=int($5/1024)\"M\"}{print}' | rev | column -t | rev | sed -n '1,15p'"):read("*a")
         memoryPopup = naughty.notify({
             title = "Memory Usage",
             text = r,
@@ -439,9 +443,9 @@ function run_once(prg, arg_string, pname, screen)
 	end
 
 	if not arg_string then
-		awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
+		awful.spawn.with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
 	else
-		awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. " " .. arg_string .. "' || (" .. prg .. " " .. arg_string .. ")", screen)
+		awful.spawn.with_shell("pgrep -f -u $USER -x '" .. pname .. " " .. arg_string .. "' || (" .. prg .. " " .. arg_string .. ")", screen)
 	end
 end
 

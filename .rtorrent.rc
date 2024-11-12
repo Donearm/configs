@@ -22,11 +22,11 @@ directory = /media/private/torrents/
 session = /media/private/torrent/session/
 
 # Load torrents from watch directories and download in different locations
-schedule = books,5,5,"load.start=/media/private/torrent/watch/books/*.torrent,directory.default.set=/media/private/torrents/Books/"
-schedule = vids,5,5,"load.start=/media/private/torrent/watch/vids/*.torrent,directory.default.set=/media/private/torrents/Vids/"
-schedule = music,5,5,"load.start=/media/private/torrent/watch/music/*.torrent,directory.default.set=/media/private/torrents/Music/"
-schedule = others,5,5,"load.start=/media/private/torrent/watch/others/*.torrent,directory.default.set=/media/private/torrents/Others/"
-schedule = untied_directory,5,5,stop_untied=
+schedule = books,5,5,"load.start_verbose=/media/private/torrent/watch/books/*.torrent,d.directory.set=/media/private/torrents/Books/"
+schedule = vids,6,5,"load.start_verbose=/media/private/torrent/watch/vids/*.torrent,d.directory.set=/media/private/torrents/Vids/"
+schedule = music,7,5,"load.start_verbose=/media/private/torrent/watch/music/*.torrent,d.directory.set=/media/private/torrents/Music/"
+schedule = others,8,5,"load.start_verbose=/media/private/torrent/watch/others/*.torrent,d.directory.set=/media/private/torrents/Others/"
+schedule = untied_directory,9,5,stop_untied=
 
 # Close torrents when diskspace is low.
 #schedule = low_diskspace,5,60,close_low_diskspace=100M
@@ -54,14 +54,14 @@ ratio.upload.set=50M
 method.set = group.seeding.ratio.command, d.close=
 
 # copy completed torrents in the Music directory
-method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.base_path=/media/private/torrents/;d.directory.set=/media/private/Music/"
+method.set_key = event.download.finished,copy_complete,"execute=cp,-R,$d.get_base_path=/media/private/torrents/;d.set_directory=/media/private/Music/"
 
 # Notify at torrent completion
 method.set_key = event.download.finished,notify-me,"execute=notify-send,-t,7000,$d.get_name="
 
 # The ip address reported to the tracker.
 #ip = 127.0.0.1
-ip = kortirion
+#ip = driftavalii
 
 # The ip address the listening socket and outgoing connections is
 # bound to.
@@ -101,12 +101,18 @@ encryption = allow_incoming,enable_retry,try_outgoing
 # "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
 # The default is "off". For DHT to work, a session directory must be defined.
 # 
-dht.mode.set = auto
+dht = auto
+=======
+#
+dht = auto
 
 # UDP port to use for DHT. 
 # 
 # dht_port = 6881
-dht.port.set = 50009
+dht_port = 50009
+
+# RPC port
+scgi_port = 127.0.0.1:5000
 
 #
 # Do not modify the following parameters unless you know what you're doing.
@@ -132,5 +138,16 @@ network.http.ssl_verify_peer.set=0
 
 encoding_list = UTF-8
 
+# Logging
+log.open_file = "rtorrent", /var/log/rtorrent.log
+log.open_file = "tracker", /var/log/rtorrent_tracker.log
+log.add_output = "info", "rtorrent"
+log.add_output = "critical", "rtorrent"
+log.add_output = "error", "rtorrent"
+log.add_output = "warn", "rtorrent"
+log.add_output = "notice", "rtorrent"
+log.add_output = "debug", "rtorrent"
+log.add_output = "dht_debug", "tracker"
+log.add_output = "tracker_debug", "tracker"
 
 # vim: set tw=0 cc=0 ft=cfg:

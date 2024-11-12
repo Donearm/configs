@@ -1,0 +1,143 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "gruvbox-dark"
+[theme.overrides]
+idle_bg = "#007c93"
+idle_fg = "#fcfcfb"
+info_bg = "#1f8498" # the music block bg
+info_fg = "#fceedd" # the music block fg
+good_bg = "#a26055" # battery block bg
+good_fg = "#fceedd" # battery block fg
+warning_bg = "#d79921"
+warning_fg = "#fbf1c7"
+critical_bg = "#fceedd"
+critical_fg = "#a26055"
+separator = "\ue0b2"
+separator_bg = "auto"
+separator_fg = "auto"
+[icons]
+icons = "awesome6"
+[icons.overrides]
+cpu = "  "
+memory_mem = "  "
+music = "  "
+backlight = [
+    " ☀ ", # backlight_empty
+    " ☀ ", # backlight_full
+    " ☀ ", # backlight_1
+    " ☀ ", # backlight_2
+    " ☀ ", # backlight_3
+    " ☀ ", # backlight_4
+    " ☀ ", # backlight_5
+    " ☀ ", # backlight_6
+    " ☀ ", # backlight_7
+    " ☀ ", # backlight_8
+    " ☀ ", # backlight_9
+    " ☀ ", # backlight_10
+    " ☀ ", # backlight_11
+    " ☀ ", # backlight_12
+    " ☀ " # backlight_13
+]
+
+[[block]]
+block = "focused_window"
+format = "$title.str(max_w:60) |"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "$icon $barchart $utilization@$frequency"
+
+[[block]]
+block = "amd_gpu"
+#device = "card0" # the device is under /sys/class/drm/
+interval = 1
+format = " $icon $utilization "
+
+[[block]]
+block = "memory"
+format = "$icon $mem_total_used_percents ($cached_percent)"
+format_alt = "$icon_swap $swap_used_percents"
+
+[[block]]
+block = "disk_space"
+path = "/"
+format = "$path $available"
+info_type = "available"
+interval = 120
+warning = 10.0
+alert = 5.0
+
+[[block]]
+block = "disk_space"
+path = "/home"
+format = "$path $available"
+info_type = "available"
+interval = 120
+warning = 10.0
+alert = 5.0
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "backlight"
+device = "amdgpu_bl"
+
+# Battery status is not shown with the Momentum 3 headset so disabling
+# this
+[[block]]
+block = "bluetooth"
+#mac = "00:1B:66:C0:52:9F"
+mac = "34:C9:3D:CB:2C:CF"
+format = "Momentum3 $percentage"
+disconnected_format = ""
+[block.battery_state]
+"0..20" = "critical"
+"21..70" = "warning"
+"71..100" = "good"
+
+[[block]]
+block = "music"
+format = "$icon {$combo.str(max_w:55,rot_interval:0.5) |}"
+[[block.click]]
+button = "left"
+action = "play_pause"
+[[block.click]]
+button = "right"
+action = "next"
+[[block.click]]
+button = "middle"
+action = "prev"
+
+[[block]]
+block = "battery"
+interval = 20
+format = " $icon $percentage ($time) "
+good = 70
+info = 60
+warning = 30
+critical = 15
+full_threshold = 100
+
+[[block]]
+block = "temperature"
+interval = 10
+format = " $icon $min min, $max max, $average avg "
+#chip = "*-pci-*"
+#chip = "*k10temp*"
+#input = ["amdgpu-pci-0400", "k10temp-pci-00c3"]
+
+[[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+interval = 60
+
+[[block]]
+block = "time"
+interval = 60
+format = "$icon $timestamp.datetime(f:'%a %d/%m %R', l:it_IT)"

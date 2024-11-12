@@ -1,10 +1,11 @@
 alias vi="vim"
 alias ll="ls -asl -F -T 0 -b -H -1 --color=always"
-alias l="ls -CF --color=always"
-alias less="less -r"
+alias l="ls -CF"
+alias less="less -rM"
 alias cp="cp -p"
 alias df="df -T"
 alias du="du -h -c"
+alias mutt="neomutt"
 alias grep="grep --color"
 alias bash="/bin/bash --login"
 alias slrn="slrn --kill-log $HOME/.slrn/kill_log.log"
@@ -13,7 +14,9 @@ alias gmail="mutt -f imaps://forod.g@imap.gmail.com:993"
 alias gmail2="mutt -f imaps://fioregianluca@imap.gmail.com:993"
 alias gmail3="mutt -f imaps://puffosaltatore@imap.gmail.com:993"
 alias bajkal="mutt -f imap://in.virgilio.it"
-alias pop3yahoo="mutt -f pop://gianluca1181@pop.mail.yahoo.it"
+alias yahoo='mutt -f imaps://gianluca1181@imap.mail.yahoo.com:993'
+alias papersounds="mutt -f imaps://gianlucafiore@papersounds.eu@mail.papersounds.eu:993"
+alias nespressoguide="mutt -f imaps://admin@nespressoguide.com@mail.nespressoguide.com:993"
 alias pop3msn="mutt -f pops://kinetic8@live.com@pop3.live.com:995"
 alias papersounds="mutt -f imaps://gianlucafiore@papersounds.eu@mail.papersounds.eu:993"
 alias nespressoguide="mutt -f imaps://admin@nespressoguide.com@mail.nespressoguide.com:993"
@@ -23,27 +26,34 @@ alias dpmson="xset +dpms && xset s on"
 alias dvdburn="growisofs -Z /dev/cdrom -J -R"
 alias httpsharedir="python -m http.server 8001 --bind 127.0.0.1"
 alias acestreamengine="acestreamengine --live-disk-cache-size 10000"
-# Sort of screensaver with YT downloaded videos
-alias screensaveryt="DISPLAY=:0 mpv --ao=null --fs --osd-level=0 --shuffle --loop-playlist=inf /media/private/youtube/*"
 # Mplayer using 2 threads/cpu by default
 # disabled because it make playing dvds impossible
 #alias mplayer="mplayer -lavdopts fast:threads=2"
 alias orphans="pacman -Qtdq" # packages not required by any other
 alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 # Rsync alias to sync between laptop and desktop over ssh
-alias ssrsync="rsync -avz --progress --inplace --delete-after --rsh='ssh -p8898'"
+alias ssrsync="rsync -av -C --progress --inplace --delete-after -e 'ssh -p 8898'"
 # Two openssl aliases to encode/decode files
 alias ssl_enc="openssl aes-256-cbc -salt"
 alias ssl_dec="openssl aes-256-cbc -d"
 # Ettercap ARP spoofing ;)
 alias etterspoof="sudo ettercap -T -M arp:remote -P autoadd /192.168.1.3/ /192.168.1.1/"
+# Show user declared functions
+alias show_funcs="declare -F | grep -v _"
+# Disable/enable speakers
+alias speakeron="amixer set Speaker unmute"
+alias speakeroff="amixer set Speaker mute"
+# Correctly connect over ssh (kitty terminal fix)
+alias kittyssh="kitty +kitten ssh"
+# Reboot, one time only, on Windows
+alias backtowindows="sudo bootctl set-oneshot auto-windows"
 
 
-# top 15 most used commands
-topfifteen() {
+# top 20 most used commands
+toptwenty() {
 	history | awk '{if ($4 == "sudo") {print $5} else {print $4}}' | \
 		awk 'BEGIN {FS ="|"} {print $1}' \
-		| grep -v topfifteen | sort | uniq -c | sort -rn | head -15
+		| grep -v toptwenty | sort | uniq -c | sort -rn | head -20
 }
 
 startX() {
@@ -54,15 +64,6 @@ startX() {
 	fi
 	disown
 	logout
-}
-
-# Fahstat - get info about current folding@home unit
-fahstat() {
-	#echo
-	cat /opt/fah-smp/gianluca/unitinfo.txt
-	echo
-	tail -n 1 /opt/fah-smp/gianluca/FAHlog.txt
-	echo
 }
 
 # Pngtojpeg - converts each png in the current directory in jpeg
@@ -84,24 +85,27 @@ gitgrep() {
 }
 
 # Quickly mount/umount an Android phone
-phone_on() {
-	mkdir -p phone
-	jmtpfs -o allow_other phone
-	if [ $? -eq 0 ]; then
-		echo "Your phone has been successfully mounted"
-	else
-		echo "Something went wrong, the phone couldn't be mounted"
-	fi
-}
-
-phone_off() {
-	fusermount -u phone
-	if [ $? -eq 0 ]; then
-		if [ -d phone ]; then
-			rm -rf phone/
+phone() {
+	if [[ $1 == 'mount' ]]; then
+		mkdir -p phone
+		go-mtpfs -o allow_other phone
+		if [ $? -eq 0 ]; then
+			echo "Your phone has been successfully mounted"
+		else
+			echo "Something went wrong, the phone couldn't be mounted"
+		fi
+	elif [[ $1 == 'umount' ]]; then
+		fusermount -u phone
+		if [ $? -eq 0 ]; then
+			if [ -d phone ]; then
+				rm -rf phone/
+			fi
+		else
+			echo "Couldn't unmount the phone"
 		fi
 	else
-		echo "Couldn't unmount the phone"
+		echo "Use phone (mount|umount) to mount or unmount your phone"
+		return 1
 	fi
 }
 
@@ -109,8 +113,12 @@ forecast_me() {
 	curl -S http://wttr.in/$1
 }
 
+ccurrencies() {
+	curl eur.rate.sx/?n=20
+}
+
 have_a_rainbow() {
-	 yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done
+	yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done
 }
 
 # Cd with context (thanks to @smllmp)
@@ -121,17 +129,21 @@ c() {
 	pwd;
 }
 
+# output local directories, relative to . , that suck up the most
+# diskspace
 wheredidallthespacego() {
 	sudo du -h $1 | grep -P '^[0-9\.]+[MGT]'
 }
 
+# optimize and resize to a given size an image
+# Usage: resizeimage imgpath size pathtosavetheimg
 resizeimages() {
 	mogrify -path $3 -filter Triangle -define filter:support=2 -thumbnail $2 -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 62 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB "$1"
 }
 
 # Play Youtube videos while downloading. Requires youtube-dl and mpv (or MPlayer)
 youplay() {
-	youtube-dl -o - $1 | mpv -
+	youtube-dl --geo-bypass -o - $1 | mpv -
 }
 
 # Easily mark and jump in the filesystem
@@ -150,6 +162,44 @@ function munmark() {
 function mmarks() {
 	\ls -l "$MARKPATH" | grep -v '^total' | awk '{printf "%-15s -> %s\n", $9,$11}' && echo
 }
+
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export" as in:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # NOTE: NNN_TMPFILE is fixed, should not be modified
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+# Plugins for nnn
+export NNN_PLUG='p:preview-tui'
+# Fifo for nnn
+export NNN_FIFO=/tmp/nnn.fifo
+# Bookmarks for nnn
+export NNN_BMS="h:${HOME};p:/media/private/;i:/mnt/documents/c/Tempstuff/instagram"
+# Colors for nnn
+export NNN_COLORS="#163e7b"
+# Archives to handle in nnn
+export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
 
 # No one should read/write/execute my files by default
 #umask 0077
@@ -190,7 +240,7 @@ bgwhite="\033[47m"
 txtreset="\033[0m" # text reset
 
 
-export PATH=/usr/local/bin:/opt/android-sdk/platform-tools/:/usr/lib/go/site/bin/:$HOME/.go/bin/:$HOME/.local/bin/:$PATH
+export PATH="/usr/local/bin:/opt/android-sdk/platform-tools/:/usr/lib/go/bin/:$HOME/.go/bin/:$HOME/.local/bin/:$PATH"
 
 # Variables for the git prompt
 GIT_PS1_SHOWDIRTYSTATE="1"
@@ -199,64 +249,30 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-    PS1="${bRed}\[[${bnc}\u@\H ${bRed}\W${bRed}]\]$ ${bnc}"
-elif [[ "$TERM" = "screen" || "$TERM" = "screen-256color" ]]
-then
-    if [[ `whoami` == "root" ]]; then
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) ${bRed}»${bnc} \h:\w \n${bred} >: ${bnc}"
-    else
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) ${bRed}»${bnc} \h:\w \n >: "
-    fi
-elif [[ "$TERM" = "rxvt-unicode" || "$TERM" = "rxvt" || "$TERM" = "rxvt-256color" || "$TERM" = "rxvt-unicode-256color" || "$TERM" = "xterm-termite" ]]
-then
-	# 256 colors available?
-	if [[ "$TERM" != "rxvt-256color" ]]; then
-		if [ -e /usr/share/terminfo/r/rxvt-256color ]; then
-			export TERM='rxvt-256color'
-		else
-			continue
-		fi
-	fi
-    if [[ `whoami` == "root" ]]; then
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) ${bRed}»${bnc} \h:\w \n${bred} >: ${bnc}"
-    else
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y) \$(__git_ps1 [%s]) ${bRed}»${bnc} \h:\w \n >: "
-    fi
-    #export TITLEBAR='\[\e]0;\u | term | \h:\w\007\]'
-# Let's try
-    export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
-    export COLORTERM='rxvt-unicode'
+	PS1="${bYellow}\[[${bnc}\u@\H ${bYellow}\W${bYellow}]\]$ ${bnc}"
 else
-    if [[ `whoami` == "root" ]]; then
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y)${bRed} »${bnc} \h:\w \n${bred} >: ${bnc}"
-    else
-		PS1="${bRed}«${bnc} \$(date +%d/%m/%Y)${bRed} »${bnc} \h:\w \n >: "
-    fi
+	export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
+	if [[ `whoami` == "root" ]]; then
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
+	else
+		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
+	fi
 fi
-
 
 export BROWSER="firefox"
 export EDITOR="vim"
 export MAIL="$HOME/Maildir/"
-export SERVER='news.tin.it'
 export SLANG_EDITOR='vim'
 export NNTPSERVER='news.tin.it'
 export MAILCHECK=600000000000 # I don't really need a shell mailcheck....
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 export GOPATH="$HOME/.go/"
-export LANG=it_IT.utf8
-export LANGUAGE=it_IT.utf8
-export LC_TYPE=it_IT.utf8
-export LC_CTYPE=it_IT.utf8
-export LC_COLLATE=it_IT.utf8
-export LC_ALL=it_IT.utf8
-export LC_MESSAGES=it_IT.utf8
-export LC_NUMERIC=it_IT.utf8
+export GOBIN="$HOME/.go/bin/"
 # use less with utf8
 export LESSCHARSET="utf-8"
 export DATE=`date +%G_%m_%d`
 # set the size of the bash history
-export HISTSIZE=20000
+export HISTSIZE=2000
 # add date and time to history elements
 export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth # no doubles in bash_history
@@ -305,16 +321,13 @@ export HISTCONTROL=ignoreboth # no doubles in bash_history
 #export LS_COLORS="di=1:fi=0:ln=95:pi=93:so=36:bd=96:cd=96:or=95,101:mi=95,101:ex=94"
 eval $(dircolors -b ~/.dir_colors/dircolors.ansi-dark)
 
-# set the desktop integration for OO (may be kde or gnome)
-export OOO_FORCE_DESKTOP=gnome
 # to improve firefox responsiveness
 export MOZ_DISABLE_PANGO=1
 # Make Qt use Gtk2 themes
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-# Two variables to use vdpau backend via Gallium3d on open source Amd
-# drivers
-export LIBVA_DRIVER_NAME=vdpau
-export VDPAU_DRIVER=radeonsi
+# Use nvidia VDPAU backend
+#export VDPAU_DRIVER=nvidia
+#export LIBVA_DRIVER_NAME=nvidia
 
 # Check terminal size
 shopt -s checkwinsize
@@ -322,14 +335,9 @@ shopt -s checkwinsize
 shopt -s cdspell
 
 # auto completion
-source /usr/share/bash-completion/completions/*
+source /usr/share/bash-completion/completions/git
+#source <(kitty + complete setup bash)
 # git prompt
-#source /usr/share/git/git-prompt.sh
-
-# Launch ssh-agent, but only if it's not been launched already!
-if [[ -z `pgrep ssh-agent` ]]; then
-	eval $(ssh-agent)
-fi
 #source /usr/share/git/git-prompt.sh
 
 # bash-git-prompt settings

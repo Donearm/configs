@@ -1,12 +1,30 @@
 #!/bin/sh
 
-#display -window root /home/gianluca/Downloads/wallpaper2.jpg &
-display -window root /home/gianluca/Downloads/wallpaper-beksinski001.jpg &
+# Load some defaults for each user
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+#display -window root /mnt/documents/d/Images/French_Polynesia.jpg &
+#feh --bg-fill ~/documents/Images/victorpks-vikings-edit.jpg &
+feh --bg-fill ~/documents/Camera_images/0000DROPBOX/Hvar-IMG_3407.jpg &
+
+# Set a few variables that aren't by i3 (this fixes slow startup times 
+# of some applications, like Thunar and Firefox)
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 
 xbindkeys
-xset m 0.7 2
-xset dpms 0 900 2750
+# Force setting the options set under xorg.conf.d/00-keyboard.conf 
+# because sometimes they get not set. The empty option parameter is 
+# necessary to clear all previously set options. Toggle layout with Win + Space
+setxkbmap -model pc105 -layout us,it,pl -variant qwerty -option  -option grp:win_space_toggle -option compose:menu
+xset m 0.7 1.6
+xset dpms 0 420 600
+xrandr --dpi 96
+xss-lock ~/documents/Script/script_lock_screen.sh &
+lxsession &
+parcellite &
 firefox &
+kitty &
+kitty &
 
 exit 0
 

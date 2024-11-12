@@ -1,7 +1,7 @@
 [user]
 	name = Gianluca Fiore
-	email = gianlucafiore@papersounds.eu
-	signingkey = 7E7071DCCB1DAD19
+	email = gianlucafiore@fountainpencreator.com
+	signingkey = FEBBD5283FC9BB2AD80A2BB79DC39761CF95D79B
 [color]
 	ui = true
 	branch = auto
@@ -13,11 +13,12 @@
 	signoff = true
 [core]
 	excludesfile = /home/gianluca/.gitignore
+	mergeoptions = --no-edit
+	pager = more
 [alias]
 	l = log --graph --decorate --no-merges --oneline
 	lp = log --graph --decorate --pretty=short -p --word-diff
-	discard = reset HEAD --hard
-	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+	discard = reset HEAD --hard lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
 	graph = log --graph -10 --branches --remotes --tags --format=format:'%Cgreen%h %Creset°%<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 	gofmt = !echo $(git diff --cached --name-only --diff-filter=ACM | grep .go) | xargs gofmt -w -l
 	recap = git log --all --oneline --no-merges --author=forod.g@gmail.com
@@ -33,7 +34,11 @@
 [push]
 	default = simple
 [pretty]
-    # http://stackoverflow.com/questions/7430093/git-log-formatting, slightly modified
-    vonc = format:%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%aN>%Creset
+	# http://stackoverflow.com/questions/7430093/git-log-formatting, slightly modified
+	vonc = format:%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%aN>%Creset
 [credential]
-	helper = cache
+	helper = cache --timeout=3600
+[init]
+	defaultBranch = master
+[commit]
+	gpgsign = true

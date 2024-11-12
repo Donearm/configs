@@ -1,0 +1,36 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# set up the format of the main prompt
+format = '$all'
+
+command_timeout = 1000
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# Display battery levels all the time
+[[battery.display]]
+threshold = 100
+style = 'red'
+discharging_symbol = '💦 '
+charging_symbol = '⚡️ '
+
+# Enable git metrics module
+[git_metrics]
+disabled = true
+
+# config for the username module
+[username]
+style_user = 'green bold'
+style_root = 'red bold'
+format = '[$user]($style) '
+show_always = true
