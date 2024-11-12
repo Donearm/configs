@@ -14,11 +14,12 @@
 		"cpu",
 		"memory",
 		"disk",
-		"temperature",
+		"disk",
 		"bluetooth",
 		"wireplumber",
 		"hyprland/language",
 		"idle_inhibitor",
+		"privacy",
 		"clock",
 		"tray"
 		],
@@ -51,7 +52,8 @@
 		"player-icons": {
 			"default": "▶",
 			"mpv": "🎵",
-			"firefox": ""
+			"firefox": "",
+			"zen-browser": ""
 		},
 		"status-icons": {
 			"paused": "⏸"
@@ -92,14 +94,11 @@
 		"format": "{free} left on /",
 		"path": "/"
 	},
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
+	"disk": {
+		"interval": 120,
+		"format": "{free} left on documents",
+		"path": "/mnt/documents"
+	},
 	"bluetooth": {
 		"format": "",
 		"format-on": "",
@@ -134,6 +133,28 @@
             "deactivated": ""
         },
     },
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 18,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},
     "tray": {
          "icon-size": 20,
         "spacing": 10
