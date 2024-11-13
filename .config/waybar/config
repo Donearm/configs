@@ -1,7 +1,7 @@
 {
     "position": "bottom", // Waybar position (top|bottom|left|right)
 	"layer": "top",
-    "height": 50, // Waybar height (to be removed for auto height)
+    "height": 58, // Waybar height (to be removed for auto height)
     //"width": 1920, // Waybar width
     // Choose the order of the modules
     "modules-left": [
@@ -14,7 +14,7 @@
 		"cpu",
 		"memory",
 		"disk",
-		"disk",
+		"disk#documents",
 		"bluetooth",
 		"wireplumber",
 		"hyprland/language",
@@ -71,8 +71,8 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} 🖧",
+        "format-linked": "{ifname} (No IP) ⓿",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -86,15 +86,15 @@
 		},
     },
     "memory": {
-        "format": "{}%  ",
-		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used  "
+        "format": "{}% 🐏 ",
+		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used 🐏"
     },
 	"disk": {
 		"interval": 120,
 		"format": "{free} left on /",
 		"path": "/"
 	},
-	"disk": {
+	"disk#documents": {
 		"interval": 120,
 		"format": "{free} left on documents",
 		"path": "/mnt/documents"
@@ -220,14 +220,14 @@
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
         //"format-bluetooth": "{volume}% {icon} {format_source}",
-        //"format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "  {format_source}",
+        //"format-bluetooth-muted": "🔇 {icon} {format_source}",
+        "format-muted": "🔇  {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "👋",
+            "headset": "🎧",
             "phone": "",
             "portable": "",
             "car": "",
