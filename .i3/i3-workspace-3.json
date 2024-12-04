@@ -17,7 +17,7 @@
         "class": "^obsidian$",
        // "instance": "^obsidian$",
        // "machine": "^icarias$",
-        "title": "^Obsidian$",
+       // "title": "^Obsidian$",
        },
     ],
     "type": "con"
