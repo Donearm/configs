@@ -225,11 +225,12 @@ for_window [class="microsoft teams - preview"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="gcolor3"] floating enable
 for_window [class="pavucontrol"] floating enable
+for_window [class="org.gnome.Evolution"] floating enable
 
 # Assign programs to a specific workspace
 assign [class="Gimp"] 5
 assign [class="Spotify"] 5
-assign [class="zettlr"] 3
+assign [class="proton-bridge"] 5
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)

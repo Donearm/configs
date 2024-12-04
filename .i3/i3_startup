@@ -22,7 +22,10 @@ xrandr --dpi 96
 xss-lock ~/documents/Script/script_lock_screen.sh &
 lxsession &
 parcellite &
-firefox &
+protonmail-bridge &
+evolution &
+zen-browser &
+obsidian &
 kitty &
 kitty &
 

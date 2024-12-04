@@ -10,11 +10,11 @@
        "y": 0
     },
     "marks": [],
-    "name": "Mozilla Firefox",
+    "name": "Zen Browser",
     "percent": 1,
     "swallows": [
        {
-        "class": "^firefox$",
+        "class": "^zen-browser$",
         "instance": "^Navigator$",
        // "machine": "^icarias$",
        // "title": "^Mozilla\\ Firefox$",
