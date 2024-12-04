@@ -20,7 +20,7 @@ separator_fg = "auto"
 icons = "awesome6"
 [icons.overrides]
 cpu = "  "
-memory_mem = "  "
+memory_mem = " ▤ "
 music = "  "
 backlight = [
     " ☀ ", # backlight_empty
@@ -50,10 +50,10 @@ interval = 1
 format = "$icon $barchart $utilization@$frequency"
 
 [[block]]
-block = "amd_gpu"
+block = "nvidia_gpu"
 #device = "card0" # the device is under /sys/class/drm/
 interval = 1
-format = " $icon $utilization "
+format = " $icon $utilization $temperature $clocks "
 
 [[block]]
 block = "memory"
@@ -84,10 +84,6 @@ block = "sound"
 button = "left"
 cmd = "pavucontrol"
 
-[[block]]
-block = "backlight"
-device = "amdgpu_bl"
-
 # Battery status is not shown with the Momentum 3 headset so disabling
 # this
 [[block]]
@@ -115,16 +111,6 @@ button = "middle"
 action = "prev"
 
 [[block]]
-block = "battery"
-interval = 20
-format = " $icon $percentage ($time) "
-good = 70
-info = 60
-warning = 30
-critical = 15
-full_threshold = 100
-
-[[block]]
 block = "temperature"
 interval = 10
 format = " $icon $min min, $max max, $average avg "
@@ -140,4 +126,4 @@ interval = 60
 [[block]]
 block = "time"
 interval = 60
-format = "$icon $timestamp.datetime(f:'%a %d/%m %R', l:it_IT)"
+format = "$icon  $timestamp.datetime(f:'%a %d/%m %R', l:it_IT)"
