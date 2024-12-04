@@ -4,3 +4,6 @@ Xft*antialias:          1
 Xft*hinting:            medium
 Xft.hintstyle:          hintlight
 Xft*.lcdfilter:         lcddefault
+
+Xcursor.theme: Bibata-Modern-Ice
+Xcursor.size: 32
