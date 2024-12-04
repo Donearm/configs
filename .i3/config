@@ -24,7 +24,6 @@ font pango:Iosevka 10
 floating_modifier Mod4
 
 # startup applications
-exec --no-startup-id "i3-msg 'workspace 5; append_layout ~/.config/i3/i3-workspace-5.json'"
 exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.config/i3/i3-workspace-3.json'"
 exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/i3-workspace-2.json'"
 exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/i3-workspace-1.json'"
@@ -203,7 +202,7 @@ bindsym Mod4+Del mode "system"
 #}
 
 bar {
-	font pango:Iosevka FontAwesome 9
+	font pango:Iosevka FontAwesome 16
 	position bottom
 	status_command i3status-rs /home/gianluca/.config/i3status-rust/config.toml
 	colors {
@@ -225,12 +224,15 @@ for_window [class="microsoft teams - preview"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="gcolor3"] floating enable
 for_window [class="pavucontrol"] floating enable
+for_window [class="protonmail-bridge"] floating enable
 for_window [class="org.gnome.Evolution"] floating enable
 
 # Assign programs to a specific workspace
+assign [class="obsidian"] 3
 assign [class="Gimp"] 5
 assign [class="Spotify"] 5
-assign [class="proton-bridge"] 5
+assign [class="protonmail-bridge"] 5
+assign [class="org.gnome.Evolution"] 5
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
