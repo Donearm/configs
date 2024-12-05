@@ -5,5 +5,4 @@ Xft*hinting:            medium
 Xft.hintstyle:          hintlight
 Xft*.lcdfilter:         lcddefault
 
-Xcursor.theme: Bibata-Modern-Ice
-Xcursor.size: 32
+Xcursor.theme: handhelds
