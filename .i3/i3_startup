@@ -21,9 +21,8 @@ xset m 0.7 1.6
 xset dpms 0 420 600
 xrandr --dpi 96
 xss-lock ~/documents/Script/script_lock_screen.sh &
-lxsession &
-parcellite &
 nitrogen --restore &
+picom -b &
 protonmail-bridge &
 evolution &
 zen-browser &
