@@ -183,7 +183,7 @@ mode "system" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym Mod4+Del mode "system"
+bindsym Mod4+Delete mode "system"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -223,6 +223,7 @@ for_window [class="Gimp"] floating enable
 for_window [class="microsoft teams - preview"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="gcolor3"] floating enable
+for_window [class="gnome-calculator"] floating enable
 for_window [class="pavucontrol"] floating enable
 for_window [class="protonmail-bridge"] floating enable
 for_window [class="org.gnome.Evolution"] floating enable
