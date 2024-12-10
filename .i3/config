@@ -9,7 +9,7 @@
 # layout, use the i3-config-wizard
 #
 
-set $Locker "~/documents/Script/i3lock-script.sh" 
+set $Locker "~/documents/Script/i3lock-dracula-script.sh" 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -183,7 +183,7 @@ mode "system" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym Mod4+Delete mode "system"
+bindsym Mod4+Delete	mode "system"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -233,8 +233,12 @@ for_window [class="obsidian"] floating enable
 assign [class="obsidian"] 3
 assign [class="Gimp"] 5
 assign [class="Spotify"] 5
+# trying with multiple strings for Protonmail bridge and Evolution
 assign [class="protonmail-bridge"] 5
+assign [class="Proton Mail Bridge"] 5
 assign [class="org.gnome.Evolution"] 5
+assign [class="Org.gnome.Evolution"] 5
+assign [class="evolution"] 5
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
