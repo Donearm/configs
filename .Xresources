@@ -6,3 +6,4 @@ Xft.hintstyle:          hintlight
 Xft*.lcdfilter:         lcddefault
 
 Xcursor.theme: handhelds
+Xcursor.size: 24
