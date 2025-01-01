@@ -9,7 +9,7 @@
 # layout, use the i3-config-wizard
 #
 
-set $Locker "~/documents/Script/i3lock-dracula-script.sh" 
+set $Locker "~/documents/Scripts/i3lock-dracula-script.sh" 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -141,7 +141,7 @@ bindsym Mod4+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod4+Shift+r restart
 # lock session
-bindsym Mod4+Shift+p exec "~/documents/Script/i3lock-script.sh"
+bindsym Mod4+Shift+p exec $Locker
 # exit i3 (logs you out of your X session)
 #bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym Mod4+Shift+e exec "i3-msg exit"
@@ -239,6 +239,10 @@ assign [class="Proton Mail Bridge"] 5
 assign [class="org.gnome.Evolution"] 5
 assign [class="Org.gnome.Evolution"] 5
 assign [class="evolution"] 5
+assign [class="com.github.johnfactotum.Foliate"] 6
+# Thunderbird classes
+assign [class="Mail"] 5
+assign [class="thunderbird"] 5
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
