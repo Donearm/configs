@@ -227,7 +227,7 @@ for_window [class="gnome-calculator"] floating enable
 for_window [class="pavucontrol"] floating enable
 for_window [class="protonmail-bridge"] floating enable
 for_window [class="org.gnome.Evolution"] floating enable
-for_window [class="obsidian"] floating enable
+#for_window [class="obsidian"] floating enable
 
 # Assign programs to a specific workspace
 assign [class="obsidian"] 3
