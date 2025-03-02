@@ -1,6 +1,7 @@
 // vim:ts=4:sw=4:et
 {
     "border": "none",
+	"layout": "tabbed",
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
@@ -22,4 +23,3 @@
     ],
     "type": "con"
 }
-
