@@ -10,14 +10,14 @@
        "y": 0
     },
     "marks": [],
-    "name": "Zettlr",
+    "name": "Obsidian",
     "percent": 1,
     "swallows": [
        {
-        "class": "^Zettlr$",
-       // "instance": "^zettlr$",
+        "class": "^Obsidian$",
+       // "instance": "^obsidian$",
        // "machine": "^icarias$",
-        "title": "^Zettlr$",
+        "title": "^Obsidian$",
        // "window_role": "^browser\\-window$"
        },
     ],
