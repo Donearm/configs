@@ -230,6 +230,7 @@ for_window [class="pavucontrol"] floating enable
 assign [class="Gimp"] 5
 assign [class="Spotify"] 5
 assign [class="zettlr"] 3
+assign [class="obsidian"] 3
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
