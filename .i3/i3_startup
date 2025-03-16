@@ -22,6 +22,8 @@ xrandr --dpi 96
 xss-lock ~/documents/Script/script_lock_screen.sh &
 lxsession &
 parcellite &
+dunst & # notification manager
+obsidian &
 firefox &
 kitty &
 kitty &
