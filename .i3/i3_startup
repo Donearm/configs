@@ -22,7 +22,7 @@ xset dpms 0 420 600
 xrandr --dpi 96
 xss-lock ~/documents/Scripts/i3lock-dracula-script.sh &
 nitrogen --restore &
-picom -b &
+picom -b --xrender-sync --xrender-sync-fence &
 protonmail-bridge &
 thunderbird &
 zen-browser &
