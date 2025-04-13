@@ -19,7 +19,7 @@ setxkbmap -model pc105 -layout us,it,pl -variant qwerty -option  -option grp:win
 xset m 0.7 1.6
 xset dpms 0 420 600
 xrandr --dpi 96
-xss-lock ~/documents/Script/script_lock_screen.sh &
+xss-lock ~/documents/Script/i3lock-script.sh &
 lxsession &
 parcellite &
 dunst & # notification manager
