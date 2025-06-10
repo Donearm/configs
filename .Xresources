@@ -5,5 +5,5 @@ Xft*hinting:            medium
 Xft.hintstyle:          hintlight
 Xft*.lcdfilter:         lcddefault
 
-Xcursor.theme: handhelds
+Xcursor.theme: adwaita 
 Xcursor.size: 24
