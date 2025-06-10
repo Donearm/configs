@@ -16,10 +16,11 @@ xbindkeys
 # Force setting the options set under xorg.conf.d/00-keyboard.conf 
 # because sometimes they get not set. The empty option parameter is 
 # necessary to clear all previously set options. Toggle layout with Win + Space
-setxkbmap -model pc105 -layout us,it,pl -variant qwerty -option  -option grp:win_space_toggle -option compose:menu
+#setxkbmap -model pc105 -layout us,it,pl -variant qwerty -option  -option grp:win_space_toggle -option compose:menu
 xset m 0.7 1.6
 xset dpms 0 420 600
 xrandr --dpi 96
+xrdb -merge ~/.Xresources
 xss-lock ~/documents/Scripts/i3lock-dracula-script.sh &
 nitrogen --restore &
 picom -b --xrender-sync --xrender-sync-fence &
