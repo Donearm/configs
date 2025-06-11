@@ -89,7 +89,7 @@
     },
     "memory": {
         "format": "{}% 🐏 ",
-		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used 🐏"
+		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used 🐏\n{swapUsed:0.1f}G/{swapTotal:0.1f}G used 💱"
     },
 	"disk": {
 		"interval": 120,
@@ -119,13 +119,15 @@
 		"format-icons": ["", "", ""]
 	},
 	"hyprland/language": {
-		"format": "{} ⌨",
+		"format": "{flag} ⌨",
 		"format-en": "US",
 		"format-it": "IT",
 		"format-pl": "PL",
-		"keyboard-name": "at-translated-set-2-keyboard",
+		//"keyboard-name": "at-translated-set-2-keyboard",
+		"keyboard-name": "keychron-k8-pro-keyboard",
 		"actions": {
-			"on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+			"on-click": "hyprctl switchxkblayout keychron-k8-pro-keyboard next"
+			//"on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
 		},
 	},
     "idle_inhibitor": {
