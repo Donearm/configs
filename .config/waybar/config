@@ -119,7 +119,7 @@
 		"format-icons": ["", "", ""]
 	},
 	"hyprland/language": {
-		"format": "{flag} ⌨",
+		"format": "{} ⌨",
 		"format-en": "US",
 		"format-it": "IT",
 		"format-pl": "PL",
