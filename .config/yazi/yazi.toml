@@ -1,3 +1,7 @@
 [preview]
 max_width = 1200
 max_height = 1200
+
+[tasks]
+# No limits to image size to preview
+image_bound = [0, 0]
