@@ -5,3 +5,8 @@ max_height = 1200
 [tasks]
 # No limits to image size to preview
 image_bound = [0, 0]
+
+[open]
+append_rules = [
+    { name = "*.png", use = "imv" },
+]
