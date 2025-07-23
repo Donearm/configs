@@ -88,8 +88,8 @@
 		},
     },
     "memory": {
-        "format": "{}% 🐏 ",
-		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used 🐏\n{swapUsed:0.1f}G/{swapTotal:0.1f}G used 💱"
+        "format": "{}% ",
+		"tooltip-format": "{used:0.1f}G/{total:0.1f}G used \n{swapUsed:0.1f}G/{swapTotal:0.1f}G used "
     },
 	"disk": {
 		"interval": 120,
