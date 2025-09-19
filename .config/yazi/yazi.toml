@@ -6,7 +6,12 @@ max_height = 1200
 # No limits to image size to preview
 image_bound = [0, 0]
 
+[opener]
+open = [
+    { run = 'imv "$@"', desc = "Open", for = "linux" },
+]
+
 [open]
-append_rules = [
-    { name = "*.png", use = "imv" },
+rules = [
+    { mime = "image/*", use = [ "open" ] },
 ]
