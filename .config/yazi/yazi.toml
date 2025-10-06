@@ -8,10 +8,14 @@ image_bound = [0, 0]
 
 [opener]
 open = [
-    { run = 'imv "$@"', desc = "Open", for = "linux" },
+    { run = 'imv "$@"', desc = "See image", for = "linux" },
+    { run = 'mpv "$@"', desc = "Play video", for = "linux" },
+    { run = 'zathura "$@"', desc = "Read", for = "linux" },
 ]
 
 [open]
-rules = [
-    { mime = "image/*", use = [ "open" ] },
+prepend_rules = [
+    { mime = "image/*", use = [ "see image" ] },
+    { mime = "video/*", use = [ "play video" ] },
+    { mime = "application/pdf", use = [ "read" ] },
 ]
