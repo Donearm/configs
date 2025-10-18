@@ -11,11 +11,15 @@ open = [
     { run = 'imv "$@"', desc = "See image", for = "linux" },
     { run = 'mpv "$@"', desc = "Play video", for = "linux" },
     { run = 'zathura "$@"', desc = "Read", for = "linux" },
+    { run = 'zen-browser "$@"', desc = "Open in browser", for = "linux" },
 ]
 
 [open]
 prepend_rules = [
-    { mime = "image/*", use = [ "see image" ] },
+    { mime = "image/png", use = [ "see image" ] },
+    { mime = "image/jpg", use = [ "see image" ] },
+    { mime = "image/webp", use = [ "see image" ] },
+    { mime = "image/gif", use = [ "open in browser" ] },
     { mime = "video/*", use = [ "play video" ] },
     { mime = "application/pdf", use = [ "read" ] },
 ]
