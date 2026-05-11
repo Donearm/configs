@@ -29,8 +29,9 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "kitty"
+local lock		  = "hyprlock"
 local fileManager = terminal .. "yazi"
-local menu        = "cliphist list | wofi -dmenu | cliphist decode | wl-copy"
+local menu		  = "wofi --show drun"
 local browser	  = "zen-browser"
 local mail_app	  = "thunderbird"
 local obsidian	  = "OBSIDIAN_USE_WAYLAND=1 obsidian --no-sandbox --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations"
@@ -292,6 +293,7 @@ hl.bind(mainMod .. " + SHIFT + G", hl.dsp.group.toggle())
 -- Switch to next/prev window in an existing group
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.group.next())
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.group.prev())
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(lock))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
