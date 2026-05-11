@@ -1,6 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+#:schema https://yazi-rs.github.io/schemas/keymap.json
 
 [mgr]
 ratio          = [ 1, 4, 3 ]
@@ -105,13 +105,7 @@ image_bound      = [ 0, 0 ]
 suppress_preload = false
 
 [plugin]
-fetchers = [
-	# Mimetype
-	{ id = "mime", url = "*/",         run = "mime.dir", prio = "high" },
-	{ id = "mime", url = "local://*",  run = "mime.local", prio = "high" },
-	{ id = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
-]
-spotters = [
+append_spotters = [
 	{ url = "*/", run = "folder" },
 	# Code
 	{ mime = "text/*", run = "code" },
@@ -129,7 +123,7 @@ spotters = [
 	# Fallback
 	{ url = "*", run = "file" },
 ]
-preloaders = [
+append_preloaders = [
 	# Image
 	{ mime = "image/{avif,hei?,jxl}", run = "magick" },
 	{ mime = "image/svg+xml", run = "svg" },
@@ -142,7 +136,7 @@ preloaders = [
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/ms-opentype", run = "font" },
 ]
-previewers = [
+append_previewers = [
 	{ url = "*/", run = "folder" },
 	# Code
 	{ mime = "text/*", run = "code" },

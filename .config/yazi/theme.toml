@@ -138,8 +138,8 @@ rules = [
     { mime = "application/x-rar",           fg = "#fe8019" },
 
     # Fallback
-    { name = "*", fg = "#a89984" },
-    { name = "*/", fg = "#83a598" }
+    { mime = "*", name = "*", fg = "#a89984" },
+    { mime = "*", name = "*/", fg = "#83a598" }
 ]
 
 # : }}}
