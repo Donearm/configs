@@ -467,7 +467,7 @@ hl.window_rule({
 -- Floating windows group matching
 hl.window_rule({
 	name = "floating-windows",
-	match = { class = "^(mpv|gimp|gcolor3|qalculate-gkt)$" },
+	match = { class = "^(mpv|gimp|gcolor3|qalculate-gtk)$" },
 	float = true,
 	persistent_size = true,
 })
