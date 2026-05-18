@@ -406,6 +406,7 @@ hl.window_rule({
 	name = "obsidian-on-its-own-workspace",
 	match = { class = "obsidian" },
 	workspace = "3",
+	focus_on_activate = true, -- this is needed for Obsidian Web Clipper to work under Wayland compositors
 })
 hl.window_rule({
 	name = "mail-app-on-workspace-5",
