@@ -5,7 +5,7 @@
     //"width": 1920, // Waybar width
     // Choose the order of the modules
     "modules-left": [
-		"hyprland/workspaces",
+		"ext/workspaces",
 		"hyprland/window",
 		],
     "modules-center": ["mpris"],
@@ -25,12 +25,12 @@
 		],
 
 	// ** LEFT ** //
-	"hyprland/workspaces": {
-		"format": "{icon}",
+	"ext/workspaces": {
+		"all-outputs": true,
 		"on-click": "activate",
-		"on-scroll-up": "hyprctl dispatch workspace e+1",
-		"on-scroll-down": "hyprctl dispatch workspace e-1",
-		"sort-by-number": true,
+		"active-only": false,
+		"format": "{icon}",
+		"sort-by-name": true,
 		"format-icons": {
       "1": "1",
       "2": "2",
