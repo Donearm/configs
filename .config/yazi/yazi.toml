@@ -47,7 +47,7 @@ open = [
 	{ run = "open %s",         desc = "Open", for = "macos" },
 	{ run = 'start "" %s1',    desc = "Open", for = "windows", orphan = true },
 	{ run = "termux-open %s1", desc = "Open", for = "android" },
-    { run = 'imv "$@"', desc = "See image", for = "linux" },
+    { run = '~/documents/Scripts/fehgallery.py "$@"', desc = "See image", for = "linux" },
     { run = 'mpv "$@"', desc = "Play video", for = "linux" },
     { run = 'zathura "$@"', desc = "Read", for = "linux" },
     { run = 'zen-browser "$@"', desc = "Open in browser", for = "linux" },
