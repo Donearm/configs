@@ -475,7 +475,7 @@ hl.window_rule({
 -- Group Obsidian windows
 hl.window_rule({
 	name = "group-obsidian-windows",
-	match = { class = "obsidian" },
+	match = { class = "md.obsidian.Obsidian" },
 	group = "set",
 })
 -- Group mail app with proton bridge (as we need the latter for the 
