@@ -400,7 +400,7 @@ hl.window_rule({
 })
 hl.window_rule({
 	name = "obsidian-on-its-own-workspace",
-	match = { class = "obsidian" },
+	match = { class = "md.obsidian.Obsidian" },
 	workspace = "3",
 	focus_on_activate = true, -- this is needed for Obsidian Web Clipper to work under Wayland compositors
 })
@@ -471,7 +471,7 @@ hl.window_rule({
 -- Group Obsidian windows
 hl.window_rule({
 	name = "group-obsidian-windows",
-	match = { class = "obsidian" },
+	match = { class = "md.obsidian.Obsidian" },
 	group = "set",
 })
 -- Group mail app with proton bridge (as we need the latter for the 
