@@ -47,10 +47,18 @@ open = [
 	{ run = "open %s",         desc = "Open", for = "macos" },
 	{ run = 'start "" %s1',    desc = "Open", for = "windows", orphan = true },
 	{ run = "termux-open %s1", desc = "Open", for = "android" },
-    { run = '~/documents/Scripts/fehgallery.py "$@"', desc = "See image", for = "linux" },
-    { run = 'mpv "$@"', desc = "Play video", for = "linux" },
-    { run = 'zathura "$@"', desc = "Read", for = "linux" },
-    { run = 'zen-browser "$@"', desc = "Open in browser", for = "linux" },
+]
+images = [
+    { run = '~/documents/Scripts/fehgallery.py %s1', desc = "See image", for = "linux" },
+]
+video = [
+    { run = 'mpv %s1', desc = "Play video", for = "linux" },
+]
+read = [
+    { run = 'zathura %s', desc = "Read", for = "linux" },
+]
+browse = [
+    { run = 'zen-browser %s1', desc = "Open in browser", for = "linux" },
 ]
 reveal = [
 	{ run = "xdg-open %d1",         desc = "Reveal", for = "linux" },
@@ -71,10 +79,15 @@ download = [
 rules = [
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
+	# Image
+    { mime = "image/{png,jpeg,webp}", use = [ "images", "open", "reveal" ] },
+    { mime = "image/gif", use = [ "browse", "open" ] },
+	# Video
+	{ mime = "video/*", use = [ "video", "reveal" ] },
+	# PDF
+	{ mime = "application/pdf", use = [ "read", "browse", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
-	# Image
-	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Media
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
 	# Archive
@@ -88,12 +101,6 @@ rules = [
 	{ mime = "vfs/{absent,stale}", use = "download" },
 	# Fallback
 	{ url = "*", use = [ "open", "reveal" ] },
-    { mime = "image/png", use = [ "see image" ] },
-    { mime = "image/jpg", use = [ "see image" ] },
-    { mime = "image/webp", use = [ "see image" ] },
-    { mime = "image/gif", use = [ "open in browser" ] },
-    { mime = "video/*", use = [ "play video" ] },
-    { mime = "application/pdf", use = [ "read" ] },
 ]
 
 [tasks]
