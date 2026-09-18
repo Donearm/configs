@@ -1,5 +1,6 @@
 set recolor false
 set recolor-keephue true
+set font "monospace light 24"
 set default-fg #6f90b0
 set default-bg #dcdcdc
 set index-fg #6f90b0
@@ -16,3 +17,14 @@ set window-title-home-tilde true
 set window-title-page true
 set guioptions cshv
 set selection-clipboard clipboard
+
+set adjust-open "width"
+set scroll-wrap false
+set statusbar-home-tilde true
+set window-title-home-tilde true
+set window-title-page true
+set guioptions "v"
+map [fullscreen] <PageDown> scroll full-down
+map [fullscreen] <PageUp> scroll full-up
+map [normal] <PageDown> scroll full-down
+map [normal] <PageUp> scroll full-up
