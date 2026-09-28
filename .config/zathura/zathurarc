@@ -1,6 +1,6 @@
 set recolor false
 set recolor-keephue true
-set font "monospace light 24"
+set font "monospace light 18"
 set default-fg #6f90b0
 set default-bg #dcdcdc
 set index-fg #6f90b0
