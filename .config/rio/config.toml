@@ -3,6 +3,10 @@ copy-on-select = true
 [cursor]
 shape = 'block'
 
+[colors]
+hint-foreground = '#181818'  # Text color for hint labels
+hint-background = '#f4bf75'  # Background color for hint labels
+
 [fonts]
 size = 20
 family = "Iosevka"
@@ -21,10 +25,11 @@ alphabet = "jfkdls;ahgurieowpq"
 
 # URL hint example
 [[hints.rules]]
-regex = "(https://|http://|ftp://)[^\u{0000}-\u{001F}\u{007F}-\u{009F}<>\"\\s{-}\\^⟨⟩`\\\\]+"
+#regex = "(https://|http://)[^\u{0000}-\u{001F}\u{007F}-\u{009F}<>\"\\s{-}\\^⟨⟩`\\\\]+"
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
 hyperlinks = true
 post-processing = true
-persist = false
+persist = true
 
 [hints.rules.action]
 command = "xdg-open"  # Linux/BSD
@@ -36,5 +41,5 @@ enabled = true
 mods = []
 
 [hints.rules.binding]
-key = "E"
+key = "e"
 mods = ["Control", "Shift"]
