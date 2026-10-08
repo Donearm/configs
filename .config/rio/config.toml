@@ -5,27 +5,36 @@ shape = 'block'
 
 [fonts]
 size = 20
+family = "Iosevka"
 features = []
 use-drawable-chars = true
 symbol-map = []
 disable-warnings-not-found = false
 additional-dirs = []
 
-[fonts.regular]
-family = "Iosevka"
-style = "default"
-
-[fonts.bold]
-family = "Iosevka"
-style = "default"
-
-[fonts.italic]
-family = "Iosevka"
-style = "default"
-
-[fonts.bold-italic]
-family = "Iosevka"
-style = "default"
-
 [renderer]
 backend = "Vulkan"
+
+[hints]
+# Characters used for hint labels (should be easy to type)
+alphabet = "jfkdls;ahgurieowpq"
+
+# URL hint example
+[[hints.rules]]
+regex = "(https://|http://|ftp://)[^\u{0000}-\u{001F}\u{007F}-\u{009F}<>\"\\s{-}\\^⟨⟩`\\\\]+"
+hyperlinks = true
+post-processing = true
+persist = false
+
+[hints.rules.action]
+command = "xdg-open"  # Linux/BSD
+# command = "open"    # macOS
+# command = "explorer"  # Windows
+
+[hints.rules.mouse]
+enabled = true
+mods = []
+
+[hints.rules.binding]
+key = "E"
+mods = ["Control", "Shift"]
