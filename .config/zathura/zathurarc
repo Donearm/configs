@@ -17,6 +17,7 @@ set window-title-home-tilde true
 set window-title-page true
 set guioptions cshv
 set selection-clipboard clipboard
+set continuous-hist-save true
 
 set adjust-open "width"
 set scroll-wrap false
