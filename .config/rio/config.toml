@@ -1,4 +1,6 @@
 copy-on-select = true
+theme = "EspressoLibre"
+#theme = "Elemental"
 
 [cursor]
 shape = 'block'
@@ -48,6 +50,6 @@ mods = ["Control", "Shift"]
 mode = "Plain" # this disables panes and tabs
 
 [window]
-opacity = 0.8
+opacity = 0.9
 decorations = "enabled"
 blur = true
