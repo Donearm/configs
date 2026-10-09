@@ -9,7 +9,7 @@ hint-background = '#f4bf75'  # Background color for hint labels
 
 [fonts]
 size = 20
-family = "Iosevka"
+family = "LiberationMono"
 features = []
 use-drawable-chars = true
 symbol-map = []
