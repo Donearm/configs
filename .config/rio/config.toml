@@ -43,3 +43,11 @@ mods = []
 [hints.rules.binding]
 key = "e"
 mods = ["Control", "Shift"]
+
+[navigation]
+mode = "Plain" # this disables panes and tabs
+
+[window]
+opacity = 0.8
+decorations = "enabled"
+blur = true
