@@ -50,6 +50,7 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("lxsession")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")	-- authentication daemon
 	hl.exec_cmd("xbindkeys")
+	hl.exec_cmd("niri-screen-time -daemon")					-- niri-screen-time daemon
 	hl.exec_cmd("cb")										-- clipboard manager
 	hl.exec_cmd("dunst")									-- notification manager
 	hl.exec_cmd("hyprpaper")								-- wallpaper manager
