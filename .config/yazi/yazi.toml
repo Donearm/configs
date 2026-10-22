@@ -86,6 +86,8 @@ rules = [
 	{ mime = "video/*", use = [ "video", "reveal" ] },
 	# PDF
 	{ mime = "application/pdf", use = [ "read", "browse", "reveal" ] },
+	# Epubs
+	{ mime = "application/epub+zip", use = [ "read", "browse", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Media
