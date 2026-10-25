@@ -12,19 +12,16 @@ set completion-fg #678787
 set completion-highlight-bg #dcdcdc
 set completion-highlight-fg #646467
 set selection-clipboard clipboard
-set window-title-basename true
-set window-title-home-tilde true
-set window-title-page true
-set guioptions cshv
+set guioptions "shv"
 set selection-clipboard clipboard
 set continuous-hist-save true
 
 set adjust-open "width"
 set scroll-wrap false
 set statusbar-home-tilde true
+set window-title-basename true
 set window-title-home-tilde true
 set window-title-page true
-set guioptions "v"
 map [fullscreen] <PageDown> scroll full-down
 map [fullscreen] <PageUp> scroll full-up
 map [normal] <PageDown> scroll full-down
