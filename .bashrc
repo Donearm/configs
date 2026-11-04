@@ -245,13 +245,13 @@ GIT_PS1_SHOWUNTRACKEDFILES="1"
 # Bash Prompts
 if [ "$TERM" = "linux" ]
 then
-	PS1="${bYellow}\[[${bnc}\u@\H ${bYellow}\W${bYellow}]\]$ ${bnc}"
+	PS1="${bMagenta}\[[${bnc}\u@\H ${bMagenta}\W${bMagenta}]\]$ ${bnc}"
 else
 	export TITLEBAR='\[\e]0;\u  $BASH_COMMAND\007'
 	if [[ `whoami` == "root" ]]; then
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n${bred} >: ${bnc}"
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) ${bMagenta}»${bnc} \h${bMagenta}:${bnc}\w \n${bred} >: ${bnc}"
 	else
-		PS1="${bYellow}«${bnc} \$(date +%d/%m/%Y) ${bYellow}»${bnc} \h${bYellow}:${bnc}\w \n >: "
+		PS1="${bMagenta}«${bnc} \$(date +%d/%m/%Y) ${bMagenta}»${bnc} \h${bMagenta}:${bnc}\w \n >: "
 	fi
 fi
 
