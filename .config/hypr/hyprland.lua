@@ -45,7 +45,7 @@ local obsidian	  = "OBSIDIAN_USE_WAYLAND=1 obsidian --no-sandbox --ozone-platfor
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")  -- needed by Archlinux
 	hl.exec_cmd("lxsession")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")	-- authentication daemon
@@ -54,7 +54,7 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("dunst")									-- notification manager
 	hl.exec_cmd("hyprpaper")								-- wallpaper manager
 	hl.exec_cmd("hypridle")									-- idle daemon
-	hl.exec_cmd("waybar")									-- statusbar
+	--hl.exec_cmd("waybar")									-- statusbar
 	hl.exec_cmd("protonmail-bridge")						-- Proton Mail bridge for the mail app
 	hl.exec_cmd("protonvpn-app --start-minimized")			-- Proton VPN
 	hl.exec_cmd(mail_app)
@@ -73,6 +73,7 @@ end)
 hl.env("XCURSOR_SIZE", "18")
 hl.env("HYPRCURSOR_SIZE", "18")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+hl.env("QT_QPA_PLATFORM", "wayland")
 -- these below are needed for nvidia and hyprland to work correctly
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
@@ -285,7 +286,7 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + U", hl.dsp.window.pin({ action = "toggle" })) 
+hl.bind(mainMod .. " + U", hl.dsp.window.pin({ action = "toggle" }))
 
 -- Groups
 -- Add current window to a group
@@ -478,10 +479,29 @@ hl.window_rule({
 	match = { class = "md.obsidian.Obsidian" },
 	group = "set",
 })
--- Group mail app with proton bridge (as we need the latter for the 
--- former to work)
+-- Group mail app with proton bridge (as we need the latter for the former to work)
 hl.window_rule({
 	name = "group-mail-and-proton-bridge",
 	match = { class = "$(proton-bridge|org.mozilla.Thunderbird)$" },
 	group = "set",
 })
+hl.window_rule({
+	name = "no_border_on_rio_terminal",
+	match = { class = "^(rio)$" },
+	border_size = 0,
+})
+
+hl.layer_rule({
+	match = { namespace = "dms" },
+	no_anim = true,
+})
+
+-- Dux shell requires
+require("dms.colors")
+require("dms.outputs")
+require("dms.layout")
+require("dms.cursor")
+require("dms.input")
+require("dms.binds")
+require("dms.binds-user")
+require("dms.windowrules")
