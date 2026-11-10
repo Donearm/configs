@@ -152,6 +152,12 @@ hl.config({
     animations = {
         enabled = true,
     },
+	group = {
+		groupbar = {
+			enabled = false,
+		},
+	},
+
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -294,7 +300,7 @@ hl.bind(mainMod .. " + SHIFT + G", hl.dsp.group.toggle())
 -- Switch to next/prev window in an existing group
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.group.next())
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.group.prev())
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(lock))
+--hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(lock)) -- disabled because I use the dux shell locker instead
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
