@@ -41,6 +41,8 @@ alias speakeroff="amixer set Speaker mute"
 alias kittyssh="kitty +kitten ssh"
 # Reboot, one time only, on Windows
 alias backtowindows="sudo bootctl set-oneshot auto-windows"
+# Proton-drive sync of some local directories
+alias proton-sync-journals="proton-drive filesystem uplad /mnt/documents/Writing/Journals/ /my-files/ -f replace -d replace"
 
 
 # top 20 most used commands
